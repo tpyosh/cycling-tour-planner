@@ -115,6 +115,7 @@ def validate_repository(root: Path) -> list[str]:
     trip = data["trip.yaml"]
     plan = data["plan/current.yaml"]
     days = plan.get("days", [])
+    days_by_date = {day.get("date"): day for day in days}
     parsed_dates: list[date] = []
     for day in days:
         day_date = day.get("date", "unknown")
@@ -159,6 +160,57 @@ def validate_repository(root: Path) -> list[str]:
                 )
         if len(refs) != len(set(refs)):
             errors.append(f"ERROR plan/current.yaml {contingency_id}: duplicate transport reference")
+
+    distance_segment_ids: set[str] = set()
+    displayed_distance_targets: set[tuple[str, str]] = set()
+    for segment in data["estimates/distances.yaml"].get("segments", []):
+        segment_id = segment.get("id", "unknown")
+        segment_date = segment.get("date")
+        if segment_id in distance_segment_ids:
+            errors.append(f"ERROR estimates/distances.yaml: duplicate segment id: {segment_id}")
+        distance_segment_ids.add(segment_id)
+        if segment_date not in days_by_date:
+            errors.append(
+                f"ERROR estimates/distances.yaml {segment_id}: date is not in current plan: {segment_date}"
+            )
+            day_targets: set[str] = set()
+        else:
+            day = days_by_date[segment_date]
+            day_targets = set(day["visits"] + day["optional_visits"] + day["food"])
+        origin_ref = segment.get("origin", {}).get("ref")
+        if origin_ref and origin_ref not in index:
+            errors.append(f"ERROR estimates/distances.yaml {segment_id}: unknown origin ref: {origin_ref}")
+        previous_distance = None
+        point_targets: set[str] = set()
+        for point in segment.get("points", []):
+            target = point.get("target")
+            if target in point_targets:
+                errors.append(
+                    f"ERROR estimates/distances.yaml {segment_id}: duplicate target in segment: {target}"
+                )
+            point_targets.add(target)
+            if target not in index:
+                errors.append(f"ERROR estimates/distances.yaml {segment_id}: unknown target: {target}")
+            elif target not in day_targets:
+                errors.append(
+                    f"ERROR estimates/distances.yaml {segment_id}: target is not a visit or food item "
+                    f"for {segment_date}: {target}"
+                )
+            distance = point.get("distance_km")
+            if isinstance(distance, (int, float)):
+                if previous_distance is not None and distance < previous_distance:
+                    errors.append(
+                        f"ERROR estimates/distances.yaml {segment_id}: cumulative distances must not decrease"
+                    )
+                previous_distance = distance
+            if segment.get("display"):
+                display_key = (segment_date, target)
+                if display_key in displayed_distance_targets:
+                    errors.append(
+                        f"ERROR estimates/distances.yaml: multiple displayed distances for "
+                        f"{segment_date} {target}"
+                    )
+                displayed_distance_targets.add(display_key)
 
     if parsed_dates != sorted(parsed_dates) or len(parsed_dates) != len(set(parsed_dates)):
         errors.append("ERROR plan/current.yaml: day dates must be unique and ascending")

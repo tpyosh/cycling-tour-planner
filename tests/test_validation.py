@@ -152,3 +152,36 @@ def test_closed_issue_without_resolution_fails(repo_copy: Path) -> None:
     result = validate(repo_copy)
     assert result.returncode == 1
     assert "closed issue requires resolution" in result.stdout
+
+
+def test_distance_target_must_belong_to_day(repo_copy: Path) -> None:
+    path = repo_copy / "estimates/distances.yaml"
+    data = load(path)
+    data["segments"].append(
+        {
+            "id": "distance.20260922-invalid-target",
+            "date": "2026-09-22",
+            "origin": {"ref": "stay.mutsu", "label": "むつ市街"},
+            "mode": "bicycle",
+            "route_variant": "main",
+            "display": True,
+            "calculation": {
+                "method": "manual",
+                "provider": "test",
+                "calculated_at": "2026-08-30",
+                "references": [],
+            },
+            "points": [
+                {
+                    "target": "place.oma-cape",
+                    "distance_km": 10,
+                    "confidence": "low",
+                    "note": "wrong day",
+                }
+            ],
+        }
+    )
+    save(path, data)
+    result = validate(repo_copy)
+    assert result.returncode == 1
+    assert "target is not a visit or food item for 2026-09-22: place.oma-cape" in result.stdout

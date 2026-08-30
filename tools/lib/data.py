@@ -18,6 +18,7 @@ DATA_SCHEMAS = {
     "evidence/sources.yaml": "evidence.schema.json",
     "issues.yaml": "issues.schema.json",
     "plan/current.yaml": "itinerary.schema.json",
+    "estimates/distances.yaml": "distances.schema.json",
 }
 
 CATALOG_FILES = [

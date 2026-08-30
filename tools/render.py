@@ -42,6 +42,25 @@ def format_windows(windows: list[dict[str, str]]) -> str:
     return " / ".join(f'{window["start"]}–{window["end"]}' for window in windows)
 
 
+def format_km(value: int | float) -> str:
+    return f"{value:g}"
+
+
+def prepare_distance_index(data: dict[str, dict[str, Any]]) -> dict[tuple[str, str], dict[str, Any]]:
+    result: dict[tuple[str, str], dict[str, Any]] = {}
+    for segment in data["estimates/distances.yaml"]["segments"]:
+        if not segment["display"]:
+            continue
+        for point in segment["points"]:
+            prepared = dict(point)
+            prepared["origin_label"] = segment["origin"]["label"]
+            prepared["distance_display"] = format_km(point["distance_km"])
+            if point.get("additional_distance_km", 0) > 0:
+                prepared["additional_distance_display"] = format_km(point["additional_distance_km"])
+            result[(segment["date"], point["target"])] = prepared
+    return result
+
+
 def prepare_transport(item: dict[str, Any], index: dict[str, dict[str, Any]]) -> dict[str, Any]:
     prepared = dict(item)
     prepared["from_name"] = resolve_name(item["from"], index)
@@ -63,6 +82,7 @@ def prepare_transport(item: dict[str, Any], index: dict[str, dict[str, Any]]) ->
 
 def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
     index = build_index(data)
+    distance_index = prepare_distance_index(data)
     plan = data["plan/current.yaml"]
     evidence_items = data["evidence/sources.yaml"]["items"]
     raw_issues = data["issues.yaml"]["items"]
@@ -94,6 +114,8 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
                 windows = windows_by_subject_date.get((item_id, day["date"]))
                 if windows:
                     item["availability_display"] = format_windows(windows)
+                if (day["date"], item_id) in distance_index:
+                    item["distance"] = distance_index[(day["date"], item_id)]
                 prepared_visits.append(item)
             day[f"{field}_items"] = prepared_visits
         adopted.update(day["stay"]["preferred"])
@@ -102,6 +124,13 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         fallback = [index[item_id] for item_id in day["stay"]["fallback"]]
         day["preferred_names"] = [item["name"] for item in preferred]
         day["fallback_names"] = [item["name"] for item in fallback]
+        prepared_food = []
+        for item_id in day["food"]:
+            item = dict(index[item_id])
+            if (day["date"], item_id) in distance_index:
+                item["distance"] = distance_index[(day["date"], item_id)]
+            prepared_food.append(item)
+        day["food_items"] = prepared_food
         day["start_name"] = resolve_name(day["start"], index)
         day["finish_name"] = resolve_name(day["finish"], index)
         day["short_date"] = short_date(day["date"])

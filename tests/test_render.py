@@ -4,6 +4,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from ruamel.yaml import YAML
+
 
 def render(root: Path) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
@@ -35,7 +37,7 @@ def test_rendered_documents_contain_expected_content(repo_copy: Path) -> None:
     assert "## 9/23（水）" in itinerary
     assert "シゲちゃんすし" in itinerary
     assert "# 出発前の再確認" in itinerary
-    assert "水無海浜温泉 — **潮汐上の入浴可能候補時間: 05:00–11:00 / 19:00–22:00**" in itinerary
+    assert "水無海浜温泉（JR函館駅から自転車累計 約68 km） — **潮汐上の入浴可能候補時間: 05:00–11:00 / 19:00–22:00**" in itinerary
     assert "### 日程リスク" in itinerary
     assert "[9/24に水無海浜温泉の朝枠へ到着できるか未確認](issues.md#issue-mizunashi-arrival-window-20260924)" in itinerary
     assert "# 自然条件で利用時間が変わる立ち寄り先" not in itinerary
@@ -76,3 +78,23 @@ def test_render_is_deterministic(repo_copy: Path) -> None:
         for name in ("itinerary.md", "pins.md", "issues.md")
     }
     assert before == after
+
+
+def test_rendered_itinerary_displays_saved_distance(repo_copy: Path) -> None:
+    distances_path = repo_copy / "estimates" / "distances.yaml"
+    yaml = YAML()
+    with distances_path.open(encoding="utf-8") as stream:
+        distances = yaml.load(stream)
+    segment = next(
+        item for item in distances["segments"] if item["id"] == "distance.20260922-mutsu-shimofuro"
+    )
+    segment["origin"]["label"] = "テスト起点"
+    point = next(item for item in segment["points"] if item["target"] == "place.osorezan")
+    point["distance_km"] = 14
+    with distances_path.open("w", encoding="utf-8") as stream:
+        yaml.dump(distances, stream)
+
+    result = render(repo_copy)
+    assert result.returncode == 0, result.stdout + result.stderr
+    itinerary = (repo_copy / "docs" / "itinerary.md").read_text(encoding="utf-8")
+    assert "恐山菩提寺（テスト起点から自転車累計 約14 km）" in itinerary

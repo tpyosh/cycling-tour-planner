@@ -66,14 +66,14 @@
 ### 立ち寄り
 
 {% for item in day.visits_items %}
-- {{ item.name }}{% if item.availability_display is defined %} — **潮汐上の入浴可能候補時間: {{ item.availability_display }}**（海況により入浴不可の場合あり）{% endif %}
+- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から自転車累計 約{{ item.distance.distance_display }} km{% if item.distance.additional_distance_display is defined %}、基本ルート比 +約{{ item.distance.additional_distance_display }} km{% endif %}）{% endif %}{% if item.availability_display is defined %} — **潮汐上の入浴可能候補時間: {{ item.availability_display }}**（海況により入浴不可の場合あり）{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.optional_visits_items %}
 ### 余裕があれば
 
 {% for item in day.optional_visits_items %}
-- {{ item.name }}
+- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から自転車累計 約{{ item.distance.distance_display }} km{% if item.distance.additional_distance_display is defined %}、基本ルート比 +約{{ item.distance.additional_distance_display }} km{% endif %}）{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.issue_items %}
@@ -87,7 +87,7 @@
 ### 食事
 
 {% for item in day.food_items %}
-- {{ item.name }} — {{ item.description }}
+- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から自転車累計 約{{ item.distance.distance_display }} km）{% endif %} — {{ item.description }}
 {% endfor %}
 {% endif %}
 {% if day.notes %}
