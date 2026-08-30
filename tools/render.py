@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any
 
@@ -31,15 +31,33 @@ def resolve_name(value: str, index: dict[str, dict[str, Any]]) -> str:
     return index[value]["name"] if value in index else value
 
 
+def prepare_transport(item: dict[str, Any], index: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    prepared = dict(item)
+    prepared["from_name"] = resolve_name(item["from"], index)
+    prepared["to_name"] = resolve_name(item["to"], index)
+    prepared["departure_time"] = (
+        datetime.fromisoformat(item["departure"]).strftime("%H:%M") if item["departure"] else None
+    )
+    prepared["arrival_time"] = (
+        datetime.fromisoformat(item["arrival"]).strftime("%H:%M") if item["arrival"] else None
+    )
+    return prepared
+
+
 def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
     index = build_index(data)
+    plan = data["plan/current.yaml"]
     days: list[dict[str, Any]] = []
     adopted: set[str] = set()
-    for raw_day in data["plan/current.yaml"]["days"]:
+    for raw_day in plan["days"]:
         day = dict(raw_day)
         for field in ("routes", "transport", "visits", "optional_visits", "food"):
             adopted.update(day[field])
             day[f"{field}_items"] = [index[item_id] for item_id in day[field]]
+        day["transport_items"] = [prepare_transport(index[item_id], index) for item_id in day["transport"]]
+        day["transport_alternative_items"] = [
+            prepare_transport(index[item_id], index) for item_id in day["transport_alternatives"]
+        ]
         adopted.update(day["stay"]["preferred"])
         adopted.update(day["stay"]["fallback"])
         preferred = [index[item_id] for item_id in day["stay"]["preferred"]]
@@ -51,11 +69,30 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         day["short_date"] = short_date(day["date"])
         day["dated_heading"] = dated_heading(day["date"])
         days.append(day)
+    contingencies = []
+    for raw_contingency in plan["contingencies"]:
+        contingency = dict(raw_contingency)
+        contingency["dated_heading"] = dated_heading(contingency["date"])
+        contingency["transport_items"] = [
+            prepare_transport(index[item_id], index) for item_id in contingency["transport"]
+        ]
+        contingency["transport_alternative_items"] = [
+            prepare_transport(index[item_id], index)
+            for item_id in contingency["transport_alternatives"]
+        ]
+        contingencies.append(contingency)
     rechecks = []
     for evidence in data["evidence/sources.yaml"]["items"]:
         if evidence["recheck_before_trip"] and evidence["subject"] in adopted:
             rechecks.append({"name": index[evidence["subject"]]["name"], "claims": evidence["claims"]})
-    return {"trip": data["trip.yaml"], "days": days, "rechecks": rechecks}
+    return {
+        "trip": data["trip.yaml"],
+        "days": days,
+        "recommendations": plan["recommendations"],
+        "pre_trip_todos": plan["pre_trip_todos"],
+        "contingencies": contingencies,
+        "rechecks": rechecks,
+    }
 
 
 def render_repository(root: Path) -> None:

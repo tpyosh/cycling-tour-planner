@@ -4,6 +4,14 @@
 
 `{{ trip.start_date }}`〜`{{ trip.end_date }}` / 出発地: {{ trip.origin }} / 状態: working plan
 
+## 往路はFDA便名で直接予約する
+
+{% for recommendation in recommendations -%}
+- {{ recommendation }}
+{% endfor %}
+
+## 通常旅程（9/21出発）
+
 | 日付 | 行程 | 自転車 | 宿泊 | 代替 |
 | --- | --- | ---: | --- | --- |
 {% for day in days -%}
@@ -28,7 +36,18 @@
 ### 交通
 
 {% for item in day.transport_items %}
+{% if item.mode == 'airplane' -%}
+- **{{ item.name }}** — {{ item.from_name }} {{ item.departure_time }} → {{ item.to_name }} {{ item.arrival_time }}
+{% else -%}
 - {{ item.name }}{% if item.departure %}（{{ item.departure }}発{% if item.arrival %} → {{ item.arrival }}着{% endif %}）{% endif %}
+{% endif -%}
+{% endfor %}
+{% endif %}
+{% if day.transport_alternative_items %}
+### 同日代替便
+
+{% for item in day.transport_alternative_items %}
+- **{{ item.name }}** — {{ item.from_name }} {{ item.departure_time }} → {{ item.to_name }} {{ item.arrival_time }}
 {% endfor %}
 {% endif %}
 {% if day.visits_items %}
@@ -60,6 +79,48 @@
 {% endfor %}
 {% endif %}
 {% endfor %}
+{% for contingency in contingencies %}
+# 予備：{{ contingency.name }}
+
+通常旅程とは別の予備計画です。発動条件は「{{ contingency.trigger }}」です。
+
+## {{ contingency.dated_heading }} 名古屋 → むつ方面
+
+### 交通
+
+{% for item in contingency.transport_items %}
+{% if item.mode == 'airplane' -%}
+- **{{ item.name }}** — {{ item.from_name }} {{ item.departure_time }} → {{ item.to_name }} {{ item.arrival_time }}
+{% else -%}
+- {{ item.name }}{% if item.departure %}（{{ item.departure }}発{% if item.arrival %} → {{ item.arrival }}着{% endif %}）{% endif %}
+{% endif -%}
+{% endfor %}
+
+### 同日代替便
+
+{% for item in contingency.transport_alternative_items %}
+- **{{ item.name }}** — {{ item.from_name }} {{ item.departure_time }} → {{ item.to_name }} {{ item.arrival_time }}
+{% endfor %}
+
+### 現在の旅程への影響
+
+{% for impact in contingency.impacts %}
+- {{ impact }}
+{% endfor %}
+
+### TODO：短縮方法は未決
+
+{% for item in contingency.unresolved %}
+- [ ] {{ item }}
+{% endfor %}
+{% endfor %}
+
+# 旅行前TODO
+
+{% for item in pre_trip_todos %}
+- [ ] **{{ item.due_date }}まで** — {{ item.description }}（{{ item.condition }}）
+{% endfor %}
+
 {% if rechecks %}
 # 出発前の再確認
 

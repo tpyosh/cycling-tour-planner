@@ -1,5 +1,7 @@
 schema_version: 1
 items:
+  - {id: evidence.fda-nkm-aomori-summer-2026, subject: transport.nkm-aomori-fda361-20260921, checked_at: 2026-08-30, claims: [2026年夏ダイヤは2026-03-29〜2026-10-24, 'FDA361はNKM 08:25発・AOJ 09:45着', 'FDA363はNKM 11:35発・AOJ 12:55着', 'FDA367はNKM 18:00発・AOJ 19:20着'], volatility: medium, recheck_before_trip: true, source: {type: official, url: 'https://www.fujidream.co.jp/timetable/timetable_nkm_aoj.html'}}
+  - {id: evidence.fda-bicycle-service, subject: transport.nkm-aomori-fda361-20260921, checked_at: 2026-08-30, claims: [預入手荷物は1人合計20kgまで無料, 搭乗3日前までに事前申込みが必要, 事前申込みにより専用ハードケースを無料で借りられる, 利用者自身で航空輸送に耐える状態へ梱包する, JAL便名で予約したコードシェア便は事前受付対象外], volatility: medium, recheck_before_trip: true, source: {type: official, url: 'https://www.fujidream.co.jp/checkin/support/support_bicycle.html'}}
   - {id: evidence.mizunashi-tide, subject: place.mizunashi-kaihin-onsen, checked_at: null, claims: [潮位によって利用可能時間が変わる], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
   - {id: evidence.banjaku-access, subject: place.banjaku-onsen, checked_at: null, claims: [利用可否・進入状況], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
   - {id: evidence.osaru-river, subject: place.osaru-yu, checked_at: null, claims: [河原状況に依存], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}

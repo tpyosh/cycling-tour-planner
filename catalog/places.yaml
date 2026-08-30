@@ -1,6 +1,8 @@
 schema_version: 1
 items:
   - {id: place.nagoya, name: 名古屋, kind: town, status: shortlisted, map_query: 名古屋駅, description: 旅行の出発地・帰着地, tags: [origin]}
+  - {id: place.nagoya-komaki-airport, name: 県営名古屋空港（小牧／NKM）, kind: transport_site, status: shortlisted, map_query: 県営名古屋空港, description: FDA青森便の出発空港, tags: [airport, outbound]}
+  - {id: place.aomori-airport, name: 青森空港（AOJ）, kind: transport_site, status: shortlisted, map_query: 青森空港, description: FDA青森便の到着空港, tags: [airport, outbound]}
   - {id: place.osorezan, name: 恐山菩提寺, kind: attraction, status: shortlisted, map_query: 恐山菩提寺, description: 恐山信仰の中心地, tags: [religion, volcanic]}
   - {id: place.sanzu-river, name: 三途の川 太鼓橋, kind: historic_site, status: shortlisted, map_query: 三途の川 太鼓橋, description: 恐山街道沿いの象徴的な橋, tags: [historic]}
   - {id: place.okuyagen, name: 奥薬研修景公園, kind: natural_feature, status: shortlisted, map_query: 奥薬研修景公園, description: 薬研渓流の景観地, tags: [valley]}

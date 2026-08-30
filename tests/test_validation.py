@@ -106,3 +106,13 @@ def test_required_return_ferry_fails(repo_copy: Path) -> None:
     result = validate(repo_copy)
     assert result.returncode == 1
     assert "required 2026-09-27 Tomakomai-Sendai ferry is missing" in result.stdout
+
+
+def test_unknown_contingency_transport_fails(repo_copy: Path) -> None:
+    path = repo_copy / "plan/current.yaml"
+    data = load(path)
+    data["contingencies"][0]["transport"].append("transport.unknown")
+    save(path, data)
+    result = validate(repo_copy)
+    assert result.returncode == 1
+    assert "unknown transport id: transport.unknown" in result.stdout

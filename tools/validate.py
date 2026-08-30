@@ -15,7 +15,7 @@ from lib.data import CATALOG_FILES, DATA_SCHEMAS, build_index, load_repository
 
 
 REFERENCE_FIELDS = {
-    "routes": "route.", "transport": "transport.", "visits": "place.",
+    "routes": "route.", "transport": "transport.", "transport_alternatives": "transport.", "visits": "place.",
     "optional_visits": "place.", "food": "food.",
 }
 KNOWN_PREFIXES = ("place.", "route.", "stay.", "food.", "transport.")
@@ -99,10 +99,25 @@ def validate_repository(root: Path) -> list[str]:
                 errors.append(f"ERROR plan/current.yaml day {day_date}: duplicate reference in {field}")
         for label, refs in (
             ("visits/optional_visits", day.get("visits", []) + day.get("optional_visits", [])),
+            ("transport/transport_alternatives", day.get("transport", []) + day.get("transport_alternatives", [])),
             ("stay preferred/fallback", day.get("stay", {}).get("preferred", []) + day.get("stay", {}).get("fallback", [])),
         ):
             if len(refs) != len(set(refs)):
                 errors.append(f"ERROR plan/current.yaml day {day_date}: duplicate reference across {label}")
+
+    for contingency in plan.get("contingencies", []):
+        contingency_id = contingency.get("id", "unknown")
+        refs = contingency.get("transport", []) + contingency.get("transport_alternatives", [])
+        for ref in refs:
+            if ref not in index:
+                errors.append(f"ERROR plan/current.yaml {contingency_id}: unknown transport id: {ref}")
+            elif index[ref].get("status") in {"deferred", "rejected"}:
+                errors.append(
+                    f"ERROR plan/current.yaml {contingency_id}: references "
+                    f"{index[ref]['status']} candidate: {ref}"
+                )
+        if len(refs) != len(set(refs)):
+            errors.append(f"ERROR plan/current.yaml {contingency_id}: duplicate transport reference")
 
     if parsed_dates != sorted(parsed_dates) or len(parsed_dates) != len(set(parsed_dates)):
         errors.append("ERROR plan/current.yaml: day dates must be unique and ascending")

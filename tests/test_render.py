@@ -32,6 +32,12 @@ def test_rendered_documents_contain_expected_content(repo_copy: Path) -> None:
     assert "シゲちゃんすし" in itinerary
     assert "# 出発前の再確認" in itinerary
     assert "苫小牧→仙台 太平洋フェリー — 運航・予約状況" in itinerary
+    assert "## 通常旅程（9/21出発）" in itinerary
+    assert "県営名古屋空港（小牧／NKM） 08:25 → 青森空港（AOJ） 09:45" in itinerary
+    assert "# 予備：9/21に出発できない場合" in itinerary
+    assert "## 9/22（火） 名古屋 → むつ方面" in itinerary
+    assert "9/22の「むつ→恐山→薬研→下風呂」は" in itinerary
+    assert "# 旅行前TODO" in itinerary
     assert "`水無海浜温泉`" in pins
 
 

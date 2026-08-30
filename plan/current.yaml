@@ -1,12 +1,25 @@
 schema_version: 1
 status: working
+recommendations:
+  - FDAのスポーツ用自転車搭載サービスを利用するため、JALコードシェア便名ではなくFDA便名でFDAから直接予約する
+  - 預入手荷物は自転車を含め1人合計20kgまで無料。自転車は利用者自身で航空輸送に耐える状態へ梱包する
+pre_trip_todos:
+  - id: todo.apply-fda-bicycle-service
+    description: FDA361のスポーツ用自転車搭載サービスをFDAコールセンターへ申し込み、専用ハードケースの貸出を依頼する
+    due_date: 2026-09-18
+    condition: 9/21の標準便を利用する場合。期限は搭乗3日前
+  - id: todo.recheck-bicycle-service-on-fallback
+    description: 9/22便へ変更する場合、自転車搭載サービスの申込み・専用ハードケース貸出・予約変更の扱いをFDAへ再確認する
+    due_date: 2026-09-19
+    condition: 9/22の予備便を利用する可能性がある場合。期限は搭乗3日前
 days:
   - date: 2026-09-21
     start: place.nagoya
     finish: stay.mutsu
     cycling: {distance_km: {min: 0, max: 10}}
     routes: []
-    transport: [transport.nagoya-aomori-mutsu]
+    transport: [transport.nkm-aomori-fda361-20260921, transport.aomori-airport-mutsu]
+    transport_alternatives: [transport.nkm-aomori-fda363-20260921, transport.nkm-aomori-fda367-20260921]
     visits: []
     optional_visits: []
     food: []
@@ -18,6 +31,7 @@ days:
     cycling: {distance_km: {min: 80, max: 100}}
     routes: [route.mutsu-osorezan-yagen-shimofuro]
     transport: []
+    transport_alternatives: []
     visits: [place.osorezan, place.sanzu-river, place.okuyagen, place.ganso-kappa-no-yu, place.shimofuro-onsen]
     optional_visits: []
     food: []
@@ -29,6 +43,7 @@ days:
     cycling: {distance_km: {min: 35, max: 50}}
     routes: [route.shimofuro-oma]
     transport: [transport.oma-hakodate-ferry]
+    transport_alternatives: []
     visits: [place.oma-cape, place.hakodate-northern-peoples-museum]
     optional_visits: []
     food: [food.shigechan-sushi]
@@ -40,6 +55,7 @@ days:
     cycling: {distance_km: {min: 105, max: 130}}
     routes: [route.hakodate-toi-esan-mizunashi, route.mizunashi-shikabe]
     transport: []
+    transport_alternatives: []
     visits: [place.toi-line-arch, place.esan, place.mizunashi-kaihin-onsen]
     optional_visits: [place.jomon-center, place.kakinoshima, place.shikabe-geyser]
     food: []
@@ -51,6 +67,7 @@ days:
     cycling: {distance_km: {min: 90, max: 120}}
     routes: [route.shikabe-mori-yakumo, route.yakumo-banjaku-roundtrip]
     transport: []
+    transport_alternatives: []
     visits: [place.yakumo-local-museum, place.yakumo-bear-museum, place.banjaku-onsen]
     optional_visits: []
     food: []
@@ -62,6 +79,7 @@ days:
     cycling: {distance_km: {min: 70, max: 100}}
     routes: [route.yakumo-toya-train, route.toya-usuzan, route.toya-osaru-orofure-noboribetsu]
     transport: [transport.yakumo-toya-train]
+    transport_alternatives: []
     visits: [place.nishiyama-crater, place.kompira-eruption-ruins, place.osaru-yu, place.orofure-pass, place.noboribetsu-jigokudani]
     optional_visits: []
     food: []
@@ -73,6 +91,7 @@ days:
     cycling: {distance_km: {min: 55, max: 70}}
     routes: [route.noboribetsu-shiraoi-tomakomai]
     transport: [transport.tomakomai-sendai-ferry]
+    transport_alternatives: []
     visits: [place.upopoy, place.national-ainu-museum, place.shiraoi-jinya-museum, place.shiraoi-jinya]
     optional_visits: []
     food: []
@@ -84,8 +103,23 @@ days:
     cycling: {distance_km: {min: 5, max: 15}}
     routes: []
     transport: [transport.sendai-nagoya-train]
+    transport_alternatives: []
     visits: []
     optional_visits: []
     food: []
     stay: {preferred: [], fallback: []}
     notes: ['2026-09-28 10:00 仙台着', この日のうちに名古屋帰着]
+contingencies:
+  - id: contingency.depart-20260922
+    name: 9/21に出発できない場合
+    trigger: 2026-09-21に名古屋を出発できない場合
+    date: 2026-09-22
+    transport: [transport.nkm-aomori-fda361-20260922, transport.aomori-airport-mutsu]
+    transport_alternatives: [transport.nkm-aomori-fda363-20260922, transport.nkm-aomori-fda367-20260922]
+    impacts:
+      - 9/21の名古屋→青森空港→むつ方面の移動が9/22へ移る
+      - 9/22の「むつ→恐山→薬研→下風呂」は、朝にむつを出発する前提のため、現在の計画どおりには実行できない
+      - 9/27 19:00苫小牧発フェリーと9/28名古屋帰着は変更しない
+    unresolved:
+      - 9/22の下北区間を省略・短縮するか、9/23〜9/26のどこを圧縮するか決める
+      - 青森空港からむつ方面への地上移動手段と到着時刻を確定する
