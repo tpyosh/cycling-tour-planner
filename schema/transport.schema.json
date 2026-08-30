@@ -2,7 +2,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "additionalProperties": false,
   "required": ["schema_version", "items"], "properties": {"schema_version": {"const": 1}, "items": {"type": "array", "items": {"$ref": "#/$defs/item"}}},
   "$defs": {"item": {"type": "object", "additionalProperties": false, "required": ["id", "name", "status", "mode", "from", "to", "departure", "arrival", "description"], "properties": {
-    "id": {"type": "string", "pattern": "^transport\\.[a-z0-9][a-z0-9-]*$"}, "name": {"type": "string", "minLength": 1}, "status": {"enum": ["discovered", "researching", "shortlisted", "deferred", "rejected"]}, "mode": {"enum": ["bicycle", "train", "ferry", "airplane", "mixed"]},
-    "from": {"type": "string"}, "to": {"type": "string"}, "departure": {"type": ["string", "null"], "format": "date-time"}, "arrival": {"type": ["string", "null"], "format": "date-time"}, "description": {"type": "string"}
-  }}}
+    "id": {"type": "string", "pattern": "^transport\\.[a-z0-9][a-z0-9-]*$"}, "name": {"type": "string", "minLength": 1}, "status": {"enum": ["discovered", "researching", "shortlisted", "booked", "deferred", "rejected"]}, "mode": {"enum": ["bicycle", "train", "ferry", "airplane", "mixed"]},
+    "from": {"type": "string"}, "to": {"type": "string"}, "departure": {"type": ["string", "null"], "format": "date-time"}, "arrival": {"type": ["string", "null"], "format": "date-time"}, "description": {"type": "string"},
+    "booking": {"$ref": "#/$defs/booking"}
+  }},
+  "booking": {"type": "object", "additionalProperties": false, "required": ["reservation_number", "vessel", "room", "passenger_count", "vehicles", "amount_yen", "discount_plan", "payment_status", "change_deadline", "change_note"], "properties": {
+    "reservation_number": {"type": "string", "minLength": 1}, "vessel": {"type": "string", "minLength": 1}, "room": {"type": "string", "minLength": 1}, "passenger_count": {"type": "integer", "minimum": 1},
+    "vehicles": {"type": "object", "additionalProperties": false, "required": ["car", "motorcycle"], "properties": {"car": {"type": "integer", "minimum": 0}, "motorcycle": {"type": "integer", "minimum": 0}}},
+    "amount_yen": {"type": "integer", "minimum": 0}, "discount_plan": {"type": "string", "minLength": 1}, "payment_status": {"type": "string", "minLength": 1}, "change_deadline": {"type": "string", "format": "date-time"}, "change_note": {"type": "string", "minLength": 1}
+  }}
+ }
 }

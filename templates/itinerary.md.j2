@@ -41,6 +41,18 @@
 {% else -%}
 - {{ item.name }}{% if item.departure %}（{{ item.departure }}発{% if item.arrival %} → {{ item.arrival }}着{% endif %}）{% endif %}
 {% endif -%}
+{% if item.booking is defined %}
+
+#### 予約情報
+
+- **予約番号:** {{ item.booking.reservation_number }}
+- **船名・客室:** {{ item.booking.vessel }} / {{ item.booking.room }}
+- **人数・車両:** {{ item.booking.passenger_count }}名 / 乗用車{{ item.booking.vehicles.car }}台 / 二輪車{{ item.booking.vehicles.motorcycle }}台
+- **料金:** {{ item.booking.amount }}（{{ item.booking.discount_plan }}）
+- **支払い:** {{ item.booking.payment_status }}
+- **変更期限:** {{ item.booking.change_deadline_display }}まで
+- **変更時の注意:** {{ item.booking.change_note }}
+{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.transport_alternative_items %}

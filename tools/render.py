@@ -41,6 +41,12 @@ def prepare_transport(item: dict[str, Any], index: dict[str, dict[str, Any]]) ->
     prepared["arrival_time"] = (
         datetime.fromisoformat(item["arrival"]).strftime("%H:%M") if item["arrival"] else None
     )
+    if "booking" in item:
+        prepared["booking"] = dict(item["booking"])
+        prepared["booking"]["amount"] = f'{item["booking"]["amount_yen"]:,}円'
+        prepared["booking"]["change_deadline_display"] = datetime.fromisoformat(
+            item["booking"]["change_deadline"]
+        ).strftime("%Y年%m月%d日 %H:%M")
     return prepared
 
 
