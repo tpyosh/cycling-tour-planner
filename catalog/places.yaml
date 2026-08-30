@@ -12,7 +12,24 @@ items:
   - {id: place.hakodate-northern-peoples-museum, name: 函館市北方民族資料館, kind: museum, status: shortlisted, map_query: 函館市北方民族資料館, description: 北方民族の文化資料を展示, tags: [ainu, history]}
   - {id: place.toi-line-arch, name: 旧戸井線アーチ橋, kind: historic_site, status: shortlisted, map_query: 旧戸井線アーチ橋, description: 未成線のコンクリートアーチ遺構, tags: [railway, ruins]}
   - {id: place.esan, name: 恵山, kind: natural_feature, status: shortlisted, map_query: 恵山, description: 活火山の地形を体感できる山, tags: [volcanic]}
-  - {id: place.mizunashi-kaihin-onsen, name: 水無海浜温泉, kind: hot_spring, status: shortlisted, map_query: 水無海浜温泉, description: 潮位で入浴可能時間が変わる海辺の温泉, tags: [hot_spring, tide]}
+  - id: place.mizunashi-kaihin-onsen
+    name: 水無海浜温泉
+    kind: hot_spring
+    status: shortlisted
+    map_query: 水無海浜温泉
+    description: 函館市恵山岬町にある無料の海浜露天風呂。固定営業時間ではなく、函館市の日別入浴可能時間と当日の海況で利用可否を判断する
+    tags: [hot_spring, tide, official_schedule_required, weather_dependent]
+    visit_constraints:
+      tide_dependent: true
+      official_schedule_required: true
+      weather_dependent: true
+      arrival_margin_minutes: {min: 30, max: 60}
+      planning_notes:
+        - 函館市の公式入浴可能時間を旅程上の時間窓とし、開始・終了時刻ぎりぎりの到着は避ける。現地条件を確認できるよう30〜60分の余裕を確保する
+        - 9/24〜9/28は長い朝枠を優先する。夜枠は日没後の暗い岩場や階段を移動するため、予定変更時の予備候補とする。夜間利用は公式な禁止事項ではない
+        - 干潮時刻そのものを最適時刻とはみなさない。潮が引きすぎると海水による希釈が足りず、湯が熱すぎる場合がある
+        - 公式時間内に余裕を持って到着し、波の高さ、浴槽への海水流入、湯温を現地で確認して最終判断する
+        - 出発直前と当日は函館市の案内および気象情報を再確認する。公式時間は潮汐上の入浴候補であり、荒天や高波の場合は入浴できない
   - {id: place.jomon-center, name: 函館市縄文文化交流センター, kind: museum, status: shortlisted, map_query: 函館市縄文文化交流センター, description: 南茅部の縄文文化を紹介, tags: [jomon]}
   - {id: place.kakinoshima, name: 垣ノ島遺跡, kind: historic_site, status: shortlisted, map_query: 垣ノ島遺跡, description: 世界文化遺産の縄文遺跡, tags: [jomon]}
   - {id: place.shikabe-geyser, name: 鹿部間歇泉公園, kind: attraction, status: shortlisted, map_query: 鹿部間歇泉公園, description: 温泉の間歇泉を見学できる公園, tags: [geothermal]}

@@ -1,0 +1,52 @@
+<!-- GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+
+# {{ trip.title }} Issue一覧
+
+Issueの正本は `issues.yaml`。旅程上の未確認事項や判断待ちを記録し、解決条件を満たすまで旅程の確定事項として扱わない。
+
+## 未解決
+
+{% if open_issues %}
+{% for issue in open_issues %}
+<a id="{{ issue.anchor }}"></a>
+
+### {{ issue.title }}
+
+- **ID:** `{{ issue.id }}`
+- **状態・優先度:** {{ issue.status_label }} / {{ issue.priority_label }}
+- **検出日:** {{ issue.identified_at_display }}
+- **対象日:** {{ issue.related_date_display }}
+- **関連:** {{ issue.subject_names | join(' / ') }}
+- **根拠:** {{ issue.evidence | join(' / ') if issue.evidence else '—' }}
+
+{{ issue.summary }}
+
+**影響:** {{ issue.impact }}
+
+**次の確認:** {{ issue.next_action }}
+
+#### 解決条件
+
+{% for condition in issue.resolution_conditions %}
+- [ ] {{ condition }}
+{% endfor %}
+{% endfor %}
+{% else %}
+- 未解決Issueなし
+{% endif %}
+
+## 解決済み・対応しない
+
+{% if closed_issues %}
+{% for issue in closed_issues %}
+<a id="{{ issue.anchor }}"></a>
+
+### {{ issue.title }}
+
+- **ID:** `{{ issue.id }}`
+- **状態:** {{ issue.status_label }}
+- **解決内容:** {{ issue.resolution }}
+{% endfor %}
+{% else %}
+- 該当Issueなし
+{% endif %}

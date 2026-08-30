@@ -16,6 +16,7 @@ DATA_SCHEMAS = {
     "catalog/food.yaml": "food.schema.json",
     "catalog/transport.yaml": "transport.schema.json",
     "evidence/sources.yaml": "evidence.schema.json",
+    "issues.yaml": "issues.schema.json",
     "plan/current.yaml": "itinerary.schema.json",
 }
 

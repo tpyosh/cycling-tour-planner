@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "items"], "properties": {"schema_version": {"const": 1}, "items": {"type": "array", "items": {"$ref": "#/$defs/item"}}},
+  "$defs": {"item": {"type": "object", "additionalProperties": false, "required": ["id", "title", "status", "priority", "category", "identified_at", "summary", "impact", "related_dates", "subjects", "evidence", "next_action", "resolution_conditions", "resolution"], "properties": {
+    "id": {"type": "string", "pattern": "^issue\\.[a-z0-9][a-z0-9-]*$"}, "title": {"type": "string", "minLength": 1},
+    "status": {"enum": ["open", "in_progress", "resolved", "wont_fix"]}, "priority": {"enum": ["high", "medium", "low"]},
+    "category": {"enum": ["schedule", "logistics", "booking", "weather", "safety", "data_quality", "other"]},
+    "identified_at": {"type": "string", "format": "date"}, "summary": {"type": "string", "minLength": 1}, "impact": {"type": "string", "minLength": 1},
+    "related_dates": {"type": "array", "minItems": 1, "items": {"type": "string", "format": "date"}, "uniqueItems": true},
+    "subjects": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^(place|route|stay|food|transport)\\.[a-z0-9][a-z0-9-]*$"}, "uniqueItems": true},
+    "evidence": {"type": "array", "items": {"type": "string", "pattern": "^evidence\\.[a-z0-9][a-z0-9-]*$"}, "uniqueItems": true},
+    "next_action": {"type": "string", "minLength": 1}, "resolution_conditions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "resolution": {"type": ["string", "null"], "minLength": 1}
+  }}}
+}

@@ -66,7 +66,7 @@
 ### 立ち寄り
 
 {% for item in day.visits_items %}
-- {{ item.name }}
+- {{ item.name }}{% if item.availability_display is defined %} — **潮汐上の入浴可能候補時間: {{ item.availability_display }}**（海況により入浴不可の場合あり）{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.optional_visits_items %}
@@ -74,6 +74,13 @@
 
 {% for item in day.optional_visits_items %}
 - {{ item.name }}
+{% endfor %}
+{% endif %}
+{% if day.issue_items %}
+### 日程リスク
+
+{% for issue in day.issue_items %}
+- [{{ issue.title }}](issues.md#{{ issue.anchor }})
 {% endfor %}
 {% endif %}
 {% if day.food_items %}

@@ -116,3 +116,39 @@ def test_unknown_contingency_transport_fails(repo_copy: Path) -> None:
     result = validate(repo_copy)
     assert result.returncode == 1
     assert "unknown transport id: transport.unknown" in result.stdout
+
+
+def test_invalid_evidence_window_fails(repo_copy: Path) -> None:
+    path = repo_copy / "evidence/sources.yaml"
+    data = load(path)
+    item = next(
+        item for item in data["items"] if item["id"] == "evidence.mizunashi-2026-september-schedule"
+    )
+    window = item["date_windows"][0]["windows"][0]
+    quoted = type(window["start"])
+    window["start"] = quoted("07:00")
+    window["end"] = quoted("04:00")
+    save(path, data)
+    result = validate(repo_copy)
+    assert result.returncode == 1
+    assert "window start must be before end" in result.stdout
+
+
+def test_unknown_issue_subject_fails(repo_copy: Path) -> None:
+    path = repo_copy / "issues.yaml"
+    data = load(path)
+    data["items"][0]["subjects"].append("place.unknown")
+    save(path, data)
+    result = validate(repo_copy)
+    assert result.returncode == 1
+    assert "unknown subject id: place.unknown" in result.stdout
+
+
+def test_closed_issue_without_resolution_fails(repo_copy: Path) -> None:
+    path = repo_copy / "issues.yaml"
+    data = load(path)
+    data["items"][0]["status"] = "resolved"
+    save(path, data)
+    result = validate(repo_copy)
+    assert result.returncode == 1
+    assert "closed issue requires resolution" in result.stdout

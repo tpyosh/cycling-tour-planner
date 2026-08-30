@@ -15,6 +15,13 @@ from validate import validate_repository
 
 
 WEEKDAYS = "月火水木金土日"
+ISSUE_STATUS_LABELS = {
+    "open": "未着手",
+    "in_progress": "確認中",
+    "resolved": "解決済み",
+    "wont_fix": "対応しない",
+}
+ISSUE_PRIORITY_LABELS = {"high": "高", "medium": "中", "low": "低"}
 
 
 def short_date(value: str) -> str:
@@ -29,6 +36,10 @@ def dated_heading(value: str) -> str:
 
 def resolve_name(value: str, index: dict[str, dict[str, Any]]) -> str:
     return index[value]["name"] if value in index else value
+
+
+def format_windows(windows: list[dict[str, str]]) -> str:
+    return " / ".join(f'{window["start"]}–{window["end"]}' for window in windows)
 
 
 def prepare_transport(item: dict[str, Any], index: dict[str, dict[str, Any]]) -> dict[str, Any]:
@@ -53,6 +64,18 @@ def prepare_transport(item: dict[str, Any], index: dict[str, dict[str, Any]]) ->
 def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
     index = build_index(data)
     plan = data["plan/current.yaml"]
+    evidence_items = data["evidence/sources.yaml"]["items"]
+    raw_issues = data["issues.yaml"]["items"]
+    open_issue_subjects = {
+        subject
+        for issue in raw_issues
+        if issue["status"] in {"open", "in_progress"}
+        for subject in issue["subjects"]
+    }
+    windows_by_subject_date: dict[tuple[str, str], list[dict[str, str]]] = {}
+    for evidence in evidence_items:
+        for dated in evidence.get("date_windows", []):
+            windows_by_subject_date[(evidence["subject"], dated["date"])] = dated["windows"]
     days: list[dict[str, Any]] = []
     adopted: set[str] = set()
     for raw_day in plan["days"]:
@@ -64,6 +87,15 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         day["transport_alternative_items"] = [
             prepare_transport(index[item_id], index) for item_id in day["transport_alternatives"]
         ]
+        for field in ("visits", "optional_visits"):
+            prepared_visits = []
+            for item_id in day[field]:
+                item = dict(index[item_id])
+                windows = windows_by_subject_date.get((item_id, day["date"]))
+                if windows:
+                    item["availability_display"] = format_windows(windows)
+                prepared_visits.append(item)
+            day[f"{field}_items"] = prepared_visits
         adopted.update(day["stay"]["preferred"])
         adopted.update(day["stay"]["fallback"])
         preferred = [index[item_id] for item_id in day["stay"]["preferred"]]
@@ -88,9 +120,29 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         ]
         contingencies.append(contingency)
     rechecks = []
-    for evidence in data["evidence/sources.yaml"]["items"]:
-        if evidence["recheck_before_trip"] and evidence["subject"] in adopted:
+    for evidence in evidence_items:
+        if (
+            evidence["recheck_before_trip"]
+            and evidence["subject"] in adopted
+            and evidence["subject"] not in open_issue_subjects
+        ):
             rechecks.append({"name": index[evidence["subject"]]["name"], "claims": evidence["claims"]})
+    issues = []
+    for raw_issue in raw_issues:
+        issue = dict(raw_issue)
+        issue["status_label"] = ISSUE_STATUS_LABELS[issue["status"]]
+        issue["priority_label"] = ISSUE_PRIORITY_LABELS[issue["priority"]]
+        issue["identified_at_display"] = short_date(issue["identified_at"])
+        issue["related_date_display"] = " / ".join(short_date(value) for value in issue["related_dates"])
+        issue["subject_names"] = [resolve_name(subject, index) for subject in issue["subjects"]]
+        issue["anchor"] = issue["id"].replace(".", "-")
+        issues.append(issue)
+    for day in days:
+        day["issue_items"] = [
+            issue
+            for issue in issues
+            if day["date"] in issue["related_dates"] and issue["status"] in {"open", "in_progress"}
+        ]
     return {
         "trip": data["trip.yaml"],
         "days": days,
@@ -98,6 +150,8 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         "pre_trip_todos": plan["pre_trip_todos"],
         "contingencies": contingencies,
         "rechecks": rechecks,
+        "open_issues": [issue for issue in issues if issue["status"] in {"open", "in_progress"}],
+        "closed_issues": [issue for issue in issues if issue["status"] in {"resolved", "wont_fix"}],
     }
 
 
@@ -119,6 +173,7 @@ def render_repository(root: Path) -> None:
     for template_name, output_name in (
         ("itinerary.md.j2", "itinerary.md"),
         ("pins.md.j2", "pins.md"),
+        ("issues.md.j2", "issues.md"),
     ):
         rendered = environment.get_template(template_name).render(**context)
         rendered = re.sub(r"\n{3,}", "\n\n", rendered)
@@ -136,7 +191,7 @@ def main() -> int:
     except (OSError, ValueError) as exc:
         print(f"ERROR {exc}", file=sys.stderr)
         return 1
-    print("Rendered docs/itinerary.md and docs/pins.md.")
+    print("Rendered docs/itinerary.md, docs/pins.md, and docs/issues.md.")
     return 0
 
 

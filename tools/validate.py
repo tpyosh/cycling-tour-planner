@@ -62,6 +62,9 @@ def validate_repository(root: Path) -> list[str]:
         seen.add(item_id)
         if item.get("status") == "adopted":
             errors.append(f"ERROR catalog: forbidden status adopted: {item_id}")
+        margin = item.get("visit_constraints", {}).get("arrival_margin_minutes", {})
+        if isinstance(margin, dict) and margin.get("min", 0) > margin.get("max", 0):
+            errors.append(f"ERROR catalog: arrival margin min exceeds max: {item_id}")
     for item_id in sorted(duplicates):
         errors.append(f"ERROR catalog: duplicate id: {item_id}")
 
@@ -70,6 +73,44 @@ def validate_repository(root: Path) -> list[str]:
         subject = evidence.get("subject")
         if subject not in index:
             errors.append(f"ERROR evidence/sources.yaml {evidence.get('id')}: unknown subject id: {subject}")
+        dates: list[str] = []
+        for dated in evidence.get("date_windows", []):
+            dates.append(dated["date"])
+            previous_end = None
+            for window in dated["windows"]:
+                if window["start"] >= window["end"]:
+                    errors.append(
+                        f"ERROR evidence/sources.yaml {evidence.get('id')} {dated['date']}: "
+                        "window start must be before end"
+                    )
+                if previous_end and window["start"] < previous_end:
+                    errors.append(
+                        f"ERROR evidence/sources.yaml {evidence.get('id')} {dated['date']}: "
+                        "windows must be ascending and non-overlapping"
+                    )
+                previous_end = window["end"]
+        if dates != sorted(dates) or len(dates) != len(set(dates)):
+            errors.append(
+                f"ERROR evidence/sources.yaml {evidence.get('id')}: date_windows must be unique and ascending"
+            )
+
+    evidence_ids = {item["id"] for item in data["evidence/sources.yaml"].get("items", [])}
+    issue_ids: set[str] = set()
+    for issue in data["issues.yaml"].get("items", []):
+        issue_id = issue.get("id")
+        if issue_id in issue_ids:
+            errors.append(f"ERROR issues.yaml: duplicate id: {issue_id}")
+        issue_ids.add(issue_id)
+        for subject in issue.get("subjects", []):
+            if subject not in index:
+                errors.append(f"ERROR issues.yaml {issue_id}: unknown subject id: {subject}")
+        for evidence_id in issue.get("evidence", []):
+            if evidence_id not in evidence_ids:
+                errors.append(f"ERROR issues.yaml {issue_id}: unknown evidence id: {evidence_id}")
+        if issue.get("status") in {"resolved", "wont_fix"} and not issue.get("resolution"):
+            errors.append(f"ERROR issues.yaml {issue_id}: closed issue requires resolution")
+        if issue.get("status") in {"open", "in_progress"} and issue.get("resolution"):
+            errors.append(f"ERROR issues.yaml {issue_id}: open issue must not have resolution")
 
     trip = data["trip.yaml"]
     plan = data["plan/current.yaml"]

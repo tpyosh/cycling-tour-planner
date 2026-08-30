@@ -2,7 +2,60 @@ schema_version: 1
 items:
   - {id: evidence.fda-nkm-aomori-summer-2026, subject: transport.nkm-aomori-fda361-20260921, checked_at: 2026-08-30, claims: [2026年夏ダイヤは2026-03-29〜2026-10-24, 'FDA361はNKM 08:25発・AOJ 09:45着', 'FDA363はNKM 11:35発・AOJ 12:55着', 'FDA367はNKM 18:00発・AOJ 19:20着'], volatility: medium, recheck_before_trip: true, source: {type: official, url: 'https://www.fujidream.co.jp/timetable/timetable_nkm_aoj.html'}}
   - {id: evidence.fda-bicycle-service, subject: transport.nkm-aomori-fda361-20260921, checked_at: 2026-08-30, claims: [預入手荷物は1人合計20kgまで無料, 搭乗3日前までに事前申込みが必要, 事前申込みにより専用ハードケースを無料で借りられる, 利用者自身で航空輸送に耐える状態へ梱包する, JAL便名で予約したコードシェア便は事前受付対象外], volatility: medium, recheck_before_trip: true, source: {type: official, url: 'https://www.fujidream.co.jp/checkin/support/support_bicycle.html'}}
-  - {id: evidence.mizunashi-tide, subject: place.mizunashi-kaihin-onsen, checked_at: null, claims: [潮位によって利用可能時間が変わる], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
+  - id: evidence.mizunashi-facility
+    subject: place.mizunashi-kaihin-onsen
+    checked_at: 2026-08-30
+    claims:
+      - 所在地は北海道函館市恵山岬町
+      - 函館市が管理する無料の海浜露天風呂
+      - 無料駐車場20台、男女別更衣室あり、水着着用可
+      - 泉温49.0℃、泉質はナトリウム－塩化物・硫酸塩温泉
+      - 満潮時は浴槽が海中に没し、潮が引きすぎると海水による希釈が足りず熱すぎる場合がある
+      - 函館市が潮位表を基に入浴可能時間を設定しているが、時間は目安であり、荒天や高波などでは入浴できない場合がある
+    volatility: low
+    recheck_before_trip: false
+    source: {type: official, title: '函館市「水無海浜温泉」', url: 'https://www.city.hakodate.hokkaido.jp/docs/2014041800107/'}
+  - id: evidence.mizunashi-2026-september-schedule
+    subject: place.mizunashi-kaihin-onsen
+    checked_at: 2026-08-30
+    claims:
+      - 2026年9月の函館市公式入浴可能時間表を旅程上の一次的な時間制約とする
+      - 記載時間は潮汐上の入浴可能候補であり、入浴を保証するものではない
+      - 入浴可能時間内でも波が高い日は入浴できない
+    volatility: high
+    recheck_before_trip: true
+    source: {type: official_schedule, title: '函館市「2026年 水無海浜温泉入浴可能時間表」', url: 'https://www.city.hakodate.hokkaido.jp/docs/2014041800107/file_contents/mizunashi2026.pdf'}
+    date_windows:
+      - {date: 2026-09-20, windows: [{start: '04:00', end: '07:00'}]}
+      - {date: 2026-09-21, windows: [{start: '04:00', end: '09:00'}]}
+      - {date: 2026-09-22, windows: [{start: '04:00', end: '10:00'}]}
+      - {date: 2026-09-23, windows: [{start: '05:00', end: '11:00'}]}
+      - {date: 2026-09-24, windows: [{start: '05:00', end: '11:00'}, {start: '19:00', end: '22:00'}]}
+      - {date: 2026-09-25, windows: [{start: '06:00', end: '11:00'}, {start: '19:00', end: '22:00'}]}
+      - {date: 2026-09-26, windows: [{start: '07:00', end: '12:00'}, {start: '19:00', end: '22:00'}]}
+      - {date: 2026-09-27, windows: [{start: '07:00', end: '12:00'}, {start: '19:00', end: '22:00'}]}
+      - {date: 2026-09-28, windows: [{start: '08:00', end: '12:00'}, {start: '20:00', end: '22:00'}]}
+      - {date: 2026-09-29, windows: [{start: '09:00', end: '12:00'}, {start: '20:00', end: '22:00'}]}
+      - {date: 2026-09-30, windows: [{start: '10:00', end: '12:00'}, {start: '21:00', end: '22:00'}]}
+  - id: evidence.mizunashi-hakodate-tide-cross-check
+    subject: place.mizunashi-kaihin-onsen
+    checked_at: 2026-08-30
+    claims:
+      - 気象庁の函館潮位表では、朝の干潮は9/24 08:15（26cm）、9/25 08:45（25cm）、9/26 09:13（26cm）、9/27 09:39（29cm）、9/28 10:03（35cm）と徐々に遅くなる
+      - 夜の干潮は9/24 20:29（46cm）、9/25 21:01（36cm）、9/26 21:32（26cm）、9/27 22:04（19cm）、9/28 22:37（14cm）
+      - 数値は函館地点の予測潮位であり、水無海浜温泉の現地潮位ではない。潮汐傾向の補助情報に限り、函館市の公式入浴可能時間を上書きしない
+    volatility: low
+    recheck_before_trip: false
+    source: {type: official_reference, title: '気象庁「潮位表 函館」', url: 'https://www.data.jma.go.jp/kaiyou/data/db/tide/suisan/pdf_hilo/2026/HK.pdf'}
+  - id: evidence.mizunashi-reopened-20260225
+    subject: place.mizunashi-kaihin-onsen
+    checked_at: 2026-08-30
+    claims:
+      - 2025年12月の大量のイワシ漂着により一時入浴禁止となったが、函館市の洗浄後、2026年2月25日から入浴を再開済み
+      - 古い休止情報を前提にせず、旅行直前に函館市公式情報で運用状況を再確認する
+    volatility: high
+    recheck_before_trip: true
+    source: {type: official, title: '函館市「水無海浜温泉の入浴再開について」', url: 'https://www.city.hakodate.hokkaido.jp/docs/2026021200036/'}
   - {id: evidence.banjaku-access, subject: place.banjaku-onsen, checked_at: null, claims: [利用可否・進入状況], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
   - {id: evidence.osaru-river, subject: place.osaru-yu, checked_at: null, claims: [河原状況に依存], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
   - {id: evidence.orofure-restriction, subject: place.orofure-pass, checked_at: null, claims: [通行規制], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}

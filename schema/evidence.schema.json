@@ -4,6 +4,9 @@
   "$defs": {"item": {"type": "object", "additionalProperties": false, "required": ["id", "subject", "checked_at", "claims", "volatility", "recheck_before_trip", "source"], "properties": {
     "id": {"type": "string", "pattern": "^evidence\\.[a-z0-9][a-z0-9-]*$"}, "subject": {"type": "string", "pattern": "^(place|route|stay|food|transport)\\."}, "checked_at": {"type": ["string", "null"], "format": "date"},
     "claims": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "volatility": {"enum": ["low", "medium", "high"]}, "recheck_before_trip": {"type": "boolean"},
-    "source": {"type": "object", "additionalProperties": false, "required": ["type", "url"], "properties": {"type": {"type": "string"}, "url": {"type": ["string", "null"], "format": "uri"}}}
+    "source": {"type": "object", "additionalProperties": false, "required": ["type", "url"], "properties": {"type": {"type": "string"}, "title": {"type": "string", "minLength": 1}, "url": {"type": ["string", "null"], "format": "uri"}}},
+    "date_windows": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["date", "windows"], "properties": {
+      "date": {"type": "string", "format": "date"}, "windows": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["start", "end"], "properties": {"start": {"type": "string", "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"}, "end": {"type": "string", "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"}}}}
+    }}}
   }}}
 }
