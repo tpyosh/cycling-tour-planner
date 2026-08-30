@@ -1,5 +1,10 @@
 # 下北・道南・胆振サイクリング 2026
 
+## 旅行者向けドキュメント
+
+- [旅程を見る](docs/itinerary.md)
+- [Google Mapsに登録するピンを見る](docs/pins.md)
+
 ## このrepoの役割
 
 このリポジトリは「1旅行1repo」で運用します。YAMLが唯一の正本（SSoT）で、`plan/current.yaml` が現在のworking planです。過去のsnapshotにはファイルの複製ではなくGit履歴を使い、予約開始時や出発直前には `booking-start`、`pre-departure-final` などのtagを付けられます。`docs/*.md` はYAMLから作る生成物です。
