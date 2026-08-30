@@ -1,0 +1,32 @@
+schema_version: 1
+items:
+  - {id: place.nagoya, name: 名古屋, kind: town, status: shortlisted, map_query: 名古屋駅, description: 旅行の出発地・帰着地, tags: [origin]}
+  - {id: place.osorezan, name: 恐山菩提寺, kind: attraction, status: shortlisted, map_query: 恐山菩提寺, description: 恐山信仰の中心地, tags: [religion, volcanic]}
+  - {id: place.sanzu-river, name: 三途の川 太鼓橋, kind: historic_site, status: shortlisted, map_query: 三途の川 太鼓橋, description: 恐山街道沿いの象徴的な橋, tags: [historic]}
+  - {id: place.okuyagen, name: 奥薬研修景公園, kind: natural_feature, status: shortlisted, map_query: 奥薬研修景公園, description: 薬研渓流の景観地, tags: [valley]}
+  - {id: place.ganso-kappa-no-yu, name: 元祖かっぱの湯, kind: hot_spring, status: shortlisted, map_query: 元祖かっぱの湯, description: 奥薬研の露天風呂, tags: [hot_spring]}
+  - {id: place.shimofuro-onsen, name: 下風呂温泉, kind: hot_spring, status: shortlisted, map_query: 下風呂温泉, description: 津軽海峡沿いの温泉地, tags: [hot_spring]}
+  - {id: place.oma-cape, name: 大間崎, kind: natural_feature, status: shortlisted, map_query: 大間崎, description: 本州最北端の岬, tags: [cape]}
+  - {id: place.hakodate-northern-peoples-museum, name: 函館市北方民族資料館, kind: museum, status: shortlisted, map_query: 函館市北方民族資料館, description: 北方民族の文化資料を展示, tags: [ainu, history]}
+  - {id: place.toi-line-arch, name: 旧戸井線アーチ橋, kind: historic_site, status: shortlisted, map_query: 旧戸井線アーチ橋, description: 未成線のコンクリートアーチ遺構, tags: [railway, ruins]}
+  - {id: place.esan, name: 恵山, kind: natural_feature, status: shortlisted, map_query: 恵山, description: 活火山の地形を体感できる山, tags: [volcanic]}
+  - {id: place.mizunashi-kaihin-onsen, name: 水無海浜温泉, kind: hot_spring, status: shortlisted, map_query: 水無海浜温泉, description: 潮位で入浴可能時間が変わる海辺の温泉, tags: [hot_spring, tide]}
+  - {id: place.jomon-center, name: 函館市縄文文化交流センター, kind: museum, status: shortlisted, map_query: 函館市縄文文化交流センター, description: 南茅部の縄文文化を紹介, tags: [jomon]}
+  - {id: place.kakinoshima, name: 垣ノ島遺跡, kind: historic_site, status: shortlisted, map_query: 垣ノ島遺跡, description: 世界文化遺産の縄文遺跡, tags: [jomon]}
+  - {id: place.shikabe-geyser, name: 鹿部間歇泉公園, kind: attraction, status: shortlisted, map_query: 鹿部間歇泉公園, description: 温泉の間歇泉を見学できる公園, tags: [geothermal]}
+  - {id: place.yakumo-local-museum, name: 八雲町郷土資料館, kind: museum, status: shortlisted, map_query: 八雲町郷土資料館, description: 八雲の歴史資料を展示, tags: [history]}
+  - {id: place.yakumo-bear-museum, name: 八雲町木彫り熊資料館, kind: museum, status: shortlisted, map_query: 八雲町木彫り熊資料館, description: 八雲発祥の木彫り熊を紹介, tags: [craft]}
+  - {id: place.banjaku-onsen, name: 盤石温泉, kind: hot_spring, status: shortlisted, map_query: 盤石温泉, description: 利用可否と進入状況の事前確認が必要な温泉, tags: [hot_spring, adventure]}
+  - {id: place.nishiyama-crater, name: 西山山麓火口散策路, kind: natural_feature, status: shortlisted, map_query: 西山山麓火口散策路, description: 有珠山噴火の火口と被災跡をたどる散策路, tags: [volcanic, ruins]}
+  - {id: place.kompira-eruption-ruins, name: 金比羅火口災害遺構散策路, kind: historic_site, status: shortlisted, map_query: 金比羅火口災害遺構散策路, description: 噴火災害遺構をたどる散策路, tags: [volcanic, ruins]}
+  - {id: place.osaru-yu, name: オサル湯, kind: hot_spring, status: shortlisted, map_query: オサル湯, description: 河原状況に左右される野湯, tags: [hot_spring, adventure]}
+  - {id: place.orofure-pass, name: オロフレ峠, kind: natural_feature, status: shortlisted, map_query: オロフレ峠, description: 洞爺と登別を結ぶ山岳峠, tags: [pass, cycling]}
+  - {id: place.noboribetsu-jigokudani, name: 登別地獄谷, kind: natural_feature, status: shortlisted, map_query: 登別地獄谷, description: 登別温泉の火山景観, tags: [volcanic, hot_spring]}
+  - {id: place.upopoy, name: ウポポイ, kind: attraction, status: shortlisted, map_query: ウポポイ, description: 民族共生象徴空間, tags: [ainu]}
+  - {id: place.national-ainu-museum, name: 国立アイヌ民族博物館, kind: museum, status: shortlisted, map_query: 国立アイヌ民族博物館, description: アイヌ文化を紹介する国立博物館, tags: [ainu, museum]}
+  - {id: place.shiraoi-jinya-museum, name: 仙台藩白老元陣屋資料館, kind: museum, status: shortlisted, map_query: 仙台藩白老元陣屋資料館, description: 北方警備と陣屋の歴史資料館, tags: [history]}
+  - {id: place.shiraoi-jinya, name: 白老仙台藩陣屋跡, kind: historic_site, status: shortlisted, map_query: 白老仙台藩陣屋跡, description: 江戸幕府の北方警備に関する史跡, tags: [history]}
+  - {id: place.tomakomai-west-port, name: 苫小牧西港フェリーターミナル, kind: transport_site, status: shortlisted, map_query: 苫小牧西港フェリーターミナル, description: 仙台行きフェリーの乗船地, tags: [ferry]}
+  - {id: place.sendai-port, name: 仙台港フェリーターミナル, kind: transport_site, status: shortlisted, map_query: 仙台港フェリーターミナル, description: 苫小牧発フェリーの到着地, tags: [ferry]}
+  - {id: place.kinkayu, name: 金華湯, kind: hot_spring, status: deferred, map_query: 金華湯, description: 体験価値は非常に高いが今回の1週間程度の旅程では専用日を要求し、他の主目的地を圧迫するため別旅行へ延期, tags: [hot_spring, adventure]}
+  - {id: place.hotokegaura, name: 仏ヶ浦, kind: natural_feature, status: deferred, map_query: 仏ヶ浦, description: R338を含め自転車体験は魅力的だが今回の旅程では北海道側の日程を圧迫するため延期, tags: [coast, cycling]}

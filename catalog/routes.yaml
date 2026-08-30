@@ -1,0 +1,12 @@
+schema_version: 1
+items:
+  - {id: route.mutsu-osorezan-yagen-shimofuro, name: むつ→恐山→薬研→下風呂, status: shortlisted, from: stay.mutsu, to: stay.shimofuro, mode: bicycle, distance_km: {min: 80, max: 100}, route_value: main, tags: [mountain, hot_spring], description: 恐山と薬研をつなぐ下北の主目的ルート}
+  - {id: route.shimofuro-oma, name: 下風呂→大間, status: shortlisted, from: stay.shimofuro, to: place.oma-cape, mode: bicycle, distance_km: {min: 35, max: 50}, route_value: high, tags: [coast], description: 津軽海峡沿岸を本州最北端へ進む}
+  - {id: route.hakodate-toi-esan-mizunashi, name: 函館→戸井→恵山→水無海浜温泉, status: shortlisted, from: stay.hakodate, to: place.mizunashi-kaihin-onsen, mode: bicycle, distance_km: {min: 80, max: 100}, route_value: main, tags: [coast, ruins, volcanic], description: 旧戸井線と恵山をたどる道南の主目的ルート}
+  - {id: route.mizunashi-shikabe, name: 水無海浜温泉→鹿部, status: shortlisted, from: place.mizunashi-kaihin-onsen, to: stay.shikabe, mode: bicycle, distance_km: {min: 25, max: 35}, route_value: high, tags: [coast], description: 南茅部を経て鹿部へ進む}
+  - {id: route.shikabe-mori-yakumo, name: 鹿部→森→八雲, status: shortlisted, from: stay.shikabe, to: stay.yakumo, mode: bicycle, distance_km: {min: 65, max: 85}, route_value: medium, tags: [coast], description: 噴火湾沿岸を八雲へ進む}
+  - {id: route.yakumo-banjaku-roundtrip, name: 八雲→盤石温泉→八雲, status: shortlisted, from: stay.yakumo, to: stay.yakumo, mode: bicycle, distance_km: {min: 25, max: 40}, route_value: high, tags: [hot_spring, adventure], description: 盤石温泉を往復する探索区間}
+  - {id: route.yakumo-toya-train, name: 八雲→洞爺方面（鉄道輪行）, status: shortlisted, from: stay.yakumo, to: place.nishiyama-crater, mode: train, distance_km: null, route_value: low, tags: [rinko], description: 面白さの薄い噴火湾沿岸の移動時間を圧縮し、洞爺・有珠山・オロフレ方面へ時間を振る}
+  - {id: route.toya-usuzan, name: 洞爺→有珠山, status: shortlisted, from: place.nishiyama-crater, to: place.kompira-eruption-ruins, mode: bicycle, distance_km: {min: 10, max: 25}, route_value: high, tags: [volcanic], description: 有珠山噴火遺構を巡る}
+  - {id: route.toya-osaru-orofure-noboribetsu, name: 洞爺→オサル湯→オロフレ峠→登別, status: shortlisted, from: place.kompira-eruption-ruins, to: stay.noboribetsu-onsen, mode: bicycle, distance_km: {min: 60, max: 80}, route_value: main, tags: [pass, hot_spring], description: 野湯と峠をつなぐ胆振の主目的ルート}
+  - {id: route.noboribetsu-shiraoi-tomakomai, name: 登別→白老→苫小牧, status: shortlisted, from: stay.noboribetsu-onsen, to: place.tomakomai-west-port, mode: bicycle, distance_km: {min: 55, max: 70}, route_value: high, tags: [ainu, history], description: 白老の文化・歴史施設を経てフェリーへ接続する}

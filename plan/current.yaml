@@ -1,0 +1,91 @@
+schema_version: 1
+status: working
+days:
+  - date: 2026-09-21
+    start: place.nagoya
+    finish: stay.mutsu
+    cycling: {distance_km: {min: 0, max: 10}}
+    routes: []
+    transport: [transport.nagoya-aomori-mutsu]
+    visits: []
+    optional_visits: []
+    food: []
+    stay: {preferred: [stay.mutsu], fallback: []}
+    notes: [主目的は移動]
+  - date: 2026-09-22
+    start: stay.mutsu
+    finish: stay.shimofuro
+    cycling: {distance_km: {min: 80, max: 100}}
+    routes: [route.mutsu-osorezan-yagen-shimofuro]
+    transport: []
+    visits: [place.osorezan, place.sanzu-river, place.okuyagen, place.ganso-kappa-no-yu, place.shimofuro-onsen]
+    optional_visits: []
+    food: []
+    stay: {preferred: [stay.shimofuro], fallback: [stay.ohata, stay.mutsu]}
+    notes: []
+  - date: 2026-09-23
+    start: stay.shimofuro
+    finish: stay.hakodate
+    cycling: {distance_km: {min: 35, max: 50}}
+    routes: [route.shimofuro-oma]
+    transport: [transport.oma-hakodate-ferry]
+    visits: [place.oma-cape, place.hakodate-northern-peoples-museum]
+    optional_visits: []
+    food: [food.shigechan-sushi]
+    stay: {preferred: [stay.hakodate], fallback: [stay.yunokawa]}
+    notes: []
+  - date: 2026-09-24
+    start: stay.hakodate
+    finish: stay.shikabe
+    cycling: {distance_km: {min: 105, max: 130}}
+    routes: [route.hakodate-toi-esan-mizunashi, route.mizunashi-shikabe]
+    transport: []
+    visits: [place.toi-line-arch, place.esan, place.mizunashi-kaihin-onsen]
+    optional_visits: [place.jomon-center, place.kakinoshima, place.shikabe-geyser]
+    food: []
+    stay: {preferred: [stay.shikabe], fallback: [stay.minamikayabe, stay.mori]}
+    notes: []
+  - date: 2026-09-25
+    start: stay.shikabe
+    finish: stay.yakumo
+    cycling: {distance_km: {min: 90, max: 120}}
+    routes: [route.shikabe-mori-yakumo, route.yakumo-banjaku-roundtrip]
+    transport: []
+    visits: [place.yakumo-local-museum, place.yakumo-bear-museum, place.banjaku-onsen]
+    optional_visits: []
+    food: []
+    stay: {preferred: [stay.yakumo], fallback: []}
+    notes: []
+  - date: 2026-09-26
+    start: stay.yakumo
+    finish: stay.noboribetsu-onsen
+    cycling: {distance_km: {min: 70, max: 100}}
+    routes: [route.yakumo-toya-train, route.toya-usuzan, route.toya-osaru-orofure-noboribetsu]
+    transport: [transport.yakumo-toya-train]
+    visits: [place.nishiyama-crater, place.kompira-eruption-ruins, place.osaru-yu, place.orofure-pass, place.noboribetsu-jigokudani]
+    optional_visits: []
+    food: []
+    stay: {preferred: [stay.noboribetsu-onsen], fallback: [stay.noboribetsu, stay.higashi-muroran]}
+    notes: [八雲から洞爺方面の一部は鉄道で圧縮]
+  - date: 2026-09-27
+    start: stay.noboribetsu-onsen
+    finish: stay.ferry-tomakomai-sendai
+    cycling: {distance_km: {min: 55, max: 70}}
+    routes: [route.noboribetsu-shiraoi-tomakomai]
+    transport: [transport.tomakomai-sendai-ferry]
+    visits: [place.upopoy, place.national-ainu-museum, place.shiraoi-jinya-museum, place.shiraoi-jinya]
+    optional_visits: []
+    food: []
+    stay: {preferred: [stay.ferry-tomakomai-sendai], fallback: []}
+    notes: ['2026-09-27 19:00 苫小牧発']
+  - date: 2026-09-28
+    start: place.sendai-port
+    finish: place.nagoya
+    cycling: {distance_km: {min: 5, max: 15}}
+    routes: []
+    transport: [transport.sendai-nagoya-train]
+    visits: []
+    optional_visits: []
+    food: []
+    stay: {preferred: [], fallback: []}
+    notes: ['2026-09-28 10:00 仙台着', この日のうちに名古屋帰着]

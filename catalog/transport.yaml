@@ -1,0 +1,7 @@
+schema_version: 1
+items:
+  - {id: transport.nagoya-aomori-mutsu, name: 名古屋→青森方面→むつ, status: researching, mode: mixed, from: place.nagoya, to: stay.mutsu, departure: null, arrival: null, description: 往路。時刻と利用経路は未確定}
+  - {id: transport.oma-hakodate-ferry, name: 大間→函館フェリー, status: researching, mode: ferry, from: place.oma-cape, to: stay.hakodate, departure: null, arrival: null, description: 運航時刻は出発前に再確認する}
+  - {id: transport.yakumo-toya-train, name: 八雲→洞爺方面 鉄道輪行, status: researching, mode: train, from: stay.yakumo, to: place.nishiyama-crater, departure: null, arrival: null, description: 噴火湾沿岸の移動を圧縮する。列車は未確定}
+  - {id: transport.tomakomai-sendai-ferry, name: 苫小牧→仙台 太平洋フェリー, status: shortlisted, mode: ferry, from: place.tomakomai-west-port, to: place.sendai-port, departure: '2026-09-27T19:00:00+09:00', arrival: '2026-09-28T10:00:00+09:00', description: hard constraintの帰路フェリー}
+  - {id: transport.sendai-nagoya-train, name: 仙台→名古屋 新幹線, status: researching, mode: train, from: place.sendai-port, to: place.nagoya, departure: null, arrival: null, description: 9月28日中に名古屋へ帰着する。列車は未確定}

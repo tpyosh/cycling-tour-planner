@@ -1,0 +1,69 @@
+<!-- GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+
+# {{ trip.title }}
+
+`{{ trip.start_date }}`〜`{{ trip.end_date }}` / 出発地: {{ trip.origin }} / 状態: working plan
+
+| 日付 | 行程 | 自転車 | 宿泊 | 代替 |
+| --- | --- | ---: | --- | --- |
+{% for day in days -%}
+| {{ day.short_date }} | {{ day.start_name }} → {{ day.finish_name }} | {{ day.cycling.distance_km.min }}–{{ day.cycling.distance_km.max }} km | {{ day.preferred_names | join(' / ') if day.preferred_names else '—' }} | {{ day.fallback_names | join(' / ') if day.fallback_names else '—' }} |
+{% endfor %}
+
+{% for day in days %}
+## {{ day.dated_heading }} {{ day.start_name }} → {{ day.finish_name }}
+
+- **自転車:** {{ day.cycling.distance_km.min }}–{{ day.cycling.distance_km.max }} km
+- **宿泊:** {{ day.preferred_names | join(' / ') if day.preferred_names else 'なし' }}
+- **代替:** {{ day.fallback_names | join(' / ') if day.fallback_names else '—' }}
+
+{% if day.routes_items %}
+### ルート
+
+{% for item in day.routes_items %}
+- {{ item.name }}{% if item.description %} — {{ item.description }}{% endif %}
+{% endfor %}
+{% endif %}
+{% if day.transport_items %}
+### 交通
+
+{% for item in day.transport_items %}
+- {{ item.name }}{% if item.departure %}（{{ item.departure }}発{% if item.arrival %} → {{ item.arrival }}着{% endif %}）{% endif %}
+{% endfor %}
+{% endif %}
+{% if day.visits_items %}
+### 立ち寄り
+
+{% for item in day.visits_items %}
+- {{ item.name }}
+{% endfor %}
+{% endif %}
+{% if day.optional_visits_items %}
+### 余裕があれば
+
+{% for item in day.optional_visits_items %}
+- {{ item.name }}
+{% endfor %}
+{% endif %}
+{% if day.food_items %}
+### 食事
+
+{% for item in day.food_items %}
+- {{ item.name }} — {{ item.description }}
+{% endfor %}
+{% endif %}
+{% if day.notes %}
+### 注意・メモ
+
+{% for note in day.notes %}
+- {{ note }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% if rechecks %}
+# 出発前の再確認
+
+{% for item in rechecks %}
+- {{ item.name }} — {{ item.claims | join(' / ') }}
+{% endfor %}
+{% endif %}

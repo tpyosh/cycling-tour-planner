@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "status", "days"], "properties": {"schema_version": {"const": 1}, "status": {"const": "working"}, "days": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/day"}}},
+  "$defs": {"ids": {"type": "array", "items": {"type": "string", "pattern": "^(place|route|stay|food|transport)\\.[a-z0-9][a-z0-9-]*$"}},
+  "distance": {"type": "object", "additionalProperties": false, "required": ["min", "max"], "properties": {"min": {"type": "number", "minimum": 0}, "max": {"type": "number", "minimum": 0}}},
+  "day": {"type": "object", "additionalProperties": false, "required": ["date", "start", "finish", "cycling", "routes", "transport", "visits", "optional_visits", "food", "stay", "notes"], "properties": {
+    "date": {"type": "string", "format": "date"}, "start": {"type": "string", "minLength": 1}, "finish": {"type": "string", "minLength": 1},
+    "cycling": {"type": "object", "additionalProperties": false, "required": ["distance_km"], "properties": {"distance_km": {"$ref": "#/$defs/distance"}}},
+    "routes": {"$ref": "#/$defs/ids"}, "transport": {"$ref": "#/$defs/ids"}, "visits": {"$ref": "#/$defs/ids"}, "optional_visits": {"$ref": "#/$defs/ids"}, "food": {"$ref": "#/$defs/ids"},
+    "stay": {"type": "object", "additionalProperties": false, "required": ["preferred", "fallback"], "properties": {"preferred": {"$ref": "#/$defs/ids"}, "fallback": {"$ref": "#/$defs/ids"}}}, "notes": {"type": "array", "items": {"type": "string"}}
+  }}}
+}

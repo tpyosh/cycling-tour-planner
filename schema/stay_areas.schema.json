@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "items"], "properties": {"schema_version": {"const": 1}, "items": {"type": "array", "items": {"$ref": "#/$defs/item"}}},
+  "$defs": {"level": {"enum": ["low", "medium", "high"]}, "item": {"type": "object", "additionalProperties": false, "required": ["id", "name", "status", "accommodation", "logistics", "description"], "properties": {
+    "id": {"type": "string", "pattern": "^stay\\.[a-z0-9][a-z0-9-]*$"}, "name": {"type": "string", "minLength": 1}, "status": {"enum": ["discovered", "researching", "shortlisted", "deferred", "rejected"]}, "description": {"type": "string"},
+    "accommodation": {"type": "object", "additionalProperties": false, "required": ["availability", "typical_types"], "properties": {"availability": {"$ref": "#/$defs/level"}, "typical_types": {"type": "array", "items": {"type": "string"}}}},
+    "logistics": {"type": "object", "additionalProperties": false, "required": ["food_options", "railway_access"], "properties": {"food_options": {"$ref": "#/$defs/level"}, "railway_access": {"$ref": "#/$defs/level"}}}
+  }}}
+}

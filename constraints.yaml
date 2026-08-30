@@ -1,0 +1,15 @@
+schema_version: 1
+hard:
+  - id: return-by-2026-09-28
+    description: 2026-09-28中に名古屋へ帰着する
+  - id: return-ferry-tomakomai-sendai
+    description: 2026-09-27 19:00 苫小牧発、2026-09-28 10:00 仙台着の太平洋フェリーを帰路に利用する
+soft:
+  - id: prioritize-high-value-cycling
+    description: 距離を稼ぐことより、そのルート固有の体験価値を優先する
+  - id: allow-multimodal
+    description: 面白さの薄い移動区間は鉄道などで圧縮してよい
+  - id: lodging-flexibility
+    description: 鄙びた温泉宿に限定せず、ビジネスホテルを期待できる市街地や駅周辺も宿泊候補にする
+  - id: prefer-adventure
+    description: 野湯、秘湯、林道、旧道、交通史、産業遺構、火山地形などを強く評価する

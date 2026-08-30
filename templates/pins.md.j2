@@ -1,0 +1,20 @@
+<!-- GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+
+# Google Maps ピン登録
+
+{% for day in days %}
+## {{ day.short_date }}
+
+{% for item in day.visits_items %}
+- [ ] {{ item.name }} — `{{ item.map_query }}`
+{% endfor %}
+{% for item in day.optional_visits_items %}
+- [ ] {{ item.name }}（任意）— `{{ item.map_query }}`
+{% endfor %}
+{% for item in day.food_items %}
+- [ ] {{ item.name }}（食事）— `{{ item.map_query }}`
+{% endfor %}
+{% if not day.visits_items and not day.optional_visits_items and not day.food_items %}
+- ピン登録対象なし
+{% endif %}
+{% endfor %}

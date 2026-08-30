@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "hard", "soft"],
+  "properties": {"schema_version": {"const": 1}, "hard": {"$ref": "#/$defs/list"}, "soft": {"$ref": "#/$defs/list"}},
+  "$defs": {"list": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["id", "description"], "properties": {"id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"}, "description": {"type": "string", "minLength": 1}}}}}
+}

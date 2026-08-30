@@ -1,0 +1,7 @@
+schema_version: 1
+id: shimokita-donan-2026
+title: 下北・道南・胆振サイクリング 2026
+start_date: 2026-09-21
+end_date: 2026-09-28
+origin: 名古屋
+modes: [bicycle, train, ferry, airplane]

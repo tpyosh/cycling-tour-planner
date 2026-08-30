@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "items"], "properties": {"schema_version": {"const": 1}, "items": {"type": "array", "items": {"$ref": "#/$defs/item"}}},
+  "$defs": {"item": {"type": "object", "additionalProperties": false, "required": ["id", "name", "kind", "status", "map_query", "description", "tags"], "properties": {
+    "id": {"type": "string", "pattern": "^place\\.[a-z0-9][a-z0-9-]*$"}, "name": {"type": "string", "minLength": 1},
+    "kind": {"enum": ["attraction", "hot_spring", "museum", "historic_site", "natural_feature", "transport_site", "town", "other"]},
+    "status": {"enum": ["discovered", "researching", "shortlisted", "deferred", "rejected"]}, "map_query": {"type": "string", "minLength": 1}, "description": {"type": "string"},
+    "tags": {"type": "array", "items": {"type": "string"}}
+  }}}
+}

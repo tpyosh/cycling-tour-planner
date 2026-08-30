@@ -1,0 +1,8 @@
+schema_version: 1
+items:
+  - {id: evidence.mizunashi-tide, subject: place.mizunashi-kaihin-onsen, checked_at: null, claims: [潮位によって利用可能時間が変わる], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
+  - {id: evidence.banjaku-access, subject: place.banjaku-onsen, checked_at: null, claims: [利用可否・進入状況], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
+  - {id: evidence.osaru-river, subject: place.osaru-yu, checked_at: null, claims: [河原状況に依存], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
+  - {id: evidence.orofure-restriction, subject: place.orofure-pass, checked_at: null, claims: [通行規制], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
+  - {id: evidence.oma-hakodate-schedule, subject: transport.oma-hakodate-ferry, checked_at: null, claims: [運航時刻], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
+  - {id: evidence.tomakomai-sendai-status, subject: transport.tomakomai-sendai-ferry, checked_at: null, claims: [運航・予約状況], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}

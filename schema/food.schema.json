@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "items"], "properties": {"schema_version": {"const": 1}, "items": {"type": "array", "items": {"$ref": "#/$defs/item"}}},
+  "$defs": {"item": {"type": "object", "additionalProperties": false, "required": ["id", "name", "status", "map_query", "area", "description"], "properties": {
+    "id": {"type": "string", "pattern": "^food\\.[a-z0-9][a-z0-9-]*$"}, "name": {"type": "string", "minLength": 1}, "status": {"enum": ["discovered", "researching", "shortlisted", "deferred", "rejected"]},
+    "map_query": {"type": "string", "minLength": 1}, "area": {"type": "string", "pattern": "^stay\\."}, "description": {"type": "string"}
+  }}}
+}
