@@ -35,7 +35,7 @@ items:
   - {id: place.shikabe-geyser, name: 鹿部間歇泉公園, kind: attraction, status: shortlisted, map_query: 鹿部間歇泉公園, description: 温泉の間歇泉を見学できる公園, tags: [geothermal]}
   - {id: place.yakumo-local-museum, name: 八雲町郷土資料館, kind: museum, status: shortlisted, map_query: 八雲町郷土資料館, description: 八雲の歴史資料を展示, tags: [history]}
   - {id: place.yakumo-bear-museum, name: 八雲町木彫り熊資料館, kind: museum, status: shortlisted, map_query: 八雲町木彫り熊資料館, description: 八雲発祥の木彫り熊を紹介, tags: [craft]}
-  - {id: place.banjaku-onsen, name: 盤石温泉, kind: hot_spring, status: shortlisted, map_query: 盤石温泉, description: 利用可否と進入状況の事前確認が必要な温泉, tags: [hot_spring, adventure]}
+  - {id: place.banjaku-onsen, name: 盤石温泉, kind: hot_spring, status: shortlisted, map_query: 盤石温泉, description: 比較的新しい複数のレビューを根拠に訪問可能と判断。直前に利用可否と進入状況を再確認し、当日利用できなければ見送る, tags: [hot_spring, adventure]}
   - {id: place.nishiyama-crater, name: 西山山麓火口散策路, kind: natural_feature, status: shortlisted, map_query: 西山山麓火口散策路, description: 有珠山噴火の火口と被災跡をたどる散策路, tags: [volcanic, ruins]}
   - {id: place.kompira-eruption-ruins, name: 金比羅火口災害遺構散策路, kind: historic_site, status: shortlisted, map_query: 金比羅火口災害遺構散策路, description: 噴火災害遺構をたどる散策路, tags: [volcanic, ruins]}
   - {id: place.osaru-yu, name: オサル湯, kind: hot_spring, status: shortlisted, map_query: オサル湯, description: 河原状況に左右される野湯, tags: [hot_spring, adventure]}

@@ -56,7 +56,15 @@ items:
     volatility: high
     recheck_before_trip: true
     source: {type: official, title: '函館市「水無海浜温泉の入浴再開について」', url: 'https://www.city.hakodate.hokkaido.jp/docs/2026021200036/'}
-  - {id: evidence.banjaku-access, subject: place.banjaku-onsen, checked_at: null, claims: [利用可否・進入状況], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
+  - id: evidence.banjaku-access
+    subject: place.banjaku-onsen
+    checked_at: 2026-08-30
+    claims:
+      - 比較的新しい複数のレビューを確認し、訪問可能と判断済み
+      - 出発直前に利用可否と進入状況を再確認し、当日利用できなければ見送る
+    volatility: high
+    recheck_before_trip: true
+    source: {type: user_review_summary, url: null}
   - {id: evidence.osaru-river, subject: place.osaru-yu, checked_at: null, claims: [河原状況に依存], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
   - {id: evidence.orofure-restriction, subject: place.orofure-pass, checked_at: null, claims: [通行規制], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}
   - {id: evidence.oma-hakodate-schedule, subject: transport.oma-hakodate-ferry, checked_at: null, claims: [運航時刻], volatility: high, recheck_before_trip: true, source: {type: unknown, url: null}}

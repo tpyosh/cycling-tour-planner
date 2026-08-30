@@ -43,6 +43,8 @@ def test_rendered_documents_contain_expected_content(repo_copy: Path) -> None:
     assert "函館市「2026年 水無海浜温泉入浴可能時間表」" not in itinerary
     assert "水無海浜温泉 — 2026年9月の函館市公式入浴可能時間表" not in itinerary
     assert "苫小牧→仙台 太平洋フェリー — 運航・予約状況" in itinerary
+    assert "盤石温泉は訪問前提で組み込む。出発直前に利用可否と進入状況を再確認し、当日利用できなければ見送る" in itinerary
+    assert "盤石温泉 — 比較的新しい複数のレビューを確認し、訪問可能と判断済み / 出発直前に利用可否と進入状況を再確認し、当日利用できなければ見送る" in itinerary
     assert "**予約番号:** N231" in itinerary
     assert "**船名・客室:** いしかり / Ｓ寝台（洋室）" in itinerary
     assert "**料金:** 15,000円（インターネット割引）" in itinerary
