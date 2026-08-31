@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "checked_at", "traveler", "policy", "stay_searches", "explicit_web_unavailable", "common_phone_questions", "noboribetsu_policy"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "checked_at": {"type": "string", "format": "date"},
+    "traveler": {
+      "type": "object", "additionalProperties": false,
+      "required": ["adults", "rooms", "bicycles"],
+      "properties": {"adults": {"const": 1}, "rooms": {"const": 1}, "bicycles": {"const": 1}}
+    },
+    "policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["web_available", "explicit_web_unavailable", "phone_required", "single_occupancy_phone_check", "rules"],
+      "properties": {
+        "web_available": {"type": "string", "minLength": 1},
+        "explicit_web_unavailable": {"type": "string", "minLength": 1},
+        "phone_required": {"type": "string", "minLength": 1},
+        "single_occupancy_phone_check": {"type": "string", "minLength": 1},
+        "rules": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "stay_searches": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/search"}},
+    "explicit_web_unavailable": {"type": "array", "items": {"$ref": "#/$defs/excluded"}},
+    "common_phone_questions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "noboribetsu_policy": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "nullableString": {"type": ["string", "null"]},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["title", "url"],
+      "properties": {"title": {"type": "string", "minLength": 1}, "url": {"type": "string", "format": "uri"}}
+    },
+    "result": {
+      "type": "object", "additionalProperties": false,
+      "required": ["availability", "total_price_yen", "meals", "payment", "bicycle_storage", "checkin_deadline", "cancellation", "called_at", "notes"],
+      "properties": {
+        "availability": {"type": ["string", "null"], "enum": ["available", "unavailable", null]},
+        "total_price_yen": {"type": ["integer", "null"], "minimum": 0},
+        "meals": {"$ref": "#/$defs/nullableString"},
+        "payment": {"$ref": "#/$defs/nullableString"},
+        "bicycle_storage": {"$ref": "#/$defs/nullableString"},
+        "checkin_deadline": {"$ref": "#/$defs/nullableString"},
+        "cancellation": {"$ref": "#/$defs/nullableString"},
+        "called_at": {"type": ["string", "null"], "format": "date-time"},
+        "notes": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "phoneCheck": {
+      "type": "object", "additionalProperties": false,
+      "required": ["required", "priority", "status", "phone", "reception_hours", "target_plan", "alternative_plans", "questions", "result"],
+      "properties": {
+        "required": {"const": true},
+        "priority": {"type": "integer", "minimum": 1},
+        "status": {"enum": ["pending", "completed", "skipped"]},
+        "phone": {"type": "string", "pattern": "^[0-9-]+$"},
+        "reception_hours": {"$ref": "#/$defs/nullableString"},
+        "target_plan": {"type": "string", "minLength": 1},
+        "alternative_plans": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "questions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "result": {"$ref": "#/$defs/result"}
+      }
+    },
+    "candidate": {
+      "type": "object", "additionalProperties": false,
+      "required": ["candidate_key", "name", "area_ref", "accommodation_type", "availability_class", "status", "static_facts", "location_fit", "sources", "phone_check"],
+      "properties": {
+        "candidate_key": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "name": {"type": "string", "minLength": 1},
+        "area_ref": {"type": "string", "pattern": "^stay\\.[a-z0-9][a-z0-9-]*$"},
+        "accommodation_type": {"enum": ["business_hotel", "business_ryokan", "hotel", "ryokan", "onsen_ryokan", "minshuku", "other"]},
+        "availability_class": {"enum": ["web_available", "explicit_web_unavailable", "phone_required", "single_occupancy_phone_check"]},
+        "status": {"enum": ["available", "unavailable", "availability_unknown"]},
+        "static_facts": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "location_fit": {"type": "string", "minLength": 1},
+        "sources": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/source"}},
+        "phone_check": {"$ref": "#/$defs/phoneCheck"}
+      }
+    },
+    "search": {
+      "type": "object", "additionalProperties": false,
+      "required": ["date", "checkout_date", "preferred_area_ref", "fallback_area_refs", "call_order_area_refs", "purpose", "meal_priority", "candidates"],
+      "properties": {
+        "date": {"type": "string", "format": "date"},
+        "checkout_date": {"type": "string", "format": "date"},
+        "preferred_area_ref": {"type": "string", "pattern": "^stay\\."},
+        "fallback_area_refs": {"type": "array", "items": {"type": "string", "pattern": "^stay\\."}},
+        "call_order_area_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^stay\\."}},
+        "purpose": {"type": "string", "minLength": 1},
+        "meal_priority": {"type": "string", "minLength": 1},
+        "candidates": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/candidate"}}
+      }
+    },
+    "excluded": {
+      "type": "object", "additionalProperties": false,
+      "required": ["date", "name", "area_ref", "reason", "source_url", "checked_at"],
+      "properties": {
+        "date": {"type": "string", "format": "date"}, "name": {"type": "string", "minLength": 1},
+        "area_ref": {"type": "string", "pattern": "^stay\\."}, "reason": {"type": "string", "minLength": 1},
+        "source_url": {"type": "string", "format": "uri"}, "checked_at": {"type": "string", "format": "date"}
+      }
+    }
+  }
+}

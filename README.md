@@ -5,6 +5,7 @@
 - [旅程を見る](docs/itinerary.md)
 - [Google Mapsに登録するピンを見る](docs/pins.md)
 - [未解決事項を見る](docs/issues.md)
+- [宿泊先への電話確認リストを見る](docs/lodging-calls.md)
 
 ## このrepoの役割
 
@@ -45,7 +46,8 @@ pytest
 - 旅行前の準備事項: `plan/current.yaml` の `pre_trip_todos`
 - 変動情報・直前確認事項: `evidence/sources.yaml`
 - 立ち寄り場所までの概算距離: `estimates/distances.yaml`
+- 宿泊候補・Web在庫判定・電話確認結果: `research/lodging.yaml`
 - 旅程上の未確認事項・判断待ち: `issues.yaml`
 - 旅程スナップショット: `docs/itinerary.md`（詳細調査を転載せず、該当日の制約とIssueリンクに限定）
-- `docs/*.md` は直接編集禁止
+- `docs/*.md` は直接編集禁止（`docs/lodging-calls.md` も `research/lodging.yaml` から生成）
 - 変更後は validate → render → test

@@ -1,0 +1,342 @@
+schema_version: 1
+checked_at: 2026-09-01
+traveler: {adults: 1, rooms: 1, bicycles: 1}
+
+policy:
+  web_available: 指定日・大人1名・1室のWeb在庫を確認済み。通常の予約候補とし、自転車保管だけ未確認なら電話してよい
+  explicit_web_unavailable: 宿が実際に利用する公式予約システムまたは信頼できるOTAで、指定日の大人1名・1室が満室または販売終了と明示されている
+  phone_required: 公式が電話予約のみ、日別空室を確認できるWeb予約システムがない、またはOTA在庫が公式販売在庫と連動する根拠がない
+  single_occupancy_phone_check: 部屋は販売されているが、Webでは2名利用しか確認できず、1名利用不可または1名1室満室とは明示されていない
+  rules:
+    - Web在庫を適切に観測できる宿はWebで判定する
+    - Web満室が明示された宿は、裏在庫への期待だけを理由に電話しない
+    - OTAで料金が出ない、検索結果に出ない、プランが表示されないというだけでは満室と判定しない
+    - 電話予約主体の小規模宿はWeb上の在庫なしと解釈せず、電話確認する
+    - 小規模地域ではWeb検索だけで地域全体の宿泊可能性を判断しない
+    - 電話前のavailabilityは推測せず、availability_unknownのままにする
+
+stay_searches:
+  - date: 2026-09-22
+    checkout_date: 2026-09-23
+    preferred_area_ref: stay.shimofuro
+    fallback_area_refs: [stay.ohata, stay.mutsu]
+    call_order_area_refs: [stay.shimofuro, stay.ohata, stay.mutsu]
+    purpose: 恐山・薬研経由で下風呂へ到着し、翌朝は大間崎・大間フェリーターミナルへ北上する
+    meal_priority: 現地で夕食を確保しにくいため1泊2食を第一希望とする
+    candidates:
+      - candidate_key: hotel-new-shimofuro
+        name: ホテルニュー下風呂
+        area_ref: stay.shimofuro
+        accommodation_type: onsen_ryokan
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts: [公式観光情報の予約方法は電話受付, 客室25室（和室24・洋室1）, 各個室にトイレあり, チェックイン15時・チェックアウト10時, 宿泊者の温泉利用は基本24時間]
+        location_fit: 下風呂の第一候補。翌朝の大間方面へ前進済みで、温泉地で夕食を確保できる可能性が高い
+        sources:
+          - {title: 風間浦村観光ポータル「ホテル ニュー下風呂」, url: 'https://www.yukaimura.com/onsen/new_shimofuro.html'}
+        phone_check:
+          required: true
+          priority: 1
+          status: pending
+          phone: '0175-36-2021'
+          reception_hours: 09:00〜23:00
+          target_plan: 大人1名・個室・1泊2食
+          alternative_plans: [1泊2食が不可なら朝食付き, 食事付きが不可なら素泊まり]
+          questions: [希望する食事プランで1名利用できるか]
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+      - candidate_key: tsuruya-satsukiso
+        name: つる屋さつき荘
+        area_ref: stay.shimofuro
+        accommodation_type: onsen_ryokan
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts: [公式観光情報の予約方法は電話, 和室5室の小規模宿, 地元食材を使った家庭料理を提供, チェックイン16時・チェックアウト10時, 宿泊者は温泉を24時間利用可能]
+        location_fit: Webで観測できない小規模な電話予約在庫を確認する下風呂の第二候補
+        sources:
+          - {title: しもきたツーリズム「下風呂の本」, url: 'https://shimokita-tourism.jp/shimofuro-book'}
+        phone_check:
+          required: true
+          priority: 2
+          status: pending
+          phone: '0175-36-2625'
+          reception_hours: null
+          target_plan: 大人1名・個室・1泊2食
+          alternative_plans: []
+          questions: []
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+      - candidate_key: oogiya-ryokan
+        name: おおぎや旅館
+        area_ref: stay.shimofuro
+        accommodation_type: onsen_ryokan
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts: [電話で予約を受け付け, 和室11室, 料金プランは宿へ問い合わせ, チェックイン15時・チェックアウト10時]
+        location_fit: 下風呂内で食事付きと価格を電話で調整できる候補
+        sources:
+          - {title: おおぎや旅館公式サイト, url: 'https://www.oogiyaryokan.com/'}
+          - {title: しもきたツーリズム「下風呂の本」, url: 'https://shimokita-tourism.jp/shimofuro-book'}
+        phone_check:
+          required: true
+          priority: 3
+          status: pending
+          phone: '0175-36-2440'
+          reception_hours: null
+          target_plan: 大人1名・個室・1泊2食（通常料理またはビジネス相当の安いプラン）
+          alternative_plans: [2食付きが不可なら素泊まり]
+          questions: [料金を抑えた通常料理またはビジネス相当プランがあるか]
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+      - candidate_key: sasaki-ryokan
+        name: 佐々木旅館
+        area_ref: stay.shimofuro
+        accommodation_type: onsen_ryokan
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts: [公式観光情報の予約方法は電話, 和室6室, 家庭料理を提供, チェックイン15時・チェックアウト10時]
+        location_fit: 基本1日1組と案内される小規模宿で、Web検索では判定できない下風呂候補
+        sources:
+          - {title: しもきたツーリズム「下風呂の本」, url: 'https://shimokita-tourism.jp/shimofuro-book'}
+        phone_check:
+          required: true
+          priority: 4
+          status: pending
+          phone: '0175-36-2525'
+          reception_hours: null
+          target_plan: 大人1名・個室・1泊2食
+          alternative_plans: []
+          questions: []
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+      - candidate_key: tsubota-ryokan
+        name: つぼた旅館
+        area_ref: stay.shimofuro
+        accommodation_type: onsen_ryokan
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts: [公式観光情報に一人旅・ビジネス向けプランの案内あり, 指定日の明示的な1名1室満室記録はリポジトリ内にない]
+        location_fit: 一人利用向けの明記があり、条件付き候補から電話候補へ含める
+        sources:
+          - {title: しもきたツーリズム「下風呂の本」, url: 'https://shimokita-tourism.jp/shimofuro-book'}
+        phone_check:
+          required: true
+          priority: 5
+          status: pending
+          phone: '0175-36-2456'
+          reception_hours: null
+          target_plan: 大人1名・個室・1泊2食（一人旅・ビジネス向けプラン）
+          alternative_plans: [朝食付き, 素泊まり]
+          questions: [一人旅・ビジネス向けプランを指定日に利用できるか]
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+      - candidate_key: minshuku-sugawara
+        name: 民宿 菅原
+        area_ref: stay.shimofuro
+        accommodation_type: minshuku
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts: [公式サイトは予約方法を直接電話と案内, 朝食・夕食あり, チェックイン16時・チェックアウト10時, 指定日の明示的な1名1室満室記録はリポジトリ内にない]
+        location_fit: 下風呂の食事付き小規模宿。公式案内に従いWeb表示ではなく電話で判定する
+        sources:
+          - {title: 民宿菅原公式サイト, url: 'https://www.minsyukusugawara.com/'}
+          - {title: しもきたツーリズム「民宿 菅原」, url: 'https://shimokita-tourism.jp/accommodations/11'}
+        phone_check:
+          required: true
+          priority: 6
+          status: pending
+          phone: '0175-36-2443'
+          reception_hours: null
+          target_plan: 大人1名・個室・1泊2食
+          alternative_plans: [朝食付き, 素泊まり]
+          questions: []
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+      - candidate_key: minshuku-matsunoki
+        name: 民宿 松ノ木
+        area_ref: stay.ohata
+        accommodation_type: minshuku
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts:
+          - 電話予約
+          - '1泊2食7,000円（税別）の案内あり'
+          - '海鮮プラン1泊2食8,000円（税別）'
+          - '素泊まり5,000円（税別）'
+          - チェックイン15時・チェックアウト10時
+        location_fit: 下風呂が取れない場合の第一代替。むつ市街へ戻るより翌日の大間方向に合理的
+        sources:
+          - {title: むつ商工会議所「民宿 松ノ木」, url: 'https://www.mutsucci.or.jp/cin/hr/matunoki.htm'}
+        phone_check:
+          required: true
+          priority: 7
+          status: pending
+          phone: '0175-34-2467'
+          reception_hours: null
+          target_plan: 大人1名・個室・ビジネスプラン1泊2食
+          alternative_plans: [海鮮プラン1泊2食, 素泊まり]
+          questions: [2026年9月22日の税込総額はいくらか, 1人部屋を利用できるか]
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+      - candidate_key: minshuku-park-shimokita
+        name: 民宿パーク下北
+        area_ref: stay.mutsu
+        accommodation_type: minshuku
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts:
+          - 全室個室
+          - '公式現行料金はシングル素泊まり5,280円・朝食付き5,940円・夕食付き6,710円・2食付き7,700円（各税込）'
+          - Wi-Fi・洗濯設備あり
+        location_fit: 大畑でも取れない場合の安全網。翌日の大間までの自転車距離が増えるため優先度を下げる
+        sources:
+          - {title: 民宿パーク下北公式サイト, url: 'https://park.kousei0175.com/'}
+        phone_check:
+          required: true
+          priority: 8
+          status: pending
+          phone: '0175-23-1051'
+          reception_hours: null
+          target_plan: 大人1名・シングル・2食付き7,700円（税込）
+          alternative_plans: [夕食付き, 素泊まり]
+          questions: [公式掲載料金から変更がないか]
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+  - date: 2026-09-24
+    checkout_date: 2026-09-25
+    preferred_area_ref: stay.shikabe
+    fallback_area_refs: [stay.minamikayabe, stay.mori]
+    call_order_area_refs: [stay.shikabe, stay.mori, stay.minamikayabe]
+    purpose: 鹿部到着後に宿泊し、翌日は森町経由で八雲へ北上する
+    meal_priority: 鹿部では夕食確保を重視して2食付きを優先し、森町では市街地で夕食を確保する
+    candidates:
+      - candidate_key: yoshinoyu
+        name: 温泉旅館 吉の湯
+        area_ref: stay.shikabe
+        accommodation_type: onsen_ryokan
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts: [鹿部温泉観光協会が現行の宿泊施設として掲載, 地元魚介・地場食材を使った料理, 詳細・料金・日別空室は問い合わせが必要]
+        location_fit: 鹿部の第一候補。翌日の森町・八雲方向へ自然に接続でき、館内夕食を期待できる
+        sources:
+          - {title: 鹿部温泉観光協会「会員紹介（宿泊）」, url: 'https://shikabe.jp/groups/member-stay/'}
+        phone_check:
+          required: true
+          priority: 1
+          status: pending
+          phone: '01372-7-2211'
+          reception_hours: null
+          target_plan: 大人1名・個室・できるだけ安い1泊2食
+          alternative_plans: [朝食付き, 素泊まり]
+          questions: [料金差が小さい2食付きプランがあるか]
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+      - candidate_key: shikanoyu
+        name: 温泉旅館 鹿の湯
+        area_ref: stay.shikabe
+        accommodation_type: onsen_ryokan
+        availability_class: single_occupancy_phone_check
+        status: availability_unknown
+        static_facts:
+          - インターネット予約・電話予約に対応
+          - 和室10室
+          - '大人1泊2食11,700円〜16,100円（税・サービス料込み）'
+          - ビジネス割引料金あり
+          - 指定日の明示的な1名1室満室記録はリポジトリ内にない
+        location_fit: 鹿部の第二候補。通常観光料金だけでなく1名へのビジネス割引適用を電話で確認する
+        sources:
+          - {title: 温泉旅館 鹿の湯公式サイト, url: 'https://www.shikabe-shikanoyu.net/'}
+        phone_check:
+          required: true
+          priority: 2
+          status: pending
+          phone: '01372-7-2001'
+          reception_hours: null
+          target_plan: 大人1名・個室・ビジネス割引料金の1泊2食
+          alternative_plans: [通常の1泊2食, 朝食付き]
+          questions: [大人1名にビジネス割引料金を適用できるか, Webで1名商品が出ない場合も1名利用できるか]
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+      - candidate_key: fresco-mori
+        name: ビジネスホテル フレスコ森
+        area_ref: stay.mori
+        accommodation_type: business_hotel
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts: [電話予約可能, 森駅徒歩約7分, 周囲に飲食店あり, Wi-Fi・コインランドリーあり, 2026年4月以降は宿泊料金に応じた北海道宿泊税が別途必要]
+        location_fit: 鹿部が取れない場合の第一代替。翌日の八雲方向へ前進できる
+        sources:
+          - {title: ビジネスホテル フレスコ森公式サイト, url: 'https://fresco-mori.com/'}
+        phone_check:
+          required: true
+          priority: 3
+          status: pending
+          phone: '01374-2-6451'
+          reception_hours: null
+          target_plan: 大人1名・通常シングル・素泊まり
+          alternative_plans: [新設シングル]
+          questions: [宿泊税を含む税込総額はいくらか]
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+      - candidate_key: rooston-hotel
+        name: ルーストンホテル
+        area_ref: stay.mori
+        accommodation_type: business_hotel
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts: [森駅徒歩約1分, シングル24室, 館内に居酒屋あり, コンビニ至近, Wi-Fiあり]
+        location_fit: 森町の第二候補。駅前で食事を確保しやすく、翌日の八雲方向へ前進できる
+        sources:
+          - {title: 丸に武蔵商店「ルーストンホテル」, url: 'https://musashi-morimachi.com/business/rooston_hotel/'}
+        phone_check:
+          required: true
+          priority: 4
+          status: pending
+          phone: '01374-3-1188'
+          reception_hours: null
+          target_plan: 大人1名・シングル・素泊まり
+          alternative_plans: []
+          questions: [税・宿泊税込み総額はいくらか]
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+      - candidate_key: kakkumi-onsen-ryokan
+        name: 川汲温泉旅館
+        area_ref: stay.minamikayabe
+        accommodation_type: onsen_ryokan
+        availability_class: phone_required
+        status: availability_unknown
+        static_facts: [函館市公式ページ掲載の現行連絡先は090-7652-8952, 函館市川汲町2019, 小規模な温泉宿, 現在の宿泊料金・食事プラン・日別空室はWebで確定できない]
+        location_fit: 鹿部・森町とも取れない場合のバックアップ。翌日の八雲方向と逆向きになるため最後に確認する
+        sources:
+          - {title: 函館市「温泉」, url: 'https://www.city.hakodate.hokkaido.jp/docs/2020013000086/'}
+        phone_check:
+          required: true
+          priority: 5
+          status: pending
+          phone: '090-7652-8952'
+          reception_hours: null
+          target_plan: 大人1名・個室（2食付き、朝食付き、素泊まりの順に確認）
+          alternative_plans: [朝食付き, 素泊まり]
+          questions: [宿泊営業を現在も行っているか, 夕食開始時刻は何時か]
+          result: {availability: null, total_price_yen: null, meals: null, payment: null, bicycle_storage: null, checkin_deadline: null, cancellation: null, called_at: null, notes: []}
+
+explicit_web_unavailable: []
+
+common_phone_questions:
+  - 2026年の対象日に、大人1名・1室・個室で泊まれるか
+  - 希望プランと、税・サービス料・宿泊税を含む支払総額はいくらか
+  - 現金のみか、カードまたはその他の決済を利用できるか
+  - 夕食・朝食の有無と開始時刻は何時か
+  - 自転車行程が遅れた場合、夕食に間に合う最終到着時刻は何時か
+  - 自転車1台で旅行しているが、客室へ持ち込めるか
+  - 客室持込み不可の場合、宿泊者以外が自由に出入りできない建物内で保管できるか
+  - 屋内保管場所は施錠できるか
+  - 輪行袋への収納または事前連絡が必要か
+  - 最終チェックイン時刻は何時か
+  - 無料キャンセル期限と、前日・当日のキャンセル料はいくらか
+
+noboribetsu_policy:
+  - 登別温泉の主要宿はオンライン販売が成熟しているため、既存Web調査を基本的に信用する
+  - 価格または1名利用条件が合わなければ、stay.noboribetsuまたはstay.higashi-muroranのWeb予約可能なビジネスホテルを優先する
+  - Web満室の大規模旅館へ裏在庫を期待して順番に電話しない
+  - 公式が電話予約主体の小規模宿を新たに確認した場合だけ電話候補へ追加する

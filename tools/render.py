@@ -166,6 +166,19 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         issue["subject_names"] = [resolve_name(subject, index) for subject in issue["subjects"]]
         issue["anchor"] = issue["id"].replace(".", "-")
         issues.append(issue)
+    lodging = data["research/lodging.yaml"]
+    lodging_searches = []
+    for raw_search in lodging["stay_searches"]:
+        search = dict(raw_search)
+        search["dated_heading"] = dated_heading(search["date"])
+        search["preferred_area_name"] = resolve_name(search["preferred_area_ref"], index)
+        search["fallback_area_names"] = [
+            resolve_name(area_ref, index) for area_ref in search["fallback_area_refs"]
+        ]
+        search["call_order_area_names"] = [
+            resolve_name(area_ref, index) for area_ref in search["call_order_area_refs"]
+        ]
+        lodging_searches.append(search)
     for day in days:
         day["issue_items"] = [
             issue
@@ -181,6 +194,11 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         "rechecks": rechecks,
         "open_issues": [issue for issue in issues if issue["status"] in {"open", "in_progress"}],
         "closed_issues": [issue for issue in issues if issue["status"] in {"resolved", "wont_fix"}],
+        "lodging_policy": lodging["policy"],
+        "lodging_searches": lodging_searches,
+        "lodging_common_questions": lodging["common_phone_questions"],
+        "lodging_noboribetsu_policy": lodging["noboribetsu_policy"],
+        "lodging_explicit_web_unavailable": lodging["explicit_web_unavailable"],
     }
 
 
@@ -203,6 +221,7 @@ def render_repository(root: Path) -> None:
         ("itinerary.md.j2", "itinerary.md"),
         ("pins.md.j2", "pins.md"),
         ("issues.md.j2", "issues.md"),
+        ("lodging-calls.md.j2", "lodging-calls.md"),
     ):
         rendered = environment.get_template(template_name).render(**context)
         rendered = re.sub(r"\n{3,}", "\n\n", rendered)
@@ -220,7 +239,7 @@ def main() -> int:
     except (OSError, ValueError) as exc:
         print(f"ERROR {exc}", file=sys.stderr)
         return 1
-    print("Rendered docs/itinerary.md, docs/pins.md, and docs/issues.md.")
+    print("Rendered docs/itinerary.md, docs/pins.md, docs/issues.md, and docs/lodging-calls.md.")
     return 0
 
 

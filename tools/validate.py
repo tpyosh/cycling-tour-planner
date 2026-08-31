@@ -94,6 +94,59 @@ def validate_repository(root: Path) -> list[str]:
                 f"ERROR evidence/sources.yaml {evidence.get('id')}: date_windows must be unique and ascending"
             )
 
+    lodging = data["research/lodging.yaml"]
+    lodging_days_by_date = {
+        day.get("date"): day for day in data["plan/current.yaml"].get("days", [])
+    }
+    lodging_candidate_keys: set[str] = set()
+    for search in lodging.get("stay_searches", []):
+        search_date = search.get("date", "unknown")
+        canonical_day = lodging_days_by_date.get(search_date)
+        if canonical_day:
+            if search.get("preferred_area_ref") not in canonical_day["stay"]["preferred"]:
+                errors.append(
+                    f"ERROR research/lodging.yaml {search_date}: preferred area differs from current plan"
+                )
+            if search.get("fallback_area_refs") != canonical_day["stay"]["fallback"]:
+                errors.append(
+                    f"ERROR research/lodging.yaml {search_date}: fallback areas differ from current plan"
+                )
+        allowed_areas = {search.get("preferred_area_ref"), *search.get("fallback_area_refs", [])}
+        priorities: list[int] = []
+        for candidate in search.get("candidates", []):
+            candidate_key = candidate.get("candidate_key")
+            if candidate_key in lodging_candidate_keys:
+                errors.append(f"ERROR research/lodging.yaml: duplicate candidate key: {candidate_key}")
+            lodging_candidate_keys.add(candidate_key)
+            if candidate.get("area_ref") not in allowed_areas:
+                errors.append(
+                    f"ERROR research/lodging.yaml {candidate_key}: area is outside preferred/fallback areas"
+                )
+            if candidate.get("area_ref") not in index:
+                errors.append(
+                    f"ERROR research/lodging.yaml {candidate_key}: unknown area id: {candidate.get('area_ref')}"
+                )
+            phone_check = candidate.get("phone_check", {})
+            priorities.append(phone_check.get("priority"))
+            result = phone_check.get("result", {})
+            if phone_check.get("status") == "pending" and (
+                candidate.get("status") != "availability_unknown"
+                or result.get("availability") is not None
+                or result.get("called_at") is not None
+            ):
+                errors.append(
+                    f"ERROR research/lodging.yaml {candidate_key}: pending phone check claims a result"
+                )
+        if priorities != list(range(1, len(priorities) + 1)):
+            errors.append(
+                f"ERROR research/lodging.yaml {search_date}: phone priorities must be consecutive in call order"
+            )
+    for excluded in lodging.get("explicit_web_unavailable", []):
+        if excluded.get("area_ref") not in index:
+            errors.append(
+                f"ERROR research/lodging.yaml excluded {excluded.get('name')}: unknown area id"
+            )
+
     evidence_ids = {item["id"] for item in data["evidence/sources.yaml"].get("items", [])}
     issue_ids: set[str] = set()
     for issue in data["issues.yaml"].get("items", []):
