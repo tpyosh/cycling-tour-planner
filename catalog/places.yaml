@@ -11,7 +11,7 @@ items:
   - {id: place.oma-cape, name: 大間崎, kind: natural_feature, status: shortlisted, map_query: 大間崎, description: 本州最北端の岬, tags: [cape]}
   - {id: place.hakodate-northern-peoples-museum, name: 函館市北方民族資料館, kind: museum, status: shortlisted, map_query: 函館市北方民族資料館, description: 北方民族の文化資料を展示, tags: [ainu, history]}
   - {id: place.toi-line-arch, name: 旧戸井線アーチ橋, kind: historic_site, status: shortlisted, map_query: 旧戸井線アーチ橋, description: 未成線のコンクリートアーチ遺構, tags: [railway, ruins]}
-  - {id: place.esan, name: 恵山, kind: natural_feature, status: shortlisted, map_query: 恵山, description: 活火山の地形を体感できる山, tags: [volcanic]}
+  - {id: place.esan, name: 恵山, kind: natural_feature, status: deferred, map_query: 恵山, description: 活火山の地形を体感できる山, tags: [volcanic]}
   - id: place.mizunashi-kaihin-onsen
     name: 水無海浜温泉
     kind: hot_spring

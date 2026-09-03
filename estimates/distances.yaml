@@ -60,11 +60,11 @@ segments:
     date: '2026-09-24'
     origin: {ref: stay.hakodate, label: JR函館駅}
     mode: bicycle
-    route_variant: all-optional
+    route_variant: main
     display: true
     calculation:
-      method: chatgpt_research
-      provider: ChatGPT Web調査
+      method: manual
+      provider: 既存調査結果の経路差分修正
       calculated_at: '2026-08-30'
       references:
         - https://www.city.hakodate.hokkaido.jp/docs/2024030500093/
@@ -72,11 +72,10 @@ segments:
         - https://www.hkd.mlit.go.jp/ky/kn/dou_kei/k5m5qg000000324h-att/k5m5qg00000032ch.pdf
     points:
       - {target: place.toi-line-arch, distance_km: 25, confidence: medium, note: 汐首町441番地先。橋梁へ立ち入らず国道278号側の見学可能地点まで}
-      - {target: place.esan, distance_km: 45, confidence: high, note: 恵山火口原駐車場まで。山頂までの登山距離は含めない}
-      - {target: place.mizunashi-kaihin-onsen, distance_km: 68, confidence: medium, note: 火口原から国道278号側へ戻り恵山岬町へ公道迂回。海岸ショートカットは使用しない}
-      - {target: place.jomon-center, distance_km: 95, additional_distance_km: 0, confidence: medium, note: 南茅部を通る基本ルート沿いで1 km丸めでは追加距離0}
-      - {target: place.kakinoshima, distance_km: 95, additional_distance_km: 0, confidence: high, note: 縄文文化交流センターと駐車場共用。自転車移動を加算しない}
-      - {target: place.shikabe-geyser, distance_km: 110, additional_distance_km: 0, confidence: medium, note: 鹿部側の基準終点。基本ルートの終点なので追加距離0}
+      - {target: place.mizunashi-kaihin-onsen, distance_km: 52, confidence: medium, note: 恵山火口原へ上らず国道278号沿いに進む。旧ルートの68 kmから恵山立ち寄りの往復相当16 kmを除外した概算}
+      - {target: place.jomon-center, distance_km: 79, additional_distance_km: 0, confidence: medium, note: 南茅部を通る基本ルート沿い。旧ルートの累計距離から恵山立ち寄りの往復相当16 kmを除外}
+      - {target: place.kakinoshima, distance_km: 79, additional_distance_km: 0, confidence: high, note: 縄文文化交流センターと駐車場共用。自転車移動を加算しない}
+      - {target: place.shikabe-geyser, distance_km: 94, additional_distance_km: 0, confidence: medium, note: 鹿部側の基準終点。旧ルートの累計距離から恵山立ち寄りの往復相当16 kmを除外}
 
   - id: distance.20260925-shikabe-banjaku
     date: '2026-09-25'

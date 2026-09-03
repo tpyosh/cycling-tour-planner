@@ -33,13 +33,16 @@ def test_rendered_documents_contain_expected_content(repo_copy: Path) -> None:
     itinerary = itinerary_path.read_text(encoding="utf-8")
     pins = pins_path.read_text(encoding="utf-8")
     issues = issues_path.read_text(encoding="utf-8")
-    assert "| 9/24 | 函館市街 → 鹿部 | 105–130 km | 鹿部 | 南茅部 / 森町 |" in itinerary
+    assert "| 9/24 | 函館市街 → 鹿部 | 90–105 km | 鹿部 | 南茅部 / 森町 |" in itinerary
     assert "## 9/23（水）" in itinerary
     assert "シゲちゃんすし" in itinerary
     assert "# 出発前の再確認" in itinerary
-    assert "水無海浜温泉（JR函館駅から自転車累計 約68 km） — **潮汐上の入浴可能候補時間: 05:00–11:00 / 19:00–22:00**" in itinerary
+    assert "水無海浜温泉（JR函館駅から自転車累計 約52 km） — **潮汐上の入浴可能候補時間: 05:00–11:00 / 19:00–22:00**" in itinerary
+    assert "函館市縄文文化交流センター（JR函館駅から自転車累計 約79 km" in itinerary
+    assert "鹿部間歇泉公園（JR函館駅から自転車累計 約94 km" in itinerary
+    assert "恵山（" not in itinerary
     assert "### 日程リスク" in itinerary
-    assert "[9/24に水無海浜温泉の朝枠へ到着できるか未確認](issues.md#issue-mizunashi-arrival-window-20260924)" in itinerary
+    assert "[9/24の水無海浜温泉への到着時刻を要確定](issues.md#issue-mizunashi-arrival-window-20260924)" in itinerary
     assert "# 自然条件で利用時間が変わる立ち寄り先" not in itinerary
     assert "| 9/28 | 08:00–12:00 / 20:00–22:00 |" not in itinerary
     assert "函館市「2026年 水無海浜温泉入浴可能時間表」" not in itinerary
@@ -58,7 +61,7 @@ def test_rendered_documents_contain_expected_content(repo_copy: Path) -> None:
     assert "9/22の「むつ→恐山→薬研→下風呂」は" in itinerary
     assert "# 旅行前TODO" in itinerary
     assert "`水無海浜温泉`" in pins
-    assert "9/24に水無海浜温泉の朝枠へ到着できるか未確認" in issues
+    assert "9/24の水無海浜温泉への到着時刻を要確定" in issues
     assert '<a id="issue-mizunashi-arrival-window-20260924"></a>' in issues
     assert "`issue.mizunashi-arrival-window-20260924`" in issues
     assert "朝枠を使う場合" in issues

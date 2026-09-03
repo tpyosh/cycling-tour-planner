@@ -52,15 +52,17 @@ days:
   - date: 2026-09-24
     start: stay.hakodate
     finish: stay.shikabe
-    cycling: {distance_km: {min: 105, max: 130}}
-    routes: [route.hakodate-toi-esan-mizunashi, route.mizunashi-shikabe]
+    cycling: {distance_km: {min: 90, max: 105}}
+    routes: [route.hakodate-toi-mizunashi, route.mizunashi-shikabe]
     transport: []
     transport_alternatives: []
-    visits: [place.toi-line-arch, place.esan, place.mizunashi-kaihin-onsen]
-    optional_visits: [place.jomon-center, place.kakinoshima, place.shikabe-geyser]
+    visits: [place.mizunashi-kaihin-onsen, place.jomon-center, place.kakinoshima, place.shikabe-geyser]
+    optional_visits: [place.toi-line-arch]
     food: []
     stay: {preferred: [stay.shikabe], fallback: [stay.minamikayabe, stay.mori]}
-    notes: []
+    notes:
+      - 水無海浜温泉の朝枠をこの日の最優先とし、函館市の9/24公式入浴可能候補時間05:00〜11:00に余裕を持って到着できるよう、到着までは原則として見学を挟まずに進む。旧戸井線アーチ橋は朝枠への余裕を損なわない場合だけ立ち寄る。入浴可能時間は固定営業時間ではなく、潮位と当日の海況に依存する時間窓である
+      - 9/22の恐山で火山景観と信仰文化を体験するため、9/24は海岸の野湯と南茅部の縄文文化を組み合わせ、旅全体の体験の多様性を優先する
   - date: 2026-09-25
     start: stay.shikabe
     finish: stay.yakumo

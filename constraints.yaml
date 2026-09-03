@@ -5,6 +5,8 @@ hard:
   - id: return-ferry-tomakomai-sendai
     description: 2026-09-27 19:00 苫小牧発、2026-09-28 10:00 仙台着の太平洋フェリーを帰路に利用する
 soft:
+  - id: prioritize-mizunashi-morning-window
+    description: 9/24は水無海浜温泉の朝枠を最優先とし、他の立ち寄りや見学は朝枠への余裕を損なわない範囲に限る
   - id: prioritize-high-value-cycling
     description: 距離を稼ぐことより、そのルート固有の体験価値を優先する
   - id: allow-multimodal
