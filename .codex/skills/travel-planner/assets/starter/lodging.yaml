@@ -1,0 +1,9 @@
+schema_version: 1
+checked_at: null
+traveler:
+  adults: 1
+  rooms: 1
+special_requirements: []
+stay_searches: []
+explicit_web_unavailable: []
+common_confirmation_questions: []
