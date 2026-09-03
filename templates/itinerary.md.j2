@@ -2,147 +2,116 @@
 
 # {{ trip.title }}
 
-`{{ trip.start_date }}`〜`{{ trip.end_date }}` / 出発地: {{ trip.origin }} / 状態: working plan
+{% if trip.start_date and trip.end_date %}`{{ trip.start_date }}`〜`{{ trip.end_date }}`{% else %}日程未設定{% endif %} / 出発地: {{ trip.origin or '未設定' }} / 状態: working plan
 
-## 往路はFDA便名で直接予約する
+{% if recommendations %}
+## 推奨事項
 
-{% for recommendation in recommendations -%}
+{% for recommendation in recommendations %}
 - {{ recommendation }}
 {% endfor %}
+{% endif %}
 
-## 通常旅程（9/21出発）
+## 通常旅程
 
-| 日付 | 行程 | 自転車 | 宿泊 | 代替 |
+{% if days %}
+| 日付 | 行程 | 自力移動 | 宿泊 | 代替 |
 | --- | --- | ---: | --- | --- |
-{% for day in days -%}
+{% for day in days %}
 | {{ day.short_date }} | {{ day.start_name }} → {{ day.finish_name }} | {{ day.cycling.distance_km.min }}–{{ day.cycling.distance_km.max }} km | {{ day.preferred_names | join(' / ') if day.preferred_names else '—' }} | {{ day.fallback_names | join(' / ') if day.fallback_names else '—' }} |
 {% endfor %}
+{% else %}
+- 日程未設定。`trip.yaml`、`constraints.yaml`、`catalog/*.yaml` を整えた後、`plan/current.yaml` に日別計画を追加してください。
+{% endif %}
 
 {% for day in days %}
 ## {{ day.dated_heading }} {{ day.start_name }} → {{ day.finish_name }}
 
-- **自転車:** {{ day.cycling.distance_km.min }}–{{ day.cycling.distance_km.max }} km
+- **自力移動:** {{ day.cycling.distance_km.min }}–{{ day.cycling.distance_km.max }} km
 - **宿泊:** {{ day.preferred_names | join(' / ') if day.preferred_names else 'なし' }}
 - **代替:** {{ day.fallback_names | join(' / ') if day.fallback_names else '—' }}
 
 {% if day.routes_items %}
 ### ルート
-
 {% for item in day.routes_items %}
 - {{ item.name }}{% if item.description %} — {{ item.description }}{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.transport_items %}
 ### 交通
-
 {% for item in day.transport_items %}
-{% if item.mode == 'airplane' -%}
-- **{{ item.name }}** — {{ item.from_name }} {{ item.departure_time }} → {{ item.to_name }} {{ item.arrival_time }}
-{% else -%}
-- {{ item.name }}{% if item.departure %}（{{ item.departure }}発{% if item.arrival %} → {{ item.arrival }}着{% endif %}）{% endif %}
-{% endif -%}
-{% if item.booking is defined %}
-
-#### 予約情報
-
-- **予約番号:** {{ item.booking.reservation_number }}
-- **船名・客室:** {{ item.booking.vessel }} / {{ item.booking.room }}
-- **人数・車両:** {{ item.booking.passenger_count }}名 / 乗用車{{ item.booking.vehicles.car }}台 / 二輪車{{ item.booking.vehicles.motorcycle }}台
-- **料金:** {{ item.booking.amount }}（{{ item.booking.discount_plan }}）
-- **支払い:** {{ item.booking.payment_status }}
-- **変更期限:** {{ item.booking.change_deadline_display }}まで
-- **変更時の注意:** {{ item.booking.change_note }}
-{% endif %}
+- {{ item.name }}{% if item.departure_time %} — {{ item.from_name }} {{ item.departure_time }} → {{ item.to_name }} {{ item.arrival_time or '時刻未定' }}{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.transport_alternative_items %}
-### 同日代替便
-
+### 代替交通
 {% for item in day.transport_alternative_items %}
-- **{{ item.name }}** — {{ item.from_name }} {{ item.departure_time }} → {{ item.to_name }} {{ item.arrival_time }}
+- {{ item.name }}{% if item.departure_time %} — {{ item.departure_time }} → {{ item.arrival_time or '時刻未定' }}{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.visits_items %}
 ### 立ち寄り
-
 {% for item in day.visits_items %}
-- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から自転車累計 約{{ item.distance.distance_display }} km{% if item.distance.additional_distance_display is defined %}、基本ルート比 +約{{ item.distance.additional_distance_display }} km{% endif %}）{% endif %}{% if item.availability_display is defined %} — **潮汐上の入浴可能候補時間: {{ item.availability_display }}**（海況により入浴不可の場合あり）{% endif %}
+- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から累計 約{{ item.distance.distance_display }} km）{% endif %}{% if item.availability_display is defined %} — **利用可能時間: {{ item.availability_display }}**{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.optional_visits_items %}
 ### 余裕があれば
-
 {% for item in day.optional_visits_items %}
-- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から自転車累計 約{{ item.distance.distance_display }} km{% if item.distance.additional_distance_display is defined %}、基本ルート比 +約{{ item.distance.additional_distance_display }} km{% endif %}）{% endif %}
+- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から累計 約{{ item.distance.distance_display }} km）{% endif %}
+{% endfor %}
+{% endif %}
+{% if day.food_items %}
+### 食事・補給
+{% for item in day.food_items %}
+- {{ item.name }}{% if item.description %} — {{ item.description }}{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.issue_items %}
 ### 日程リスク
-
 {% for issue in day.issue_items %}
 - [{{ issue.title }}](issues.md#{{ issue.anchor }})
 {% endfor %}
 {% endif %}
-{% if day.food_items %}
-### 食事
-
-{% for item in day.food_items %}
-- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から自転車累計 約{{ item.distance.distance_display }} km）{% endif %} — {{ item.description }}
-{% endfor %}
-{% endif %}
 {% if day.notes %}
 ### 注意・メモ
-
 {% for note in day.notes %}
 - {{ note }}
 {% endfor %}
 {% endif %}
 {% endfor %}
+
 {% for contingency in contingencies %}
-# 予備：{{ contingency.name }}
+## 予備：{{ contingency.name }}
 
-通常旅程とは別の予備計画です。発動条件は「{{ contingency.trigger }}」です。
+- **発動条件:** {{ contingency.trigger }}
+- **対象日:** {{ contingency.dated_heading }}
 
-## {{ contingency.dated_heading }} 名古屋 → むつ方面
-
+{% if contingency.transport_items %}
 ### 交通
-
 {% for item in contingency.transport_items %}
-{% if item.mode == 'airplane' -%}
-- **{{ item.name }}** — {{ item.from_name }} {{ item.departure_time }} → {{ item.to_name }} {{ item.arrival_time }}
-{% else -%}
-- {{ item.name }}{% if item.departure %}（{{ item.departure }}発{% if item.arrival %} → {{ item.arrival }}着{% endif %}）{% endif %}
-{% endif -%}
+- {{ item.name }}
 {% endfor %}
-
-### 同日代替便
-
-{% for item in contingency.transport_alternative_items %}
-- **{{ item.name }}** — {{ item.from_name }} {{ item.departure_time }} → {{ item.to_name }} {{ item.arrival_time }}
-{% endfor %}
-
-### 現在の旅程への影響
-
+{% endif %}
+### 影響
 {% for impact in contingency.impacts %}
 - {{ impact }}
 {% endfor %}
-
-### TODO：短縮方法は未決
-
+### 未決事項
 {% for item in contingency.unresolved %}
 - [ ] {{ item }}
 {% endfor %}
 {% endfor %}
 
-# 旅行前TODO
-
+{% if pre_trip_todos %}
+## 旅行前TODO
 {% for item in pre_trip_todos %}
-- [ ] **{{ item.due_date }}まで** — {{ item.description }}（{{ item.condition }}）
+- [ ] {% if item.due_date %}**{{ item.due_date }}まで** — {% endif %}{{ item.description }}{% if item.condition %}（{{ item.condition }}）{% endif %}
 {% endfor %}
+{% endif %}
 
 {% if rechecks %}
-# 出発前の再確認
-
+## 出発前の再確認
 {% for item in rechecks %}
 - {{ item.name }} — {{ item.claims | join(' / ') }}
 {% endfor %}

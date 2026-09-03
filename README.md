@@ -1,53 +1,38 @@
-# 下北・道南・胆振サイクリング 2026
+# 旅行計画スケルトン
 
-## 旅行者向けドキュメント
+このリポジトリは「1旅行1ブランチまたは1コピー」で使う、旅行計画の汎用スケルトンです。行き先、日付、候補、予約情報は未設定です。
 
-- [旅程を見る](docs/itinerary.md)
-- [Google Mapsに登録するピンを見る](docs/pins.md)
-- [未解決事項を見る](docs/issues.md)
-- [宿泊先への電話確認リストを見る](docs/lodging-calls.md)
+## 始め方
 
-## このrepoの役割
-
-このリポジトリは「1旅行1repo」で運用します。YAMLが唯一の正本（SSoT）で、`plan/current.yaml` が現在のworking planです。通常旅程は `days`、出発日を切り替える予備計画は `contingencies`、準備事項は `pre_trip_todos`、未解決事項は `issues.yaml` に記録します。過去のsnapshotにはファイルの複製ではなくGit履歴を使い、予約開始時や出発直前には `booking-start`、`pre-departure-final` などのtagを付けられます。`docs/*.md` はYAMLから作る生成物です。
-
-## 距離はデータ・計算・表示を分離する
-
-立ち寄り場所までの概算距離は、次の3層に分けて扱います。
-
-1. **データ:** `estimates/distances.yaml`に、区間の起点、対象地点、累計距離、確信度、計算方法、参照先を保存する
-2. **計算:** ChatGPTによるWeb調査、将来のルーティングAPI、MCPなどが、同じschemaに沿った距離データを生成する
-3. **表示:** `tools/render.py`は保存済みデータだけを読み、`templates/itinerary.md.j2`で表示する。外部サービスの呼び出しや距離計算は行わない
-
-この分離により、計算手段を変更しても`plan/current.yaml`と表示テンプレートは変更しません。外部サービスが一時的に使えない場合も、保存済みデータから同じ旅程を再生成できます。
-
-`estimates/distances.yaml`の`segment`は、鉄道やフェリーで自転車累計を再開する単位です。表示に使う区間だけ`display: true`とし、同じ日・同じ対象地点に複数の表示用距離を登録しません。再計算結果を比較用に残す場合は`display: false`にします。
-
-## `itinerary.md` は現行計画のスナップショット
-
-`docs/itinerary.md` には、現在採用している日程・ルート・立ち寄り先と、その日の実行判断に必要な制約だけを載せます。施設の基本情報、複数日にまたがる営業時間表、調査過程、出典一覧などの詳細資料は載せません。
-
-現行旅程に時間・安全・接続上の未解決リスクがある場合は、該当日の節に短い要約を置き、`docs/issues.md` の該当Issueへリンクします。問題の根拠、影響、次の確認事項、解決条件は `issues.yaml` で管理します。調査済みの事実と出典は `evidence/sources.yaml` に残します。
-
-## 日常操作
+1. `trip.yaml` に旅行名、日付、出発地、交通手段を記入する。
+2. `constraints.yaml` で変更できない条件と希望を分ける。
+3. `catalog/*.yaml` に候補を追加する。
+4. `plan/current.yaml` から採用する候補をIDで参照する。
+5. 調査結果は `evidence/sources.yaml`、計画上の未解決事項は `issues.yaml` に記録する。
+6. 検証後に旅行者向けMarkdownを生成する。
 
 ```bash
-python -m pip install -r requirements.txt
-python tools/validate.py
-python tools/render.py
-pytest
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python tools/validate.py
+.venv/bin/python tools/render.py
+.venv/bin/pytest -q
 ```
 
-## 編集ルール
+## 正本と生成物
 
-- 候補追加: `catalog/*.yaml`
-- 現行旅程変更: `plan/current.yaml`
-- 出発日変更などの予備計画: `plan/current.yaml` の `contingencies`（通常旅程の `days` へ混ぜない）
-- 旅行前の準備事項: `plan/current.yaml` の `pre_trip_todos`
-- 変動情報・直前確認事項: `evidence/sources.yaml`
-- 立ち寄り場所までの概算距離: `estimates/distances.yaml`
-- 宿泊候補・Web在庫判定・電話確認結果: `research/lodging.yaml`
-- 旅程上の未確認事項・判断待ち: `issues.yaml`
-- 旅程スナップショット: `docs/itinerary.md`（詳細調査を転載せず、該当日の制約とIssueリンクに限定）
-- `docs/*.md` は直接編集禁止（`docs/lodging-calls.md` も `research/lodging.yaml` から生成）
-- 変更後は validate → render → test
+- `trip.yaml`: 旅行の基本情報
+- `constraints.yaml`: ハード制約とソフト制約
+- `catalog/`: 立ち寄り先、経路、宿泊地域、交通、食事の候補
+- `plan/current.yaml`: 現在採用している日別計画と代替案
+- `evidence/sources.yaml`: 主張、出典、確認日、変動性、再確認要否
+- `issues.yaml`: 旅程を左右する未解決事項
+- `estimates/distances.yaml`: 距離の元データと計算方法
+- `research/lodging.yaml`: 宿候補と在庫確認の状態
+- `docs/`: YAMLから生成する旅行者向け資料。直接編集しない
+
+候補の調査状態と旅程への採用を混ぜません。採用は `plan/current.yaml` からの参照で表します。通常旅程と発動条件付きの代替案も分離します。
+
+## Codexスキル
+
+`.codex/skills/travel-planner/` に、制約整理、情報の鮮度管理、実現可能性確認、宿泊調査、代替案作成、品質確認の汎用ノウハウがあります。

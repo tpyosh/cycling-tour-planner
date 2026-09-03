@@ -15,12 +15,7 @@ from validate import validate_repository
 
 
 WEEKDAYS = "月火水木金土日"
-ISSUE_STATUS_LABELS = {
-    "open": "未着手",
-    "in_progress": "確認中",
-    "resolved": "解決済み",
-    "wont_fix": "対応しない",
-}
+ISSUE_STATUS_LABELS = {"open": "未着手", "in_progress": "確認中", "resolved": "解決済み", "wont_fix": "対応しない"}
 ISSUE_PRIORITY_LABELS = {"high": "高", "medium": "中", "low": "低"}
 
 
@@ -38,153 +33,102 @@ def resolve_name(value: str, index: dict[str, dict[str, Any]]) -> str:
     return index[value]["name"] if value in index else value
 
 
-def format_windows(windows: list[dict[str, str]]) -> str:
-    return " / ".join(f'{window["start"]}–{window["end"]}' for window in windows)
-
-
-def format_km(value: int | float) -> str:
-    return f"{value:g}"
-
-
-def prepare_distance_index(data: dict[str, dict[str, Any]]) -> dict[tuple[str, str], dict[str, Any]]:
-    result: dict[tuple[str, str], dict[str, Any]] = {}
-    for segment in data["estimates/distances.yaml"]["segments"]:
-        if not segment["display"]:
-            continue
-        for point in segment["points"]:
-            prepared = dict(point)
-            prepared["origin_label"] = segment["origin"]["label"]
-            prepared["distance_display"] = format_km(point["distance_km"])
-            if point.get("additional_distance_km", 0) > 0:
-                prepared["additional_distance_display"] = format_km(point["additional_distance_km"])
-            result[(segment["date"], point["target"])] = prepared
-    return result
-
-
 def prepare_transport(item: dict[str, Any], index: dict[str, dict[str, Any]]) -> dict[str, Any]:
     prepared = dict(item)
     prepared["from_name"] = resolve_name(item["from"], index)
     prepared["to_name"] = resolve_name(item["to"], index)
-    prepared["departure_time"] = (
-        datetime.fromisoformat(item["departure"]).strftime("%H:%M") if item["departure"] else None
-    )
-    prepared["arrival_time"] = (
-        datetime.fromisoformat(item["arrival"]).strftime("%H:%M") if item["arrival"] else None
-    )
-    if "booking" in item:
-        prepared["booking"] = dict(item["booking"])
-        prepared["booking"]["amount"] = f'{item["booking"]["amount_yen"]:,}円'
-        prepared["booking"]["change_deadline_display"] = datetime.fromisoformat(
-            item["booking"]["change_deadline"]
-        ).strftime("%Y年%m月%d日 %H:%M")
+    prepared["departure_time"] = datetime.fromisoformat(item["departure"]).strftime("%H:%M") if item["departure"] else None
+    prepared["arrival_time"] = datetime.fromisoformat(item["arrival"]).strftime("%H:%M") if item["arrival"] else None
     return prepared
 
 
 def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
     index = build_index(data)
-    distance_index = prepare_distance_index(data)
-    plan = data["plan/current.yaml"]
     evidence_items = data["evidence/sources.yaml"]["items"]
     raw_issues = data["issues.yaml"]["items"]
-    open_issue_subjects = {
-        subject
-        for issue in raw_issues
-        if issue["status"] in {"open", "in_progress"}
-        for subject in issue["subjects"]
+    windows = {
+        (evidence["subject"], dated["date"]): dated["windows"]
+        for evidence in evidence_items
+        for dated in evidence.get("date_windows", [])
     }
-    windows_by_subject_date: dict[tuple[str, str], list[dict[str, str]]] = {}
-    for evidence in evidence_items:
-        for dated in evidence.get("date_windows", []):
-            windows_by_subject_date[(evidence["subject"], dated["date"])] = dated["windows"]
-    days: list[dict[str, Any]] = []
-    adopted: set[str] = set()
-    for raw_day in plan["days"]:
-        day = dict(raw_day)
-        for field in ("routes", "transport", "visits", "optional_visits", "food"):
-            adopted.update(day[field])
-            day[f"{field}_items"] = [index[item_id] for item_id in day[field]]
-        day["transport_items"] = [prepare_transport(index[item_id], index) for item_id in day["transport"]]
-        day["transport_alternative_items"] = [
-            prepare_transport(index[item_id], index) for item_id in day["transport_alternatives"]
-        ]
-        for field in ("visits", "optional_visits"):
-            prepared_visits = []
-            for item_id in day[field]:
-                item = dict(index[item_id])
-                windows = windows_by_subject_date.get((item_id, day["date"]))
-                if windows:
-                    item["availability_display"] = format_windows(windows)
-                if (day["date"], item_id) in distance_index:
-                    item["distance"] = distance_index[(day["date"], item_id)]
-                prepared_visits.append(item)
-            day[f"{field}_items"] = prepared_visits
-        adopted.update(day["stay"]["preferred"])
-        adopted.update(day["stay"]["fallback"])
-        preferred = [index[item_id] for item_id in day["stay"]["preferred"]]
-        fallback = [index[item_id] for item_id in day["stay"]["fallback"]]
-        day["preferred_names"] = [item["name"] for item in preferred]
-        day["fallback_names"] = [item["name"] for item in fallback]
-        prepared_food = []
-        for item_id in day["food"]:
-            item = dict(index[item_id])
-            if (day["date"], item_id) in distance_index:
-                item["distance"] = distance_index[(day["date"], item_id)]
-            prepared_food.append(item)
-        day["food_items"] = prepared_food
-        day["start_name"] = resolve_name(day["start"], index)
-        day["finish_name"] = resolve_name(day["finish"], index)
-        day["short_date"] = short_date(day["date"])
-        day["dated_heading"] = dated_heading(day["date"])
-        days.append(day)
-    contingencies = []
-    for raw_contingency in plan["contingencies"]:
-        contingency = dict(raw_contingency)
-        contingency["dated_heading"] = dated_heading(contingency["date"])
-        contingency["transport_items"] = [
-            prepare_transport(index[item_id], index) for item_id in contingency["transport"]
-        ]
-        contingency["transport_alternative_items"] = [
-            prepare_transport(index[item_id], index)
-            for item_id in contingency["transport_alternatives"]
-        ]
-        contingencies.append(contingency)
-    rechecks = []
-    for evidence in evidence_items:
-        if (
-            evidence["recheck_before_trip"]
-            and evidence["subject"] in adopted
-            and evidence["subject"] not in open_issue_subjects
-        ):
-            rechecks.append({"name": index[evidence["subject"]]["name"], "claims": evidence["claims"]})
+    distance_index: dict[tuple[str, str], dict[str, Any]] = {}
+    for segment in data["estimates/distances.yaml"]["segments"]:
+        if segment["display"]:
+            for point in segment["points"]:
+                distance_index[(segment["date"], point["target"])] = {
+                    **point,
+                    "origin_label": segment["origin"]["label"],
+                    "distance_display": f'{point["distance_km"]:g}',
+                }
+
     issues = []
-    for raw_issue in raw_issues:
-        issue = dict(raw_issue)
+    for raw in raw_issues:
+        issue = dict(raw)
         issue["status_label"] = ISSUE_STATUS_LABELS[issue["status"]]
         issue["priority_label"] = ISSUE_PRIORITY_LABELS[issue["priority"]]
         issue["identified_at_display"] = short_date(issue["identified_at"])
         issue["related_date_display"] = " / ".join(short_date(value) for value in issue["related_dates"])
-        issue["subject_names"] = [resolve_name(subject, index) for subject in issue["subjects"]]
+        issue["subject_names"] = [resolve_name(value, index) for value in issue["subjects"]]
         issue["anchor"] = issue["id"].replace(".", "-")
         issues.append(issue)
+
+    days = []
+    adopted: set[str] = set()
+    for raw in data["plan/current.yaml"]["days"]:
+        day = dict(raw)
+        for field in ("routes", "visits", "optional_visits", "food"):
+            adopted.update(day[field])
+            prepared_items = []
+            for item_id in day[field]:
+                item = dict(index[item_id])
+                if (day["date"], item_id) in distance_index:
+                    item["distance"] = distance_index[(day["date"], item_id)]
+                if (item_id, day["date"]) in windows:
+                    item["availability_display"] = " / ".join(
+                        f'{window["start"]}–{window["end"]}' for window in windows[(item_id, day["date"])]
+                    )
+                prepared_items.append(item)
+            day[f"{field}_items"] = prepared_items
+        adopted.update(day["transport"])
+        adopted.update(day["stay"]["preferred"])
+        adopted.update(day["stay"]["fallback"])
+        day["transport_items"] = [prepare_transport(index[item_id], index) for item_id in day["transport"]]
+        day["transport_alternative_items"] = [prepare_transport(index[item_id], index) for item_id in day["transport_alternatives"]]
+        day["preferred_names"] = [index[item_id]["name"] for item_id in day["stay"]["preferred"]]
+        day["fallback_names"] = [index[item_id]["name"] for item_id in day["stay"]["fallback"]]
+        day["start_name"] = resolve_name(day["start"], index)
+        day["finish_name"] = resolve_name(day["finish"], index)
+        day["short_date"] = short_date(day["date"])
+        day["dated_heading"] = dated_heading(day["date"])
+        day["issue_items"] = [issue for issue in issues if day["date"] in issue["related_dates"] and issue["status"] in {"open", "in_progress"}]
+        days.append(day)
+
+    contingencies = []
+    for raw in data["plan/current.yaml"]["contingencies"]:
+        item = dict(raw)
+        item["dated_heading"] = dated_heading(item["date"])
+        item["transport_items"] = [prepare_transport(index[value], index) for value in item["transport"]]
+        item["transport_alternative_items"] = [prepare_transport(index[value], index) for value in item["transport_alternatives"]]
+        contingencies.append(item)
+
+    open_issue_subjects = {subject for issue in raw_issues if issue["status"] in {"open", "in_progress"} for subject in issue["subjects"]}
+    rechecks = [
+        {"name": index[item["subject"]]["name"], "claims": item["claims"]}
+        for item in evidence_items
+        if item["recheck_before_trip"] and item["subject"] in adopted and item["subject"] not in open_issue_subjects
+    ]
+
     lodging = data["research/lodging.yaml"]
     lodging_searches = []
-    for raw_search in lodging["stay_searches"]:
-        search = dict(raw_search)
+    for raw in lodging["stay_searches"]:
+        search = dict(raw)
         search["dated_heading"] = dated_heading(search["date"])
         search["preferred_area_name"] = resolve_name(search["preferred_area_ref"], index)
-        search["fallback_area_names"] = [
-            resolve_name(area_ref, index) for area_ref in search["fallback_area_refs"]
-        ]
-        search["call_order_area_names"] = [
-            resolve_name(area_ref, index) for area_ref in search["call_order_area_refs"]
-        ]
+        search["fallback_area_names"] = [resolve_name(value, index) for value in search["fallback_area_refs"]]
+        search["call_order_area_names"] = [resolve_name(value, index) for value in search["call_order_area_refs"]]
         lodging_searches.append(search)
-    for day in days:
-        day["issue_items"] = [
-            issue
-            for issue in issues
-            if day["date"] in issue["related_dates"] and issue["status"] in {"open", "in_progress"}
-        ]
+
+    plan = data["plan/current.yaml"]
     return {
         "trip": data["trip.yaml"],
         "days": days,
@@ -192,12 +136,12 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         "pre_trip_todos": plan["pre_trip_todos"],
         "contingencies": contingencies,
         "rechecks": rechecks,
-        "open_issues": [issue for issue in issues if issue["status"] in {"open", "in_progress"}],
-        "closed_issues": [issue for issue in issues if issue["status"] in {"resolved", "wont_fix"}],
+        "open_issues": [item for item in issues if item["status"] in {"open", "in_progress"}],
+        "closed_issues": [item for item in issues if item["status"] in {"resolved", "wont_fix"}],
+        "lodging_traveler": lodging["traveler"],
         "lodging_policy": lodging["policy"],
         "lodging_searches": lodging_searches,
         "lodging_common_questions": lodging["common_phone_questions"],
-        "lodging_noboribetsu_policy": lodging["noboribetsu_policy"],
         "lodging_explicit_web_unavailable": lodging["explicit_web_unavailable"],
     }
 
@@ -207,14 +151,7 @@ def render_repository(root: Path) -> None:
     if errors:
         raise ValueError("Cannot render invalid repository:\n" + "\n".join(errors))
     context = prepare_context(load_repository(root))
-    environment = Environment(
-        loader=FileSystemLoader(root / "templates"),
-        undefined=StrictUndefined,
-        autoescape=False,
-        keep_trailing_newline=True,
-        trim_blocks=False,
-        lstrip_blocks=False,
-    )
+    environment = Environment(loader=FileSystemLoader(root / "templates"), undefined=StrictUndefined, autoescape=False, keep_trailing_newline=True, trim_blocks=False, lstrip_blocks=False)
     output_dir = root / "docs"
     output_dir.mkdir(exist_ok=True)
     for template_name, output_name in (
@@ -224,9 +161,7 @@ def render_repository(root: Path) -> None:
         ("lodging-calls.md.j2", "lodging-calls.md"),
     ):
         rendered = environment.get_template(template_name).render(**context)
-        rendered = re.sub(r"\n{3,}", "\n\n", rendered)
-        rendered = re.sub(r"(^- .+)\n\n(?=- )", r"\1\n", rendered, flags=re.MULTILINE)
-        rendered = rendered.rstrip() + "\n"
+        rendered = re.sub(r"\n{3,}", "\n\n", rendered).rstrip() + "\n"
         (output_dir / output_name).write_text(rendered, encoding="utf-8")
 
 
@@ -239,7 +174,7 @@ def main() -> int:
     except (OSError, ValueError) as exc:
         print(f"ERROR {exc}", file=sys.stderr)
         return 1
-    print("Rendered docs/itinerary.md, docs/pins.md, docs/issues.md, and docs/lodging-calls.md.")
+    print("Rendered traveler documents.")
     return 0
 
 

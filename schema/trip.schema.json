@@ -4,8 +4,8 @@
   "required": ["schema_version", "id", "title", "start_date", "end_date", "origin", "modes"],
   "properties": {
     "schema_version": {"const": 1}, "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
-    "title": {"type": "string", "minLength": 1}, "start_date": {"type": "string", "format": "date"},
-    "end_date": {"type": "string", "format": "date"}, "origin": {"type": "string", "minLength": 1},
-    "modes": {"type": "array", "uniqueItems": true, "items": {"enum": ["bicycle", "train", "ferry", "airplane"]}}
+    "title": {"type": "string", "minLength": 1}, "start_date": {"type": ["string", "null"], "format": "date"},
+    "end_date": {"type": ["string", "null"], "format": "date"}, "origin": {"type": ["string", "null"], "minLength": 1},
+    "modes": {"type": "array", "uniqueItems": true, "items": {"enum": ["walk", "bicycle", "car", "bus", "train", "ferry", "airplane", "mixed"]}}
   }
 }

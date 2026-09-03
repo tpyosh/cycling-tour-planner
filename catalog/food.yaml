@@ -1,8 +1,2 @@
 schema_version: 1
-items:
-  - id: food.shigechan-sushi
-    name: シゲちゃんすし
-    status: shortlisted
-    map_query: シゲちゃんすし 函館
-    area: stay.hakodate
-    description: 函館で訪問したい寿司店
+items: []

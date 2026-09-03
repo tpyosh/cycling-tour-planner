@@ -3,7 +3,14 @@ checked_at: null
 traveler:
   adults: 1
   rooms: 1
-special_requirements: []
+  bicycles: 0
+policy:
+  web_available: 指定条件で予約可能なプランを確認できた
+  explicit_web_unavailable: 指定条件で満室または販売終了が明示されている
+  phone_required: Webでは在庫を判定できず電話確認が必要
+  single_occupancy_phone_check: 複数名向けプランしか確認できず一人利用を要確認
+  rules:
+    - 検索結果がないだけで満室と判定しない
 stay_searches: []
 explicit_web_unavailable: []
-common_confirmation_questions: []
+common_phone_questions: []

@@ -1,15 +1,2 @@
 schema_version: 1
-items:
-  - {id: stay.mutsu, name: むつ市街, status: shortlisted, accommodation: {availability: high, typical_types: [business_hotel]}, logistics: {food_options: high, railway_access: low}, description: ビジネスホテルを期待できる市街地}
-  - {id: stay.shimofuro, name: 下風呂温泉, status: shortlisted, accommodation: {availability: low, typical_types: [onsen_ryokan]}, logistics: {food_options: low, railway_access: low}, description: 旅情は高いが宿の選択肢は狭い}
-  - {id: stay.ohata, name: 大畑, status: shortlisted, accommodation: {availability: low, typical_types: [inn]}, logistics: {food_options: medium, railway_access: low}, description: 下風呂に届かない場合の代替}
-  - {id: stay.hakodate, name: 函館市街, status: shortlisted, accommodation: {availability: high, typical_types: [business_hotel, city_hotel]}, logistics: {food_options: high, railway_access: high}, description: 宿と飲食店が豊富}
-  - {id: stay.yunokawa, name: 湯の川, status: shortlisted, accommodation: {availability: high, typical_types: [onsen_hotel]}, logistics: {food_options: high, railway_access: medium}, description: 函館市街の温泉地代替}
-  - {id: stay.shikabe, name: 鹿部, status: shortlisted, accommodation: {availability: medium, typical_types: [inn, onsen_hotel]}, logistics: {food_options: low, railway_access: medium}, description: 恵山周回後の宿泊候補}
-  - {id: stay.minamikayabe, name: 南茅部, status: shortlisted, accommodation: {availability: low, typical_types: [inn]}, logistics: {food_options: low, railway_access: low}, description: 走行距離を短縮する代替}
-  - {id: stay.mori, name: 森町, status: shortlisted, accommodation: {availability: medium, typical_types: [business_hotel, inn]}, logistics: {food_options: medium, railway_access: high}, description: 鹿部より宿泊の現実性が高い代替}
-  - {id: stay.yakumo, name: 八雲町中心部, status: shortlisted, accommodation: {availability: medium, typical_types: [business_hotel, inn]}, logistics: {food_options: medium, railway_access: high}, description: 盤石温泉往復の拠点}
-  - {id: stay.noboribetsu-onsen, name: 登別温泉, status: shortlisted, accommodation: {availability: high, typical_types: [onsen_hotel]}, logistics: {food_options: high, railway_access: low}, description: 地獄谷近くの温泉街}
-  - {id: stay.noboribetsu, name: 登別駅周辺, status: shortlisted, accommodation: {availability: medium, typical_types: [hotel, inn]}, logistics: {food_options: medium, railway_access: high}, description: 登別温泉の代替}
-  - {id: stay.higashi-muroran, name: 東室蘭, status: shortlisted, accommodation: {availability: high, typical_types: [business_hotel]}, logistics: {food_options: high, railway_access: high}, description: ビジネスホテルを確保しやすい現実的fallback}
-  - {id: stay.ferry-tomakomai-sendai, name: 太平洋フェリー船内, status: shortlisted, accommodation: {availability: medium, typical_types: [ferry_cabin]}, logistics: {food_options: medium, railway_access: low}, description: 苫小牧から仙台へ向かう船内泊}
+items: []

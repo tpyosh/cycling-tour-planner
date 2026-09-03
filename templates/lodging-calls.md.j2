@@ -1,6 +1,8 @@
-# 宿泊先への電話確認リスト
+<!-- GENERATED FILE. DO NOT EDIT DIRECTLY. -->
 
-対象は大人1名・1室・個室、自転車1台です。予約操作や電話発信はまだ行っていません。各宿へ電話したら、結果を `research/lodging.yaml` の該当する `phone_check.result` に記録し、`phone_check.status` を `completed` に変更します。
+# 宿泊先への確認リスト
+
+対象は大人{{ lodging_traveler.adults }}名・{{ lodging_traveler.rooms }}室{% if lodging_traveler.bicycles %}・自転車{{ lodging_traveler.bicycles }}台{% endif %}です。予約操作や電話発信は、旅行者から明示的な依頼があるまで行いません。
 
 ## 判定ルール
 
@@ -13,57 +15,51 @@
 - {{ rule }}
 {% endfor %}
 
+{% if lodging_searches %}
 {% for search in lodging_searches %}
 ## {{ search.dated_heading }} チェックイン
 
 - **目的:** {{ search.purpose }}
-- **正本上の地域:** {{ search.preferred_area_name }}{% if search.fallback_area_names %}（代替: {{ search.fallback_area_names | join(' → ') }}）{% endif %}
-- **実務上の地域順:** {{ search.call_order_area_names | join(' → ') }}
+- **優先地域:** {{ search.preferred_area_name }}{% if search.fallback_area_names %}（代替: {{ search.fallback_area_names | join(' → ') }}）{% endif %}
+- **確認順:** {{ search.call_order_area_names | join(' → ') }}
 - **食事方針:** {{ search.meal_priority }}
 
 {% for candidate in search.candidates %}
-### {{ candidate.phone_check.priority }}. {{ candidate.name }}（{{ candidate.area_ref }}）
+### {{ candidate.phone_check.priority }}. {{ candidate.name }}
 
-- [ ] 電話確認済み
+- [ ] 確認済み
 - **電話:** {{ candidate.phone_check.phone }}{% if candidate.phone_check.reception_hours %}（受付 {{ candidate.phone_check.reception_hours }}）{% endif %}
-- **判定:** `{{ candidate.availability_class }}` / `{{ candidate.status }}` / 電話状態 `{{ candidate.phone_check.status }}`
+- **判定:** `{{ candidate.availability_class }}` / `{{ candidate.status }}` / `{{ candidate.phone_check.status }}`
 - **第一希望:** {{ candidate.phone_check.target_plan }}
-{% if candidate.phone_check.alternative_plans %}
-- **代替プラン:** {{ candidate.phone_check.alternative_plans | join(' → ') }}
-{% endif %}
 - **旅程との相性:** {{ candidate.location_fit }}
-- **確認済みの基本情報:** {{ candidate.static_facts | join(' / ') }}
 {% if candidate.phone_check.questions %}
-- **この宿で追加確認:** {{ candidate.phone_check.questions | join(' / ') }}
+- **追加確認:** {{ candidate.phone_check.questions | join(' / ') }}
 {% endif %}
-- **電話結果:** 空室 `未確認` / 総額 `未確認` / 食事 `未確認` / 自転車保管 `未確認` / 到着締切 `未確認` / キャンセル `未確認`
 {% for source in candidate.sources %}
 - **出典:** [{{ source.title }}]({{ source.url }})
 {% endfor %}
-
 {% endfor %}
 {% endfor %}
+{% else %}
+## 候補
 
-## 全宿共通でそのまま読む確認事項
+- 宿泊調査は未着手
+{% endif %}
+
+{% if lodging_common_questions %}
+## 共通確認事項
 
 {% for question in lodging_common_questions %}
 - [ ] {{ question }}
 {% endfor %}
+{% endif %}
 
-「駐輪場がありますか」だけで終えず、「自転車1台で旅行しています」と伝え、客室持込み、第三者が自由に出入りできない屋内保管、施錠、輪行袋、事前連絡の順に確認します。
-
-## Web満室として電話対象から除外する宿
+## 明示的に予約不可と確認した宿
 
 {% if lodging_explicit_web_unavailable %}
 {% for item in lodging_explicit_web_unavailable %}
 - {{ item.date }} {{ item.name }}（{{ item.area_ref }}）— {{ item.reason }} ([根拠]({{ item.source_url }}))
 {% endfor %}
 {% else %}
-既存リポジトリには、指定日の大人1名・1室について明示的なWeb満室を記録した宿泊候補はありません。今後該当する宿を確認した場合は、根拠URLと確認日を `research/lodging.yaml` の `explicit_web_unavailable` に追記し、電話候補へ戻しません。
+- 該当なし
 {% endif %}
-
-## 9/26 登別の扱い
-
-{% for rule in lodging_noboribetsu_policy %}
-- {{ rule }}
-{% endfor %}

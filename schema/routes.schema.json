@@ -4,6 +4,6 @@
   "$defs": {"distance": {"type": ["object", "null"], "required": ["min", "max"], "properties": {"min": {"type": "number", "minimum": 0}, "max": {"type": "number", "minimum": 0}}, "additionalProperties": false},
   "item": {"type": "object", "additionalProperties": false, "required": ["id", "name", "status", "from", "to", "mode", "distance_km", "route_value", "tags", "description"], "properties": {
     "id": {"type": "string", "pattern": "^route\\.[a-z0-9][a-z0-9-]*$"}, "name": {"type": "string", "minLength": 1}, "status": {"enum": ["discovered", "researching", "shortlisted", "deferred", "rejected"]}, "from": {"type": "string"}, "to": {"type": "string"},
-    "mode": {"enum": ["bicycle", "train", "ferry", "airplane", "mixed"]}, "distance_km": {"$ref": "#/$defs/distance"}, "route_value": {"enum": ["low", "medium", "high", "main"]}, "tags": {"type": "array", "items": {"type": "string"}}, "description": {"type": "string"}
+    "mode": {"enum": ["walk", "bicycle", "car", "bus", "train", "ferry", "airplane", "mixed"]}, "distance_km": {"$ref": "#/$defs/distance"}, "route_value": {"enum": ["low", "medium", "high", "main"]}, "tags": {"type": "array", "items": {"type": "string"}}, "description": {"type": "string"}
   }}}
 }

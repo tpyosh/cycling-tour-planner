@@ -1,7 +1,8 @@
 <!-- GENERATED FILE. DO NOT EDIT DIRECTLY. -->
 
-# Google Maps ピン登録
+# 地図ピン登録
 
+{% if days %}
 {% for day in days %}
 ## {{ day.short_date }}
 
@@ -18,3 +19,6 @@
 - ピン登録対象なし
 {% endif %}
 {% endfor %}
+{% else %}
+- 日程未設定
+{% endif %}
