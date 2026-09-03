@@ -1,0 +1,4 @@
+interface:
+  display_name: "旅行プランナー"
+  short_description: "制約・根拠・実現可能性を管理し、旅行計画を作成・更新"
+  default_prompt: "$travel-planner を使い、制約、根拠、リスク確認、代替案を含む実行可能な旅行計画を作成してください。"
