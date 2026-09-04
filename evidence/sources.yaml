@@ -1,2 +1,83 @@
 schema_version: 1
-items: []
+items:
+  - id: evidence.ishinomori-open-20260923
+    subject: place.ishinomori-manga-museum
+    checked_at: 2026-09-03
+    claims:
+      - 検討時点では2026-09-23は開館、翌9/24は休館とされている
+      - 初日に配置する理由となるが、旅行直前に公式情報で再確認する
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: user_provided_planning_seed, title: 2026年9月3日時点の三陸旅行検討結果, url: null}
+  - id: evidence.okawa-access-20260924
+    subject: place.okawa-school
+    checked_at: 2026-09-03
+    claims:
+      - 検討時点では2026-09-24に大川震災伝承館は振替休館とされている
+      - 同日は大川小学校の屋外震災遺構は見学可能とされている
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: user_provided_planning_seed, title: 2026年9月3日時点の三陸旅行検討結果, url: null}
+  - id: evidence.minamisanriku-open-20260925
+    subject: place.minamisanriku-311-memorial
+    checked_at: 2026-09-03
+    claims:
+      - 検討時点では2026-09-24は休館、9/25は開館とされている
+      - ラーニングシアター等は日時指定予約を今後検討する
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: user_provided_planning_seed, title: 2026年9月3日時点の三陸旅行検討結果, url: null}
+  - id: evidence.rias-ark-event-2026
+    subject: place.rias-ark-museum
+    checked_at: 2026-09-03
+    claims:
+      - 検討時点では「新方舟祭2026」は2026-09-25から始まり、9/26は開催期間内とされている
+      - 開館・会期は旅行直前に公式情報で再確認する
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: user_provided_planning_seed, title: 2026年9月3日時点の三陸旅行検討結果, url: null}
+  - id: evidence.brt-bicycle-uncertain
+    subject: transport.yanazu-shizugawa-brt-20260925
+    checked_at: 2026-09-03
+    claims:
+      - JR公式で完成車積載制度は確認できていない
+      - 輪行袋入り自転車の実乗車例はあるが、通常のバス車体のため混雑やサイズによって持込みを断られる可能性が残る
+    volatility: high
+    recheck_before_trip: true
+    source: {type: user_provided_planning_seed, title: 2026年9月3日時点の三陸旅行検討結果, url: null}
+  - id: evidence.ofunato-brt-bicycle-uncertain
+    subject: transport.kesennuma-miracle-pine-brt-20260927
+    checked_at: 2026-09-03
+    claims:
+      - 大船渡線BRTでも輪行袋入り自転車の持込み可否をJRへ最終確認する必要がある
+      - 混雑やサイズによって持込みを断られる可能性を残す
+    volatility: high
+    recheck_before_trip: true
+    source: {type: user_provided_planning_seed, title: 2026年9月3日時点の三陸旅行検討結果, url: null}
+  - id: evidence.sanriku-railway-bicycle
+    subject: transport.sakari-kamaishi-sanriku-20260927
+    checked_at: 2026-09-03
+    claims:
+      - 空いている列車では袋なし自転車を有料手回り品として持ち込める制度があるとされている
+      - 混雑時は利用できない可能性があるため、盛駅で輪行できる時間を残す
+    volatility: high
+    recheck_before_trip: true
+    source: {type: user_provided_planning_seed, title: 2026年9月3日時点の三陸旅行検討結果, url: null}
+  - id: evidence.reference-timetables-20260903
+    subject: transport.nagoya-tokyo-nozomi-20260923
+    checked_at: 2026-09-03
+    claims:
+      - 旅程内の列車・BRT時刻は2026年9月の公表済み時刻を使った参考タイムテーブルとして提供された
+      - 出発直前にダイヤと運休情報を再確認する必要がある
+    volatility: high
+    recheck_before_trip: true
+    source: {type: user_provided_planning_seed, title: 2026年9月3日時点の三陸旅行検討結果, url: null}
+  - id: evidence.lodging-feasibility-20260903
+    subject: stay.ishinomaki
+    checked_at: 2026-09-03
+    claims:
+      - 現時点のWeb調査では下北・道南案ほど宿泊成立性は悪くなく、都市型ホテルを複数選べる可能性が確認されている
+      - 宿名・空室・価格は未確認であり、確定情報として扱わない
+    volatility: high
+    recheck_before_trip: true
+    source: {type: user_provided_planning_seed, title: 2026年9月3日時点の三陸旅行検討結果, url: null}

@@ -1,2 +1,157 @@
 schema_version: 1
-items: []
+items:
+  - id: issue.lodging-bookings
+    title: 3都市・5泊の宿泊予約を確定する
+    status: open
+    priority: high
+    category: booking
+    identified_at: 2026-09-03
+    summary: 石巻2連泊、気仙沼2連泊、釜石1泊の都市ノード構成を最有力とするが、宿名・空室・価格・自転車保管条件は未確認で、予約もしていない。
+    impact: いずれかの都市で宿泊できない場合、前後の日の出発地・到着地、自転車運用、施設滞在時間を組み直す必要がある。
+    related_dates: [2026-09-23, 2026-09-24, 2026-09-25, 2026-09-26, 2026-09-27]
+    subjects: [stay.ishinomaki, stay.kesennuma, stay.kamaishi]
+    evidence: [evidence.lodging-feasibility-20260903]
+    next_action: 3予約単位について、1名1室の在庫・総額・自転車保管・キャンセル条件を比較し、予約する。
+    resolution_conditions:
+      - 石巻の9/23チェックイン・9/25チェックアウトを予約済みである
+      - 気仙沼の9/25チェックイン・9/27チェックアウトを予約済みである
+      - 釜石の9/27チェックイン・9/28チェックアウトを予約済みである
+      - 各宿の自転車保管条件と最終チェックイン時刻を把握している
+    resolution: null
+  - id: issue.brt-bicycle-carriage
+    title: 気仙沼線BRT・大船渡線BRTの輪行可否を確認する
+    status: open
+    priority: high
+    category: logistics
+    identified_at: 2026-09-03
+    summary: 完成車積載制度は確認できず、輪行袋入り自転車も混雑やサイズによって持込みを断られる可能性が残る。
+    impact: 9/25に石巻から気仙沼へ移動できない、または9/27に陸前高田で自転車を使えず、宿泊・帰路まで連鎖的に崩れるおそれがある。
+    related_dates: [2026-09-25, 2026-09-27]
+    subjects: [transport.yanazu-shizugawa-brt-20260925, transport.shizugawa-kesennuma-brt-20260925, transport.kesennuma-miracle-pine-brt-20260927]
+    evidence: [evidence.brt-bicycle-uncertain, evidence.ofunato-brt-bicycle-uncertain]
+    next_action: 使用する輪行袋の収納寸法を測り、気仙沼線BRTと大船渡線BRTの対象便への持込み条件をJRへ確認する。
+    resolution_conditions:
+      - 輪行袋の具体寸法を伝えて対象便への持込み条件を確認している
+      - 持込み不可または保証されない場合の代替移動と自転車運用を決めている
+      - 混雑時に乗車を断られた場合でも当日の宿泊地へ到達できる
+    resolution: null
+  - id: issue.onagawa-ogatsu-okawa-feasibility
+    title: 9/24強化案Aの距離・道路安全・時間成立性を確認する
+    status: open
+    priority: high
+    category: safety
+    identified_at: 2026-09-03
+    summary: 石巻→女川→雄勝→大川小学校→石巻は90〜105km程度の想定にとどまり、正確なルート、実走距離、工事・通行止め、R398等のトンネル・交通量・路肩が未確認である。
+    impact: 所要時間を過小評価すると、大川小学校の見学、明るいうちの石巻帰着、安全な走行が成立しない。
+    related_dates: [2026-09-24]
+    subjects: [route.onagawa-ogatsu-okawa-loop, place.ogatsu-suzuri-museum, place.okawa-school]
+    evidence: [evidence.okawa-access-20260924]
+    next_action: 自転車ルーティングで実走候補を作り、標高・路面・トンネル・交通量・道路規制・施設時間・補給を区間別に確認する。
+    resolution_conditions:
+      - 正確な実走距離と所要時間を確認している
+      - 2026-09-24時点の道路工事・通行止めを公式情報で確認している
+      - トンネル・交通量・路肩について許容できる経路を選んでいる
+      - 雄勝での昼食・補給と大川小学校の滞在時間を確保している
+      - 明るいうちの石巻帰着に十分な余裕がある
+    resolution: null
+  - id: issue.onagawa-day-option
+    title: 9/24の案A・案B・短縮案を最終選択する
+    status: open
+    priority: medium
+    category: schedule
+    identified_at: 2026-09-03
+    summary: 強化案Aが最有力だが正式採用ではなく、女川単純往復旧案と女川原子力PRセンター案Bも候補として残っている。
+    impact: 訪問施設、走行距離、昼食地、必要な予約・営業時間確認が確定しない。
+    related_dates: [2026-09-24]
+    subjects: [route.onagawa-ogatsu-okawa-loop, route.onagawa-round-trip, route.onagawa-nuclear-pr-center]
+    evidence: []
+    next_action: 強化案Aの実現可能性確認後、情報密度・安全余裕・天候対応力を比較して採用案を決める。
+    resolution_conditions:
+      - 採用するルートと訪問先が決まっている
+      - 採用しない候補の状態と理由がカタログに反映されている
+      - 当日の短縮発動条件と削る順序が決まっている
+    resolution: null
+  - id: issue.sanriku-railway-bicycle
+    title: 三陸鉄道の完成車持込と輪行切替を確認する
+    status: open
+    priority: medium
+    category: logistics
+    identified_at: 2026-09-03
+    summary: 盛16:45発で完成車持込制度を利用できる可能性があるが、混雑時は断られる可能性がある。
+    impact: 盛駅で袋詰め時間を確保していない場合、釜石行き列車へ乗れず宿泊到着が遅れる。
+    related_dates: [2026-09-27]
+    subjects: [transport.sakari-kamaishi-sanriku-20260927, route.rikuzentakata-ofunato]
+    evidence: [evidence.sanriku-railway-bicycle]
+    next_action: 出発前に制度・対象列車・料金・混雑時の扱いを確認し、盛駅16:00頃到着を維持する。
+    resolution_conditions:
+      - 盛16:45発での完成車持込条件を確認している
+      - 利用できない場合に輪行袋へ収納できる時間を確保している
+      - 必要な料金・手続・乗車位置を把握している
+    resolution: null
+  - id: issue.timetable-recheck
+    title: 2026年9月の交通ダイヤと運休情報を再確認する
+    status: open
+    priority: high
+    category: schedule
+    identified_at: 2026-09-03
+    summary: 記録した時刻は2026-09-03時点の検討用参考タイムテーブルであり、未予約で、出発直前再確認が必要である。
+    impact: 乗換や施設滞在、帰着時刻が成立しなくなり、特に9/25のBRT接続、9/27の三陸鉄道、9/28の名古屋帰着へ影響する。
+    related_dates: [2026-09-23, 2026-09-25, 2026-09-27, 2026-09-28]
+    subjects: [transport.nagoya-tokyo-nozomi-20260923, transport.ishinomaki-maeyachi-20260925, transport.kesennuma-miracle-pine-brt-20260927, transport.kamaishi-shinhanamaki-20260928]
+    evidence: [evidence.reference-timetables-20260903]
+    next_action: 各交通事業者の公式情報で旅行日に有効なダイヤ・運休・予約条件を再確認し、乗換余裕を再評価する。
+    resolution_conditions:
+      - 9/23・9/25・9/27・9/28の全採用便を公式情報で再確認している
+      - 東京・前谷地・柳津・新花巻・東京の乗換余裕を確認している
+      - 最終日の名古屋帰着が2026-09-28中に成立する
+    resolution: null
+  - id: issue.facility-hours-reservations
+    title: 施設の開館・臨時休館・予約条件を再確認する
+    status: open
+    priority: medium
+    category: schedule
+    identified_at: 2026-09-03
+    summary: 萬画館、大川小学校、南三陸311メモリアル、リアス・アーク美術館等の日付固有情報はシードにあるが、公式URLをまだ正本へ記録しておらず、臨時変更もありうる。
+    impact: Tier 1・Tier 2施設を利用できず、日別配置や交通接続の組み直しが必要になる。
+    related_dates: [2026-09-23, 2026-09-24, 2026-09-25, 2026-09-26, 2026-09-27, 2026-09-28]
+    subjects: [place.ishinomori-manga-museum, place.okawa-school, place.minamisanriku-311-memorial, place.rias-ark-museum]
+    evidence: [evidence.ishinomori-open-20260923, evidence.okawa-access-20260924, evidence.minamisanriku-open-20260925, evidence.rias-ark-event-2026]
+    next_action: 各施設の公式情報へ根拠を差し替え、旅行日の開館、最終入場、予約要否、臨時休館を確認する。
+    resolution_conditions:
+      - 日付固有の営業情報を公式URL付きで確認している
+      - 南三陸311メモリアルの日時指定予約要否を判断している
+      - 休館時の削減・代替方針を日別計画へ反映している
+    resolution: null
+  - id: issue.kesennuma-fish-market-activity
+    title: 気仙沼魚市場の当日稼働情報を前夜確認する
+    status: open
+    priority: low
+    category: schedule
+    identified_at: 2026-09-03
+    summary: 魚市場は現役の水産都市を見るTier 1だが、9/26の入船・水揚げ・休場状況は直前まで変動する。
+    impact: 早朝に訪れても市場活動を十分に見られず、朝食以降の開始時刻だけが早くなる可能性がある。
+    related_dates: [2026-09-26]
+    subjects: [place.kesennuma-fish-market]
+    evidence: []
+    next_action: 9/25夜に公式または市場の案内で翌朝の入船・水揚げ・休場情報を確認する。
+    resolution_conditions:
+      - 9/26朝の見学可否と開始時刻を確認している
+      - 活動が乏しい場合の朝食・海の市等への切替を決めている
+    resolution: null
+  - id: issue.food-shortlist
+    title: 各地の食事候補を店名まで具体化する
+    status: open
+    priority: low
+    category: other
+    identified_at: 2026-09-03
+    summary: 食べたい料理は決まっているが、店名、営業時間、定休日、売切れ時の代替が未整理である。
+    impact: 施設・交通の時間窓と食事が競合し、補給不足または地域の食体験を逃す可能性がある。
+    related_dates: [2026-09-23, 2026-09-24, 2026-09-25, 2026-09-26, 2026-09-27, 2026-09-28]
+    subjects: [food.ishinomaki-yakisoba, food.onagawa-ogatsu-lunch, food.minamisanriku-autumn-don, food.kesennuma-breakfast, food.kesennuma-bonito-swordfish, food.ofunato-sanma-ramen, food.kamaishi-ramen]
+    evidence: []
+    next_action: 行程と宿泊地を確定した後、各食事枠で第一候補と営業時間の異なる代替候補を選ぶ。
+    resolution_conditions:
+      - 各日の第一候補店と営業時間・定休日を確認している
+      - 売切れ・休業時の代替店または補給方法がある
+      - Tier 1の気仙沼の戻り鰹・メカジキ等の一食を確保できる見込みがある
+    resolution: null

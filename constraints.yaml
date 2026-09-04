@@ -1,3 +1,25 @@
 schema_version: 1
-hard: []
-soft: []
+hard:
+  - id: travel-dates
+    description: 2026年9月23日（水・祝）から9月28日（月）までの6日間とする
+  - id: origin-and-return
+    description: 名古屋発着とし、9月28日中に名古屋へ帰着する
+  - id: solo-travel
+    description: 大人1名の一人旅として交通・宿泊を組み立てる
+  - id: no-bookings-yet
+    description: 現時点では交通・宿泊・施設予約のいずれも確定扱いにしない
+soft:
+  - id: core-themes
+    description: 東日本大震災、津波、震災遺構、復興、被災後の交通再編を旅の主題とする
+  - id: transport-themes
+    description: 気仙沼線BRT、大船渡線BRT、三陸鉄道を単なる移動ではなく交通体験として組み込む
+  - id: regional-breadth
+    description: 震災遺構だけに偏らず、漁港、水産業、市場、製鉄、地域史、生活文化、ローカルフード、珍スポット、商業施設、交通インフラ、地場産業、動線上の気になる場所も同程度に探索する
+  - id: bicycle-role
+    description: 自転車は長距離走破ではなく、公共交通から外れた施設へのアクセス、市街地の高密度周遊、港・市場・遺構間の移動、寄り道に使う
+  - id: avoid-low-value-roads
+    description: 地形を読むだけのために長い国道やトンネル区間を走らず、自転車で得られる体験価値が低い区間は公共交通へ切り替える
+  - id: information-density
+    description: 6日間の到達距離より情報密度を優先し、現行案は宮古へ延ばさず釜石を北端とする
+  - id: reduce-bike-packing
+    description: 都市ノードで連泊し、自転車の組立・輪行回数と小規模宿1軒への依存を抑える

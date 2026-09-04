@@ -52,13 +52,13 @@
 {% if day.visits_items %}
 ### 立ち寄り
 {% for item in day.visits_items %}
-- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から累計 約{{ item.distance.distance_display }} km）{% endif %}{% if item.availability_display is defined %} — **利用可能時間: {{ item.availability_display }}**{% endif %}
+- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から累計 約{{ item.distance.distance_display }} km）{% endif %}{% if item.description %} — {{ item.description }}{% endif %}{% if item.availability_display is defined %} — **利用可能時間: {{ item.availability_display }}**{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.optional_visits_items %}
 ### 余裕があれば
 {% for item in day.optional_visits_items %}
-- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から累計 約{{ item.distance.distance_display }} km）{% endif %}
+- {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から累計 約{{ item.distance.distance_display }} km）{% endif %}{% if item.description %} — {{ item.description }}{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.food_items %}

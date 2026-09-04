@@ -1,6 +1,201 @@
 schema_version: 1
 status: working
-recommendations: []
-pre_trip_todos: []
-days: []
-contingencies: []
+recommendations:
+  - 現時点の最有力構成は石巻2連泊・気仙沼2連泊・釜石1泊の都市ノード型。ただし宿泊予約は未確定。
+  - 9/24は石巻→女川→雄勝→大川小学校→石巻の強化案Aを暫定的な現行案とするが、ルート・安全・所要時間を確認するまで正式採用しない。
+  - 宮古まで無理に延ばさず釜石を北端とし、石巻・気仙沼・陸前高田・大船渡・釜石での情報密度を優先する。
+  - 自転車は市街・港・遺構間の高機動移動に使い、大船渡→釜石のR45など体験価値の低い長距離・トンネル区間は走らない。
+  - 時刻表・開館情報は2026-09-03時点の検討用参考値であり、予約・出発前に旅行日へ有効な公式情報を再確認する。
+pre_trip_todos:
+  - {id: todo.book-ishinomaki, description: 石巻の2連泊（9/23チェックイン・9/25チェックアウト）を予約する, due_date: null, condition: 宿名・空室・価格・自転車保管を確認後}
+  - {id: todo.book-kesennuma, description: 気仙沼の2連泊（9/25チェックイン・9/27チェックアウト）を予約する, due_date: null, condition: 宿名・空室・価格・自転車保管を確認後}
+  - {id: todo.book-kamaishi, description: 釜石の1泊（9/27チェックイン・9/28チェックアウト）を予約する, due_date: null, condition: 宿名・空室・価格・自転車保管を確認後}
+  - {id: todo.confirm-brt-bicycle, description: 気仙沼線BRT・大船渡線BRTへ輪行袋入り自転車を持ち込めるか、具体的な輪行サイズを示してJRへ確認する, due_date: null, condition: 交通予約・確定前}
+  - {id: todo.confirm-sanriku-bike, description: '9/27の三陸鉄道 盛16:45発で完成車持込制度を現実的に利用できるか再確認する', due_date: null, condition: 利用不可時は盛駅で輪行}
+  - {id: todo.verify-september-timetable, description: 2026年9月の列車・BRTダイヤと運休情報を公式情報で再確認する, due_date: 2026-09-20, condition: 出発直前}
+  - {id: todo.verify-september-closures, description: 採用施設の臨時休館・予約条件・最終入場を公式情報で再確認する, due_date: 2026-09-20, condition: 出発直前}
+  - {id: todo.reserve-minamisanriku, description: 南三陸311メモリアルのラーニングシアター等の日時指定予約要否を確認する, due_date: null, condition: 9/25の滞在枠を確定後}
+  - {id: todo.check-fish-market, description: 9/26の気仙沼魚市場について入船・水揚げ・休場情報を確認する, due_date: 2026-09-25, condition: 前夜に確認}
+  - {id: todo.shortlist-food, description: 各日の飲食店名と営業時間を具体化する, due_date: null, condition: 行程と宿泊地の確定後}
+days:
+  - date: 2026-09-23
+    start: place.nagoya
+    finish: place.ishinomaki
+    cycling: {distance_km: {min: 0, max: 15}}
+    routes: [route.ishinomaki-city]
+    transport:
+      - transport.nagoya-tokyo-nozomi-20260923
+      - transport.tokyo-sendai-hayabusa-20260923
+      - transport.sendai-ishinomaki-20260923
+    transport_alternatives: [transport.tokyo-sendai-later-20260923]
+    visits:
+      - place.kadonowaki-school
+      - place.ishinomori-manga-museum
+    optional_visits:
+      - place.minamihama-memorial-park
+      - place.ishinomaki-old-town-port
+    food: [food.ishinomaki-yakisoba]
+    stay: {preferred: [stay.ishinomaki], fallback: []}
+    notes:
+      - 11:18頃に石巻着後、自転車を組み立てる。市街周遊距離は未算出のため自力移動表示は暫定幅。
+      - 参考枠は石巻焼きそば11:50〜12:35、門脇小学校12:50〜14:15、南浜14:15〜14:50、萬画館15:05〜16:35、旧市街・港16:40〜17:30。
+      - 門脇小学校を最優先し、遅延時は旧市街・港、南浜の順に短縮する。
+      - 石ノ森萬画館はシード上9/23開館・翌9/24休館のため初日に置く。開館日は直前確認する。
+      - 東京での乗換は約15分。乗遅れ時は後続接続へ切り替える。
+
+  - date: 2026-09-24
+    start: place.ishinomaki
+    finish: place.ishinomaki
+    cycling: {distance_km: {min: 90, max: 105}}
+    routes: [route.onagawa-ogatsu-okawa-loop]
+    transport: []
+    transport_alternatives: []
+    visits:
+      - place.onagawa-police-box
+      - place.onagawa-port
+      - place.ogatsu-suzuri-museum
+      - place.okawa-school
+    optional_visits: [place.seapal-pier-onagawa]
+    food: [food.onagawa-ogatsu-lunch]
+    stay: {preferred: [stay.ishinomaki], fallback: []}
+    notes:
+      - この強化案Aは現時点の最有力候補だが正式採用ではない。正確な距離・道路条件・営業時間を確認してから確定する。
+      - 参考枠は07:00石巻発、08:15〜08:30女川着、旧女川交番08:30〜09:05、女川港09:05〜09:40、雄勝硯11:00〜12:00、昼食12:00〜12:45、大川小13:45〜14:45、石巻16:30〜17:00頃帰着。
+      - シードでは大川震災伝承館は振替休館、屋外遺構は見学可能とされる。伝承館を含む完全見学日ではない。
+      - 悪天候・遅延・脚力不足時はTier 3を削り、それでも成立しなければ女川単純往復へ短縮する。
+
+  - date: 2026-09-25
+    start: place.ishinomaki
+    finish: place.kesennuma
+    cycling: {distance_km: {min: 0, max: 0}}
+    routes: []
+    transport:
+      - transport.ishinomaki-maeyachi-20260925
+      - transport.maeyachi-yanazu-20260925
+      - transport.yanazu-shizugawa-brt-20260925
+      - transport.shizugawa-kesennuma-brt-20260925
+    transport_alternatives: []
+    visits:
+      - place.minamisanriku-311-memorial
+      - place.minamisanriku-disaster-office
+      - place.minamisanriku-kiriko
+    optional_visits: [place.sansan-shopping-village]
+    food: [food.minamisanriku-autumn-don]
+    stay: {preferred: [stay.kesennuma], fallback: []}
+    notes:
+      - 自転車は石巻で輪行し、この日は袋から出さず気仙沼まで運ぶ想定。
+      - 前谷地→柳津の鉄道区間と柳津以北のBRTを連続体験することが旅行の核。
+      - 志津川滞在の参考枠は311メモリアル10:10〜11:40、旧防災対策庁舎等11:40〜12:10、昼食12:10〜13:00、きりこ展等13:00〜13:35。
+      - シードでは9/24休館・9/25開館。ラーニングシアター等の予約要否と当日の開館を再確認する。
+
+  - date: 2026-09-26
+    start: place.kesennuma
+    finish: place.kesennuma
+    cycling: {distance_km: {min: 30, max: 40}}
+    routes: [route.kesennuma-city]
+    transport: []
+    transport_alternatives: []
+    visits:
+      - place.kesennuma-fish-market
+      - place.kesennuma-shark-museum
+      - place.kesennuma-memorial-museum
+      - place.rias-ark-museum
+    optional_visits:
+      - place.kesennuma-umi-no-ichi
+      - place.kesennuma-seafood-shops
+    food:
+      - food.kesennuma-breakfast
+      - food.kesennuma-bonito-swordfish
+    stay: {preferred: [stay.kesennuma], fallback: []}
+    notes:
+      - 参考枠は06:15ホテル発、魚市場06:30〜07:30、朝食07:30〜08:30、海の市08:30〜09:00、シャークミュージアム等09:00〜10:00、旧向洋高校10:45〜12:20、リアス・アーク14:00〜16:30。
+      - 魚市場は前夜に入船・水揚げ・休場情報を確認する。
+      - リアス・アーク美術館は路線バスアクセスが弱く、自転車の存在価値が特に高い。
+      - シードでは9/25から「新方舟祭2026」開催。会期と開館を直前に再確認する。
+
+  - date: 2026-09-27
+    start: place.kesennuma
+    finish: place.kamaishi
+    cycling: {distance_km: {min: 0, max: 30}}
+    routes: [route.rikuzentakata-ofunato]
+    transport:
+      - transport.kesennuma-miracle-pine-brt-20260927
+      - transport.sakari-kamaishi-sanriku-20260927
+    transport_alternatives: []
+    visits:
+      - place.iwate-tsunami-memorial
+      - place.miracle-pine
+      - place.ofunato-port-city
+    optional_visits: []
+    food: [food.ofunato-sanma-ramen]
+    stay: {preferred: [stay.kamaishi], fallback: []}
+    notes:
+      - 09:40奇跡の一本松着後に自転車を組み立て、10:00〜11:20 TSUNAMIメモリアル、11:20〜11:50一本松周辺、11:50頃陸前高田発を目安とする。
+      - 大船渡昼食13:15〜14:00、港・市街14:00〜15:20、16:00頃盛駅を目安とする。自転車距離は未算出のため表示幅は暫定。
+      - 三陸鉄道の完成車持込は混雑時に断られる可能性を残し、盛駅で輪行できる時間を確保する。
+      - 大船渡→釜石は自走せず、BRT化路線と鉄道復旧した三陸鉄道を比較する体験を優先する。
+
+  - date: 2026-09-28
+    start: place.kamaishi
+    finish: place.nagoya
+    cycling: {distance_km: {min: 15, max: 20}}
+    routes: [route.kamaishi-city]
+    transport:
+      - transport.kamaishi-shinhanamaki-20260928
+      - transport.shinhanamaki-tokyo-yamabiko-20260928
+      - transport.tokyo-nagoya-nozomi-20260928
+    transport_alternatives: []
+    visits: [place.kamaishi-iron-museum]
+    optional_visits: [place.kamaishi-daikannon]
+    food: [food.kamaishi-ramen]
+    stay: {preferred: [], fallback: []}
+    notes:
+      - 参考枠は08:20ホテル発、鉄の歴史館09:00〜10:20、大観音10:25〜11:20、昼食11:30〜12:10、12:10〜13:00駅へ移動・輪行。
+      - 時間不足なら釜石大観音を削り、鉄の歴史館を優先する。
+      - 13:32釜石発、21:38名古屋着の参考接続。2026年9月ダイヤを再確認してから確定する。
+contingencies:
+  - id: contingency.missed-tokyo-transfer
+    name: 9/23東京乗換に間に合わない場合
+    trigger: 名古屋発列車の遅延等で東京08:18発のはやぶさへ乗り継げない
+    date: 2026-09-23
+    transport: []
+    transport_alternatives: [transport.tokyo-sendai-later-20260923]
+    impacts:
+      - 石巻到着が遅れ、初日の任意訪問時間が減る
+      - 門脇小学校を優先し、旧市街・港、南浜の順に削る
+    unresolved:
+      - 後続便と石巻到着時刻を公式ダイヤで確定する
+  - id: contingency.onagawa-round-trip
+    name: 9/24女川単純往復への短縮
+    trigger: 強化案Aの道路・所要時間が成立しない、または当日の悪天候・遅延・脚力不足がある
+    date: 2026-09-24
+    transport: []
+    transport_alternatives: []
+    impacts:
+      - 雄勝硯伝統産業会館と大川小学校を外し、旧女川交番と女川港を守る
+      - 約45kmの当初案へ戻すことで安全余裕を確保する
+    unresolved:
+      - 強化案Aから短縮へ切り替える具体的な判断時刻・条件を決める
+  - id: contingency.onagawa-nuclear-pr-center
+    name: 9/24女川原子力PRセンター案B
+    trigger: エネルギーインフラ展示を優先し、強化案Aの一部と入れ替える判断をした場合
+    date: 2026-09-24
+    transport: []
+    transport_alternatives: []
+    impacts:
+      - 原子炉模型、放射線、安全対策、発電所史を見られる
+      - 事業者PR施設であり中立的な事故検証施設とは位置づけが異なる
+      - 案Aと同日にすべて詰め込まず、雄勝または大川小等との交換が必要になる
+    unresolved:
+      - 採用する場合に何を外すか、営業時間と移動距離を確認して決める
+  - id: contingency.sanriku-railway-bagging
+    name: 9/27三陸鉄道で輪行へ切替
+    trigger: 盛16:45発で完成車持込を利用できない、または混雑が見込まれる
+    date: 2026-09-27
+    transport: [transport.sakari-kamaishi-sanriku-20260927]
+    transport_alternatives: []
+    impacts:
+      - 盛駅で自転車を輪行袋へ収納して同列車への乗車を目指す
+      - 盛駅到着を遅くとも16:00頃とし、袋詰め時間を守る
+    unresolved:
+      - 完成車持込の当日運用と混雑時の扱いを出発前に確認する

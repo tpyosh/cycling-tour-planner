@@ -1,2 +1,82 @@
 schema_version: 1
-items: []
+items:
+  - id: route.ishinomaki-city
+    name: 石巻市街周遊
+    status: shortlisted
+    from: place.ishinomaki
+    to: place.ishinomaki
+    mode: bicycle
+    distance_km: null
+    route_value: high
+    tags: [city, port, tier-3-buffer]
+    description: 門脇小学校、南浜、萬画館、旧市街、港をつなぐ。正確な距離は未算出。
+  - id: route.onagawa-round-trip
+    name: 石巻〜女川単純往復
+    status: deferred
+    from: place.ishinomaki
+    to: place.ishinomaki
+    mode: bicycle
+    distance_km: {min: 45, max: 45}
+    route_value: medium
+    tags: [legacy-option, alternative]
+    description: 9/24の当初案。旧女川交番は強いが、港・商業施設中心で1日として弱いため、強化案Aを優先して保留。
+  - id: route.onagawa-ogatsu-okawa-loop
+    name: 石巻→女川→雄勝→大川小学校→石巻
+    status: researching
+    from: place.ishinomaki
+    to: place.ishinomaki
+    mode: bicycle
+    distance_km: {min: 90, max: 105}
+    route_value: main
+    tags: [current-leading-option, safety-check-required]
+    description: 9/24強化案A。旧女川交番、女川港、雄勝硯、大川小を性格の違う港町と地場産業でつなぐ現時点の最有力候補。距離、工事、通行止め、R398等のトンネル・交通量・路肩は未確認。
+  - id: route.onagawa-nuclear-pr-center
+    name: 女川原子力PRセンター組込み案
+    status: deferred
+    from: place.onagawa-port
+    to: place.onagawa-nuclear-pr-center
+    mode: bicycle
+    distance_km: null
+    route_value: medium
+    tags: [alternative, energy-infrastructure]
+    description: 9/24強化案B。案Aと同日にすべて入れると詰め込み過ぎになる可能性があるため、採用判断を保留。
+  - id: route.kesennuma-city
+    name: 気仙沼市内高密度周遊
+    status: shortlisted
+    from: place.kesennuma
+    to: place.kesennuma
+    mode: bicycle
+    distance_km: {min: 30, max: 40}
+    route_value: main
+    tags: [fishery, earthquake, museum]
+    description: 魚市場、海の市、旧向洋高校、リアス・アーク美術館をつなぐ。この旅行で自転車を持参する価値が最も高い日。
+  - id: route.rikuzentakata-ofunato
+    name: 陸前高田→大船渡
+    status: researching
+    from: place.rikuzentakata
+    to: place.ofunato
+    mode: bicycle
+    distance_km: null
+    route_value: high
+    tags: [tier-2, port, bicycle]
+    description: Tier 2の自転車体験。奇跡の一本松周辺から大船渡港・市街を経て盛駅へ向かう。正確な距離・経路は未確認。
+  - id: route.ofunato-kamaishi-r45
+    name: 大船渡→釜石 国道45号自走
+    status: rejected
+    from: place.ofunato
+    to: place.kamaishi
+    mode: bicycle
+    distance_km: null
+    route_value: low
+    tags: [rejected, tunnel, traffic]
+    description: 交通量・狭いトンネル等に対して得られる体験価値が低く、三陸鉄道の方が旅行テーマに合うため採用しない。
+  - id: route.kamaishi-city
+    name: 釜石市内周遊
+    status: shortlisted
+    from: place.kamaishi
+    to: place.kamaishi
+    mode: bicycle
+    distance_km: {min: 15, max: 20}
+    route_value: high
+    tags: [ironworks, unusual-place]
+    description: 鉄の歴史館、釜石大観音、昼食、釜石駅をつなぐ。大観音は時間不足時の削減候補。

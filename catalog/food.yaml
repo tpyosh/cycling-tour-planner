@@ -1,2 +1,9 @@
 schema_version: 1
-items: []
+items:
+  - {id: food.ishinomaki-yakisoba, name: 石巻焼きそば, status: researching, map_query: 石巻焼きそば 石巻駅, area: stay.ishinomaki, description: Tier 2。9/23昼食。店名は今後具体化する。}
+  - {id: food.onagawa-ogatsu-lunch, name: 女川または雄勝の昼食, status: researching, map_query: 雄勝 ランチ, area: stay.ishinomaki, description: Tier 2。9/24の行程に合わせ、雄勝の道の駅等を中心に候補を具体化する。}
+  - {id: food.minamisanriku-autumn-don, name: 南三陸キラキラ秋旨丼, status: researching, map_query: 南三陸キラキラ秋旨丼, area: stay.kesennuma, description: Tier 2。9/25の志津川滞在中の昼食候補。提供店・時間は未確認。}
+  - {id: food.kesennuma-breakfast, name: 気仙沼魚市場周辺の朝食, status: researching, map_query: 気仙沼魚市場 朝食, area: stay.kesennuma, description: Tier 2。9/26の魚市場見学後。店名と営業時刻は今後具体化する。}
+  - {id: food.kesennuma-bonito-swordfish, name: 気仙沼の戻り鰹・メカジキ等の一食, status: researching, map_query: 気仙沼 戻り鰹 メカジキ, area: stay.kesennuma, description: Tier 1。水産都市の食体験として守る。店名は今後具体化する。}
+  - {id: food.ofunato-sanma-ramen, name: 大船渡さんまらーめん, status: researching, map_query: 大船渡 さんまらーめん, area: stay.kamaishi, description: Tier 2。9/27昼食候補。店名・営業時刻は未確認。}
+  - {id: food.kamaishi-ramen, name: 釜石ラーメン, status: researching, map_query: 釜石ラーメン 釜石駅, area: stay.kamaishi, description: Tier 2。9/28昼食候補。店名・営業時刻は未確認。}

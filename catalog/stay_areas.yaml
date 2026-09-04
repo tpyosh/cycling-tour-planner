@@ -1,2 +1,26 @@
 schema_version: 1
-items: []
+items:
+  - id: stay.ishinomaki
+    name: 石巻
+    status: shortlisted
+    accommodation: {availability: high, typical_types: [ビジネスホテル, ホテル]}
+    logistics: {food_options: high, railway_access: high}
+    description: 9/23・9/24の2連泊候補。市街・女川方面の拠点とし、組立・輪行回数を抑える。宿名・空室・価格は未確認。
+  - id: stay.kesennuma
+    name: 気仙沼
+    status: shortlisted
+    accommodation: {availability: high, typical_types: [ビジネスホテル, ホテル]}
+    logistics: {food_options: high, railway_access: high}
+    description: 9/25・9/26の2連泊候補。魚市場、旧向洋高校、リアス・アーク美術館を自転車で回る拠点。宿名・空室・価格は未確認。
+  - id: stay.kamaishi
+    name: 釜石
+    status: shortlisted
+    accommodation: {availability: high, typical_types: [ビジネスホテル, ホテル]}
+    logistics: {food_options: high, railway_access: high}
+    description: 9/27の1泊候補。鉄の歴史館と釜石大観音を訪ね、翌日に名古屋へ帰る終端ノード。宿名・空室・価格は未確認。
+  - id: stay.miyako
+    name: 宮古
+    status: deferred
+    accommodation: {availability: medium, typical_types: [ビジネスホテル, ホテル, 旅館]}
+    logistics: {food_options: medium, railway_access: high}
+    description: 北側延伸案の宿泊候補。大槌・山田・田老等にも魅力はあるが、6日間では南側の滞在密度を下げるため現行案では採用しない。

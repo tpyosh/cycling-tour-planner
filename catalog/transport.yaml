@@ -1,2 +1,18 @@
 schema_version: 1
-items: []
+items:
+  - {id: transport.nagoya-tokyo-nozomi-20260923, name: のぞみ 名古屋→東京, status: researching, mode: train, from: place.nagoya, to: 東京駅, departure: '2026-09-23T06:28:00+09:00', arrival: '2026-09-23T08:03:00+09:00', description: 参考時刻。自転車は輪行袋。2026年9月ダイヤを出発直前に再確認する。}
+  - {id: transport.tokyo-sendai-hayabusa-20260923, name: はやぶさ 東京→仙台, status: researching, mode: train, from: 東京駅, to: 仙台駅, departure: '2026-09-23T08:18:00+09:00', arrival: '2026-09-23T09:48:00+09:00', description: 参考時刻。東京で15分程度の乗換となるため注意。未予約。}
+  - {id: transport.sendai-ishinomaki-20260923, name: 仙石東北ライン快速 仙台→石巻, status: researching, mode: train, from: 仙台駅, to: place.ishinomaki, departure: '2026-09-23T10:18:00+09:00', arrival: '2026-09-23T11:18:00+09:00', description: 参考時刻。石巻到着後に自転車を組み立てる。}
+  - {id: transport.tokyo-sendai-later-20260923, name: 東京→仙台の後続接続, status: discovered, mode: train, from: 東京駅, to: 仙台駅, departure: null, arrival: null, description: '8:18発に乗り遅れた場合の候補。具体便と石巻到着時刻は未確認だが、旅程全体が崩壊しない接続があるとのシード記録。'}
+
+  - {id: transport.ishinomaki-maeyachi-20260925, name: 石巻線 石巻→前谷地, status: researching, mode: train, from: place.ishinomaki, to: 前谷地駅, departure: '2026-09-25T08:24:00+09:00', arrival: '2026-09-25T08:43:00+09:00', description: 参考時刻。自転車は石巻で輪行し、気仙沼まで袋のまま運ぶ想定。}
+  - {id: transport.maeyachi-yanazu-20260925, name: 気仙沼線 前谷地→柳津, status: researching, mode: train, from: 前谷地駅, to: 柳津駅, departure: '2026-09-25T09:03:00+09:00', arrival: '2026-09-25T09:26:00+09:00', description: Tier 1。気仙沼線の鉄道として残った区間を体験する。参考時刻。}
+  - {id: transport.yanazu-shizugawa-brt-20260925, name: 気仙沼線BRT 柳津→志津川, status: researching, mode: bus, from: 柳津駅, to: 志津川駅, departure: '2026-09-25T09:34:00+09:00', arrival: '2026-09-25T10:01:00+09:00', description: Tier 1。鉄道からBRTへ連続して乗る旅行の核。輪行袋入り自転車の持込み可否は未確認。}
+  - {id: transport.shizugawa-kesennuma-brt-20260925, name: 気仙沼線BRT 志津川→気仙沼, status: researching, mode: bus, from: 志津川駅, to: place.kesennuma, departure: '2026-09-25T14:02:00+09:00', arrival: '2026-09-25T15:23:00+09:00', description: Tier 1のBRT体験の後半。参考時刻。輪行袋入り自転車の持込み可否は未確認。}
+
+  - {id: transport.kesennuma-miracle-pine-brt-20260927, name: 大船渡線BRT 気仙沼→奇跡の一本松, status: researching, mode: bus, from: place.kesennuma, to: place.rikuzentakata, departure: '2026-09-27T09:10:00+09:00', arrival: '2026-09-27T09:40:00+09:00', description: Tier 2。2本目のBRTのため限界効用はやや下がる。到着後に自転車を組み立てる。輪行袋入り自転車の持込み可否は未確認。}
+  - {id: transport.sakari-kamaishi-sanriku-20260927, name: 三陸鉄道 盛→釜石, status: researching, mode: train, from: 盛駅, to: place.kamaishi, departure: '2026-09-27T16:45:00+09:00', arrival: '2026-09-27T17:32:00+09:00', description: Tier 1。BRT化路線と鉄道復旧した三陸鉄道を比較する最後のピース。完成車持込制度の利用可否は直前再確認し、輪行へ切り替えられる時間を残す。}
+
+  - {id: transport.kamaishi-shinhanamaki-20260928, name: 釜石→新花巻, status: researching, mode: train, from: place.kamaishi, to: 新花巻駅, departure: '2026-09-28T13:32:00+09:00', arrival: '2026-09-28T15:38:00+09:00', description: '参考時刻。シードでは新花巻着15:37〜15:38頃。釜石で輪行する。'}
+  - {id: transport.shinhanamaki-tokyo-yamabiko-20260928, name: やまびこ 新花巻→東京, status: researching, mode: train, from: 新花巻駅, to: 東京駅, departure: '2026-09-28T16:19:00+09:00', arrival: '2026-09-28T19:28:00+09:00', description: 参考時刻。未予約。}
+  - {id: transport.tokyo-nagoya-nozomi-20260928, name: のぞみ 東京→名古屋, status: researching, mode: train, from: 東京駅, to: place.nagoya, departure: '2026-09-28T20:00:00+09:00', arrival: '2026-09-28T21:38:00+09:00', description: 参考時刻。9/28中に名古屋へ帰着する。未予約。}

@@ -1,2 +1,212 @@
 schema_version: 1
-items: []
+items:
+  - {id: place.nagoya, name: 名古屋, kind: town, status: shortlisted, map_query: 名古屋駅, description: 旅行の出発地・帰着地。, tags: [node]}
+  - {id: place.ishinomaki, name: 石巻, kind: town, status: shortlisted, map_query: 石巻駅, description: 9/23・9/24の都市ノード。, tags: [node]}
+  - {id: place.kesennuma, name: 気仙沼, kind: town, status: shortlisted, map_query: 気仙沼駅, description: 9/25・9/26の都市ノード。, tags: [node]}
+  - {id: place.rikuzentakata, name: 陸前高田, kind: town, status: shortlisted, map_query: 奇跡の一本松駅, description: 9/27の自転車区間の起点。, tags: [node]}
+  - {id: place.ofunato, name: 大船渡, kind: town, status: shortlisted, map_query: 盛駅, description: 9/27の自転車区間の終点。, tags: [node]}
+  - {id: place.kamaishi, name: 釜石, kind: town, status: shortlisted, map_query: 釜石駅, description: 9/27の宿泊地・9/28の観光拠点。, tags: [node]}
+
+  - id: place.kadonowaki-school
+    name: 石巻市震災遺構 門脇小学校
+    kind: historic_site
+    status: shortlisted
+    map_query: 石巻市震災遺構 門脇小学校
+    description: Tier 1。初日の最重要スポット。
+    tags: [tier-1, earthquake, tsunami, remains]
+  - id: place.minamihama-memorial-park
+    name: 石巻南浜津波復興祈念公園
+    kind: historic_site
+    status: shortlisted
+    map_query: 石巻南浜津波復興祈念公園
+    description: Tier 3。門脇小学校と合わせる任意候補で、遅延時には先に短縮する。
+    tags: [tier-3, earthquake, optional]
+  - id: place.ishinomori-manga-museum
+    name: 石ノ森萬画館
+    kind: museum
+    status: shortlisted
+    map_query: 石ノ森萬画館
+    description: Tier 2。震災テーマ以外の石巻を見る施設。シードでは9/23開館・9/24休館のため初日に配置。
+    tags: [tier-2, culture, schedule-sensitive]
+  - id: place.ishinomaki-old-town-port
+    name: 北上川・石巻旧市街・港周辺
+    kind: town
+    status: shortlisted
+    map_query: 石巻旧北上川 河口
+    description: Tier 3。自由走行と寄り道の余白。遅延時の削減候補。
+    tags: [tier-3, port, optional]
+  - id: place.onagawa-police-box
+    name: 東日本大震災遺構 旧女川交番
+    kind: historic_site
+    status: shortlisted
+    map_query: 旧女川交番
+    description: Tier 1。9/24案の核となる実物遺構。
+    tags: [tier-1, earthquake, tsunami, remains]
+  - id: place.onagawa-port
+    name: 女川港
+    kind: other
+    status: shortlisted
+    map_query: 女川港
+    description: Tier 2。女川の港湾と復興後の町を観察する。
+    tags: [tier-2, port, reconstruction]
+  - id: place.seapal-pier-onagawa
+    name: シーパルピア女川・女川駅前商業施設
+    kind: other
+    status: shortlisted
+    map_query: シーパルピア女川
+    description: Tier 3。動線上の商業施設として任意訪問。
+    tags: [tier-3, commercial, optional]
+  - id: place.ogatsu-suzuri-museum
+    name: 雄勝硯伝統産業会館
+    kind: museum
+    status: researching
+    map_query: 雄勝硯伝統産業会館
+    description: Tier 2+。地域固有の地場産業を知る9/24強化案Aの主要候補。
+    tags: [tier-2-plus, local-industry, schedule-sensitive]
+  - id: place.okawa-school
+    name: 大川小学校震災遺構
+    kind: historic_site
+    status: researching
+    map_query: 大川小学校震災遺構
+    description: Tier 1。避難判断・集団行動という関心に直結。シードでは9/24は伝承館が振替休館だが屋外遺構は見学可能とされ、直前再確認が必要。
+    tags: [tier-1, earthquake, tsunami, remains, schedule-sensitive]
+  - id: place.onagawa-nuclear-pr-center
+    name: 女川原子力PRセンター
+    kind: museum
+    status: deferred
+    map_query: 女川原子力PRセンター
+    description: Tier 2+候補。原発・放射線・安全対策・発電所史を扱う事業者PR施設。中立的な事故検証施設とは区別し、9/24強化案Aと同日には詰め込み過ぎとなるため保留。
+    tags: [tier-2-plus, energy-infrastructure, alternative]
+  - id: place.minamisanriku-311-memorial
+    name: 南三陸311メモリアル
+    kind: museum
+    status: shortlisted
+    map_query: 南三陸311メモリアル
+    description: Tier 1。9/25の志津川滞在の核。ラーニングシアター等の日時指定予約を今後検討する。
+    tags: [tier-1, earthquake, schedule-sensitive]
+  - id: place.minamisanriku-disaster-office
+    name: 旧防災対策庁舎・南三陸町震災復興祈念公園
+    kind: historic_site
+    status: shortlisted
+    map_query: 南三陸町防災対策庁舎
+    description: Tier 2。311メモリアルと合わせて訪ねる。
+    tags: [tier-2, earthquake, reconstruction]
+  - id: place.minamisanriku-kiriko
+    name: みんなのきりこ展
+    kind: other
+    status: shortlisted
+    map_query: みんなのきりこ展 南三陸
+    description: Tier 2。地域文化の候補。開催・展示状況は直前確認する。
+    tags: [tier-2, local-culture, schedule-sensitive]
+  - id: place.sansan-shopping-village
+    name: 南三陸さんさん商店街
+    kind: other
+    status: shortlisted
+    map_query: 南三陸さんさん商店街
+    description: Tier 3。志津川の動線上で立ち寄る商業施設。
+    tags: [tier-3, commercial, optional]
+  - id: place.kesennuma-fish-market
+    name: 気仙沼市魚市場
+    kind: other
+    status: shortlisted
+    map_query: 気仙沼市魚市場
+    description: Tier 1。現役の水産都市を見る施設。前夜に入船・水揚げ・休場情報を確認する。
+    tags: [tier-1, fishery, market, schedule-sensitive]
+  - id: place.kesennuma-umi-no-ichi
+    name: 気仙沼 海の市
+    kind: other
+    status: shortlisted
+    map_query: 気仙沼 海の市
+    description: Tier 3。市場周辺の任意立ち寄り。
+    tags: [tier-3, commercial, optional]
+  - id: place.kesennuma-seafood-shops
+    name: 気仙沼の水産加工店等
+    kind: other
+    status: shortlisted
+    map_query: 気仙沼 水産加工店
+    description: Tier 3。市内走行中の自由寄り道として偶然性を残す候補。
+    tags: [tier-3, fishery, local-industry, optional]
+  - id: place.kesennuma-shark-museum
+    name: 気仙沼シャークミュージアム・氷の水族館
+    kind: museum
+    status: shortlisted
+    map_query: 気仙沼シャークミュージアム
+    description: Tier 2。気仙沼の水産文化を補強する施設。
+    tags: [tier-2, fishery, museum]
+  - id: place.kesennuma-memorial-museum
+    name: 気仙沼市東日本大震災遺構・伝承館（旧向洋高校）
+    kind: historic_site
+    status: shortlisted
+    map_query: 気仙沼市東日本大震災遺構 伝承館
+    description: Tier 1。門脇小学校とは異なる大型実物遺構。
+    tags: [tier-1, earthquake, tsunami, remains]
+  - id: place.rias-ark-museum
+    name: リアス・アーク美術館
+    kind: museum
+    status: shortlisted
+    map_query: リアス・アーク美術館
+    description: Tier 1。震災記録、災害史、歴史、民俗、生活文化、食と暮らしを横断して見られる。シードでは9/26は「新方舟祭2026」開催期間内。
+    tags: [tier-1, earthquake, history, folklore, local-culture, schedule-sensitive]
+  - id: place.iwate-tsunami-memorial
+    name: いわてTSUNAMIメモリアル
+    kind: museum
+    status: shortlisted
+    map_query: いわてTSUNAMIメモリアル
+    description: Tier 1。9/27の陸前高田滞在の核。
+    tags: [tier-1, earthquake, tsunami]
+  - id: place.miracle-pine
+    name: 奇跡の一本松・周辺遺構
+    kind: historic_site
+    status: shortlisted
+    map_query: 奇跡の一本松
+    description: Tier 2。TSUNAMIメモリアルと合わせて訪ねる。
+    tags: [tier-2, earthquake, tsunami]
+  - id: place.ofunato-port-city
+    name: 大船渡港・市街
+    kind: town
+    status: shortlisted
+    map_query: 大船渡港
+    description: Tier 2。陸前高田から盛駅へ向かう自転車区間で港と市街を見る。
+    tags: [tier-2, port, city]
+  - id: place.kamaishi-iron-museum
+    name: 釜石市立鉄の歴史館
+    kind: museum
+    status: shortlisted
+    map_query: 釜石市立鉄の歴史館
+    description: Tier 1。製鉄都市としての釜石を見て、三陸を震災被災地だけで終わらせないための重要施設。
+    tags: [tier-1, ironworks, local-industry]
+  - id: place.kamaishi-daikannon
+    name: 釜石大観音
+    kind: attraction
+    status: shortlisted
+    map_query: 釜石大観音
+    description: Tier 2。巨大構造物・珍スポット。時間不足なら鉄の歴史館を優先して削る。
+    tags: [tier-2, unusual-place, optional]
+  - id: place.arahama-school
+    name: 仙台市立荒浜小学校震災遺構
+    kind: historic_site
+    status: deferred
+    map_query: 震災遺構仙台市立荒浜小学校
+    description: 有力候補だが、仙台から南への往復が初日の石巻滞在を圧迫するため現行案では採用しない。
+    tags: [earthquake, deferred]
+  - id: place.horai-island
+    name: 蓬莱島
+    kind: natural_feature
+    status: deferred
+    map_query: 蓬莱島 大槌町
+    description: 宮古方面へ延伸する場合の候補。現行案では情報密度を優先して保留。
+    tags: [north-extension, deferred]
+  - id: place.yamada-whale-museum
+    name: 山田町立鯨と海の科学館
+    kind: museum
+    status: deferred
+    map_query: 山田町立鯨と海の科学館
+    description: 宮古方面へ延伸する場合の候補。現行案では情報密度を優先して保留。
+    tags: [north-extension, deferred]
+  - id: place.taro
+    name: 田老
+    kind: town
+    status: deferred
+    map_query: 田老駅
+    description: 宮古方面へ延伸する場合の候補。現行案では情報密度を優先して保留。
+    tags: [north-extension, deferred]

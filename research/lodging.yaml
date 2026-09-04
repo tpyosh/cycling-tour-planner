@@ -1,9 +1,9 @@
 schema_version: 1
-checked_at: null
+checked_at: 2026-09-03
 traveler:
   adults: 1
   rooms: 1
-  bicycles: 0
+  bicycles: 1
 policy:
   web_available: 指定条件で予約可能なプランを確認できた
   explicit_web_unavailable: 指定条件で満室または販売終了が明示されている
@@ -12,6 +12,36 @@ policy:
   rules:
     - 検索結果がないだけで満室と判定しない
     - 電話確認前の空室、料金、条件は未確認のままにする
-stay_searches: []
+stay_searches:
+  - date: 2026-09-23
+    checkout_date: 2026-09-25
+    preferred_area_ref: stay.ishinomaki
+    fallback_area_refs: []
+    call_order_area_refs: [stay.ishinomaki]
+    purpose: 石巻市街と9/24周回案の拠点とし、2連泊で自転車の組立・輪行回数を抑える
+    meal_priority: 市街地で食事を選べる前提とし、まず立地・価格・自転車保管条件を比較する
+    candidates: []
+  - date: 2026-09-25
+    checkout_date: 2026-09-27
+    preferred_area_ref: stay.kesennuma
+    fallback_area_refs: []
+    call_order_area_refs: [stay.kesennuma]
+    purpose: 気仙沼の魚市場・震災遺構・リアス・アーク美術館を自転車で高密度に回る拠点とする
+    meal_priority: 戻り鰹・メカジキ等の夕食を外で選べる立地を重視する
+    candidates: []
+  - date: 2026-09-27
+    checkout_date: 2026-09-28
+    preferred_area_ref: stay.kamaishi
+    fallback_area_refs: []
+    call_order_area_refs: [stay.kamaishi]
+    purpose: 三陸鉄道で到着後に1泊し、翌朝の鉄の歴史館・大観音と午後の帰路へつなぐ
+    meal_priority: 翌朝の自転車出発と釜石駅への輪行動線を優先する
+    candidates: []
 explicit_web_unavailable: []
-common_phone_questions: []
+common_phone_questions:
+  - 2026年9月の指定日程で大人1名・1室を予約できるか
+  - 税・サービス料を含む総額はいくらか
+  - 自転車を施錠できる屋内または管理された場所に保管できるか
+  - 客室持込みが可能か、輪行袋が必要か、事前連絡が必要か
+  - 最終チェックイン時刻と、遅延時の連絡条件は何か
+  - キャンセル期限と変更条件は何か

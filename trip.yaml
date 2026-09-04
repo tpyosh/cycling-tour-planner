@@ -1,7 +1,7 @@
 schema_version: 1
-id: new-trip
-title: 新しい旅行
-start_date: null
-end_date: null
-origin: null
-modes: []
+id: sanriku-2026
+title: 2026年9月 三陸旅行
+start_date: 2026-09-23
+end_date: 2026-09-28
+origin: 名古屋
+modes: [bicycle, bus, train, mixed]
