@@ -12,8 +12,19 @@ items:
     kind: historic_site
     status: shortlisted
     map_query: 石巻市震災遺構 門脇小学校
-    description: Tier 1。初日の最重要スポット。
-    tags: [tier-1, earthquake, tsunami, remains]
+    description: Tier 1候補。津波＋火災被害という他の学校遺構との差がある。Google Mapsの正確な最新レビュー数を再確認してからTier 1を確定する。
+    tags: [tier-1-candidate, earthquake, tsunami, remains, review-recheck]
+    google_maps:
+      rating: 4.6
+      review_count: 949
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [レビュー母数と評価はともに強い。, 津波火災・被災校舎・被災車両という実物性を評価材料とする。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
   - id: place.minamihama-memorial-park
     name: 石巻南浜津波復興祈念公園
     kind: historic_site
@@ -21,13 +32,60 @@ items:
     map_query: 石巻南浜津波復興祈念公園
     description: Tier 3。門脇小学校と合わせる任意候補で、遅延時には先に短縮する。
     tags: [tier-3, earthquake, optional]
+  - id: place.miyagi-tsunami-memorial-museum
+    name: みやぎ東日本大震災津波伝承館
+    kind: museum
+    status: researching
+    map_query: みやぎ東日本大震災津波伝承館
+    description: 南浜エリアで門脇小学校と同じ動線にある重要な比較候補。前回の仮旅程では未認識だった。追加移動コストが小さい可能性はあるが、採否と滞在時間は次回監査で決める。
+    tags: [tier-pending, earthquake, tsunami, near-route, candidate-audit]
+    google_maps:
+      rating: 4.4
+      review_count: 588
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [レビュー条件上は十分な比較対象。, 門脇小学校と同じ南浜エリアにあり、前回の仮旅程で取りこぼしていた。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
+  - id: place.hiyoriyama-park
+    name: 日和山公園
+    kind: natural_feature
+    status: researching
+    map_query: 日和山公園 石巻
+    description: 石巻中心部の近傍候補。俯瞰と位置関係の理解が中心で、実物性を重視する個人嗜好では優先度が上がりにくい可能性がある。
+    tags: [tier-pending, viewpoint, near-route, preference-sensitive]
+    google_maps:
+      rating: 4.2
+      review_count: 1415
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [評価とレビュー母数は十分。, 主な価値が俯瞰・位置関係理解寄りのため個人嗜好上は優先度が下がる可能性がある。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
   - id: place.ishinomori-manga-museum
     name: 石ノ森萬画館
     kind: museum
     status: shortlisted
     map_query: 石ノ森萬画館
-    description: Tier 2。震災テーマ以外の石巻を見る施設。シードでは9/23開館・9/24休館のため初日に配置。
-    tags: [tier-2, culture, schedule-sensitive]
+    description: Tier 1（明示的例外）。『刃牙』好きと旅行期間中の「刃牙博ッッ!!」が直接一致するため、博物館一般の評価ルールで機械的に下げない。シードでは9/24休館のため日付固有の確認が必要。
+    tags: [tier-1, explicit-exception, manga, schedule-sensitive]
+    google_maps:
+      rating: 4.2
+      review_count: 4340
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [Tier 1の理由はGoogle Maps評価ではなく、刃牙博ッッ!!と個人嗜好の直接一致である。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
   - id: place.ishinomaki-old-town-port
     name: 北上川・石巻旧市街・港周辺
     kind: town
@@ -40,8 +98,8 @@ items:
     kind: historic_site
     status: shortlisted
     map_query: 旧女川交番
-    description: Tier 1。9/24案の核となる実物遺構。
-    tags: [tier-1, earthquake, tsunami, remains]
+    description: Tier 2上位。津波被災の実物遺構として強いが、小規模なため、評価条件を満たしても自動的にTier 1へ上げない。
+    tags: [tier-2, earthquake, tsunami, remains]
   - id: place.onagawa-port
     name: 女川港
     kind: other
@@ -61,8 +119,19 @@ items:
     kind: museum
     status: researching
     map_query: 雄勝硯伝統産業会館
-    description: Tier 2+。地域固有の地場産業を知る9/24強化案Aの主要候補。
-    tags: [tier-2-plus, local-industry, schedule-sensitive]
+    description: Tier 2〜3。地域固有の地場産業を知る9/24強化案Aの主要候補。Google Maps評価が4未満でも候補から削除しない。
+    tags: [tier-2, tier-3, local-industry, schedule-sensitive]
+    google_maps:
+      rating: 3.8
+      review_count: 218
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [博物館・資料館系のTier 1原則条件は満たさない。, 雄勝硯のテーマは個人嗜好に合い、大川〜女川動線上の候補として比較する。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
   - id: place.okawa-school
     name: 大川小学校震災遺構
     kind: historic_site
@@ -70,20 +139,31 @@ items:
     map_query: 大川小学校震災遺構
     description: Tier 1。避難判断・集団行動という関心に直結。シードでは9/24は伝承館が振替休館だが屋外遺構は見学可能とされ、直前再確認が必要。
     tags: [tier-1, earthquake, tsunami, remains, schedule-sensitive]
+    google_maps:
+      rating: 4.7
+      review_count: 845
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [高評価でレビュー母数も十分。, 被災校舎に加え避難判断という他の遺構と異なる体験軸がある。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
   - id: place.onagawa-nuclear-pr-center
     name: 女川原子力PRセンター
     kind: museum
     status: deferred
     map_query: 女川原子力PRセンター
-    description: Tier 2+候補。原発・放射線・安全対策・発電所史を扱う事業者PR施設。中立的な事故検証施設とは区別し、9/24強化案Aと同日には詰め込み過ぎとなるため保留。
-    tags: [tier-2-plus, energy-infrastructure, alternative]
+    description: Tier 3。原発・放射線・安全対策・発電所史を扱う事業者PR施設。企業PR館・子供向け要素、女川中心からの距離、構内見学との違いを確認する。候補維持。
+    tags: [tier-3, energy-infrastructure, alternative]
   - id: place.minamisanriku-311-memorial
     name: 南三陸311メモリアル
     kind: museum
     status: shortlisted
     map_query: 南三陸311メモリアル
-    description: Tier 1。9/25の志津川滞在の核。ラーニングシアター等の日時指定予約を今後検討する。
-    tags: [tier-1, earthquake, schedule-sensitive]
+    description: Tier 2〜3。展示・証言・判断を扱うが、教育価値だけで高Tierにしない。ラーニングシアター等の日時指定予約と営業情報を確認する。
+    tags: [tier-2, tier-3, earthquake, schedule-sensitive]
   - id: place.minamisanriku-disaster-office
     name: 旧防災対策庁舎・南三陸町震災復興祈念公園
     kind: historic_site
@@ -131,8 +211,8 @@ items:
     kind: museum
     status: shortlisted
     map_query: 気仙沼シャークミュージアム
-    description: Tier 2。気仙沼の水産文化を補強する施設。
-    tags: [tier-2, fishery, museum]
+    description: Tier 2〜3。水産・珍スポット。子供向け要素と大人一人旅での評価をレビュー本文で再確認する。
+    tags: [tier-2, tier-3, fishery, unusual-place]
   - id: place.kesennuma-memorial-museum
     name: 気仙沼市東日本大震災遺構・伝承館（旧向洋高校）
     kind: historic_site
@@ -140,13 +220,35 @@ items:
     map_query: 気仙沼市東日本大震災遺構 伝承館
     description: Tier 1。門脇小学校とは異なる大型実物遺構。
     tags: [tier-1, earthquake, tsunami, remains]
+    google_maps:
+      rating: 4.7
+      review_count: 984
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [評価とレビュー母数がともに非常に強い。, 被災校舎そのものを歩ける実物性を評価材料とする。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
   - id: place.rias-ark-museum
     name: リアス・アーク美術館
     kind: museum
     status: shortlisted
     map_query: リアス・アーク美術館
-    description: Tier 1。震災記録、災害史、歴史、民俗、生活文化、食と暮らしを横断して見られる。シードでは9/26は「新方舟祭2026」開催期間内。
-    tags: [tier-1, earthquake, history, folklore, local-culture, schedule-sensitive]
+    description: Tier 2上位。Google Mapsの星・レビュー母数は博物館Tier 1条件を満たす可能性があるが、気仙沼内の競争が強いため自動的にTier 1にはしない。シードでは9/26は「新方舟祭2026」開催期間内。
+    tags: [tier-2, earthquake, history, folklore, local-culture, schedule-sensitive]
+    google_maps:
+      rating: 4.1
+      review_count: 337
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [博物館系Tier 1の最低条件は満たす。, 気仙沼内の魚市場・震災遺構・唐桑との競合で優先度が下がる可能性がある。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
   - id: place.iwate-tsunami-memorial
     name: いわてTSUNAMIメモリアル
     kind: museum
@@ -154,6 +256,17 @@ items:
     map_query: いわてTSUNAMIメモリアル
     description: Tier 1。9/27の陸前高田滞在の核。
     tags: [tier-1, earthquake, tsunami]
+    google_maps:
+      rating: 4.6
+      review_count: 756
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [Tier 1条件を十分満たす。, 単館ではなく奇跡の一本松と周辺遺構のクラスターとして評価する。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
   - id: place.miracle-pine
     name: 奇跡の一本松・周辺遺構
     kind: historic_site
@@ -173,8 +286,19 @@ items:
     kind: museum
     status: shortlisted
     map_query: 釜石市立鉄の歴史館
-    description: Tier 1。製鉄都市としての釜石を見て、三陸を震災被災地だけで終わらせないための重要施設。
-    tags: [tier-1, ironworks, local-industry]
+    description: Tier 2〜3。製鉄都市として重要だが、Google Maps評価はTier 1条件を満たさない。候補から削除せず、動線上で比較する。
+    tags: [tier-2, tier-3, ironworks, local-industry]
+    google_maps:
+      rating: 3.8
+      review_count: 437
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [博物館系Tier 1条件を満たさない。, 製鉄の町というテーマの強さだけで上位にしない。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
   - id: place.kamaishi-daikannon
     name: 釜石大観音
     kind: attraction
@@ -182,13 +306,24 @@ items:
     map_query: 釜石大観音
     description: Tier 2。巨大構造物・珍スポット。時間不足なら鉄の歴史館を優先して削る。
     tags: [tier-2, unusual-place, optional]
+    google_maps:
+      rating: 3.9
+      review_count: 1208
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [レビュー母数は多いが星4.0未満。, 巨大像・珍スポットとして博物館とは別軸で比較できる。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
   - id: place.arahama-school
     name: 仙台市立荒浜小学校震災遺構
     kind: historic_site
     status: deferred
     map_query: 震災遺構仙台市立荒浜小学校
-    description: 有力候補だが、仙台から南への往復が初日の石巻滞在を圧迫するため現行案では採用しない。
-    tags: [earthquake, deferred]
+    description: Tier 1候補。津波被害が残る校舎で評価は高水準だが、Google Mapsの最新レビュー数を再確認してから確定する。9/24は第4木曜の休館に注意。現行案不採用でも候補母集団に保持する。
+    tags: [tier-1-candidate, earthquake, deferred, schedule-sensitive]
   - id: place.horai-island
     name: 蓬莱島
     kind: natural_feature
@@ -210,3 +345,528 @@ items:
     map_query: 田老駅
     description: 宮古方面へ延伸する場合の候補。現行案では情報密度を優先して保留。
     tags: [north-extension, deferred]
+
+  - id: place.arahama-housing-foundations
+    name: 荒浜地区住宅基礎
+    kind: historic_site
+    status: researching
+    map_query: 荒浜地区 住宅基礎 震災遺構
+    description: Tier 2〜3。屋外震災遺構で、自転車で短時間に拾いやすい。常時見学可能性を確認する。
+    tags: [tier-2, tier-3, earthquake, cycling, outdoor]
+  - id: place.sendai-311-memorial
+    name: せんだい3.11メモリアル交流館
+    kind: museum
+    status: researching
+    map_query: せんだい3.11メモリアル交流館
+    description: Tier 3。荒浜小学校等との重複を含めて比較する。低Tierでも候補母集団に保持する。
+    tags: [tier-3, earthquake, museum]
+  - id: place.ishinomaki-fish-market
+    name: 石巻魚市場
+    kind: other
+    status: researching
+    map_query: 石巻魚市場
+    description: Tier 2。現役産業。水揚げ時間に合わせると価値が上がる。Google Mapsの観光施設評価とは単純比較しない。
+    tags: [tier-2, fishery, market, schedule-sensitive]
+  - id: place.sun-fan-museum
+    name: サン・ファン館
+    kind: museum
+    status: researching
+    map_query: サン・ファン館
+    description: Tier 3。復元船本体は解体済みだが、原寸大メインマストや船首像等の大型実物がある。候補から削除しない。
+    tags: [tier-3, maritime, ship, local-history]
+    google_maps:
+      rating: 3.8
+      review_count: 1132
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [レビュー母数は多いが星4.0未満で、博物館系Tier 1原則条件を満たさない。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
+  - id: place.ishinomaki-museum
+    name: 石巻市博物館
+    kind: museum
+    status: researching
+    map_query: 石巻市博物館
+    description: Tier 3。地域史・自然史。企画展次第で再評価し、常設のみなら動線上採用程度とする。
+    tags: [tier-3, museum, local-history]
+    google_maps:
+      rating: 4.0
+      review_count: 125
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [博物館系Tier 1原則条件の最低ライン付近。, 6日間の競合候補としては現状弱め。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
+  - id: place.kinkasan-golden-shrine
+    name: 金華山黄金山神社
+    kind: historic_site
+    status: researching
+    map_query: 金華山黄金山神社
+    description: 金華山そのものの候補。信仰・島・船を束ねられる一方、半日程度の時間コストが大きい。2026-09-25の例大祭とは分離して比較し、年1回という希少性だけでTierを上げない。
+    tags: [tier-pending, shrine, island, time-cost-high]
+  - id: place.kinkasan-route
+    name: 金華山航路
+    kind: transport_site
+    status: researching
+    map_query: 鮎川 金華山 航路
+    description: 金華山体験に必要な航路候補。鮎川または女川からの通常便・臨時便、輪行条件、所要時間を確認し、金華山本体と例大祭を分けて評価する。
+    tags: [tier-pending, ferry, transport, schedule-sensitive]
+  - id: place.kinkasan-festival-20260925
+    name: 金華山黄金山神社 例大祭（2026年9月25日）
+    kind: other
+    status: researching
+    map_query: 金華山黄金山神社 例大祭
+    description: 2026-09-25開催と臨時船の存在が確認済みの限定イベント候補。ただし一般旅行者にとって通常日との差が大きい確証は弱く、金華山を選ぶ補助要素として扱う。
+    tags: [tier-pending, event, date-fixed, schedule-sensitive, bonus-only]
+  - id: place.ayukawa-port
+    name: 鮎川・鮎川港
+    kind: town
+    status: researching
+    map_query: 鮎川港 石巻
+    description: 牡鹿半島集中案の地域ノード。捕鯨文化、鯨料理、ホエールタウンおしか、おしかホエールランド、金華山航路を束ねる。
+    tags: [tier-pending, port, whaling, oshika-cluster]
+  - id: place.white-deer-oshika
+    name: White Deer (Oshika)
+    kind: attraction
+    status: researching
+    map_query: White Deer Oshika
+    description: Tier 2上位。巨大現代アート。2026-09-25・26の夜間特別鑑賞候補を確認する。
+    tags: [tier-2, contemporary-art, unusual-place, schedule-sensitive]
+  - id: place.whale-town-oshika
+    name: ホエールタウンおしか
+    kind: other
+    status: researching
+    map_query: ホエールタウンおしか
+    description: Tier 2〜3。捕鯨・港・地域産業を束ねる拠点。
+    tags: [tier-2, tier-3, whaling, port, cluster]
+  - id: place.oshika-whaleland
+    name: おしかホエールランド
+    kind: museum
+    status: researching
+    map_query: おしかホエールランド
+    description: Tier 2〜3。巨大骨格・捕鯨道具等がある。少数レビューの高評価は過大評価しない。
+    tags: [tier-2, tier-3, whaling, museum]
+    google_maps:
+      rating: 4.5
+      review_count: 10
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [星評価は高いがレビュー母数が極端に少なく、博物館系Tier 1の根拠にしない。, 捕鯨文化と実物展示は別軸で比較する。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
+  - id: place.glide-onagawa
+    name: GLIDE
+    kind: other
+    status: researching
+    map_query: GLIDE 女川 ギター工房
+    description: Tier 3〜保留。珍しい現役ギター工房。予約制、個人見学条件を確認する。
+    tags: [tier-3, hold, active-industry, workshop, reservation]
+  - id: place.onagawa-festival-20260927
+    name: 海と釣りとファッションの祭典
+    kind: other
+    status: researching
+    map_query: 女川 海と釣りとファッションの祭典 2026
+    description: Tier 2〜3。2026-09-27日付固定の地方文化・釣り文化イベント。開催内容と時間を確認する。
+    tags: [tier-2, tier-3, event, local-culture, date-fixed]
+  - id: place.ogatsu-suzuri-sale
+    name: 雄勝硯の現役工芸・販売
+    kind: other
+    status: researching
+    map_query: 雄勝硯 工房 販売
+    description: Tier 2〜3。施設展示よりも現役工芸・販売として評価する。個別工房の訪問条件を確認する。
+    tags: [tier-2, tier-3, local-industry, workshop]
+  - id: place.ogatsu-sato-roadside
+    name: 硯上の里おがつ
+    kind: other
+    status: researching
+    map_query: 硯上の里おがつ
+    description: Tier 3。休憩・食・工芸をまとめる拠点。
+    tags: [tier-3, roadside-station, food, local-industry]
+  - id: place.ogatsu-seafood-festival
+    name: おがつ海鮮まつり
+    kind: other
+    status: researching
+    map_query: おがつ海鮮まつり 2026
+    description: Tier 3候補。9月下旬〜10月上旬の開催日と、活ホタテ等の内容が旅行日程に合えば再評価する。
+    tags: [tier-3, event, seafood, schedule-sensitive]
+  - id: place.utatsu-ichthyosaur-display
+    name: 歌津魚竜化石展示
+    kind: museum
+    status: researching
+    map_query: 歌津 魚竜化石 展示
+    description: Tier 3〜保留。ウタツギョリュウ等のローカル自然史。展示自体のレビューは十分でないため候補維持。
+    tags: [tier-3, hold, fossil, natural-history]
+  - id: place.tatezaki-ichthyosaur-site
+    name: 館崎魚竜化石産地
+    kind: historic_site
+    status: researching
+    map_query: 館崎 魚竜化石産地
+    description: 通常一人旅ではアクセス制約あり。私有地で自由訪問不可、公式体験は人数条件あり。unavailable扱いにはせず条件付き候補として保持する。
+    tags: [hold, fossil, private-land, access-constrained]
+  - id: place.mono-museum
+    name: モアイ
+    kind: attraction
+    status: researching
+    map_query: 南三陸 モアイ
+    description: Tier 3。イースター島製の実物モアイ。珍スポットとして候補維持。
+    tags: [tier-3, unusual-place, local-culture]
+  - id: place.kesennuma-cargo-warehouse
+    name: 廻船問屋の蔵見学
+    kind: historic_site
+    status: researching
+    map_query: 気仙沼 廻船問屋 蔵見学
+    description: Tier 2。港湾史・現役事業者。予約制、土日候補、一人参加条件を確認する。
+    tags: [tier-2, port-history, active-business, reservation]
+  - id: place.kesennuma-port
+    name: 気仙沼港
+    kind: other
+    status: researching
+    map_query: 気仙沼港
+    description: 魚市場、水産加工、戻り鰹、港湾史を束ねる市街クラスターの候補。単独の展望対象ではなく、現役水産業の動線として評価する。
+    tags: [tier-pending, port, fishery, kesennuma-cluster, near-route]
+  - id: place.kesennuma-brt
+    name: 気仙沼線BRT専用道
+    kind: transport_site
+    status: researching
+    map_query: 気仙沼線BRT 専用道
+    description: Tier 1。旧鉄道敷、トンネル、駅施設等を実際にBRTで走る交通体験。博物館ルール対象外。
+    tags: [tier-1, transport, brt, infrastructure]
+  - id: place.kesennuma-return-bonito
+    name: 気仙沼の戻り鰹
+    kind: other
+    status: researching
+    map_query: 気仙沼 戻り鰹 9月
+    description: Tier 1体験候補の食材。9月下旬の水揚げ・提供状況を直前確認する。
+    tags: [tier-1, food, fishery, seasonal]
+  - id: place.kamino-kura-tsunami-stone
+    name: 神の倉の津波石
+    kind: natural_feature
+    status: researching
+    map_query: 神の倉 津波石 唐桑
+    description: Tier 2〜3。150t級巨大津波石。レビュー母数は少ないが、巨大物として候補維持する。
+    tags: [tier-2, tier-3, tsunami, giant-object, karakuwa-cluster]
+  - id: place.ayukawa-worship-fishing
+    name: 鮪立のお参詣・漁村文化体験
+    kind: other
+    status: researching
+    map_query: 鮪立 お参詣 漁村文化体験
+    description: Tier 2。熊野信仰とカツオ漁文化。ガイド制、一人料金を確認する。
+    tags: [tier-2, fishing-village, local-culture, guide-required]
+  - id: place.kamukama-oritate
+    name: 巨釜・折石
+    kind: natural_feature
+    status: researching
+    map_query: 巨釜 折石 唐桑
+    description: Tier 2〜3。巨大海食柱。唐桑半島クラスターの一部として評価する。
+    tags: [tier-2, tier-3, natural-feature, karakuwa-cluster]
+  - id: place.hanzou
+    name: 半造
+    kind: natural_feature
+    status: researching
+    map_query: 半造 唐桑
+    description: Tier 2〜3。単独Tier 1ではなく、唐桑半島周回の候補として保持する。
+    tags: [tier-2, tier-3, natural-feature, karakuwa-cluster]
+  - id: place.misaki-shrine-karakuwa
+    name: 御崎神社
+    kind: historic_site
+    status: researching
+    map_query: 御崎神社 唐桑
+    description: Tier 3。地域信仰。唐桑半島クラスターの一部。
+    tags: [tier-3, shrine, karakuwa-cluster]
+  - id: place.karakuwacenter
+    name: 唐桑半島ビジターセンター
+    kind: museum
+    status: researching
+    map_query: 唐桑半島ビジターセンター
+    description: Tier 3。展示施設。旧津波体験館は閉館済みであることを区別して記録する。
+    tags: [tier-3, museum, karakuwa-cluster]
+  - id: place.rikuzentakata-tapic45
+    name: タピック45
+    kind: historic_site
+    status: researching
+    map_query: タピック45 陸前高田
+    description: Tier 2。陸前高田公園クラスターの震災遺構。
+    tags: [tier-2, earthquake, remains, rikuzentakata-cluster]
+  - id: place.old-kesen-junior-high
+    name: 旧気仙中学校
+    kind: historic_site
+    status: researching
+    map_query: 旧気仙中学校 震災遺構
+    description: Tier 2。陸前高田公園クラスターの震災遺構。
+    tags: [tier-2, earthquake, remains, rikuzentakata-cluster]
+  - id: place.yonezawa-traditional-house
+    name: 旧吉田家住宅主屋
+    kind: historic_site
+    status: researching
+    map_query: 旧吉田家住宅主屋 陸前高田
+    description: Tier 2。高評価でもレビュー約50件のためTier 1にはしない。9/24・9/28休館候補を再確認する。
+    tags: [tier-2, cultural-property, earthquake, schedule-sensitive]
+  - id: place.rikuzentakata-city-museum
+    name: 陸前高田市立博物館
+    kind: museum
+    status: researching
+    map_query: 陸前高田市立博物館
+    description: Tier 2。文化財レスキュー等が特徴。レビュー母数はTier 1として境界。
+    tags: [tier-2, museum, cultural-property]
+  - id: place.kesen-carpenter-museum
+    name: 気仙大工左官伝承館
+    kind: museum
+    status: researching
+    map_query: 気仙大工左官伝承館
+    description: Tier 2〜3。現役・地域技術の文脈で比較する。9/24休館注意。
+    tags: [tier-2, tier-3, local-industry, schedule-sensitive]
+  - id: place.rikuzentakata-yonezawa-building
+    name: 米沢商会ビル
+    kind: historic_site
+    status: researching
+    map_query: 米沢商会ビル 陸前高田
+    description: Tier 2〜3。屋上煙突に掴まって生存した実物建築。
+    tags: [tier-2, tier-3, earthquake, remains]
+  - id: place.hirota-senkyo
+    name: 黒崎仙峡
+    kind: natural_feature
+    status: researching
+    map_query: 黒崎仙峡 陸前高田
+    description: Tier 3。自然候補。広田半島周回の一部として保持する。
+    tags: [tier-3, nature, hirota-cluster]
+  - id: place.kurosaki-senkyo-onsen
+    name: 黒崎仙峡温泉
+    kind: hot_spring
+    status: researching
+    map_query: 黒崎仙峡温泉
+    description: Tier 3。広田半島周回時の休憩候補。
+    tags: [tier-3, hot-spring, hirota-cluster]
+  - id: place.ofunato-fish-market
+    name: 大船渡魚市場
+    kind: other
+    status: researching
+    map_query: 大船渡魚市場
+    description: Tier 2。現役産業。9月下旬はサンマの水揚げ状況を直前確認する。
+    tags: [tier-2, fishery, market, seasonal]
+  - id: place.ofunato-seafood-center
+    name: 海の幸ふるまいセンター
+    kind: other
+    status: researching
+    map_query: 海の幸ふるまいセンター 大船渡
+    description: Tier 2。魚・鮮魚・食の候補。買い物と食事を分けて比較する。
+    tags: [tier-2, food, fishery, market]
+  - id: place.ofunato-cement
+    name: 太平洋セメント大船渡工場
+    kind: other
+    status: researching
+    map_query: 太平洋セメント大船渡工場
+    description: Tier 3。現役巨大産業。通常工場見学は停止中のため、外観・港湾景観候補として保持する。
+    tags: [tier-3, active-industry, industrial-landscape]
+  - id: place.sunria
+    name: サンリア
+    kind: other
+    status: researching
+    map_query: サンリア 大船渡
+    description: Tier 3。地方文化・B級小ネタ。Google Maps星だけで削除しない。
+    tags: [tier-3, commercial, local-culture]
+  - id: place.ofunato-museum
+    name: 大船渡市立博物館
+    kind: museum
+    status: researching
+    map_query: 大船渡市立博物館
+    description: Tier 3。Google Maps評価はTier 1条件を満たさない。動線上なら比較する。
+    tags: [tier-3, museum]
+  - id: place.ofunato-onsen
+    name: 大船渡温泉
+    kind: hot_spring
+    status: researching
+    map_query: 大船渡温泉
+    description: 大船渡滞在時の温泉・宿泊候補。候補として保持するが、宿泊都市を大船渡に置くかは未決定。
+    tags: [tier-pending, hot-spring, lodging-context]
+  - id: place.shio-me
+    name: 大津波資料館「潮目」
+    kind: museum
+    status: researching
+    map_query: 大津波資料館 潮目 越喜来
+    description: Tier 2〜3／保留。高評価でもレビュー8件のためTier 1不可。個人・地域主体の小規模資料館で、一般旅行者の内部見学条件を要確認。候補から削除しない。
+    tags: [tier-2, tier-3, hold, earthquake, small-museum, access-constrained]
+  - id: place.sanriku-daiosugi
+    name: 三陸大王杉
+    kind: natural_feature
+    status: researching
+    map_query: 三陸大王杉 越喜来
+    description: Tier 3。巨大樹。越喜来セルフウォークの一部。
+    tags: [tier-3, nature, okirai-cluster]
+  - id: place.gutsy-poplar
+    name: ど根性ポプラ
+    kind: natural_feature
+    status: researching
+    map_query: ど根性ポプラ 越喜来
+    description: Tier 3。震災関連の短時間候補。越喜来セルフウォークの一部。
+    tags: [tier-3, earthquake, nature, okirai-cluster]
+  - id: place.okirai-disaster-sites
+    name: 越喜来周辺の震災地点
+    kind: historic_site
+    status: researching
+    map_query: 越喜来 震災遺構 大船渡
+    description: 潮目、三陸大王杉、ど根性ポプラと合わせて比較する地域クラスター。個別地点の取りこぼしと一般訪問可否は次回探索する。
+    tags: [tier-pending, earthquake, okirai-cluster, candidate-audit]
+  - id: place.yoshihama-tsunami-stone
+    name: 吉浜の津波石
+    kind: natural_feature
+    status: researching
+    map_query: 吉浜 津波石 大船渡
+    description: Tier 3。約30t。動線上なら短時間寄り道として価値がある。レビュー母数少数でも削除しない。
+    tags: [tier-3, tsunami, giant-object]
+  - id: place.yoshihama-tsunami-monuments
+    name: 吉浜の津波碑群
+    kind: historic_site
+    status: researching
+    map_query: 吉浜 津波碑
+    description: Tier 3。小規模震災遺構群。候補母集団として保持する。
+    tags: [tier-3, tsunami, monuments]
+  - id: place.tandai-star-stone
+    name: 星座石・伊能忠敬測量関連
+    kind: historic_site
+    status: researching
+    map_query: 唐丹 星座石 伊能忠敬
+    description: Tier 3。地域史。前提知識を要求しやすいため評価を抑える。
+    tags: [tier-3, local-history, knowledge-dependent]
+  - id: place.tandai-tsunami-monument
+    name: 唐丹津波碑
+    kind: historic_site
+    status: researching
+    map_query: 唐丹 津波碑
+    description: Tier 3。地域の津波碑。候補母集団として保持する。
+    tags: [tier-3, tsunami, monument]
+  - id: place.yakata-site
+    name: 屋形遺跡
+    kind: historic_site
+    status: researching
+    map_query: 屋形遺跡 釜石 唐丹
+    description: Tier 3〜保留。考古候補。アクセス・展示・現地解釈の必要性を確認する。
+    tags: [tier-3, hold, archaeology]
+  - id: place.kamaishi-mining-teson
+    name: 釜石鉱山展示室Teson
+    kind: museum
+    status: researching
+    map_query: 釜石鉱山展示室 Teson
+    description: Tier 2。産業遺産・鉱石・鉱山史。レビュー母数はTier 1条件不足。9/23休館、9/24以降候補。
+    tags: [tier-2, mining, local-industry, schedule-sensitive]
+  - id: place.hashino-iron-mine
+    name: 橋野鉄鉱山
+    kind: historic_site
+    status: researching
+    map_query: 橋野鉄鉱山
+    description: Tier 2〜3。世界遺産だが実物は基礎遺構中心で、現地解釈力を要求する。
+    tags: [tier-2, tier-3, world-heritage, industrial-heritage]
+    google_maps:
+      rating: 4.3
+      review_count: 34
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [星評価は高いがレビュー母数が少なすぎ、歴史遺構Tier 1の根拠にしない。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
+  - id: place.kamaishi-active-steel-port
+    name: 釜石の現役製鉄・港湾
+    kind: other
+    status: researching
+    map_query: 釜石 製鉄所 港湾
+    description: Tier 2〜3候補。観光施設でなくても現役産業として保持する。一般訪問可能範囲を確認する。
+    tags: [tier-2, tier-3, active-industry, port]
+  - id: place.oshachi
+    name: おしゃっち
+    kind: museum
+    status: researching
+    map_query: おしゃっち 大槌
+    description: Tier 3。震災展示。動線上なら比較する。
+    tags: [tier-3, earthquake, museum]
+  - id: place.kirikirisettlement
+    name: 吉里吉里
+    kind: town
+    status: researching
+    map_query: 吉里吉里 大槌
+    description: Tier 3候補。地域文化。今後追加探索余地を残す。
+    tags: [tier-3, local-culture]
+  - id: place.yamada-bay-aquaculture
+    name: 山田湾の養殖
+    kind: other
+    status: researching
+    map_query: 山田湾 養殖 牡蠣 ホタテ
+    description: Tier 2〜3候補。現役産業。一般旅行者が見られる具体的体験を探索する。
+    tags: [tier-2, tier-3, active-industry, seafood]
+  - id: place.jodogahama
+    name: 浄土ヶ浜
+    kind: natural_feature
+    status: researching
+    map_query: 浄土ヶ浜
+    description: Tier 2上位。自然候補であり博物館ルール対象外。単独Tier 1にはしない。
+    tags: [tier-2, nature]
+  - id: place.miyako-fish-market
+    name: 宮古市魚菜市場
+    kind: other
+    status: researching
+    map_query: 宮古市魚菜市場
+    description: Tier 2〜3。食・地方文化拠点。レビュー母数は多いが星だけで機械的に評価しない。
+    tags: [tier-2, tier-3, market, food]
+  - id: place.iwate-fisheries-science-museum
+    name: 岩手県立水産科学館
+    kind: museum
+    status: researching
+    map_query: 岩手県立水産科学館
+    description: Tier 3。9/24・9/28休館注意。低Tierでも候補維持する。
+    tags: [tier-3, museum, fishery, schedule-sensitive]
+  - id: place.sakiyama-shell-mound-museum
+    name: 崎山貝塚縄文の森ミュージアム
+    kind: museum
+    status: researching
+    map_query: 崎山貝塚縄文の森ミュージアム
+    description: Tier 2〜3。9月の黒森神楽企画展候補。9/24・9/28休館注意。博物館Tier 1には機械的にしない。
+    tags: [tier-2, tier-3, museum, archaeology, schedule-sensitive]
+  - id: place.taro-disaster-hotel
+    name: 津波遺構たろう観光ホテル
+    kind: historic_site
+    status: researching
+    map_query: 津波遺構たろう観光ホテル
+    description: Tier 1。外観だけでなく学ぶ防災ガイドによる内部見学を優先する。
+    tags: [tier-1, earthquake, remains, guide-required]
+    google_maps:
+      rating: 4.3
+      review_count: 615
+      review_count_is_approximate: true
+      checked_at: 2026-09-06
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: unknown, photos: unknown}
+      review_notes: [今回共有された結果ではレビュー本文の具体的な傾向は記録されていない。]
+      audience_notes: [成人旅行者の評価傾向と子ども向けレビューへの偏りは未記録。]
+      evidence_notes: [レビュー母数は十分。, 学ぶ防災ガイド・防潮堤・映像との組み合わせで評価し、北上コストとは分けて判断する。]
+      limitations: [レビュー件数は約数。, 全レビュー本文を取得したわけではない。, 本文・写真をどこまで確認したかは今回共有された結果だけでは判別できない。]
+  - id: place.taro-disaster-guide
+    name: 学ぶ防災ガイド
+    kind: other
+    status: researching
+    map_query: たろう観光ホテル 学ぶ防災ガイド
+    description: Tier 1体験の中心。内部、津波映像、巨大防潮堤を約60分で見る。一人利用条件と予約を確認する。
+    tags: [tier-1, earthquake, guide, reservation]
+  - id: place.taro-seawall
+    name: 田老防潮堤
+    kind: other
+    status: researching
+    map_query: 田老 防潮堤
+    description: Tier 2候補。巨大構造物として、学ぶ防災ガイドと組み合わせて評価する。
+    tags: [tier-2, tsunami, giant-structure]
+  - id: place.sanouiwa
+    name: 三王岩
+    kind: natural_feature
+    status: researching
+    map_query: 三王岩 田老
+    description: Tier 2。自然の巨大物。レビュー母数も含めて再確認する。
+    tags: [tier-2, nature, giant-object]

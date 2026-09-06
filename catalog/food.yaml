@@ -5,5 +5,11 @@ items:
   - {id: food.minamisanriku-autumn-don, name: 南三陸キラキラ秋旨丼, status: researching, map_query: 南三陸キラキラ秋旨丼, area: stay.kesennuma, description: Tier 2。9/25の志津川滞在中の昼食候補。提供店・時間は未確認。}
   - {id: food.kesennuma-breakfast, name: 気仙沼魚市場周辺の朝食, status: researching, map_query: 気仙沼魚市場 朝食, area: stay.kesennuma, description: Tier 2。9/26の魚市場見学後。店名と営業時刻は今後具体化する。}
   - {id: food.kesennuma-bonito-swordfish, name: 気仙沼の戻り鰹・メカジキ等の一食, status: researching, map_query: 気仙沼 戻り鰹 メカジキ, area: stay.kesennuma, description: Tier 1。水産都市の食体験として守る。店名は今後具体化する。}
+  - {id: food.tsurukame-dining-hall, name: 鶴亀食堂, status: researching, map_query: 鶴亀食堂 気仙沼, area: stay.kesennuma, description: 気仙沼魚市場周辺の具体的な食事候補。営業日・営業時間・市場見学との接続を確認してから採否を決める。}
   - {id: food.ofunato-sanma-ramen, name: 大船渡さんまらーめん, status: researching, map_query: 大船渡 さんまらーめん, area: stay.kamaishi, description: Tier 2。9/27昼食候補。店名・営業時刻は未確認。}
   - {id: food.kamaishi-ramen, name: 釜石ラーメン, status: researching, map_query: 釜石ラーメン 釜石駅, area: stay.kamaishi, description: Tier 2。9/28昼食候補。店名・営業時刻は未確認。}
+  - {id: food.whale-cuisine, name: 鮎川の鯨料理, status: researching, map_query: 鮎川 鯨料理, area: stay.ishinomaki, description: Tier 2〜3。捕鯨文化との組み合わせで評価する。店舗候補・営業時刻は未確認。}
+  - {id: food.onagawa-seafood, name: 女川港の鮮魚店・飲食, status: researching, map_query: 女川港 鮮魚店 飲食, area: stay.ishinomaki, description: Tier 2〜3。現役水産と食を束ねる候補。個別店舗は今後具体化する。}
+  - {id: food.minamisanriku-seafood-products, name: 南三陸のタコ・銀鮭・戻り鰹・水産加工品, status: researching, map_query: 南三陸 タコ 銀鮭 戻り鰹 水産加工品, area: stay.kesennuma, description: Tier 2〜3。さんさん商店街等の食候補。旬・提供店・営業時間は未確認。}
+  - {id: food.ofunato-sanma, name: 大船渡のサンマ, status: researching, map_query: 大船渡 サンマ 9月, area: stay.kamaishi, description: Tier 2食候補。9月下旬の水揚げ状況と提供店を直前確認する。}
+  - {id: food.miyako-seafood, name: 宮古の魚菜・海産物, status: researching, map_query: 宮古市魚菜市場 海産物, area: stay.kamaishi, description: Tier 2〜3候補。宮古方面へ延伸する場合の食・地方文化候補。}

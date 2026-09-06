@@ -6,6 +6,8 @@ hard:
     description: 名古屋発着とし、9月28日中に名古屋へ帰着する
   - id: solo-travel
     description: 大人1名の一人旅として交通・宿泊を組み立てる
+  - id: no-rental-car
+    description: レンタカーは使わず、JR、BRT、三陸鉄道、路線バス、船、自転車、必要時の短距離タクシーで組み立てる
   - id: no-bookings-yet
     description: 現時点では交通・宿泊・施設予約のいずれも確定扱いにしない
 soft:

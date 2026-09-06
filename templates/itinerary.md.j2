@@ -2,7 +2,7 @@
 
 # {{ trip.title }}
 
-{% if trip.start_date and trip.end_date %}`{{ trip.start_date }}`〜`{{ trip.end_date }}`{% else %}日程未設定{% endif %} / 出発地: {{ trip.origin or '未設定' }} / 状態: working plan
+{% if trip.start_date and trip.end_date %}`{{ trip.start_date }}`〜`{{ trip.end_date }}`{% else %}日程未設定{% endif %} / 出発地: {{ trip.origin or '未設定' }} / 状態: working plan（未確定）
 
 {% if recommendations %}
 ## 推奨事項
@@ -12,7 +12,7 @@
 {% endfor %}
 {% endif %}
 
-## 通常旅程
+## 詳細化中の旅程案
 
 {% if days %}
 | 日付 | 行程 | 自力移動 | 宿泊 | 代替 |

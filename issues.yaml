@@ -1,5 +1,40 @@
 schema_version: 1
 items:
+  - id: issue.candidate-coverage-audit
+    title: 案Aの動線近傍候補を再監査する
+    status: open
+    priority: high
+    category: data_quality
+    identified_at: 2026-09-06
+    summary: みやぎ東日本大震災津波伝承館を前回の仮旅程で認識できていなかったため、案Aの各動線でも同様の取りこぼしが残る可能性がある。
+    impact: 低い追加コストで比較できる候補を知らないまま旅程を収束させ、採用しなかった候補と未認識だった候補を区別できなくなる。
+    related_dates: [2026-09-23, 2026-09-24, 2026-09-25, 2026-09-26, 2026-09-27]
+    subjects: [place.miyagi-tsunami-memorial-museum, place.okawa-school, place.onagawa-port, place.kesennuma-port, place.kamukama-oritate, place.iwate-tsunami-memorial]
+    evidence: []
+    next_action: 石巻駅〜南浜〜石巻港、大川〜雄勝〜女川、女川〜南三陸〜気仙沼、気仙沼市街・港・唐桑、陸前高田の順に、同じ公園・港・駅勢圏・半島・BRT沿線と自転車数km圏を再探索する。
+    resolution_conditions:
+      - 各区間の近傍候補を候補集合へ登録している
+      - 比較後に外した候補と未認識だった候補を区別できる
+      - 追加移動コスト、体験の重複、一般訪問可否を比較している
+    resolution: null
+  - id: issue.plan-hypothesis-selection
+    title: 案A〜Dの逆転条件を比較して採用骨格を決める
+    status: open
+    priority: high
+    category: schedule
+    identified_at: 2026-09-06
+    summary: 案Aが最有力の骨格だが、田老まで北上する案、牡鹿・金華山集中案、強い候補の飛び石案も比較仮説として残っている。
+    impact: 宿泊都市、必要な交通確認、候補の採否、自転車の役割を確定できず、旧working planを最新の確定案と誤認するおそれがある。
+    related_dates: [2026-09-23, 2026-09-24, 2026-09-25, 2026-09-26, 2026-09-27, 2026-09-28]
+    subjects: [place.ishinomaki, place.kesennuma, place.rikuzentakata, place.taro, place.ayukawa-port, place.kinkasan-golden-shrine]
+    evidence: []
+    next_action: 候補監査後、田老が案Aを逆転する条件、牡鹿集中型の成立条件、大船渡〜田老を切る損失、BRT・船・列車の実時刻を共通軸で比較する。
+    resolution_conditions:
+      - 案A〜Dを同じ比較軸で評価している
+      - 宿泊都市と日別の終着地を決めている
+      - BRT輪行、船便、列車時刻を使って採用案の成立性を確認している
+      - 採用する骨格だけをplan/current.yamlへ反映している
+    resolution: null
   - id: issue.lodging-bookings
     title: 3都市・5泊の宿泊予約を確定する
     status: open

@@ -2,13 +2,34 @@ schema_version: 1
 items:
   - id: evidence.ishinomori-open-20260923
     subject: place.ishinomori-manga-museum
-    checked_at: 2026-09-03
+    checked_at: 2026-09-06
     claims:
       - 検討時点では2026-09-23は開館、翌9/24は休館とされている
+      - 旅行期間中に「刃牙博ッッ!!」が開催されるとされている
       - 初日に配置する理由となるが、旅行直前に公式情報で再確認する
     volatility: medium
     recheck_before_trip: true
-    source: {type: user_provided_planning_seed, title: 2026年9月3日時点の三陸旅行検討結果, url: null}
+    source: {type: user_provided_planning_seed, title: 2026年9月6日時点の三陸旅行ブレスト結果, url: null}
+  - id: evidence.kinkasan-festival-20260925
+    subject: place.kinkasan-festival-20260925
+    checked_at: 2026-09-06
+    claims:
+      - 例大祭は2026-09-25に開催されるとされている
+      - 例大祭日に臨時船があるとされている
+      - 通常日との差と一般旅行者の体験内容は未確認で、旅行直前に公式情報を再確認する
+    volatility: high
+    recheck_before_trip: true
+    source: {type: user_provided_planning_seed, title: 2026年9月6日時点の三陸旅行ブレスト結果, url: null}
+  - id: evidence.onagawa-event-20260927
+    subject: place.onagawa-festival-20260927
+    checked_at: 2026-09-06
+    claims:
+      - 2026-09-27にイベントがあるとされている
+      - 存在は確認済みだが、旅行主軸級の体験とはまだ評価していない
+      - 内容、開催時刻、通常日との差は旅行直前に公式情報を再確認する
+    volatility: high
+    recheck_before_trip: true
+    source: {type: user_provided_planning_seed, title: 2026年9月6日時点の三陸旅行ブレスト結果, url: null}
   - id: evidence.okawa-access-20260924
     subject: place.okawa-school
     checked_at: 2026-09-03
