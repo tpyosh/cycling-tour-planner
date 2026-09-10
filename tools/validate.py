@@ -60,6 +60,23 @@ def _validate_catalog(data: dict[str, dict[str, Any]]) -> tuple[list[str], dict[
         margin = item.get("visit_constraints", {}).get("arrival_margin_minutes", {})
         if margin and margin["min"] > margin["max"]:
             errors.append(f"ERROR catalog: arrival margin min exceeds max: {item_id}")
+        google_maps = item.get("google_maps")
+        if google_maps:
+            verification_status = google_maps.get("verification_status")
+            rating = google_maps.get("rating")
+            review_count = google_maps.get("review_count")
+            if verification_status == "confirmed" and (rating is None or review_count is None):
+                errors.append(f"ERROR catalog: confirmed Google Maps data requires rating and review_count: {item_id}")
+            if verification_status == "needs_recheck" and (rating is not None or review_count is not None):
+                errors.append(f"ERROR catalog: needs_recheck Google Maps data must not contain inferred values: {item_id}")
+            review_count_range = google_maps.get("review_count_range")
+            if review_count_range:
+                minimum = review_count_range["min"]
+                maximum = review_count_range["max"]
+                if minimum > maximum:
+                    errors.append(f"ERROR catalog: Google Maps review_count_range min exceeds max: {item_id}")
+                if review_count is not None and not minimum <= review_count <= maximum:
+                    errors.append(f"ERROR catalog: Google Maps review_count is outside review_count_range: {item_id}")
     return errors, build_index(data)
 
 
@@ -144,6 +161,25 @@ def validate_repository(root: Path) -> list[str]:
         for field in REFERENCE_FIELDS:
             if len(day[field]) != len(set(day[field])):
                 errors.append(f"ERROR plan/current.yaml day {day_date}: duplicate reference in {field}")
+        active_refs = {
+            *day["routes"],
+            *day["transport"],
+            *day["transport_alternatives"],
+            *day["visits"],
+            *day["optional_visits"],
+            *day["food"],
+            *day["stay"]["preferred"],
+            *day["stay"]["fallback"],
+        }
+        decision_subjects = [item["subject"] for item in day["candidate_decisions"]]
+        if len(decision_subjects) != len(set(decision_subjects)):
+            errors.append(f"ERROR plan/current.yaml day {day_date}: duplicate subject in candidate_decisions")
+        for decision in day["candidate_decisions"]:
+            subject = decision["subject"]
+            if subject not in index:
+                errors.append(f"ERROR plan/current.yaml day {day_date}: unknown candidate decision id: {subject}")
+            if subject in active_refs:
+                errors.append(f"ERROR plan/current.yaml day {day_date}: candidate decision overlaps active reference: {subject}")
         if day_index < len(days) - 1 and not day["stay"]["preferred"]:
             errors.append(f"ERROR plan/current.yaml day {day_date}: overnight stay is required")
         if day_index < len(days) - 1 and day["finish"] != days[day_index + 1]["start"]:

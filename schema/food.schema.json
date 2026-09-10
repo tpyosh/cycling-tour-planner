@@ -29,8 +29,21 @@
       "properties": {
         "rating": {"type": ["number", "null"], "minimum": 0, "maximum": 5},
         "review_count": {"type": ["integer", "null"], "minimum": 0},
+        "review_count_range": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["min", "max"],
+          "properties": {
+            "min": {"type": "integer", "minimum": 0},
+            "max": {"type": "integer", "minimum": 0}
+          }
+        },
         "review_count_is_approximate": {"type": "boolean"},
         "checked_at": {"type": ["string", "null"], "format": "date"},
+        "verification_status": {"enum": ["confirmed", "needs_recheck", "unknown"]},
+        "acquisition_confidence": {"enum": ["high", "medium", "low", "unknown"]},
+        "listing_name": {"type": ["string", "null"], "minLength": 1},
+        "subject_match": {"enum": ["exact", "partial", "aggregate", "unknown"]},
         "source": {
           "type": "object",
           "additionalProperties": false,
@@ -49,6 +62,25 @@
             "rating_and_count": {"enum": ["confirmed", "not_confirmed", "unknown"]},
             "review_text": {"enum": ["not_checked", "partial", "extensive", "unknown"]},
             "photos": {"enum": ["not_checked", "partial", "extensive", "unknown"]}
+          }
+        },
+        "genre_context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["category", "cautions"],
+          "properties": {
+            "category": {"type": "string", "minLength": 1},
+            "cautions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+          }
+        },
+        "reassessment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "plan_effect", "rationale"],
+          "properties": {
+            "status": {"enum": ["very_strong", "strong", "adopted", "priority_increased", "recheck_required", "high_priority_recheck", "low_sample", "needs_recheck", "reference_only", "unchanged"]},
+            "plan_effect": {"enum": ["maintain", "prioritize_for_comparison", "keep_pending_recheck", "no_downgrade_due_to_missing_data", "reference_only"]},
+            "rationale": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
           }
         },
         "review_notes": {"type": "array", "items": {"type": "string", "minLength": 1}},

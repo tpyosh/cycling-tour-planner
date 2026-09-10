@@ -2,7 +2,24 @@
 
 # {{ trip.title }}
 
-{% if trip.start_date and trip.end_date %}`{{ trip.start_date }}`〜`{{ trip.end_date }}`{% else %}日程未設定{% endif %} / 出発地: {{ trip.origin or '未設定' }} / 状態: working plan（未確定）
+{% if trip.start_date and trip.end_date %}`{{ trip.start_date }}`〜`{{ trip.end_date }}`{% else %}日程未設定{% endif %} / 出発地: {{ trip.origin or '未設定' }} / 状態: current prime（基準日 {{ plan.as_of }}・未確定）
+
+> {{ plan.history_note }}
+
+## 今回の更新理由
+
+{% for reason in plan.change_reasons %}
+- {{ reason }}
+{% endfor %}
+
+## 設計原則
+
+{% for principle in plan.planning_principles %}
+**{{ principle.statement }}**
+{% for rule in principle.decision_rule %}
+- {{ rule }}
+{% endfor %}
+{% endfor %}
 
 {% if recommendations %}
 ## 推奨事項
@@ -31,6 +48,11 @@
 - **宿泊:** {{ day.preferred_names | join(' / ') if day.preferred_names else 'なし' }}
 - **代替:** {{ day.fallback_names | join(' / ') if day.fallback_names else '—' }}
 
+### 区間別の移動方針
+{% for strategy in day.mobility_strategy %}
+- **{{ strategy.segment }}:** {{ strategy.preferred_mode_label }} / {{ strategy.bicycle_value_label }} — {{ strategy.rationale }}
+{% endfor %}
+
 {% if day.routes_items %}
 ### ルート
 {% for item in day.routes_items %}
@@ -50,13 +72,13 @@
 {% endfor %}
 {% endif %}
 {% if day.visits_items %}
-### 立ち寄り
+### 採用候補
 {% for item in day.visits_items %}
 - {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から累計 約{{ item.distance.distance_display }} km）{% endif %}{% if item.description %} — {{ item.description }}{% endif %}{% if item.availability_display is defined %} — **利用可能時間: {{ item.availability_display }}**{% endif %}
 {% endfor %}
 {% endif %}
 {% if day.optional_visits_items %}
-### 余裕があれば
+### 条件付き候補
 {% for item in day.optional_visits_items %}
 - {{ item.name }}{% if item.distance is defined %}（{{ item.distance.origin_label }}から累計 約{{ item.distance.distance_display }} km）{% endif %}{% if item.description %} — {{ item.description }}{% endif %}
 {% endfor %}
@@ -65,6 +87,12 @@
 ### 食事・補給
 {% for item in day.food_items %}
 - {{ item.name }}{% if item.description %} — {{ item.description }}{% endif %}
+{% endfor %}
+{% endif %}
+{% if day.candidate_decisions %}
+### 保留・除外
+{% for item in day.candidate_decisions %}
+- **{{ item.decision_label }}:** {{ item.name }} — {{ item.rationale }}
 {% endfor %}
 {% endif %}
 {% if day.issue_items %}

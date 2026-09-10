@@ -11,8 +11,12 @@ items:
   - {id: transport.shizugawa-kesennuma-brt-20260925, name: 気仙沼線BRT 志津川→気仙沼, status: researching, mode: bus, from: 志津川駅, to: place.kesennuma, departure: '2026-09-25T14:02:00+09:00', arrival: '2026-09-25T15:23:00+09:00', description: Tier 1のBRT体験の後半。参考時刻。輪行袋入り自転車の持込み可否は未確認。}
 
   - {id: transport.kesennuma-miracle-pine-brt-20260927, name: 大船渡線BRT 気仙沼→奇跡の一本松, status: researching, mode: bus, from: place.kesennuma, to: place.rikuzentakata, departure: '2026-09-27T09:10:00+09:00', arrival: '2026-09-27T09:40:00+09:00', description: Tier 2。2本目のBRTのため限界効用はやや下がる。到着後に自転車を組み立てる。輪行袋入り自転車の持込み可否は未確認。}
+  - {id: transport.karakuwa-rikuzentakata-20260927, name: 唐桑→陸前高田 公共交通, status: researching, mode: bus, from: place.karakuwa, to: place.rikuzentakata, departure: null, arrival: null, description: 唐桑午前3時間ルート後の移動候補。路線バスと大船渡線BRTを含め、輪行袋入り自転車の持込み可否、乗車地点、乗換、時刻を確認する。}
   - {id: transport.sakari-kamaishi-sanriku-20260927, name: 三陸鉄道 盛→釜石, status: researching, mode: train, from: 盛駅, to: place.kamaishi, departure: '2026-09-27T16:45:00+09:00', arrival: '2026-09-27T17:32:00+09:00', description: Tier 1。BRT化路線と鉄道復旧した三陸鉄道を比較する最後のピース。完成車持込制度の利用可否は直前再確認し、輪行へ切り替えられる時間を残す。}
 
   - {id: transport.kamaishi-shinhanamaki-20260928, name: 釜石→新花巻, status: researching, mode: train, from: place.kamaishi, to: 新花巻駅, departure: '2026-09-28T13:32:00+09:00', arrival: '2026-09-28T15:38:00+09:00', description: '参考時刻。シードでは新花巻着15:37〜15:38頃。釜石で輪行する。'}
   - {id: transport.shinhanamaki-tokyo-yamabiko-20260928, name: やまびこ 新花巻→東京, status: researching, mode: train, from: 新花巻駅, to: 東京駅, departure: '2026-09-28T16:19:00+09:00', arrival: '2026-09-28T19:28:00+09:00', description: 参考時刻。未予約。}
   - {id: transport.tokyo-nagoya-nozomi-20260928, name: のぞみ 東京→名古屋, status: researching, mode: train, from: 東京駅, to: place.nagoya, departure: '2026-09-28T20:00:00+09:00', arrival: '2026-09-28T21:38:00+09:00', description: 参考時刻。9/28中に名古屋へ帰着する。未予約。}
+  - {id: transport.rikuzentakata-kesennuma-brt-20260928, name: 大船渡線BRT 陸前高田→気仙沼, status: researching, mode: bus, from: place.rikuzentakata, to: place.kesennuma, departure: null, arrival: null, description: 正午前後に陸前高田を離れる帰路の第一区間。輪行可否と2026年9月ダイヤは未確認。}
+  - {id: transport.kesennuma-ichinoseki-20260928, name: 気仙沼→一ノ関, status: researching, mode: train, from: place.kesennuma, to: 一ノ関駅, departure: null, arrival: null, description: 帰路の接続候補。運行モード、時刻、輪行時の乗換余裕は未確認。}
+  - {id: transport.ichinoseki-tokyo-20260928, name: 東北新幹線 一ノ関→東京, status: researching, mode: train, from: 一ノ関駅, to: 東京駅, departure: null, arrival: null, description: 帰路の新幹線区間。具体便は未予約・未確定。}

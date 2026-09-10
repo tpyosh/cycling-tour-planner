@@ -2,7 +2,7 @@
 
 このブランチは、2026年9月23日〜28日の三陸旅行について、検討中の候補、仮説案、参考タイムテーブル、宿泊構成、未確認事項を分離して記録します。交通・宿泊・施設はまだ予約・最終決定前です。
 
-2026年9月6日までの候補評価と案A〜Dは `research/candidate-evaluation.md` が正本です。`plan/current.yaml` と生成済みの `docs/itinerary.md` は、9月3日時点で時刻・宿泊を詳細化した working plan であり、案A〜Dを比較して確定した旅程ではありません。未解決事項は `docs/issues.md`、宿泊確認の枠組みは `docs/lodging-calls.md` を参照してください。
+2026年9月6日までの候補評価と案A〜Dは `research/candidate-evaluation.md` が正本です。`plan/current.yaml` と生成済みの `docs/itinerary.md` は、2026年9月10日時点の current prime（現時点の最有力案）であり、予約済み・最終確定旅程ではありません。以前のworking planはGit履歴、比較案は調査文書に残し、上書きで検討履歴を失わない運用とします。未解決事項は `docs/issues.md`、宿泊確認の枠組みは `docs/lodging-calls.md` を参照してください。
 
 ## 更新方法
 
@@ -24,15 +24,25 @@ google_maps:
   review_count: 318
   review_count_is_approximate: false
   checked_at: 2026-09-05
+  verification_status: confirmed
+  acquisition_confidence: medium
+  listing_name: 施設のGoogle Maps掲載名
+  subject_match: exact
   source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: null}
   evidence_scope: {rating_and_count: confirmed, review_text: partial, photos: not_checked}
+  genre_context: {category: museum_and_exhibition, cautions: [展示施設は星が高く出やすいため、十分なレビュー件数がある4.0未満を警戒する。]}
+  reassessment: {status: strong, plan_effect: maintain, rationale: [星、母数、ジャンル、ユーザー嗜好を合わせた再評価。]}
   review_notes: [展示内容そのものへの言及を一部確認。]
   audience_notes: [成人旅行者の具体的な評価傾向は未確認。]
   evidence_notes: [評価に使った要点を記録する。]
   limitations: [全レビュー本文を取得したわけではない。]
 ```
 
+レビュー件数が複数の取得結果による幅で共有された場合は、`review_count` に共有値のうち最も具体的な件数を置き、`review_count_range: {min: ..., max: ...}` に幅を併記する。
+
 Google Mapsのレビュー数・スターが未取得の候補について、Codexは値を推測・検索して補完しない。ユーザにChatGPTでの取得を依頼するプロンプトを提示し、ユーザがChatGPTの回答を戻した後に、対象候補の `google_maps` へ反映する。依頼文の雛形と回答の取り込みルールは `prompts/google-maps-reviews.md` に定める。
+
+2026年9月10日のcurrent prime再監査は `research/google-maps-audit-20260910.md` に保存する。Google Mapsを旅程の自動ランキングには使わず、rating、review count、ジャンル、レビュー本文、施設の性質、ユーザー嗜好を組み合わせる。
 
 ```bash
 python3 -m venv .venv
@@ -47,7 +57,7 @@ python3 -m venv .venv
 - `trip.yaml`: 旅行の基本情報
 - `constraints.yaml`: ハード制約とソフト制約
 - `catalog/`: 立ち寄り先、経路、宿泊地域、交通、食事の候補
-- `plan/current.yaml`: 現在詳細化している working plan と発動条件付き代替案。予約済み・確定旅程を意味しない
+- `plan/current.yaml`: 基準日付きのcurrent prime、変更理由、保留・除外、発動条件付き代替案。`status: current_prime`、`maturity: provisional`で、予約済み・確定旅程を意味しない
 - `evidence/sources.yaml`: 主張、出典、確認日、変動性、再確認要否
 - `issues.yaml`: 旅程を左右する未解決事項
 - `estimates/distances.yaml`: 距離の元データと計算方法
@@ -56,6 +66,8 @@ python3 -m venv .venv
 - `docs/`: YAMLから生成する旅行者向け資料。直接編集しない
 
 候補の調査状態と旅程への採用を混ぜません。採用は `plan/current.yaml` からの参照で表します。通常旅程と発動条件付きの代替案も分離します。
+
+自転車の利用判断は、全線自走を前提にせず、区間ごとに「走行体験」「候補束ね」「純粋移動」を評価します。再設計時にも `constraints.yaml` の原則と `plan/current.yaml` の `mobility_strategy` を併せて更新してください。
 
 ## Codexスキル
 

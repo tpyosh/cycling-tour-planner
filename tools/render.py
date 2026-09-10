@@ -17,6 +17,15 @@ from validate import validate_repository
 WEEKDAYS = "月火水木金土日"
 ISSUE_STATUS_LABELS = {"open": "未着手", "in_progress": "確認中", "resolved": "解決済み", "wont_fix": "対応しない"}
 ISSUE_PRIORITY_LABELS = {"high": "高", "medium": "中", "low": "低"}
+MODE_LABELS = {"bicycle": "自転車", "public_transport": "公共交通・輪行", "mixed": "併用"}
+BICYCLE_VALUE_LABELS = {
+    "candidate_linking": "候補束ね",
+    "riding_experience": "走行体験＋候補束ね",
+    "intercity_mobility": "長距離都市間移動＋停止候補回収",
+    "short_local_mobility": "市内短距離移動",
+    "none": "自転車価値なし",
+}
+CANDIDATE_DECISION_LABELS = {"on_hold": "保留", "excluded": "認識した上で除外"}
 
 
 def short_date(value: str) -> str:
@@ -76,6 +85,22 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
     adopted: set[str] = set()
     for raw in data["plan/current.yaml"]["days"]:
         day = dict(raw)
+        day["mobility_strategy"] = [
+            {
+                **item,
+                "preferred_mode_label": MODE_LABELS[item["preferred_mode"]],
+                "bicycle_value_label": BICYCLE_VALUE_LABELS[item["bicycle_value"]],
+            }
+            for item in raw["mobility_strategy"]
+        ]
+        day["candidate_decisions"] = [
+            {
+                **item,
+                "name": resolve_name(item["subject"], index),
+                "decision_label": CANDIDATE_DECISION_LABELS[item["decision"]],
+            }
+            for item in raw["candidate_decisions"]
+        ]
         for field in ("routes", "visits", "optional_visits", "food"):
             adopted.update(day[field])
             prepared_items = []
@@ -133,6 +158,7 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         "trip": data["trip.yaml"],
         "days": days,
         "recommendations": plan["recommendations"],
+        "plan": plan,
         "pre_trip_todos": plan["pre_trip_todos"],
         "contingencies": contingencies,
         "rechecks": rechecks,

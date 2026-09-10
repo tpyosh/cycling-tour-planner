@@ -1,15 +1,203 @@
 schema_version: 1
 items:
-  - {id: food.ishinomaki-yakisoba, name: 石巻焼きそば, status: researching, map_query: 石巻焼きそば 石巻駅, area: stay.ishinomaki, description: Tier 2。9/23昼食。店名は今後具体化する。}
-  - {id: food.onagawa-ogatsu-lunch, name: 女川または雄勝の昼食, status: researching, map_query: 雄勝 ランチ, area: stay.ishinomaki, description: Tier 2。9/24の行程に合わせ、雄勝の道の駅等を中心に候補を具体化する。}
+  - {id: food.ishinomaki-yakisoba, name: 石巻焼きそば, status: researching, map_query: 石巻焼きそば 石巻駅, area: stay.ishinomaki, description: 9/23昼食の地域料理テーマ。現時点の有力店は藤や食堂。}
+  - id: food.fujiya-dining-hall
+    name: 藤や食堂
+    status: shortlisted
+    map_query: 藤や食堂 石巻
+    area: stay.ishinomaki
+    description: 9/23昼食の有力候補。石巻焼きそばという地域固有性から維持し、Google Mapsとレビュー本文は後続調査で確認する。
+    google_maps:
+      rating: null
+      review_count: null
+      review_count_is_approximate: false
+      checked_at: 2026-09-10
+      verification_status: needs_recheck
+      acquisition_confidence: unknown
+      listing_name: null
+      subject_match: unknown
+      source: {provider: Google Maps, retrieval_method: user_provided_google_maps_reaudit, url: null}
+      evidence_scope: {rating_and_count: not_confirmed, review_text: not_checked, photos: not_checked}
+      genre_context: {category: local_diner, cautions: [古い食堂や地域料理店は評価が厳しく出ることがあり、3点台後半でも星だけで落とさない。]}
+      reassessment: {status: needs_recheck, plan_effect: no_downgrade_due_to_missing_data, rationale: [今回の再監査ではratingとreview countを確実に取得できなかった。, 石巻焼きそばの地域固有性から候補として維持する。]}
+      review_notes: [レビュー本文は今回未確認。]
+      audience_notes: [看板料理と地域性を星評価とは別に評価する。]
+      evidence_notes: [2026-09-10再監査では確定値なし。]
+      limitations: [値を推測して補完していない。]
+  - {id: food.ishinomaki-dinner, name: 9/23石巻の夕食, status: researching, map_query: 石巻 夕食 郷土料理, area: stay.ishinomaki, description: この食事枠では現時点で強い候補を発見できていない。地域固有性、季節性、店・料理の質、営業日、予約要否、宿からの動線を再調査する。}
+  - {id: food.onagawa-ogatsu-lunch, name: 女川または雄勝の昼食, status: deferred, map_query: 雄勝 ランチ, area: stay.onagawa, description: 広域で抽象的な候補のためcurrent primeの食事枠から外す。9/24の正式な昼食・夕食は、女川で一食を使う価値が高い具体店を再探索する。}
+  - {id: food.onagawa-formal-meal, name: 9/24女川の正式な昼食・夕食, status: researching, map_query: 女川 昼食 夕食 地魚, area: stay.onagawa, description: この食事枠では現時点で強い具体店を発見できていない。おんまえやの惣菜・軽食とは分け、一食としての価値を再調査する。}
+  - id: food.onagawa-fish-market-dining
+    name: 女川魚市場食堂
+    status: researching
+    map_query: 女川魚市場食堂
+    area: stay.onagawa
+    description: 9/24の昼・夕食比較候補。4.1、約250件で飲食店として良好だが、ニューこのり等と料理・営業・動線を比較する。
+    google_maps:
+      rating: 4.1
+      review_count: 250
+      review_count_is_approximate: true
+      checked_at: 2026-09-10
+      verification_status: confirmed
+      acquisition_confidence: medium
+      listing_name: 女川魚市場食堂
+      subject_match: exact
+      source: {provider: Google Maps, retrieval_method: user_provided_google_maps_reaudit, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: not_checked, photos: not_checked}
+      genre_context: {category: seafood_restaurant, cautions: [飲食は星の一律閾値を使わず、看板料理・地域性・レビュー本文・店の個性を見る。]}
+      reassessment: {status: strong, plan_effect: prioritize_for_comparison, rationale: [飲食店として4.1、約250件は良好。, 女川内のより強い候補と比較して最終順位を決める。]}
+      review_notes: [レビュー本文と看板料理の比較は未実施。]
+      audience_notes: [女川の魚市場・水産物への関心と整合する。]
+      evidence_notes: [星とレビュー母数をセットで比較候補に残す。]
+      limitations: [レビュー件数は約数。]
+  - id: food.new-konori
+    name: 女川海の膳 ニューこのり
+    status: shortlisted
+    map_query: 女川海の膳 ニューこのり
+    area: stay.onagawa
+    description: 9/24の昼・夕食の優先比較候補。4.2、約1,341件で評価と母数がともに強い。
+    google_maps:
+      rating: 4.2
+      review_count: 1341
+      review_count_is_approximate: true
+      checked_at: 2026-09-10
+      verification_status: confirmed
+      acquisition_confidence: medium
+      listing_name: 女川海の膳 ニューこのり
+      subject_match: exact
+      source: {provider: Google Maps, retrieval_method: user_provided_google_maps_reaudit, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: not_checked, photos: not_checked}
+      genre_context: {category: seafood_restaurant, cautions: [飲食は星だけで決めず、看板料理・地域性・営業・動線を確認する。]}
+      reassessment: {status: priority_increased, plan_effect: prioritize_for_comparison, rationale: [rating良好かつレビュー件数が非常に多く、女川の食候補として信頼度が高い。, 9/24の昼・夕食候補として優先度を上げる。]}
+      review_notes: [レビュー本文と看板料理の確認は未実施。]
+      audience_notes: [女川の海産物を一食として評価する候補。]
+      evidence_notes: [今回の監査で優先度が上昇した。]
+      limitations: [レビュー件数は約数。]
+  - id: food.okasei-fish-market
+    name: お魚いちば おかせい
+    status: researching
+    map_query: お魚いちば おかせい 女川
+    area: stay.onagawa
+    description: 女川の鮮魚・海産物系の強い比較候補。4.1、約1,500件で支持の厚みがある。
+    google_maps:
+      rating: 4.1
+      review_count: 1500
+      review_count_is_approximate: true
+      checked_at: 2026-09-10
+      verification_status: confirmed
+      acquisition_confidence: medium
+      listing_name: お魚いちば おかせい
+      subject_match: exact
+      source: {provider: Google Maps, retrieval_method: user_provided_google_maps_reaudit, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: not_checked, photos: not_checked}
+      genre_context: {category: seafood_market_and_dining, cautions: [市場・物販と飲食の評価要因を分け、食事枠としての価値を確認する。]}
+      reassessment: {status: strong, plan_effect: prioritize_for_comparison, rationale: [約1,500件と母数が非常に多く、4.1も良好。, 女川の鮮魚・海産物候補として強く残す。]}
+      review_notes: [物販と飲食それぞれのレビュー本文は未確認。]
+      audience_notes: [鮮魚・海産物・現役水産への関心と整合する。]
+      evidence_notes: [大量レビューの良好評価として比較時に重視する。]
+      limitations: [レビュー件数は約数。]
+  - id: food.ojika
+    name: 食事処 おじか
+    status: researching
+    map_query: 食事処 おじか 女川
+    area: stay.onagawa
+    description: 女川の食事比較候補。4.4と高いが約120件のため、レビュー母数の大きい候補より星だけで上位にしない。
+    google_maps:
+      rating: 4.4
+      review_count: 120
+      review_count_is_approximate: true
+      checked_at: 2026-09-10
+      verification_status: confirmed
+      acquisition_confidence: medium
+      listing_name: 食事処 おじか
+      subject_match: exact
+      source: {provider: Google Maps, retrieval_method: user_provided_google_maps_reaudit, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: not_checked, photos: not_checked}
+      genre_context: {category: local_restaurant, cautions: [星は高いが、レビュー母数が上位2店より少ないためratingだけで最上位にしない。]}
+      reassessment: {status: strong, plan_effect: prioritize_for_comparison, rationale: [4.4は強いが約120件の母数を併記して比較する。, 看板料理・地域性・営業・動線を確認して順位を決める。]}
+      review_notes: [レビュー本文と看板料理の確認は未実施。]
+      audience_notes: [地域料理との適合は今後確認する。]
+      evidence_notes: [高い星と相対的に小さい母数をセットで保存する。]
+      limitations: [レビュー件数は約数。]
   - {id: food.minamisanriku-autumn-don, name: 南三陸キラキラ秋旨丼, status: researching, map_query: 南三陸キラキラ秋旨丼, area: stay.kesennuma, description: Tier 2。9/25の志津川滞在中の昼食候補。提供店・時間は未確認。}
-  - {id: food.kesennuma-breakfast, name: 気仙沼魚市場周辺の朝食, status: researching, map_query: 気仙沼魚市場 朝食, area: stay.kesennuma, description: Tier 2。9/26の魚市場見学後。店名と営業時刻は今後具体化する。}
-  - {id: food.kesennuma-bonito-swordfish, name: 気仙沼の戻り鰹・メカジキ等の一食, status: researching, map_query: 気仙沼 戻り鰹 メカジキ, area: stay.kesennuma, description: Tier 1。水産都市の食体験として守る。店名は今後具体化する。}
-  - {id: food.tsurukame-dining-hall, name: 鶴亀食堂, status: researching, map_query: 鶴亀食堂 気仙沼, area: stay.kesennuma, description: 気仙沼魚市場周辺の具体的な食事候補。営業日・営業時間・市場見学との接続を確認してから採否を決める。}
+  - id: food.chukaya-tobiage
+    name: 中華屋・飛上
+    status: researching
+    map_query: 中華屋 飛上 歌津
+    area: stay.kesennuma
+    description: 9/25歌津の昼食・ローカル食候補。町中華として4.0、約368件は十分だが、歌津の主目的にはしない。
+    google_maps:
+      rating: 4.0
+      review_count: 368
+      review_count_is_approximate: true
+      checked_at: 2026-09-10
+      verification_status: confirmed
+      acquisition_confidence: medium
+      listing_name: 中華屋・飛上
+      subject_match: exact
+      source: {provider: Google Maps, retrieval_method: user_provided_google_maps_reaudit, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: not_checked, photos: not_checked}
+      genre_context: {category: local_chinese_restaurant, cautions: [町中華は評価が厳しく出ることがあり、3点台後半でも星だけで落とさない。, 看板料理・地域性・レビュー本文・店の個性を見る。]}
+      reassessment: {status: adopted, plan_effect: maintain, rationale: [町中華として4.0、約368件は十分候補になる。, 歌津の昼食・ローカル食候補として維持するが、歌津の主目的にはしない。]}
+      review_notes: [看板料理とレビュー本文は今回未確認。]
+      audience_notes: [ローカル食堂・町中華への関心と整合する可能性がある。]
+      evidence_notes: [ジャンル補正を行い、4.0を一律閾値として扱わない。]
+      limitations: [レビュー件数は約数。]
+  - {id: food.kesennuma-breakfast, name: 気仙沼魚市場周辺の朝食, status: researching, map_query: 気仙沼魚市場 朝食, area: stay.kesennuma, description: 9/26の魚市場見学と組み合わせる朝食枠。現時点の有力店は鶴亀食堂。}
+  - {id: food.kesennuma-bonito-swordfish, name: 気仙沼の季節魚・郷土水産品, status: shortlisted, map_query: 気仙沼 戻り鰹 メカジキ フカヒレ モウカの星 サンマ ホヤ, area: stay.kesennuma, description: 戻り鰹、メカジキ、フカヒレ、モウカの星、サンマ、ホヤ、地魚寿司を料理ごとに評価する。9月下旬は戻り鰹を特に高く評価し、メカジキは冬メカ最盛期より前であることを踏まえる。「海鮮丼」で一括りにしない。}
+  - id: food.tsurukame-dining-hall
+    name: 鶴亀食堂
+    status: shortlisted
+    map_query: 鶴亀食堂 気仙沼
+    area: stay.kesennuma
+    description: 9/26朝食の優先候補。市場前食堂として地域性・朝営業・4.4、約454件がcurrent primeと強く合う。
+    google_maps:
+      rating: 4.4
+      review_count: 454
+      review_count_is_approximate: true
+      checked_at: 2026-09-10
+      verification_status: confirmed
+      acquisition_confidence: medium
+      listing_name: 鶴亀食堂
+      subject_match: exact
+      source: {provider: Google Maps, retrieval_method: user_provided_google_maps_reaudit, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: not_checked, photos: not_checked}
+      genre_context: {category: market_diner, cautions: [市場前食堂は星だけでなく地域性・朝営業・看板料理・市場動線を合わせて評価する。]}
+      reassessment: {status: strong, plan_effect: maintain, rationale: [4.4、約454件に加え、地域性と朝営業がcurrent primeに合う。, 9/26朝食候補として高優先度を維持する。]}
+      review_notes: [レビュー本文の詳細分類は今回未実施。]
+      audience_notes: [魚市場・漁業者文化へのユーザー関心と直接整合する。]
+      evidence_notes: [星・母数・地域性・朝営業を合わせて強い。]
+      limitations: [レビュー件数は約数。]
+  - {id: food.asahi-zushi-kesennuma, name: あさひ鮨, status: shortlisted, map_query: あさひ鮨 気仙沼, area: stay.kesennuma, description: ふかひれ寿司、モウカの星、鰹、さんま、ホヤを具体的に比較する有力候補。朝・昼・夜の最終配分は未確定。}
+  - {id: food.kitakatsu-maguroya, name: 北かつまぐろ屋, status: shortlisted, map_query: 北かつまぐろ屋 気仙沼, area: stay.kesennuma, description: 漁業者・組合直営系という性格を評価する有力候補。営業日と食事枠は未確定。}
   - {id: food.ofunato-sanma-ramen, name: 大船渡さんまらーめん, status: researching, map_query: 大船渡 さんまらーめん, area: stay.kamaishi, description: Tier 2。9/27昼食候補。店名・営業時刻は未確認。}
   - {id: food.kamaishi-ramen, name: 釜石ラーメン, status: researching, map_query: 釜石ラーメン 釜石駅, area: stay.kamaishi, description: Tier 2。9/28昼食候補。店名・営業時刻は未確認。}
   - {id: food.whale-cuisine, name: 鮎川の鯨料理, status: researching, map_query: 鮎川 鯨料理, area: stay.ishinomaki, description: Tier 2〜3。捕鯨文化との組み合わせで評価する。店舗候補・営業時刻は未確認。}
   - {id: food.onagawa-seafood, name: 女川港の鮮魚店・飲食, status: researching, map_query: 女川港 鮮魚店 飲食, area: stay.ishinomaki, description: Tier 2〜3。現役水産と食を束ねる候補。個別店舗は今後具体化する。}
   - {id: food.minamisanriku-seafood-products, name: 南三陸のタコ・銀鮭・戻り鰹・水産加工品, status: researching, map_query: 南三陸 タコ 銀鮭 戻り鰹 水産加工品, area: stay.kesennuma, description: Tier 2〜3。さんさん商店街等の食候補。旬・提供店・営業時間は未確認。}
+  - {id: food.karakuwa-meal, name: 9/27唐桑の食, status: researching, map_query: 唐桑 食堂 魚屋 水産会社 漁師料理, area: stay.rikuzentakata, description: この食事枠では現時点で強い候補を発見できていない。地元食堂、魚屋、水産会社、漁師系飲食、唐桑特有料理を再探索する。}
+  - id: food.ttbase-isaribi-karakuwa
+    name: TTBase漁火 唐桑
+    status: researching
+    map_query: TTBase漁火 唐桑
+    area: stay.rikuzentakata
+    description: 9/27唐桑の食候補。4.1だが約12件とサンプル不足のため、Google Mapsだけで強い飲食店とは判定しない。
+    google_maps:
+      rating: 4.1
+      review_count: 12
+      review_count_is_approximate: true
+      checked_at: 2026-09-10
+      verification_status: confirmed
+      acquisition_confidence: medium
+      listing_name: TTBase漁火 唐桑
+      subject_match: exact
+      source: {provider: Google Maps, retrieval_method: user_provided_google_maps_reaudit, url: null}
+      evidence_scope: {rating_and_count: confirmed, review_text: not_checked, photos: not_checked}
+      genre_context: {category: local_restaurant, cautions: [約12件では母数が少なすぎ、4.1を強い品質根拠にしない。]}
+      reassessment: {status: low_sample, plan_effect: reference_only, rationale: [Google Maps ratingだけで強い飲食店とは判定しない。, 唐桑の食候補としては保持し、料理・地域性・営業・動線を別途確認する。]}
+      review_notes: [レビュー本文と看板料理は今回未確認。]
+      audience_notes: [唐桑固有の料理や漁業との接続は今後確認する。]
+      evidence_notes: [低サンプルの参考値として保存する。]
+      limitations: [レビュー件数は約数かつ非常に少ない。]
   - {id: food.ofunato-sanma, name: 大船渡のサンマ, status: researching, map_query: 大船渡 サンマ 9月, area: stay.kamaishi, description: Tier 2食候補。9月下旬の水揚げ状況と提供店を直前確認する。}
   - {id: food.miyako-seafood, name: 宮古の魚菜・海産物, status: researching, map_query: 宮古市魚菜市場 海産物, area: stay.kamaishi, description: Tier 2〜3候補。宮古方面へ延伸する場合の食・地方文化候補。}

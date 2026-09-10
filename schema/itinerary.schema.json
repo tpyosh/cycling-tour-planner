@@ -1,14 +1,38 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "additionalProperties": false,
-  "required": ["schema_version", "status", "recommendations", "pre_trip_todos", "days", "contingencies"], "properties": {"schema_version": {"const": 1}, "status": {"const": "working"}, "recommendations": {"type": "array", "items": {"type": "string", "minLength": 1}}, "pre_trip_todos": {"type": "array", "items": {"$ref": "#/$defs/todo"}}, "days": {"type": "array", "items": {"$ref": "#/$defs/day"}}, "contingencies": {"type": "array", "items": {"$ref": "#/$defs/contingency"}}},
-  "$defs": {"ids": {"type": "array", "items": {"type": "string", "pattern": "^(place|route|stay|food|transport)\\.[a-z0-9][a-z0-9-]*$"}}, "transport_ids": {"type": "array", "items": {"type": "string", "pattern": "^transport\\.[a-z0-9][a-z0-9-]*$"}},
-  "distance": {"type": "object", "additionalProperties": false, "required": ["min", "max"], "properties": {"min": {"type": "number", "minimum": 0}, "max": {"type": "number", "minimum": 0}}},
-  "todo": {"type": "object", "additionalProperties": false, "required": ["id", "description", "due_date", "condition"], "properties": {"id": {"type": "string", "pattern": "^todo\\.[a-z0-9][a-z0-9-]*$"}, "description": {"type": "string", "minLength": 1}, "due_date": {"type": ["string", "null"], "format": "date"}, "condition": {"type": ["string", "null"]}}},
-  "contingency": {"type": "object", "additionalProperties": false, "required": ["id", "name", "trigger", "date", "transport", "transport_alternatives", "impacts", "unresolved"], "properties": {"id": {"type": "string", "pattern": "^contingency\\.[a-z0-9][a-z0-9-]*$"}, "name": {"type": "string", "minLength": 1}, "trigger": {"type": "string", "minLength": 1}, "date": {"type": "string", "format": "date"}, "transport": {"$ref": "#/$defs/transport_ids"}, "transport_alternatives": {"$ref": "#/$defs/transport_ids"}, "impacts": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "unresolved": {"type": "array", "minItems": 1, "items": {"type": "string"}}}},
-  "day": {"type": "object", "additionalProperties": false, "required": ["date", "start", "finish", "cycling", "routes", "transport", "transport_alternatives", "visits", "optional_visits", "food", "stay", "notes"], "properties": {
-    "date": {"type": "string", "format": "date"}, "start": {"type": "string", "minLength": 1}, "finish": {"type": "string", "minLength": 1},
-    "cycling": {"type": "object", "additionalProperties": false, "required": ["distance_km"], "properties": {"distance_km": {"$ref": "#/$defs/distance"}}},
-    "routes": {"$ref": "#/$defs/ids"}, "transport": {"$ref": "#/$defs/ids"}, "transport_alternatives": {"$ref": "#/$defs/transport_ids"}, "visits": {"$ref": "#/$defs/ids"}, "optional_visits": {"$ref": "#/$defs/ids"}, "food": {"$ref": "#/$defs/ids"},
-    "stay": {"type": "object", "additionalProperties": false, "required": ["preferred", "fallback"], "properties": {"preferred": {"$ref": "#/$defs/ids"}, "fallback": {"$ref": "#/$defs/ids"}}}, "notes": {"type": "array", "items": {"type": "string"}}
-  }}}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "plan_id", "as_of", "status", "maturity", "history_note", "change_reasons", "planning_principles", "recommendations", "pre_trip_todos", "days", "contingencies"],
+  "properties": {
+    "schema_version": {"const": 3},
+    "plan_id": {"type": "string", "pattern": "^plan\\.[a-z0-9][a-z0-9-]*$"},
+    "as_of": {"type": "string", "format": "date"},
+    "status": {"const": "current_prime"},
+    "maturity": {"const": "provisional"},
+    "history_note": {"type": "string", "minLength": 1},
+    "change_reasons": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "planning_principles": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/principle"}},
+    "recommendations": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "pre_trip_todos": {"type": "array", "items": {"$ref": "#/$defs/todo"}},
+    "days": {"type": "array", "items": {"$ref": "#/$defs/day"}},
+    "contingencies": {"type": "array", "items": {"$ref": "#/$defs/contingency"}}
+  },
+  "$defs": {
+    "ids": {"type": "array", "items": {"type": "string", "pattern": "^(place|route|stay|food|transport)\\.[a-z0-9][a-z0-9-]*$"}},
+    "transport_ids": {"type": "array", "items": {"type": "string", "pattern": "^transport\\.[a-z0-9][a-z0-9-]*$"}},
+    "distance": {"type": "object", "additionalProperties": false, "required": ["min", "max"], "properties": {"min": {"type": "number", "minimum": 0}, "max": {"type": "number", "minimum": 0}}},
+    "principle": {"type": "object", "additionalProperties": false, "required": ["id", "statement", "decision_rule"], "properties": {"id": {"type": "string", "pattern": "^principle\\.[a-z0-9][a-z0-9-]*$"}, "statement": {"type": "string", "minLength": 1}, "decision_rule": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}}},
+    "mobility_segment": {"type": "object", "additionalProperties": false, "required": ["segment", "preferred_mode", "bicycle_value", "rationale"], "properties": {"segment": {"type": "string", "minLength": 1}, "preferred_mode": {"enum": ["bicycle", "public_transport", "mixed"]}, "bicycle_value": {"enum": ["candidate_linking", "riding_experience", "intercity_mobility", "short_local_mobility", "none"]}, "rationale": {"type": "string", "minLength": 1}}},
+    "candidate_decision": {"type": "object", "additionalProperties": false, "required": ["subject", "decision", "rationale"], "properties": {"subject": {"type": "string", "pattern": "^(place|route|stay|food|transport)\\.[a-z0-9][a-z0-9-]*$"}, "decision": {"enum": ["on_hold", "excluded"]}, "rationale": {"type": "string", "minLength": 1}}},
+    "todo": {"type": "object", "additionalProperties": false, "required": ["id", "description", "due_date", "condition"], "properties": {"id": {"type": "string", "pattern": "^todo\\.[a-z0-9][a-z0-9-]*$"}, "description": {"type": "string", "minLength": 1}, "due_date": {"type": ["string", "null"], "format": "date"}, "condition": {"type": ["string", "null"]}}},
+    "contingency": {"type": "object", "additionalProperties": false, "required": ["id", "name", "trigger", "date", "transport", "transport_alternatives", "impacts", "unresolved"], "properties": {"id": {"type": "string", "pattern": "^contingency\\.[a-z0-9][a-z0-9-]*$"}, "name": {"type": "string", "minLength": 1}, "trigger": {"type": "string", "minLength": 1}, "date": {"type": "string", "format": "date"}, "transport": {"$ref": "#/$defs/transport_ids"}, "transport_alternatives": {"$ref": "#/$defs/transport_ids"}, "impacts": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "unresolved": {"type": "array", "minItems": 1, "items": {"type": "string"}}}},
+    "day": {"type": "object", "additionalProperties": false, "required": ["date", "start", "finish", "cycling", "mobility_strategy", "routes", "transport", "transport_alternatives", "visits", "optional_visits", "food", "candidate_decisions", "stay", "notes"], "properties": {
+      "date": {"type": "string", "format": "date"}, "start": {"type": "string", "minLength": 1}, "finish": {"type": "string", "minLength": 1},
+      "cycling": {"type": "object", "additionalProperties": false, "required": ["distance_km"], "properties": {"distance_km": {"$ref": "#/$defs/distance"}}},
+      "mobility_strategy": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/mobility_segment"}},
+      "routes": {"$ref": "#/$defs/ids"}, "transport": {"$ref": "#/$defs/ids"}, "transport_alternatives": {"$ref": "#/$defs/transport_ids"}, "visits": {"$ref": "#/$defs/ids"}, "optional_visits": {"$ref": "#/$defs/ids"}, "food": {"$ref": "#/$defs/ids"},
+      "candidate_decisions": {"type": "array", "items": {"$ref": "#/$defs/candidate_decision"}},
+      "stay": {"type": "object", "additionalProperties": false, "required": ["preferred", "fallback"], "properties": {"preferred": {"$ref": "#/$defs/ids"}, "fallback": {"$ref": "#/$defs/ids"}}}, "notes": {"type": "array", "items": {"type": "string"}}
+    }}
+  }
 }

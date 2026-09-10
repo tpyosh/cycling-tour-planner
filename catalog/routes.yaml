@@ -1,15 +1,15 @@
 schema_version: 1
 items:
   - id: route.ishinomaki-city
-    name: 石巻市街周遊
+    name: 石巻市街〜南浜〜魚町1丁目周遊
     status: shortlisted
     from: place.ishinomaki
     to: place.ishinomaki
     mode: bicycle
     distance_km: null
     route_value: high
-    tags: [city, port, tier-3-buffer]
-    description: 門脇小学校、南浜、萬画館、旧市街、港をつなぐ。正確な距離は未算出。
+    tags: [city, candidate-linking, fishery, current-prime]
+    description: 石ノ森萬画館、門脇小学校、門脇保育所跡、石巻市慰霊碑、津波伝承館、南浜公園、魚町1丁目水産加工団地を約10〜15kmで束ねる。魚町1丁目は公道から通過・観察し、工場内部見学を前提にしない。
   - id: route.onagawa-round-trip
     name: 石巻〜女川単純往復
     status: deferred
@@ -30,6 +30,16 @@ items:
     route_value: main
     tags: [current-leading-option, safety-check-required]
     description: 9/24強化案A。旧女川交番、女川港、雄勝硯、大川小を性格の違う港町と地場産業でつなぐ現時点の最有力候補。距離、工事、通行止め、R398等のトンネル・交通量・路肩は未確認。
+  - id: route.ishinomaki-okawa-ogatsu-onagawa
+    name: 石巻→大川→雄勝→女川
+    status: researching
+    from: place.ishinomaki
+    to: place.onagawa
+    mode: bicycle
+    distance_km: {min: 55, max: 70}
+    route_value: main
+    tags: [current-prime, candidate-linking, safety-check-required]
+    description: 大川小学校、雄勝硯伝統産業会館、おがつ海産物直売所、下雄勝の道の駅周辺、旧女川交番、津波記憶石第28号、おんまえやを一方向につなぐ。主目的は分散候補の束ねであり、沿岸走行自体の景観価値を過大評価しない。距離、標高、道路、トンネル、日没との関係は未検証。
   - id: route.onagawa-nuclear-pr-center
     name: 女川原子力PRセンター組込み案
     status: deferred
@@ -41,15 +51,55 @@ items:
     tags: [alternative, energy-infrastructure]
     description: 9/24強化案B。案Aと同日にすべて入れると詰め込み過ぎになる可能性があるため、採用判断を保留。
   - id: route.kesennuma-city
-    name: 気仙沼市内高密度周遊
+    name: 気仙沼魚市場〜海の市〜リアス・アーク周遊
     status: shortlisted
     from: place.kesennuma
     to: place.kesennuma
     mode: bicycle
-    distance_km: {min: 30, max: 40}
+    distance_km: {min: 10, max: 20}
     route_value: main
     tags: [fishery, earthquake, museum]
-    description: 魚市場、海の市、旧向洋高校、リアス・アーク美術館をつなぐ。この旅行で自転車を持参する価値が最も高い日。
+    description: 気仙沼魚市場、海の市、シャークミュージアム、氷の水族館、リアス・アーク美術館を束ねる。魚市場前〜港町〜鹿折の移動中に冷蔵庫、加工工場、トラック、漁船が見えることは副次的価値とし、特定工場の一般公開を前提にしない。
+  - id: route.onagawa-kesennuma-coast
+    name: 女川→南三陸→歌津→大谷海岸→気仙沼
+    status: researching
+    from: place.onagawa
+    to: place.kesennuma
+    mode: bicycle
+    distance_km: {min: 90, max: 100}
+    route_value: main
+    tags: [current-prime, intercity, deadline-sensitive]
+    description: current primeで最も都市間移動色が強い約90〜100kmの全線自走区間。志津川、歌津、道の駅大谷海岸の停止候補を通り、16:00最終受付の気仙沼震災遺構を最優先する。走行自体に特別な価値がある道路区間は未確認であり、沿岸という理由だけで価値を水増ししない。
+  - id: route.kesennuma-karakuwa
+    name: 気仙沼→唐桑・唐桑半島内
+    status: researching
+    from: place.kesennuma
+    to: place.karakuwa
+    mode: bicycle
+    distance_km: {min: 30, max: 45}
+    route_value: main
+    tags: [current-prime, candidate-linking, peninsula]
+    description: 神の倉の津波石、鮪立集落と唐桑御殿型住宅、御崎神社、巨釜・折石という分散した具体物を午前3時間程度で束ねる。自転車の意味は走破より候補束ねにある。
+  - id: route.karakuwa-rikuzentakata-transfer
+    name: 唐桑→陸前高田
+    status: researching
+    from: place.karakuwa
+    to: place.rikuzentakata
+    mode: mixed
+    distance_km: null
+    route_value: low
+    tags: [current-prime, public-transport-priority, bicycle-bagging]
+    description: 唐桑から陸前高田へ移る区間。自走に固定せず、路線バスや大船渡線BRTを含む公共交通との併用を選択肢にする。具体便、輪行可否、乗降地点は未確認。
+  - id: route.rikuzentakata-city
+    name: 陸前高田市内短距離周遊
+    status: shortlisted
+    from: place.rikuzentakata
+    to: place.rikuzentakata
+    mode: bicycle
+    distance_km: {min: 5, max: 10}
+    route_value: medium
+    tags: [current-prime, short-local-mobility]
+    description: いわてTSUNAMIメモリアル、奇跡の一本松、タピック45、BRT奇跡の一本松駅と帰路の乗車地点を結ぶ短距離の足。大船渡線BRTは別の観光時間を取らず移動体験として回収する。
   - id: route.rikuzentakata-ofunato
     name: 陸前高田→大船渡
     status: researching

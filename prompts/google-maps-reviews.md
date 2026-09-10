@@ -24,8 +24,11 @@ Google Maps検索語: {map_query}
   "address_or_area": "住所または地域",
   "rating": 0.0,
   "review_count": 0,
+  "review_count_range": null,
   "review_count_is_approximate": false,
   "checked_at": "YYYY-MM-DD",
+  "verification_status": "confirmed | needs_recheck | unknown",
+  "acquisition_confidence": "high | medium | low | unknown",
   "google_maps_url": "https://maps.google.com/...",
   "evidence_scope": {
     "rating_and_count": "confirmed | not_confirmed | unknown",
@@ -44,4 +47,4 @@ Google Maps検索語: {map_query}
 
 回答を候補の `google_maps` に転記する。レビュー件数が概数なら `review_count_is_approximate: true` とする。URLと取得方法は `source`、本文・写真をどこまで見たかは `evidence_scope`、本文傾向は `review_notes`、成人旅行者と子ども向け偏りは `audience_notes`、展示や実物に関する比較材料は `evidence_notes`、取得できなかった範囲は `limitations` に記録する。
 
-確認していない観点を推測で埋めない。星と件数しか確認できなかった場合も、`review_text: not_checked`、`photos: not_checked` と明記すれば調査結果として保存できる。対象を特定できなかった場合は `google_maps` を追加せず、次回も取得対象として扱う。
+確認していない観点を推測で埋めない。星と件数しか確認できなかった場合も、`review_text: not_checked`、`photos: not_checked` と明記すれば調査結果として保存できる。対象を特定できなかった場合は、候補マスターに `rating: null`、`review_count: null`、`verification_status: needs_recheck` を記録し、次回も取得対象として扱う。

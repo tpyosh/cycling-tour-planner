@@ -1,28 +1,66 @@
-schema_version: 1
-status: working
+schema_version: 3
+plan_id: plan.sanriku-current-prime-20260910
+as_of: 2026-09-10
+status: current_prime
+maturity: provisional
+history_note: これは現時点の最有力案であり、予約済み・確定旅程ではない。旧working planはGit履歴、比較した案A〜Dと前案の位置づけはresearch/candidate-evaluation.mdに残す。
+change_reasons:
+  - 抽象的な「港を見る」「街を見る」を、固有名詞と観察可能な物理対象へ置き換えた。
+  - 雄勝港を単独候補から外し、玄昌石、雄勝硯、海産物直売所、震災後の沿岸拠点へ評価対象を分解した。
+  - 気仙沼の港湾という表現を、気仙沼魚市場、荷捌き、水揚げ、入港船、海の市、シャークミュージアム、氷の水族館へ分解した。
+  - 唐桑の対象を、神の倉の津波石、鮪立集落と唐桑御殿型住宅、御崎神社、巨釜・折石へ具体化した。
+  - 各食事枠を独立に評価し、「翌日に温存する」という判断ロジックを禁止した。
+  - 2026-09-10のGoogle Maps再監査を反映し、雄勝硯伝統産業会館、気仙沼シャークミュージアム、氷の水族館を採用確定扱いから再監査対象へ変更した。日別構成と訪問順は変更していない。
+planning_principles:
+  - id: principle.segment-value-over-through-riding
+    statement: 自転車旅行であることを全区間自走の義務にせず、区間ごとの価値に応じて自転車と公共交通・輪行を使い分ける。
+    decision_rule:
+      - 走行自体に価値がある区間は自走を選ぶ。
+      - 点在候補を束ねる道具として価値がある区間は自転車を使う。
+      - 純粋な都市間移動で自走の付加価値が低い区間は公共交通・輪行を優先する。
+      - 全線をつなぐこと自体は旅の目的にしない。
+  - id: principle.evaluate-each-meal-independently
+    statement: 各日の昼食・夕食は独立した一食として評価し、「翌日に温存する」という考え方を使わない。
+    decision_rule:
+      - その場所で一食を使う意味、地域固有性、季節性、店・料理の質、営業日、予約要否、current primeからの寄り道・時間コストを確認する。
+      - 前日の食事枠を弱くしても翌日に二倍食べられるわけではないため、別日の食事候補を理由に評価を下げない。
+      - 強い候補が見つからない場合は「この食事枠では、現時点で強い候補を発見できていない」と記録する。
+  - id: principle.google-maps-contextual-audit
+    statement: Google Mapsは外部シグナルとして使うが、ランキングをそのまま旅程へ移さず、星、レビュー件数、ジャンル、レビュー本文、施設の性質、ユーザー嗜好を組み合わせる。
+    decision_rule:
+      - ratingとreview countを必ずセットで見て、少数レビューの高評価を大量レビューの高評価と同じ信頼度にしない。
+      - 博物館・資料館・観光展示施設は評価が高く出やすいため、十分なレビュー件数がある4.0未満をレビュー本文の再監査対象にする。
+      - 町中華、古い食堂、地方スーパー等は3点台後半でも星だけで落とさず、看板料理、地域性、店の個性を見る。
+      - Google Mapsだけで候補を削除せず、Google Mapsを無視もせず、ユーザー嗜好との適合差を明示する。
 recommendations:
-  - このファイルは2026-09-03時点で時刻・宿泊を詳細化した working plan であり、2026-09-06ブレストの案A〜Dを比較して確定した旅程ではない。最新の比較仮説は research/candidate-evaluation.md を参照する。
-  - 現時点の最有力構成は石巻2連泊・気仙沼2連泊・釜石1泊の都市ノード型。ただし宿泊予約は未確定。
-  - 9/24は石巻→女川→雄勝→大川小学校→石巻の強化案Aを暫定的な現行案とするが、ルート・安全・所要時間を確認するまで正式採用しない。
-  - 宮古まで無理に延ばさず釜石を北端とし、石巻・気仙沼・陸前高田・大船渡・釜石での情報密度を優先する。
-  - 自転車は市街・港・遺構間の高機動移動に使い、大船渡→釜石のR45など体験価値の低い長距離・トンネル区間は走らない。
-  - 時刻表・開館情報は2026-09-03時点の検討用参考値であり、予約・出発前に旅行日へ有効な公式情報を再確認する。
+  - 2026-09-10現在のcurrent prime。今後の実接続、道路、営業、宿泊、食事の検証で更新する前提で、確定・予約済みを意味しない。
+  - 宿泊は9/23石巻、9/24女川、9/25・9/26気仙沼、9/27陸前高田とし、気仙沼のみ2連泊する。
+  - 9/24は候補束ね、9/25は長距離都市間移動、9/27は唐桑の小候補束ねとして、自転車の価値を日ごとに区別する。
+  - 時刻、最終受付、休館、道路状況、輪行可否、宿泊在庫、未確定の食事はissues.yamlで追跡する。
+  - Google Maps再監査は旅程の自動ランキングではない。気仙沼シャークミュージアム、雄勝硯伝統産業会館、氷の水族館は現行動線に残すが、レビュー本文確認まで採用確定扱いにしない。
 pre_trip_todos:
-  - {id: todo.book-ishinomaki, description: 石巻の2連泊（9/23チェックイン・9/25チェックアウト）を予約する, due_date: null, condition: 宿名・空室・価格・自転車保管を確認後}
-  - {id: todo.book-kesennuma, description: 気仙沼の2連泊（9/25チェックイン・9/27チェックアウト）を予約する, due_date: null, condition: 宿名・空室・価格・自転車保管を確認後}
-  - {id: todo.book-kamaishi, description: 釜石の1泊（9/27チェックイン・9/28チェックアウト）を予約する, due_date: null, condition: 宿名・空室・価格・自転車保管を確認後}
-  - {id: todo.confirm-brt-bicycle, description: 気仙沼線BRT・大船渡線BRTへ輪行袋入り自転車を持ち込めるか、具体的な輪行サイズを示してJRへ確認する, due_date: null, condition: 交通予約・確定前}
-  - {id: todo.confirm-sanriku-bike, description: '9/27の三陸鉄道 盛16:45発で完成車持込制度を現実的に利用できるか再確認する', due_date: null, condition: 利用不可時は盛駅で輪行}
-  - {id: todo.verify-september-timetable, description: 2026年9月の列車・BRTダイヤと運休情報を公式情報で再確認する, due_date: 2026-09-20, condition: 出発直前}
-  - {id: todo.verify-september-closures, description: 採用施設の臨時休館・予約条件・最終入場を公式情報で再確認する, due_date: 2026-09-20, condition: 出発直前}
-  - {id: todo.reserve-minamisanriku, description: 南三陸311メモリアルのラーニングシアター等の日時指定予約要否を確認する, due_date: null, condition: 9/25の滞在枠を確定後}
-  - {id: todo.check-fish-market, description: 9/26の気仙沼魚市場について入船・水揚げ・休場情報を確認する, due_date: 2026-09-25, condition: 前夜に確認}
-  - {id: todo.shortlist-food, description: 各日の飲食店名と営業時間を具体化する, due_date: null, condition: 行程と宿泊地の確定後}
+  - {id: todo.book-ishinomaki, description: 石巻の1泊（9/23チェックイン・9/24チェックアウト）を予約する, due_date: null, condition: 宿名・空室・価格・輪行袋または客室への自転車持込みを確認後}
+  - {id: todo.book-onagawa, description: 女川の1泊（9/24チェックイン・9/25チェックアウト）を予約する, due_date: null, condition: 宿名・空室・価格・輪行袋または客室への自転車持込みを確認後}
+  - {id: todo.book-kesennuma, description: 気仙沼の2連泊（9/25チェックイン・9/27チェックアウト）を予約する, due_date: null, condition: 宿名・空室・価格・輪行袋または客室への自転車持込みを確認後}
+  - {id: todo.book-rikuzentakata, description: 陸前高田の1泊（9/27チェックイン・9/28チェックアウト）を予約する, due_date: null, condition: 宿名・空室・価格・輪行袋または客室への自転車持込みを確認後}
+  - {id: todo.confirm-brt-bicycle, description: 気仙沼線BRT・大船渡線BRTへ輪行袋入り自転車を持ち込めるか、具体的な収納寸法を示して正式確認する, due_date: null, condition: 交通・旅程確定前}
+  - {id: todo.verify-routes, description: 9/24・9/25・9/27の実走距離、標高、道路、トンネル、交通量、日没との関係を検証する, due_date: null, condition: 宿泊・交通確定前}
+  - {id: todo.research-open-meals, description: 9/23石巻の夕食、9/24女川の昼・夕食、9/25の昼食、9/26気仙沼の三食、9/27唐桑の食を再調査する, due_date: null, condition: 食事予約・旅程時刻の確定前}
+  - {id: todo.verify-september-timetable, description: 2026年9月の列車・BRT・唐桑接続と運休情報を公式情報で再確認する, due_date: 2026-09-20, condition: 出発直前}
+  - {id: todo.verify-september-closures, description: 採用施設・店舗の祝日、振替休館、曜日休館、臨時休業を公式情報で再確認する, due_date: 2026-09-20, condition: 出発直前}
+  - {id: todo.verify-lodging-access, description: 各日の宿から最初の候補までと最後の候補から宿までの実走動線を確認する, due_date: null, condition: 宿名の確定後}
+  - {id: todo.check-fish-market, description: 9/26の気仙沼魚市場について見学に適した時刻、入船、水揚げ、休場情報を確認する, due_date: 2026-09-25, condition: 事前調査後、前夜に再確認}
+  - {id: todo.audit-low-rated-attractions, description: 気仙沼シャークミュージアム、雄勝硯伝統産業会館、氷の水族館のGoogle Mapsレビュー本文と写真を優先順に再監査する, due_date: null, condition: 各施設の採否・滞在時間を確定する前}
+  - {id: todo.recheck-missing-google-maps, description: Google Maps値を確定できなかった11候補を対象名・地域の一致確認付きで再調査する, due_date: null, condition: 値を推測せず、prompts/google-maps-reviews.mdの手順に従う}
+
 days:
   - date: 2026-09-23
     start: place.nagoya
     finish: place.ishinomaki
-    cycling: {distance_km: {min: 0, max: 15}}
+    cycling: {distance_km: {min: 10, max: 15}}
+    mobility_strategy:
+      - {segment: 名古屋→石巻, preferred_mode: public_transport, bicycle_value: none, rationale: 長距離移動はJRで輪行し、石巻での滞在時間を確保する。}
+      - {segment: 石巻市街〜南浜〜魚町1丁目, preferred_mode: bicycle, bicycle_value: candidate_linking, rationale: 約10〜15kmで萬画館、南浜の震災遺構・慰霊施設、魚町1丁目の水産加工・冷蔵・物流集積を束ねる。}
     routes: [route.ishinomaki-city]
     transport:
       - transport.nagoya-tokyo-nozomi-20260923
@@ -30,173 +68,207 @@ days:
       - transport.sendai-ishinomaki-20260923
     transport_alternatives: [transport.tokyo-sendai-later-20260923]
     visits:
-      - place.kadonowaki-school
       - place.ishinomori-manga-museum
-    optional_visits:
+      - place.kadonowaki-school
+      - place.kadonowaki-nursery-site
+      - place.ishinomaki-memorial
+      - place.miyagi-tsunami-memorial-museum
       - place.minamihama-memorial-park
-      - place.ishinomaki-old-town-port
-    food: [food.ishinomaki-yakisoba]
+      - place.ishinomaki-uomachi-1
+    optional_visits: []
+    food: [food.fujiya-dining-hall]
+    candidate_decisions: []
     stay: {preferred: [stay.ishinomaki], fallback: []}
     notes:
-      - 11:18頃に石巻着後、自転車を組み立てる。市街周遊距離は未算出のため自力移動表示は暫定幅。
-      - 参考枠は石巻焼きそば11:50〜12:35、門脇小学校12:50〜14:15、南浜14:15〜14:50、萬画館15:05〜16:35、旧市街・港16:40〜17:30。
-      - 門脇小学校を最優先し、遅延時は旧市街・港、南浜の順に短縮する。
-      - 石ノ森萬画館はシード上9/23開館・翌9/24休館のため初日に置く。開館日は直前確認する。
-      - 東京での乗換は約15分。乗遅れ時は後続接続へ切り替える。
+      - 石ノ森萬画館と期間限定企画「刃牙博ッッ!!」は個人嗜好と会期が直接一致する主軸。
+      - 魚町1丁目は公道から現役の水産加工、冷蔵、物流の集積を見る。観光向け工場見学や工場内部への立入りは前提にしない。
+      - 昼食は藤や食堂の石巻焼きそばが有力。夕食は、この食事枠では現時点で強い候補を発見できていない。
+      - 実接続、輪行後の石巻到着時刻、各施設の滞在時間は未検証。
 
   - date: 2026-09-24
     start: place.ishinomaki
-    finish: place.ishinomaki
-    cycling: {distance_km: {min: 90, max: 105}}
-    routes: [route.onagawa-ogatsu-okawa-loop]
+    finish: place.onagawa
+    cycling: {distance_km: {min: 55, max: 70}}
+    mobility_strategy:
+      - {segment: 石巻→大川→雄勝→女川, preferred_mode: bicycle, bicycle_value: candidate_linking, rationale: 大川、雄勝、女川の分散候補を一方向に束ねる。走行そのものの景観価値は主目的にしない。}
+    routes: [route.ishinomaki-okawa-ogatsu-onagawa]
     transport: []
     transport_alternatives: []
     visits:
-      - place.onagawa-police-box
-      - place.onagawa-port
-      - place.ogatsu-suzuri-museum
       - place.okawa-school
-    optional_visits: [place.seapal-pier-onagawa]
-    food: [food.onagawa-ogatsu-lunch]
-    stay: {preferred: [stay.ishinomaki], fallback: []}
+      - place.ogatsu-suzuri-museum
+      - place.ogatsu-seafood-direct-sales
+      - place.ogatsu-sato-roadside
+      - place.onagawa-police-box
+      - place.onagawa-tsunami-memory-stone-28
+      - place.onmaeya
+    optional_visits: []
+    food: []
+    candidate_decisions:
+      - {subject: place.onagawa-nuclear-pr-center, decision: on_hold, rationale: 距離と時間コスト次第。大川・雄勝・女川の主軸を圧迫しない条件が確認できるまで保留する。}
+      - {subject: place.onagawa-port, decision: excluded, rationale: 港単体の抽象候補は外し、旧女川交番、津波記憶石第28号、おんまえや等の具体物を優先する。}
+      - {subject: food.onagawa-ogatsu-lunch, decision: excluded, rationale: 雄勝の道の駅飲食は6日間の一食として現時点では強くなく、女川の正式な昼食・夕食は具体店を再探索する。}
+    stay: {preferred: [stay.onagawa], fallback: []}
     notes:
-      - この強化案Aは現時点の最有力候補だが正式採用ではない。正確な距離・道路条件・営業時間を確認してから確定する。
-      - 参考枠は07:00石巻発、08:15〜08:30女川着、旧女川交番08:30〜09:05、女川港09:05〜09:40、雄勝硯11:00〜12:00、昼食12:00〜12:45、大川小13:45〜14:45、石巻16:30〜17:00頃帰着。
-      - シードでは大川震災伝承館は振替休館、屋外遺構は見学可能とされる。伝承館を含む完全見学日ではない。
-      - 悪天候・遅延・脚力不足時はTier 3を削り、それでも成立しなければ女川単純往復へ短縮する。
+      - 雄勝では玄昌石、雄勝硯、硯加工、玄昌石製品、展示・販売、海産物、震災後の沿岸拠点を具体物として見る。
+      - 雄勝硯伝統産業会館はGoogle Maps 3.8・約218件のためrecheck_required。「十分に良い」と確定せず、展示量、販売比率、所要時間、大人一人旅の満足度、通常時の実演を確認するまで現行動線上の再監査対象として扱う。
+      - 下雄勝の海側・道の駅周辺は短時間確認とし、港そのものを独立した目的にしない。
+      - おんまえやは鮮魚、地場水産加工品、惣菜、味噌おにぎり等を扱うローカルスーパーとして有力。正式な昼食・夕食はニューこのり（4.2・約1,341件）を優先比較し、女川魚市場食堂、おかせい、おじかも候補データ上で比較する。
+      - 実走距離、標高、道路、日没、女川原子力PRセンターの追加余地は未検証。
 
   - date: 2026-09-25
-    start: place.ishinomaki
+    start: place.onagawa
     finish: place.kesennuma
-    cycling: {distance_km: {min: 0, max: 0}}
-    routes: []
-    transport:
-      - transport.ishinomaki-maeyachi-20260925
-      - transport.maeyachi-yanazu-20260925
-      - transport.yanazu-shizugawa-brt-20260925
-      - transport.shizugawa-kesennuma-brt-20260925
+    cycling: {distance_km: {min: 90, max: 100}}
+    mobility_strategy:
+      - {segment: 女川→志津川→歌津→本吉→大谷海岸→気仙沼, preferred_mode: bicycle, bicycle_value: intercity_mobility, rationale: current primeで最も都市間移動色が強い区間。原則全線自走とするが、走行自体の価値を沿岸という理由だけで過大評価しない。}
+    routes: [route.onagawa-kesennuma-coast]
+    transport: []
     transport_alternatives: []
     visits:
-      - place.minamisanriku-311-memorial
       - place.minamisanriku-disaster-office
-      - place.minamisanriku-kiriko
-    optional_visits: [place.sansan-shopping-village]
-    food: [food.minamisanriku-autumn-don]
+      - place.kesennuma-memorial-museum
+    optional_visits:
+      - place.sansan-shopping-village
+      - place.hama-re-utatsu
+      - place.oya-coast
+    food: []
+    candidate_decisions:
+      - {subject: place.minamisanriku-311-memorial, decision: on_hold, rationale: '開館日ではあるが時間コストが大きく、気仙沼震災遺構の16:00最終受付を優先するため保留する。'}
+      - {subject: place.utatsu-ichthyosaur-display, decision: on_hold, rationale: 歌津魚竜は地域テーマとして認識するが、通常旅行者が短時間で強く回収できる対象としては弱く、current primeでは優先度を下げる。}
     stay: {preferred: [stay.kesennuma], fallback: []}
     notes:
-      - 自転車は石巻で輪行し、この日は袋から出さず気仙沼まで運ぶ想定。
-      - 前谷地→柳津の鉄道区間と柳津以北のBRTを連続体験することが旅行の核。
-      - 志津川滞在の参考枠は311メモリアル10:10〜11:40、旧防災対策庁舎等11:40〜12:10、昼食12:10〜13:00、きりこ展等13:00〜13:35。
-      - シードでは9/24休館・9/25開館。ラーニングシアター等の予約要否と当日の開館を再確認する。
+      - 気仙沼市東日本大震災遺構・伝承館の最終受付16:00をこの日の最優先とし、遅れた場合は途中候補を切る。
+      - 志津川では南三陸町震災復興祈念公園と旧防災対策庁舎を主軸にし、さんさん商店街は動線上で時間が許せば立ち寄る。
+      - ハマーレ歌津はローカル商業とかもめ館等を15分程度で確認する候補。道の駅大谷海岸は補給と短時間休憩に使い、主目的にしない。
+      - Google Maps再監査後も歌津に「絶対に止まるべき強い対象」は未確保。中華屋・飛上（4.0・約368件）は町中華・昼食候補として維持するが、歌津の主目的にはしない。
+      - 食事は9/26と独立に、その土地で一食を使う価値、季節性、動線コスト、16:00締切との両立で評価する。この食事枠では現時点で強い候補を発見できていない。
+      - 実走距離、道路の快適性、危険区間、トンネル、走行自体に特別な価値がある区間、16:00到達余裕は未検証。
 
   - date: 2026-09-26
     start: place.kesennuma
     finish: place.kesennuma
-    cycling: {distance_km: {min: 30, max: 40}}
+    cycling: {distance_km: {min: 10, max: 20}}
+    mobility_strategy:
+      - {segment: 気仙沼魚市場〜海の市〜リアス・アーク美術館, preferred_mode: bicycle, bicycle_value: candidate_linking, rationale: 約10〜20kmで魚市場、海の市の具体施設、リアス・アーク美術館を束ねる。走行自体は目的にしない。}
     routes: [route.kesennuma-city]
     transport: []
     transport_alternatives: []
     visits:
       - place.kesennuma-fish-market
-      - place.kesennuma-shark-museum
-      - place.kesennuma-memorial-museum
-      - place.rias-ark-museum
-    optional_visits:
       - place.kesennuma-umi-no-ichi
-      - place.kesennuma-seafood-shops
+      - place.kesennuma-shark-museum
+      - place.kesennuma-ice-aquarium
+      - place.rias-ark-museum
+    optional_visits: []
     food:
-      - food.kesennuma-breakfast
+      - food.tsurukame-dining-hall
+      - food.asahi-zushi-kesennuma
+      - food.kitakatsu-maguroya
       - food.kesennuma-bonito-swordfish
+    candidate_decisions: []
     stay: {preferred: [stay.kesennuma], fallback: []}
     notes:
-      - 参考枠は06:15ホテル発、魚市場06:30〜07:30、朝食07:30〜08:30、海の市08:30〜09:00、シャークミュージアム等09:00〜10:00、旧向洋高校10:45〜12:20、リアス・アーク14:00〜16:30。
-      - 魚市場は前夜に入船・水揚げ・休場情報を確認する。
-      - リアス・アーク美術館は路線バスアクセスが弱く、自転車の存在価値が特に高い。
-      - シードでは9/25から「新方舟祭2026」開催。会期と開館を直前に再確認する。
+      - 朝の気仙沼魚市場では荷捌き、水揚げ、入港船、市場前の物流・漁業動線を具体的に確認する。
+      - 海の市全体はGoogle Maps 3.8・約3,900件だが、複合施設の総合値で内部施設を一括評価しない。
+      - 気仙沼シャークミュージアムは3.6・約2,156〜2,200件のためhigh_priority_recheck。氷の水族館は3.8・約286件のためrecheck_required。どちらも現行動線に残すが、レビュー本文確認まで採用確定扱いにしない。
+      - 氷の水族館は施設品質の警戒と、マイナス20度、氷漬けの魚、製氷文化というB級・ローカル適合度を分けて評価する。
+      - 魚市場前〜港町〜鹿折の移動中に見える冷蔵庫、加工工場、トラック、漁船は副次的価値とする。特定工場を一般公開施設として扱わない。
+      - 鶴亀食堂は4.4・約454件で、市場前、地域性、朝営業を含め9/26朝食の高優先度候補を維持する。
+      - 食は戻り鰹、メカジキ、フカヒレ、モウカの星、サンマ、ホヤ、地魚寿司を個別に評価する。9月下旬は戻り鰹を特に高く評価し、メカジキは冬メカ最盛期より前であることを踏まえる。
+      - 朝・昼・夜の最終店選定、市場の最適時刻、2026年の実漁況は未検証。
 
   - date: 2026-09-27
     start: place.kesennuma
-    finish: place.kamaishi
-    cycling: {distance_km: {min: 0, max: 30}}
-    routes: [route.rikuzentakata-ofunato]
+    finish: place.rikuzentakata
+    cycling: {distance_km: {min: 30, max: 45}}
+    mobility_strategy:
+      - {segment: 気仙沼→唐桑・唐桑半島内, preferred_mode: bicycle, bicycle_value: candidate_linking, rationale: 午前3時間程度で神の倉の津波石、鮪立、唐桑御殿型住宅、御崎神社、巨釜・折石を束ねる手段として自転車の意味が強い。}
+      - {segment: 唐桑→陸前高田, preferred_mode: mixed, bicycle_value: none, rationale: 自走に固定せず、路線バスや大船渡線BRTを含む公共交通の併用を選択肢にする。}
+    routes:
+      - route.kesennuma-karakuwa
+      - route.karakuwa-rikuzentakata-transfer
+    transport: [transport.karakuwa-rikuzentakata-20260927]
+    transport_alternatives: []
+    visits:
+      - place.kamino-kura-tsunami-stone
+      - place.karakuwa-goten-village
+      - place.misaki-shrine-karakuwa
+      - place.kamukama-oritate
+    optional_visits: []
+    food: []
+    candidate_decisions:
+      - {subject: place.hanzou, decision: excluded, rationale: 候補として認識した上で、午前3時間程度の制約では巨釜・折石を優先して外す。}
+      - {subject: place.karakuwa-ports, decision: excluded, rationale: 港単体の抽象候補は外し、鮪立集落と鰹一本釣り文化の動線上で通過する程度に扱う。}
+    stay: {preferred: [stay.rikuzentakata], fallback: []}
+    notes:
+      - 神の倉の津波石は津波で移動した巨大物体そのもの、巨釜・折石は折石と津波による物理痕跡を具体対象とする。
+      - 鮪立では鰹一本釣り文化と唐桑御殿型住宅を見る。唐桑御殿つなかん等を代表例として認識するが、宿泊客でない旅行者が私有地へ入る前提にしない。
+      - 御崎神社は船乗りと海上信仰を示す具体的な神社として訪れる。
+      - 唐桑の食は独立に評価する。この食事枠では現時点で強い候補を発見できておらず、地元食堂、魚屋、水産会社、漁師系飲食、唐桑特有料理を再探索する。
+      - 3時間ルートの実走距離、高低差、大船渡線BRTを含む公共交通の接続時刻は未検証。
+
+  - date: 2026-09-28
+    start: place.rikuzentakata
+    finish: place.nagoya
+    cycling: {distance_km: {min: 5, max: 10}}
+    mobility_strategy:
+      - {segment: 陸前高田市内, preferred_mode: bicycle, bicycle_value: short_local_mobility, rationale: 高田松原周辺の具体施設と帰路の乗車地点を短距離で結ぶ。}
+      - {segment: 陸前高田→名古屋, preferred_mode: public_transport, bicycle_value: none, rationale: 帰路成立性を最優先し、大船渡線BRTとJRで輪行して9/28中に名古屋へ帰着する。}
+    routes: [route.rikuzentakata-city]
     transport:
-      - transport.kesennuma-miracle-pine-brt-20260927
-      - transport.sakari-kamaishi-sanriku-20260927
+      - transport.rikuzentakata-kesennuma-brt-20260928
+      - transport.kesennuma-ichinoseki-20260928
+      - transport.ichinoseki-tokyo-20260928
+      - transport.tokyo-nagoya-nozomi-20260928
     transport_alternatives: []
     visits:
       - place.iwate-tsunami-memorial
       - place.miracle-pine
-      - place.ofunato-port-city
+      - place.rikuzentakata-tapic45
+      - place.brt-miracle-pine-station
     optional_visits: []
-    food: [food.ofunato-sanma-ramen]
-    stay: {preferred: [stay.kamaishi], fallback: []}
-    notes:
-      - 09:40奇跡の一本松着後に自転車を組み立て、10:00〜11:20 TSUNAMIメモリアル、11:20〜11:50一本松周辺、11:50頃陸前高田発を目安とする。
-      - 大船渡昼食13:15〜14:00、港・市街14:00〜15:20、16:00頃盛駅を目安とする。自転車距離は未算出のため表示幅は暫定。
-      - 三陸鉄道の完成車持込は混雑時に断られる可能性を残し、盛駅で輪行できる時間を確保する。
-      - 大船渡→釜石は自走せず、BRT化路線と鉄道復旧した三陸鉄道を比較する体験を優先する。
-
-  - date: 2026-09-28
-    start: place.kamaishi
-    finish: place.nagoya
-    cycling: {distance_km: {min: 15, max: 20}}
-    routes: [route.kamaishi-city]
-    transport:
-      - transport.kamaishi-shinhanamaki-20260928
-      - transport.shinhanamaki-tokyo-yamabiko-20260928
-      - transport.tokyo-nagoya-nozomi-20260928
-    transport_alternatives: []
-    visits: [place.kamaishi-iron-museum]
-    optional_visits: [place.kamaishi-daikannon]
-    food: [food.kamaishi-ramen]
+    food: []
+    candidate_decisions:
+      - {subject: place.yonezawa-traditional-house, decision: excluded, rationale: 2026-09-28は月曜休館のためcurrent primeから外す。}
     stay: {preferred: [], fallback: []}
     notes:
-      - 参考枠は08:20ホテル発、鉄の歴史館09:00〜10:20、大観音10:25〜11:20、昼食11:30〜12:10、12:10〜13:00駅へ移動・輪行。
-      - 時間不足なら釜石大観音を削り、鉄の歴史館を優先する。
-      - 13:32釜石発、21:38名古屋着の参考接続。2026年9月ダイヤを再確認してから確定する。
+      - 最終日の候補は増やしすぎず、いわてTSUNAMIメモリアル、奇跡の一本松、タピック45を主軸にする。
+      - Google Mapsでは、いわてTSUNAMIメモリアル4.6・約696件、奇跡の一本松4.3・約2,060〜2,100件、高田松原津波復興祈念公園4.3・約2,235件、タピック45 4.5・約63件で、現行の陸前高田クラスターを支持する。
+      - BRT奇跡の一本松駅と大船渡線BRTそのものは、別の観光時間を取らず移動体験として回収する。
+      - 帰路の具体便、乗換余裕、輪行可否は未検証。9/28中の名古屋帰着成立性を最優先する。
+
 contingencies:
   - id: contingency.missed-tokyo-transfer
-    name: 9/23東京乗換に間に合わない場合
-    trigger: 名古屋発列車の遅延等で東京08:18発のはやぶさへ乗り継げない
+    name: 9/23往路接続が遅れた場合
+    trigger: 名古屋→石巻の採用接続に乗り継げない、または石巻到着が遅れる
     date: 2026-09-23
     transport: []
     transport_alternatives: [transport.tokyo-sendai-later-20260923]
     impacts:
-      - 石巻到着が遅れ、初日の任意訪問時間が減る
-      - 門脇小学校を優先し、旧市街・港、南浜の順に削る
+      - 石ノ森萬画館、門脇小学校、南浜の震災遺構・慰霊施設のうち営業時間で失われる訪問が生じうる
+      - 魚町1丁目の通過を含む削減順は未確定
     unresolved:
-      - 後続便と石巻到着時刻を公式ダイヤで確定する
-  - id: contingency.onagawa-round-trip
-    name: 9/24女川単純往復への短縮
-    trigger: 強化案Aの道路・所要時間が成立しない、または当日の悪天候・遅延・脚力不足がある
-    date: 2026-09-24
-    transport: []
-    transport_alternatives: []
-    impacts:
-      - 雄勝硯伝統産業会館と大川小学校を外し、旧女川交番と女川港を守る
-      - 約45kmの当初案へ戻すことで安全余裕を確保する
-    unresolved:
-      - 強化案Aから短縮へ切り替える具体的な判断時刻・条件を決める
+      - 実ダイヤと各施設滞在時間を確認し、削減順と最終許容到着時刻を決める
   - id: contingency.onagawa-nuclear-pr-center
-    name: 9/24女川原子力PRセンター案B
-    trigger: エネルギーインフラ展示を優先し、強化案Aの一部と入れ替える判断をした場合
+    name: 9/24女川原子力PRセンター追加
+    trigger: 大川・雄勝・女川の主軸を十分に見た上で、道路・日没・営業時間に明確な余裕がある
     date: 2026-09-24
     transport: []
     transport_alternatives: []
     impacts:
-      - 原子炉模型、放射線、安全対策、発電所史を見られる
-      - 事業者PR施設であり中立的な事故検証施設とは位置づけが異なる
-      - 案Aと同日にすべて詰め込まず、雄勝または大川小等との交換が必要になる
+      - エネルギーインフラ展示を追加できる
+      - 主軸を急いで削る場合は発動しない
     unresolved:
-      - 採用する場合に何を外すか、営業時間と移動距離を確認して決める
-  - id: contingency.sanriku-railway-bagging
-    name: 9/27三陸鉄道で輪行へ切替
-    trigger: 盛16:45発で完成車持込を利用できない、または混雑が見込まれる
-    date: 2026-09-27
-    transport: [transport.sakari-kamaishi-sanriku-20260927]
+      - 追加可否を判断する地点・時刻と必要余裕を決める
+  - id: contingency.kesennuma-memorial-deadline
+    name: 9/25気仙沼震災遺構の締切優先
+    trigger: 16:00最終受付への到着余裕が計画値を下回る
+    date: 2026-09-25
+    transport: []
     transport_alternatives: []
     impacts:
-      - 盛駅で自転車を輪行袋へ収納して同列車への乗車を目指す
-      - 盛駅到着を遅くとも16:00頃とし、袋詰め時間を守る
+      - 途中候補を下位から削り、気仙沼震災遺構を守る
+      - 南三陸311メモリアル、歌津魚竜関連、道の駅大谷海岸等の滞在を追加しないか短縮する
     unresolved:
-      - 完成車持込の当日運用と混雑時の扱いを出発前に確認する
+      - 途中候補の最終優先順位と各チェックポイントの通過期限を決める

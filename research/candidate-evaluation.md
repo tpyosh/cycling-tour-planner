@@ -1,6 +1,6 @@
-# 三陸旅行は候補を閉じず、案Aを最有力仮説として再監査する
+# 三陸旅行は候補を閉じず、案AとGoogle Maps再監査結果を引き継ぐ
 
-対象は2026年9月23日〜28日の一人旅である。本メモは、2026年9月6日までのChatGPTブレストで得た候補、評価材料、仮旅程、未解決事項を次回の比較へ引き継ぐためのスナップショットであり、最終Tier表や確定旅程ではない。
+対象は2026年9月23日〜28日の一人旅である。本メモは、2026年9月6日までのChatGPTブレストで得た候補・仮旅程と、2026年9月10日のGoogle Maps再監査による評価変更を次回の比較へ引き継ぐ。最終Tier表や確定旅程ではない。
 
 現時点では、石巻・大川〜雄勝〜女川・気仙沼〜唐桑・陸前高田を高密度に回る案Aが最有力の骨格である。ただし、動線近傍の候補を取りこぼしていたことが判明したため、候補監査と交通成立性の確認を終えるまでは収束させない。
 
@@ -8,7 +8,7 @@
 
 - `catalog/places.yaml`：立ち寄り先、地域ノード、交通体験の候補集合
 - `catalog/food.yaml`：料理、食材、飲食店の候補集合
-- `plan/current.yaml`：2026年9月3日時点で詳細化した working plan。予約済み・確定旅程ではない
+- `plan/current.yaml`：2026年9月10日時点のcurrent prime。予約済み・確定旅程ではない
 - `evidence/sources.yaml`：確認済みの主張、確認日、変動性、再確認要否
 - `issues.yaml`：日程選択や実行可能性を左右する未解決事項
 - 本メモ：候補の比較理由、地域クラスター、2026年9月6日時点の4つの仮説案、次回監査の範囲
@@ -31,13 +31,17 @@ Tier 3、保留、現行案から外れた候補も削除しない。明確に�
 
 「旅程に載せなかった」と「存在を認識していなかった」は別の状態である。前者は比較結果、後者は候補監査の不足なので混同しない。
 
-## Google Mapsは調査範囲と限界を含めて保存する
+## Google Mapsはジャンル、母数、嗜好差を含めて再監査する
 
-星評価とレビュー件数は `catalog/places.yaml` の各候補に保存する。今回の16件は、値、概数かどうか、取得日、取得経路、レビュー本文・写真の確認範囲、成人旅行者や子ども向け偏りの記録、評価上のメモ、取得限界を `google_maps` に持たせた。
+2026年9月10日の全結果、評価変更、未取得一覧は `research/google-maps-audit-20260910.md` が正本である。個別値は `catalog/places.yaml` と `catalog/food.yaml` の `google_maps` に保存し、値、レビュー件数の概数・範囲、取得日、取得確度、掲載対象との一致、ジャンル別注意、再評価、取得限界を分けた。
 
-今回共有された結果から確実に分かるのは星評価、概数のレビュー件数、候補比較に使った要点までである。どの候補について本文や写真をどこまで見たか、成人一人旅の評価傾向をどこまで抽出したかは判別できない。このため `review_text` と `photos` は `unknown`、本文傾向と利用者層は未記録として保存した。推測で「確認済み」にしない。
+Google Mapsはランキングをそのまま旅程へ反映するためのものではない。`rating`、`review_count`、ジャンル、レビュー本文、施設の性質、ユーザー嗜好を組み合わせる。候補を星だけで削除せず、外部シグナルを無視もしない。
 
-施設系候補は原則として星4.0以上と十分なレビュー母数をTier 1の必要条件にするが、十分条件にはしない。少数レビューの高評価を過大評価せず、実物展示、展示密度、大人一人旅での評価、動線上の競合を別に見る。石ノ森萬画館＋「刃牙博ッッ!!」は個人嗜好との直接一致がある明示的例外で、Google Maps評価をTier 1の理由にしない。
+博物館、資料館、科学館、観光展示施設は一般に評価が高く出やすいため、十分なレビュー件数がある4.0未満を警戒シグナルにする。町中華、古い食堂、地方スーパー等は評価が厳しく出る場合があるため、3点台後半でも看板料理、地域性、レビュー本文、店の個性を見ずに落とさない。少数レビューの高評価を大量レビューの高評価と同じ信頼度にしない。
+
+今回の主要変更は、雄勝硯伝統産業会館を `recheck_required`、気仙沼シャークミュージアムを `high_priority_recheck`、氷の水族館を施設品質警戒の `recheck_required` としたことである。反対に、気仙沼市東日本大震災遺構・伝承館、いわてTSUNAMIメモリアル、南三陸町震災復興祈念公園、石ノ森萬画館は採用維持を強く支持する。ニューこのりは9月24日の食候補として比較優先度を上げ、鶴亀食堂は9月26日朝食の高優先度を維持した。
+
+値を確定できなかった候補は `rating: null`、`review_count: null`、`verification_status: needs_recheck` とし、未確認を理由に候補価値を下げていない。レビュー本文・写真の最優先調査は、気仙沼シャークミュージアム、雄勝硯伝統産業会館、氷の水族館の順とする。
 
 ## 実物性、体験差、追加コストを重視する
 
@@ -78,7 +82,7 @@ Tier 3、保留、現行案から外れた候補も削除しない。明確に�
 ### 大川〜雄勝〜女川は自転車で束ねると価値が上がる
 
 - `place.okawa-school`：大川小学校は強い候補。9月24日は伝承館が祝日翌日休館の可能性を残す一方、屋外遺構は見学可能という前提で再確認する。
-- `place.ogatsu-suzuri-museum`、`place.ogatsu-suzuri-sale`、`place.ogatsu-sato-roadside`：雄勝硯、伝統産業会館、硯上の里おがつ。大川〜女川ルート上の石材・硯産業として束ねると価値が上がる可能性がある。
+- `place.ogatsu-suzuri-museum`、`place.ogatsu-suzuri-sale`、`place.ogatsu-sato-roadside`：雄勝硯、伝統産業会館、硯上の里おがつ。大川〜女川ルート上の石材・硯産業としての適合はあるが、伝統産業会館は3.8・約218件のため `recheck_required`。固有産業という理由だけで採用を確定しない。
 - `place.onagawa-police-box`、`place.onagawa-port`：旧女川交番と女川港。実物遺構と現役港湾を組み合わせる。
 - `place.onagawa-nuclear-pr-center`、`place.glide-onagawa`：女川原子力PRセンターとGLIDE。追加コストや見学条件を確認する。
 - `food.onagawa-seafood`：鮮魚・飲食。地域クラスターの食として比較する。
@@ -94,7 +98,7 @@ Tier 3、保留、現行案から外れた候補も削除しない。明確に�
 
 ### 気仙沼は2泊して市街と唐桑を分ける価値がある
 
-魚市場、戻り鰹、震災遺構、BRTの組み合わせが特に強い。`place.kesennuma-fish-market`、`place.kesennuma-port`、`place.kesennuma-seafood-shops`、`food.kesennuma-bonito-swordfish`、`food.tsurukame-dining-hall`、`place.kesennuma-memorial-museum`、`place.rias-ark-museum`、`place.kesennuma-shark-museum`、`place.kesennuma-cargo-warehouse`、`place.kesennuma-brt` を比較する。市街日と唐桑日を分ける2泊案も残す。
+魚市場、戻り鰹、震災遺構、BRTの組み合わせが特に強い。`place.kesennuma-fish-market`、`place.kesennuma-port`、`place.kesennuma-seafood-shops`、`food.kesennuma-bonito-swordfish`、`food.tsurukame-dining-hall`、`place.kesennuma-memorial-museum`、`place.rias-ark-museum`、`place.kesennuma-shark-museum`、`place.kesennuma-ice-aquarium`、`place.kesennuma-cargo-warehouse`、`place.kesennuma-brt` を比較する。シャークミュージアムは3.6・2,000件超で `high_priority_recheck`、氷の水族館は3.8・約286件で `recheck_required` とし、一般客との嗜好差と単純な展示量不足をレビュー本文で分ける。
 
 ### 唐桑半島は個別スポットより地域クラスターで評価する
 

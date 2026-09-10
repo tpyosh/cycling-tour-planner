@@ -102,3 +102,66 @@ items:
     volatility: high
     recheck_before_trip: true
     source: {type: user_provided_planning_seed, title: 2026年9月3日時点の三陸旅行検討結果, url: null}
+  - id: evidence.google-maps-ishinomori-20260910
+    subject: place.ishinomori-manga-museum
+    checked_at: 2026-09-10
+    claims: [Google Mapsは4.2・レビュー約4,333件, 大量レビューでも高評価で「刃牙博ッッ!!」との嗜好一致を含め採用維持を強く支持する]
+    volatility: medium
+    recheck_before_trip: false
+    source: {type: user_provided_google_maps_reaudit, title: 2026年9月10日 Google Maps評価・レビュー件数再監査, url: null}
+  - id: evidence.google-maps-minamisanriku-park-20260910
+    subject: place.minamisanriku-disaster-office
+    checked_at: 2026-09-10
+    claims: [南三陸町震災復興祈念公園のGoogle Mapsは4.4・レビュー約313件, 震災関連対象としてcurrent primeの採用維持を強く支持する]
+    volatility: medium
+    recheck_before_trip: false
+    source: {type: user_provided_google_maps_reaudit, title: 2026年9月10日 Google Maps評価・レビュー件数再監査, url: null}
+  - id: evidence.google-maps-kesennuma-memorial-20260910
+    subject: place.kesennuma-memorial-museum
+    checked_at: 2026-09-10
+    claims: [Google Mapsは4.7・レビュー約887件, 9月25日は途中候補を切ってでも最終受付16時を優先するpriority anchorを強く支持する]
+    volatility: medium
+    recheck_before_trip: false
+    source: {type: user_provided_google_maps_reaudit, title: 2026年9月10日 Google Maps評価・レビュー件数再監査, url: null}
+  - id: evidence.google-maps-iwate-tsunami-20260910
+    subject: place.iwate-tsunami-memorial
+    checked_at: 2026-09-10
+    claims: [Google Mapsは4.6・レビュー約696件, 博物館・伝承施設として最優先級の採用維持を支持する]
+    volatility: medium
+    recheck_before_trip: false
+    source: {type: user_provided_google_maps_reaudit, title: 2026年9月10日 Google Maps評価・レビュー件数再監査, url: null}
+  - id: evidence.google-maps-new-konori-20260910
+    subject: food.new-konori
+    checked_at: 2026-09-10
+    claims: [Google Mapsは4.2・レビュー約1,341件, 女川の9月24日昼・夕食候補として比較優先度を上げる]
+    volatility: medium
+    recheck_before_trip: false
+    source: {type: user_provided_google_maps_reaudit, title: 2026年9月10日 Google Maps評価・レビュー件数再監査, url: null}
+  - id: evidence.google-maps-tsurukame-20260910
+    subject: food.tsurukame-dining-hall
+    checked_at: 2026-09-10
+    claims: [Google Mapsは4.4・レビュー約454件, 市場前・地域性・朝営業を含め9月26日朝食の高優先度候補を支持する]
+    volatility: medium
+    recheck_before_trip: false
+    source: {type: user_provided_google_maps_reaudit, title: 2026年9月10日 Google Maps評価・レビュー件数再監査, url: null}
+  - id: evidence.google-maps-ogatsu-suzuri-20260910
+    subject: place.ogatsu-suzuri-museum
+    checked_at: 2026-09-10
+    claims: [Google Mapsは3.8・レビュー約218件, 博物館・展示施設として警戒シグナルのため「十分に良い」からrecheck_requiredへ変更する, 星だけでcurrent primeから即削除しない]
+    volatility: medium
+    recheck_before_trip: false
+    source: {type: user_provided_google_maps_reaudit, title: 2026年9月10日 Google Maps評価・レビュー件数再監査, url: null}
+  - id: evidence.google-maps-shark-museum-20260910
+    subject: place.kesennuma-shark-museum
+    checked_at: 2026-09-10
+    claims: [Google Mapsは3.6・レビュー約2,156〜2,200件, 大量レビューの低評価としてhigh_priority_recheckへ変更する, 水産業・珍施設への嗜好適合可能性があるため星だけで即削除しない]
+    volatility: medium
+    recheck_before_trip: false
+    source: {type: user_provided_google_maps_reaudit, title: 2026年9月10日 Google Maps評価・レビュー件数再監査, url: null}
+  - id: evidence.google-maps-ice-aquarium-20260910
+    subject: place.kesennuma-ice-aquarium
+    checked_at: 2026-09-10
+    claims: [Google Mapsは3.8・レビュー約286件, 「強いB級候補」から施設品質は警戒・B級適合度は別途再評価するrecheck_requiredへ変更する]
+    volatility: medium
+    recheck_before_trip: false
+    source: {type: user_provided_google_maps_reaudit, title: 2026年9月10日 Google Maps評価・レビュー件数再監査, url: null}

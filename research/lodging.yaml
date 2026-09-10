@@ -1,5 +1,5 @@
 schema_version: 1
-checked_at: 2026-09-03
+checked_at: 2026-09-09
 traveler:
   adults: 1
   rooms: 1
@@ -14,12 +14,20 @@ policy:
     - 電話確認前の空室、料金、条件は未確認のままにする
 stay_searches:
   - date: 2026-09-23
-    checkout_date: 2026-09-25
+    checkout_date: 2026-09-24
     preferred_area_ref: stay.ishinomaki
     fallback_area_refs: []
     call_order_area_refs: [stay.ishinomaki]
-    purpose: 石巻市街と9/24周回案の拠点とし、2連泊で自転車の組立・輪行回数を抑える
+    purpose: 初日の石巻市街訪問後に泊まり、翌朝の大川・雄勝・女川への一方向走行につなぐ
     meal_priority: 市街地で食事を選べる前提とし、まず立地・価格・自転車保管条件を比較する
+    candidates: []
+  - date: 2026-09-24
+    checkout_date: 2026-09-25
+    preferred_area_ref: stay.onagawa
+    fallback_area_refs: []
+    call_order_area_refs: [stay.onagawa]
+    purpose: 大川・雄勝から到着し、翌朝の南三陸・気仙沼への沿岸自走の起点とする
+    meal_priority: 翌朝の早出、夕食、補給調達、輪行袋または客室への自転車持込み条件を確認する
     candidates: []
   - date: 2026-09-25
     checkout_date: 2026-09-27
@@ -31,11 +39,11 @@ stay_searches:
     candidates: []
   - date: 2026-09-27
     checkout_date: 2026-09-28
-    preferred_area_ref: stay.kamaishi
+    preferred_area_ref: stay.rikuzentakata
     fallback_area_refs: []
-    call_order_area_refs: [stay.kamaishi]
-    purpose: 三陸鉄道で到着後に1泊し、翌朝の鉄の歴史館・大観音と午後の帰路へつなぐ
-    meal_priority: 翌朝の自転車出発と釜石駅への輪行動線を優先する
+    call_order_area_refs: [stay.rikuzentakata]
+    purpose: 唐桑から移動して泊まり、翌朝の高田松原周辺と正午前後の帰路へつなぐ
+    meal_priority: 翌朝のTSUNAMIメモリアルとBRT帰路への動線を優先する
     candidates: []
 explicit_web_unavailable: []
 common_phone_questions:

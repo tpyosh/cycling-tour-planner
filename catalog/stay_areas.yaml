@@ -5,7 +5,13 @@ items:
     status: shortlisted
     accommodation: {availability: high, typical_types: [ビジネスホテル, ホテル]}
     logistics: {food_options: high, railway_access: high}
-    description: 9/23・9/24の2連泊候補。市街・女川方面の拠点とし、組立・輪行回数を抑える。宿名・空室・価格は未確認。
+    description: 9/23の1泊候補。石巻市街の訪問後、翌朝に大川・雄勝方面へ出る。宿名・空室・価格は未確認。
+  - id: stay.onagawa
+    name: 女川
+    status: shortlisted
+    accommodation: {availability: medium, typical_types: [ホテル, 旅館]}
+    logistics: {food_options: medium, railway_access: high}
+    description: 9/24の1泊候補。大川・雄勝から到着し、翌朝に南三陸・気仙沼方面へ自走する。宿名・空室・価格は未確認。
   - id: stay.kesennuma
     name: 気仙沼
     status: shortlisted
@@ -18,6 +24,12 @@ items:
     accommodation: {availability: high, typical_types: [ビジネスホテル, ホテル]}
     logistics: {food_options: high, railway_access: high}
     description: 9/27の1泊候補。鉄の歴史館と釜石大観音を訪ね、翌日に名古屋へ帰る終端ノード。宿名・空室・価格は未確認。
+  - id: stay.rikuzentakata
+    name: 陸前高田
+    status: shortlisted
+    accommodation: {availability: medium, typical_types: [ホテル, 旅館]}
+    logistics: {food_options: medium, railway_access: medium}
+    description: 9/27の1泊候補。唐桑から移動して泊まり、翌朝の高田松原津波復興祈念公園と帰路へつなぐ。宿名・空室・価格は未確認。
   - id: stay.miyako
     name: 宮古
     status: deferred
