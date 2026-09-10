@@ -8,7 +8,7 @@
 
 - `catalog/places.yaml`：立ち寄り先、地域ノード、交通体験の候補集合
 - `catalog/food.yaml`：料理、食材、飲食店の候補集合
-- `plan/current.yaml`：2026年9月10日時点のcurrent prime。予約済み・確定旅程ではない
+- `plan/current.yaml`：2026年9月11日時点のcurrent prime。予約済み・確定旅程ではない。本メモの候補評価は2026年9月10日までのスナップショットである
 - `evidence/sources.yaml`：確認済みの主張、確認日、変動性、再確認要否
 - `issues.yaml`：日程選択や実行可能性を左右する未解決事項
 - 本メモ：候補の比較理由、地域クラスター、2026年9月6日時点の4つの仮説案、次回監査の範囲

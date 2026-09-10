@@ -111,17 +111,17 @@ Issueの正本は `issues.yaml` です。
 ### 9/25女川→気仙沼の自走と16:00最終受付を成立させる
 
 - **ID:** `issue.onagawa-kesennuma-feasibility`
-- **状態・優先度:** 未着手 / 高
+- **状態・優先度:** 確認中 / 高
 - **検出日:** 9/9
 - **対象日:** 9/25
 - **関連:** 女川→南三陸→歌津→大谷海岸→気仙沼 / 旧防災対策庁舎・南三陸町震災復興祈念公園 / 南三陸さんさん商店街 / 南三陸ハマーレ歌津 / 道の駅 大谷海岸 / 気仙沼市東日本大震災遺構・伝承館（旧向洋高校）
-- **根拠:** —
+- **根拠:** evidence.kesennuma-memorial-hours-20260911 / evidence.kesennuma-memorial-duration-20260911 / evidence.kesennuma-memorial-bike-access-20260911 / evidence.onagawa-oya-route-tod2026-20260911 / evidence.oya-kesennuma-memorial-route-tod2026-20260911 / evidence.onagawa-oya-route-map-tod2026-20260911 / evidence.kesennuma-oneway-route-map-tod2026-20260911 / evidence.onagawa-kesennuma-road-hazards-20260911 / evidence.miyagi-road-tunnels-20260911 / evidence.sanriku-road-motor-vehicles-only-20260911 / evidence.miyagi-road-restrictions-20260911 / evidence.kesennuma-r45-restrictions-20260911 / evidence.sendai-daylight-20260925
 
-実走距離、道路の快適性、危険区間、トンネル、途中候補の所要時間が未検証で、気仙沼震災遺構へ16:00までに着ける保証がない。
+公式イベントの丸められたkm標から女川駅前〜気仙沼震災遺構は約91kmと推定でき、14:45敷地到着を守る速度別出発時刻と削減基準も作成した。一方、対象区間の獲得標高、各トンネルの照明・路肩・歩道・実用的迂回、確実な途中離脱手段は未確認で、全線自走は条件付きである。
 
 **影響:** この日の最優先である気仙沼震災遺構を見られず、翌日の気仙沼フルデイにも影響する。
 
-**次の確認:** 自転車ルーティング、実走記録、道路管理者の情報から区間別所要、危険、トンネルを確認し、途中候補の優先順位と通過期限を決める。
+**次の確認:** 公式Ride with GPSまたはGPXから女川駅前〜気仙沼震災遺構を直接切り出して獲得標高を再現可能な形で算出し、主要トンネルの照明、路肩、歩道、自転車通行時の実用的迂回を確認する。2026-09-24と当日朝に道路規制と施設の臨時休館を再確認する。
 
 #### 解決条件
 

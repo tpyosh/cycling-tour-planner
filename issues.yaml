@@ -70,16 +70,16 @@ items:
     resolution: null
   - id: issue.onagawa-kesennuma-feasibility
     title: 9/25女川→気仙沼の自走と16:00最終受付を成立させる
-    status: open
+    status: in_progress
     priority: high
     category: safety
     identified_at: 2026-09-09
-    summary: 実走距離、道路の快適性、危険区間、トンネル、途中候補の所要時間が未検証で、気仙沼震災遺構へ16:00までに着ける保証がない。
+    summary: 公式イベントの丸められたkm標から女川駅前〜気仙沼震災遺構は約91kmと推定でき、14:45敷地到着を守る速度別出発時刻と削減基準も作成した。一方、対象区間の獲得標高、各トンネルの照明・路肩・歩道・実用的迂回、確実な途中離脱手段は未確認で、全線自走は条件付きである。
     impact: この日の最優先である気仙沼震災遺構を見られず、翌日の気仙沼フルデイにも影響する。
     related_dates: [2026-09-25]
     subjects: [route.onagawa-kesennuma-coast, place.minamisanriku-disaster-office, place.sansan-shopping-village, place.hama-re-utatsu, place.oya-coast, place.kesennuma-memorial-museum]
-    evidence: []
-    next_action: 自転車ルーティング、実走記録、道路管理者の情報から区間別所要、危険、トンネルを確認し、途中候補の優先順位と通過期限を決める。
+    evidence: [evidence.kesennuma-memorial-hours-20260911, evidence.kesennuma-memorial-duration-20260911, evidence.kesennuma-memorial-bike-access-20260911, evidence.onagawa-oya-route-tod2026-20260911, evidence.oya-kesennuma-memorial-route-tod2026-20260911, evidence.onagawa-oya-route-map-tod2026-20260911, evidence.kesennuma-oneway-route-map-tod2026-20260911, evidence.onagawa-kesennuma-road-hazards-20260911, evidence.miyagi-road-tunnels-20260911, evidence.sanriku-road-motor-vehicles-only-20260911, evidence.miyagi-road-restrictions-20260911, evidence.kesennuma-r45-restrictions-20260911, evidence.sendai-daylight-20260925]
+    next_action: 公式Ride with GPSまたはGPXから女川駅前〜気仙沼震災遺構を直接切り出して獲得標高を再現可能な形で算出し、主要トンネルの照明、路肩、歩道、自転車通行時の実用的迂回を確認する。2026-09-24と当日朝に道路規制と施設の臨時休館を再確認する。
     resolution_conditions:
       - 実走距離、標高、休憩込み所要時間が分かっている
       - 危険区間とトンネルの許容可否、回避策を確認している

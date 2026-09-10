@@ -165,3 +165,128 @@ items:
     volatility: medium
     recheck_before_trip: false
     source: {type: user_provided_google_maps_reaudit, title: 2026年9月10日 Google Maps評価・レビュー件数再監査, url: null}
+  - id: evidence.kesennuma-memorial-hours-20260911
+    subject: place.kesennuma-memorial-museum
+    checked_at: 2026-09-11
+    claims:
+      - 4月から9月は9:30開館、17:00閉館、最終受付16:00と案内されている
+      - 通常休館日は月曜日で、2026-09-25は金曜日である
+      - 2026-08-26付で同年9月の開館情報が公開されている
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_facility, title: 気仙沼市東日本大震災遺構・伝承館, url: 'https://www.kesennuma-memorial.jp/'}
+    date_windows:
+      - date: 2026-09-25
+        windows:
+          - {start: '09:30', end: '17:00'}
+  - id: evidence.kesennuma-memorial-duration-20260911
+    subject: place.kesennuma-memorial-museum
+    checked_at: 2026-09-11
+    claims:
+      - 自由見学の公式目安は約60分である
+      - ガイド付き見学は約90分以上と案内されている
+    volatility: low
+    recheck_before_trip: false
+    source: {type: official_facility, title: 気仙沼市東日本大震災遺構・伝承館 見学時間について, url: 'https://www.kesennuma-memorial.jp/request/fieldtrip.php'}
+  - id: evidence.kesennuma-memorial-bike-access-20260911
+    subject: place.kesennuma-memorial-museum
+    checked_at: 2026-09-11
+    claims:
+      - 屋外ひろばへの自転車・バイクの乗入れは禁止されている
+      - 自転車駐輪位置から受付までの徒歩動線は今回確認できていない
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_facility, title: 気仙沼市東日本大震災遺構・伝承館 施設について, url: 'https://www.kesennuma-memorial.jp/about/'}
+  - id: evidence.onagawa-oya-route-tod2026-20260911
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 2026年ツール・ド・東北の気仙沼大谷海岸フォンドでは女川駅前広場17km、旧防災対策庁舎75km、歌津86km、大谷海岸103kmの丸められたkm標が示されている
+      - 女川駅前基準では旧防災対策庁舎まで約58km、歌津まで約69km、大谷海岸まで約86kmと推定できる
+      - これらは独立した経路計算値ではなく、公式イベントページの丸められたkm標の差分である
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_event_route, title: ツール・ド・東北2026 気仙沼大谷海岸フォンド, url: 'https://tourdetohoku.jp/course/kesennuma-ooyakaigan/'}
+  - id: evidence.oya-kesennuma-memorial-route-tod2026-20260911
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 2026年ツール・ド・東北の気仙沼ワンウェイフォンドでは気仙沼市東日本大震災遺構・伝承館11km、大谷海岸16kmの丸められたkm標が示されている
+      - 両地点間は約5kmと推定でき、女川駅前から大谷海岸までの約86kmと接続すると全体は約91kmとなる
+      - 約91kmは別コースの丸められたkm標を接続した概算であり、高精度な確定値ではない
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_event_route, title: ツール・ド・東北2026 気仙沼ワンウェイフォンド, url: 'https://tourdetohoku.jp/course/kesennuma-oneway/'}
+  - id: evidence.onagawa-oya-route-map-tod2026-20260911
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 2026年ツール・ド・東北の石巻発180km系公式ルートがRide with GPSで公開されている
+      - 女川駅前から大谷海岸までの経路を再確認する参照ルートとして使用できるが、対象区間の直接切出しと獲得標高計算は未実施である
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_route_map, title: ツール・ド・東北2026 石巻発180km系 Ride with GPSルート, url: 'https://ridewithgps.com/routes/54346387'}
+  - id: evidence.kesennuma-oneway-route-map-tod2026-20260911
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 2026年ツール・ド・東北の気仙沼ワンウェイ95km系公式ルートがRide with GPSで公開されている
+      - 気仙沼震災遺構と大谷海岸間を再確認する参照ルートとして使用できるが、女川駅前から震災遺構までの一体的な経路計算は未実施である
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_route_map, title: ツール・ド・東北2026 気仙沼ワンウェイ95km系 Ride with GPSルート, url: 'https://ridewithgps.com/routes/54346386'}
+  - id: evidence.onagawa-kesennuma-road-hazards-20260911
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 大会参加ガイドは女川から雄勝の国道398号にトンネル、アップダウン、急カーブがあり、フロントライト点灯が必要と案内している
+      - 釜谷トンネルは約995mで路面に溝があり、晴天時でも結露が生じる場合があると案内している
+      - 新北上大橋から神割崎周辺では比較的長いトンネルが連続し、国道45号は国道398号より交通量が多く、橋前後の狭い路肩や無信号の三陸道IC出入口に注意が必要と案内している
+      - 大会時の運営車両による速度調整は2026-09-25の通常走行には存在しないため、大会コースであることだけで通常時の安全を保証しない
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_event_safety_guide, title: ツール・ド・東北2026 大会参加ガイド, url: 'https://tourdetohoku.jp/assets/pdf/2026/tourdetohoku2026_guide_for-_riders_kesennumaoya_minamisanriku_kitakami_onagawaogatsu_ja.pdf'}
+  - id: evidence.miyagi-road-tunnels-20260911
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 経路上の確認対象として崎山トンネル約710m、釜谷トンネル約995m、白浜トンネル約465m、十三浜トンネル約537m、小泊トンネル約222m等がある
+      - 各トンネルの照明、路肩、歩道、自転車走行時の実用的迂回は今回確認できていない
+    volatility: low
+    recheck_before_trip: false
+    source: {type: prefectural_road_authority, title: 宮城県 道路トンネル個別施設計画, url: 'https://www.pref.miyagi.jp/documents/51461/01_kobetsu_tunnel_251202.pdf'}
+  - id: evidence.sanriku-road-motor-vehicles-only-20260911
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 三陸沿岸道路・三陸自動車道は自動車専用道路であり、自転車経路に含められない
+    volatility: low
+    recheck_before_trip: false
+    source: {type: national_road_authority, title: 国土交通省東北地方整備局仙台河川国道事務所 三陸沿岸道路の概要, url: 'https://www.thr.mlit.go.jp/sendai/douro/sanriku/gaiyou/gaiyou_minami.html'}
+  - id: evidence.miyagi-road-restrictions-20260911
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 宮城県管理道路の直前交通規制を確認する公式ページが公開されている
+      - 2026-09-24と2026-09-25当日朝に国道398号等の規制を再確認する必要がある
+    volatility: high
+    recheck_before_trip: true
+    source: {type: prefectural_road_authority, title: 宮城県 道路通行規制情報, url: 'https://www.pref.miyagi.jp/soshiki/road/koutuukisei.html'}
+  - id: evidence.kesennuma-r45-restrictions-20260911
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 気仙沼国道維持出張所は国道45号の通行規制を確認する公式ページを公開している
+      - 2026-09-24と2026-09-25当日朝に国道45号の規制を再確認する必要がある
+    volatility: high
+    recheck_before_trip: true
+    source: {type: national_road_authority, title: 気仙沼国道維持出張所 通行規制, url: 'https://www.thr.mlit.go.jp/sendai/kesennuma/kisei/index.html'}
+  - id: evidence.sendai-daylight-20260925
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 国立天文台の仙台代表値では2026-09-25の日の出は約5:26、日没は約17:30である
+      - 女川・気仙沼の現地値には数分の差があり得るため、仙台の代表値として扱う
+    volatility: low
+    recheck_before_trip: false
+    source: {type: national_astronomical_observatory, title: 国立天文台 仙台の2026年9月の日出入り, url: 'https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s0409.html'}

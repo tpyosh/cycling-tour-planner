@@ -69,7 +69,7 @@ items:
     distance_km: {min: 90, max: 100}
     route_value: main
     tags: [current-prime, intercity, deadline-sensitive]
-    description: current primeで最も都市間移動色が強い約90〜100kmの全線自走区間。志津川、歌津、道の駅大谷海岸の停止候補を通り、16:00最終受付の気仙沼震災遺構を最優先する。走行自体に特別な価値がある道路区間は未確認であり、沿岸という理由だけで価値を水増ししない。
+    description: current primeで最も都市間移動色が強い全線自走区間。2026年ツール・ド・東北公式コースの丸められたkm標を接続すると、女川駅前からR398・R45を経て気仙沼震災遺構まで約91kmとなり、既存の90〜100km幅を支持する。志津川、歌津、道の駅大谷海岸の停止候補を通るが、16:00最終受付の気仙沼震災遺構を最優先する。対象区間の獲得標高、トンネル個別条件、途中離脱手段、走行自体に特別な価値がある道路区間は未確認で、全線自走は条件付きとする。
   - id: route.kesennuma-karakuwa
     name: 気仙沼→唐桑・唐桑半島内
     status: researching

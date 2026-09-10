@@ -2,7 +2,7 @@
 
 このブランチは、2026年9月23日〜28日の三陸旅行について、検討中の候補、仮説案、参考タイムテーブル、宿泊構成、未確認事項を分離して記録します。交通・宿泊・施設はまだ予約・最終決定前です。
 
-2026年9月6日までの候補評価と案A〜Dは `research/candidate-evaluation.md` が正本です。`plan/current.yaml` と生成済みの `docs/itinerary.md` は、2026年9月10日時点の current prime（現時点の最有力案）であり、予約済み・最終確定旅程ではありません。以前のworking planはGit履歴、比較案は調査文書に残し、上書きで検討履歴を失わない運用とします。未解決事項は `docs/issues.md`、宿泊確認の枠組みは `docs/lodging-calls.md` を参照してください。
+2026年9月6日までの候補評価と案A〜Dは `research/candidate-evaluation.md` が正本です。`plan/current.yaml` と生成済みの `docs/itinerary.md` は、2026年9月11日時点の current prime（現時点の最有力案）であり、予約済み・最終確定旅程ではありません。以前のworking planはGit履歴、比較案は調査文書に残し、上書きで検討履歴を失わない運用とします。未解決事項は `docs/issues.md`、宿泊確認の枠組みは `docs/lodging-calls.md` を参照してください。
 
 ## 更新方法
 
@@ -44,6 +44,8 @@ Google Mapsのレビュー数・スターが未取得の候補について、Cod
 
 2026年9月10日のcurrent prime再監査は `research/google-maps-audit-20260910.md` に保存する。Google Mapsを旅程の自動ランキングには使わず、rating、review count、ジャンル、レビュー本文、施設の性質、ユーザー嗜好を組み合わせる。
 
+2026年9月11日の9/25女川→気仙沼自走の成立性調査は `research/onagawa-kesennuma-feasibility-20260911.md` に保存する。約91kmは公式イベントの丸められたkm標を接続した概算であり、獲得標高を含む直接計算が完了するまで `estimates/distances.yaml` へ確定値として登録しない。
+
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
@@ -63,6 +65,7 @@ python3 -m venv .venv
 - `estimates/distances.yaml`: 距離の元データと計算方法
 - `research/lodging.yaml`: 宿候補と在庫確認の状態
 - `research/candidate-evaluation.md`: 候補母集団、暫定評価、Google Maps調査の読み方、地域クラスター、仮説案A〜D、次回ブレスト事項
+- `research/onagawa-kesennuma-feasibility-20260911.md`: 9/25女川→気仙沼の距離、時間予算、道路安全、削減基準、未解決事項の調査記録
 - `docs/`: YAMLから生成する旅行者向け資料。直接編集しない
 
 候補の調査状態と旅程への採用を混ぜません。採用は `plan/current.yaml` からの参照で表します。通常旅程と発動条件付きの代替案も分離します。
