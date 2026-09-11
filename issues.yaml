@@ -92,16 +92,16 @@ items:
     priority: medium
     category: data_quality
     identified_at: 2026-09-10
-    summary: 9/25はcurrent primeで最も都市間移動色が強く、沿岸という理由だけでは走行価値を確定できない。
-    impact: 自転車の付加価値を過大評価し、16:00締切や休憩余裕に対して不利な区間選択を固定する可能性がある。
+    summary: 9/25はcurrent primeで最も都市間移動色が強く、沿岸という理由だけでは走行価値を確定できない。全線自走を維持するなら、候補回収を含む具体的な価値を、公共交通を併用して得られる選択肢と比較して示す必要がある。
+    impact: 自転車の付加価値を過大評価し、16:00締切や休憩余裕に対して不利な区間選択を固定する可能性がある。公共交通への切替を提案する場合も、単に走行価値が薄いだけでは根拠にならない。
     related_dates: [2026-09-25]
     subjects: [route.onagawa-kesennuma-coast]
     evidence: []
-    next_action: 道路区間ごとに景観、地形、沿道の具体対象、交通量、トンネル、公共交通代替を調べ、走行自体の価値がある区間を特定する。
+    next_action: 道路区間ごとに景観、地形、沿道の具体対象、交通量、トンネル、公共交通代替を調べる。全線自走を維持する価値、または公共交通を併用して新たに得られる立寄り先・滞在時間・経路・余裕を比較する。
     resolution_conditions:
       - 走行価値を具体的な道路区間と観察対象で説明できる
       - 純粋移動区間と候補回収区間を分けている
-      - 自走を維持するか公共交通を併用するかを16:00締切と合わせて判断できる
+      - 自走を維持するか公共交通を併用するかを、16:00締切と具体的な価値・得られる選択肢の比較で判断できる
     resolution: null
   - id: issue.september25-meal
     title: 9/25志津川〜歌津〜本吉〜大谷海岸の昼食を再調査する
@@ -177,16 +177,17 @@ items:
     priority: high
     category: logistics
     identified_at: 2026-09-10
-    summary: 神の倉の津波石、鮪立、御崎神社、巨釜・折石を午前3時間程度で束ねる実走ルートと、唐桑から陸前高田への接続が未確定。
-    impact: 主軸4件を回れないか、公共交通へ接続できず陸前高田到着が遅れる可能性がある。
+    summary: 神の倉の津波石、鮪立、御崎神社、巨釜・折石を午前3時間程度で束ねる実走ルートと、唐桑から陸前高田への接続が未確定。公共交通を併用するなら、自走より得られる具体的な立寄り先、滞在時間、経路、または余裕も未整理である。
+    impact: 主軸4件を回れないか、公共交通へ接続できず陸前高田到着が遅れる可能性がある。公共交通を自走の代替として採用しても、旅程の質が上がらない可能性がある。
     related_dates: [2026-09-27]
     subjects: [route.kesennuma-karakuwa, route.karakuwa-rikuzentakata-transfer, transport.karakuwa-rikuzentakata-20260927, place.kamino-kura-tsunami-stone, place.karakuwa-goten-village, place.misaki-shrine-karakuwa, place.kamukama-oritate]
     evidence: []
-    next_action: 4候補を結ぶ実走ルートを作り、距離、高低差、所要時間、乗降地点、路線バス・大船渡線BRTの接続時刻を確認する。
+    next_action: 4候補を結ぶ実走ルートを作り、距離、高低差、所要時間、乗降地点、路線バス・大船渡線BRTの接続時刻を確認する。公共交通併用案は、自走案と比べて新たに得られる立寄り先、滞在時間、経路、または余裕を具体化してから採否を判断する。
     resolution_conditions:
       - 実走距離、獲得標高、各候補の滞在時間が分かっている
       - 午前3時間程度で回る順序と離脱地点が決まっている
       - 陸前高田までの公共交通接続と輪行時間を確認している
+      - 公共交通を併用する場合に、自走案より良くなる具体的な選択肢が示されている
     resolution: null
   - id: issue.brt-bicycle-carriage
     title: 気仙沼線BRT・大船渡線BRTの輪行可否を正式確認する
@@ -384,15 +385,15 @@ items:
     priority: high
     category: schedule
     identified_at: 2026-09-11
-    summary: 朝の魚市場、海の市内2施設、リアス・アーク美術館、三食を同日に置いているが、開館時刻、最終入館、標準滞在、移動、駐輪を含む時刻表がない。
+    summary: 朝の魚市場、海の市内2施設、リアス・アーク美術館、三食を同日に置いているが、開館時刻、最終入館、標準滞在、移動を含む時刻表がない。
     impact: 魚市場の水揚げ時間を優先した結果、リアス・アーク美術館または海の市内施設の受付に間に合わないか、食事候補の営業時間と競合する可能性がある。
     related_dates: [2026-09-26]
     subjects: [route.kesennuma-city, place.kesennuma-fish-market, place.kesennuma-umi-no-ichi, place.kesennuma-shark-museum, place.kesennuma-ice-aquarium, place.rias-ark-museum, food.tsurukame-dining-hall, food.asahi-zushi-kesennuma, food.kitakatsu-maguroya]
     evidence: [evidence.kesennuma-fish-market-hours-20260911, evidence.kesennuma-fish-market-calendar-20260911, evidence.kesennuma-fish-market-morning-tour-20260911, evidence.kesennuma-umi-no-ichi-hours-20260911, evidence.kesennuma-shark-hours-20260911, evidence.kesennuma-shark-theater-20260911, evidence.kesennuma-ice-hours-20260911, evidence.rias-ark-event-hours-20260911, evidence.rias-ark-quake-exhibit-20260911, evidence.tsurukame-hours-20260911, evidence.asahi-zushi-hours-20260911, evidence.kitakatsu-hours-20260911]
-    next_action: 自転車向けの再現可能な実走ルート、累積距離、登り、各地点の駐輪位置を確認し、旅行直前に鶴亀食堂と北かつまぐろ屋の9月26日臨時休業有無を公式Web・SNSで再確認する。宿確定後は宿とのラストマイルを別Issueで追加する。
+    next_action: 自転車向けの再現可能な実走ルート、累積距離、登りを確認し、旅行直前に鶴亀食堂と北かつまぐろ屋の9月26日臨時休業有無を公式Web・SNSで再確認する。宿確定後は宿とのラストマイルを別Issueで追加する。
     resolution_conditions:
       - 各施設の旅行日固有の利用可能時間と必要滞在時間を確認している
-      - 移動、駐輪、待ち時間を含む訪問順と到着目標が決まっている
+      - 移動と待ち時間を含む訪問順と到着目標が決まっている
       - 再監査中の2施設を採用する場合と外す場合の両方で一日が成立する
       - 魚市場が不発の場合の繰上げ先と食事時間が決まっている
     resolution: null
@@ -467,6 +468,24 @@ items:
       - 各日に遅延時の削減順と判断地点・時刻がある
       - 再監査中の3施設が確定訪問と誤読されない
       - 削減後も宿泊・交通・帰着の固定アンカーを守れる
+    resolution: null
+  - id: issue.destination-tier-classification
+    title: 採用候補を単一のTier 0〜3へ分類し、上位Tierから日程を再評価する
+    status: open
+    priority: high
+    category: data_quality
+    identified_at: 2026-09-11
+    summary: current primeの採用候補16件はTierが未分類であり、雄勝硯伝統産業会館はTier 2とTier 3を併記している。Tierは候補の一般的な良し悪しではなく、その候補のために時間・移動・他候補をどこまで犠牲にできるかを示す単一の分類である。
+    impact: 低いTierの候補が行き先や主要経路を決めたり、少数のTier 1と多数のTier 2が競合した際にユーザー相談なしで日程の性格を決めたりする可能性がある。
+    related_dates: [2026-09-24, 2026-09-25, 2026-09-26, 2026-09-27, 2026-09-28]
+    subjects: [place.ogatsu-suzuri-museum, place.ogatsu-seafood-direct-sales, place.ogatsu-sato-roadside, place.onagawa-tsunami-memory-stone-28, place.onmaeya, place.minamisanriku-disaster-office, place.hama-re-utatsu, place.oya-coast, place.kesennuma-umi-no-ichi, place.kesennuma-shark-museum, place.kesennuma-ice-aquarium, place.kamino-kura-tsunami-stone, place.karakuwa-goten-village, place.misaki-shrine-karakuwa, place.kamukama-oritate, place.brt-miracle-pine-station]
+    evidence: []
+    next_action: 採用候補をTier 0〜3のいずれか一つへ分類し、各日の経路・滞在時間・削減順が上位Tierを優先しているか確認する。少数のTier 1と多数のTier 2の競合で旅程の性格が変わる場合は、候補内容、時間・移動コスト、旅の目的を整理してユーザーへ相談する。
+    resolution_conditions:
+      - 採用候補と条件付き候補がそれぞれ単一のTier 0〜3を持ち、複数Tierの併記がない
+      - Tier 3が行き先、日程、主要経路を決めていない
+      - 各日の経路・滞在時間・削減順が上位Tierを優先している
+      - Tier 1とTier 2の競合で旅程の性格が変わる場合は、ユーザーの判断が記録されている
     resolution: null
   - id: issue.luggage-and-overnight-bike-logistics
     title: 荷物量・積載方法と連泊中の自転車運用を決める
