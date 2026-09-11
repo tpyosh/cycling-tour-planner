@@ -20,7 +20,7 @@ soft:
   - id: bicycle-role
     description: 自転車旅行だから全区間を自走するという思想は採用せず、走行自体の価値、点在候補を束ねる価値、純粋移動の3類型を区間ごとに判定して使う
   - id: avoid-low-value-roads
-    description: 自転車で得られる付加価値が低い純粋移動区間は、全線接続にこだわらず公共交通・輪行へ切り替える
+    description: 自転車で得られる付加価値が低い純粋移動区間でも、公共交通・輪行は、より良い立ち寄り先、滞在時間、経路、または旅程の余裕を新たに得られる場合に限って提案する
   - id: information-density
     description: 6日間の到達距離より情報密度を優先し、現行案は陸前高田を北端とする
   - id: reduce-bike-packing
