@@ -459,3 +459,98 @@ items:
     volatility: high
     recheck_before_trip: true
     source: {type: official_tourism, title: 北かつまぐろ屋 海の市店, url: 'https://kesennuma-kanko.jp/hokkatsu-uminoichi/'}
+  - id: evidence.jreast-brt-1332f-20260928
+    subject: transport.rikuzentakata-kesennuma-brt-20260928
+    checked_at: 2026-09-11
+    claims:
+      - 大船渡線BRT 1332Fは、2026-09-28に奇跡の一本松を12:19に発車し、気仙沼へ12:54に到着する
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_timetable, title: JR東日本 時刻表 停車駅一覧（陸前高田－気仙沼）1332F, url: 'https://timetables.jreast.co.jp/2609/train/125/127921.html'}
+  - id: evidence.jreast-brt-fallback-20260928
+    subject: transport.rikuzentakata-kesennuma-brt-20260928
+    checked_at: 2026-09-11
+    claims:
+      - 大船渡線BRT快速3336Fは、2026-09-28に奇跡の一本松を13:25に発車し、気仙沼へ13:57に到着する
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_timetable, title: JR東日本 大船渡線・大船渡線BRT 上り時刻表, url: 'https://timetables.jreast.co.jp/2609/timetable-v/269u1p.html'}
+  - id: evidence.jreast-brt-guide-20260911
+    subject: transport.rikuzentakata-kesennuma-brt-20260928
+    checked_at: 2026-09-11
+    claims:
+      - 大船渡線BRTは道路状況により遅延する場合があり、他の列車等との接続は行わないと案内されている
+      - BRTから列車へ乗り継ぐ場合は乗務員へ申出る案内がある
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_service_guide, title: JR東日本 気仙沼線BRT・大船渡線BRT ご利用案内, url: 'https://www.jreast.co.jp/railway/train/brt/guide.html'}
+  - id: evidence.jreast-ofunato-334d-20260928
+    subject: transport.kesennuma-ichinoseki-20260928
+    checked_at: 2026-09-11
+    claims:
+      - 大船渡線334Dは、2026-09-28に気仙沼を14:18に発車し、一ノ関へ15:40に到着する
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_timetable, title: JR東日本 時刻表 停車駅一覧（気仙沼－一ノ関）334D, url: 'https://timetables.jreast.co.jp/2609/train/010/010581.html'}
+  - id: evidence.jreast-ofunato-338d-20260928
+    subject: transport.kesennuma-ichinoseki-20260928
+    checked_at: 2026-09-11
+    claims:
+      - 大船渡線338Dは、2026-09-28に気仙沼を16:56に発車し、一ノ関へ18:24に到着する
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_timetable, title: JR東日本 大船渡線・大船渡線BRT 上り時刻表, url: 'https://timetables.jreast.co.jp/2609/timetable-v/269u1p.html'}
+  - id: evidence.jreast-tohoku-shinkansen-20260928
+    subject: transport.ichinoseki-tokyo-20260928
+    checked_at: 2026-09-11
+    claims:
+      - やまびこ64は、2026-09-28に一ノ関を16:51に発車し、東京へ19:28に到着する
+      - やまびこ66は、2026-09-28に一ノ関を18:38に発車し、東京へ21:12に到着する
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_timetable, title: JR東日本 東北・山形・秋田・北海道新幹線 上り時刻表, url: 'https://timetables.jreast.co.jp/2609/timetable-v/003u1p.html'}
+  - id: evidence.jreast-bicycle-baggage-20260911
+    subject: transport.ichinoseki-tokyo-20260928
+    checked_at: 2026-09-11
+    claims:
+      - JR東日本の鉄道区間では、解体または折りたたんで専用袋に収納した自転車は無料手回り品として持ち込める
+      - 混雑時など、他の旅客の迷惑となるおそれがある場合は持込みを断ることがある
+    volatility: low
+    recheck_before_trip: false
+    source: {type: official_baggage_rule, title: JR東日本 手回り品, url: 'https://www.jreast.co.jp/kippu/20.html'}
+  - id: evidence.jrcentral-tokaido-20260928
+    subject: transport.tokyo-nagoya-nozomi-20260928
+    checked_at: 2026-09-11
+    claims:
+      - のぞみ91は、2026-09-28に東京を20:21に発車し、名古屋へ21:56に到着する
+      - ひかり669は、2026-09-28に東京を22:03に発車し、名古屋へ23:49に到着する
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_timetable, title: JR東海 東海道・山陽・九州新幹線時刻表, url: 'https://railway.jr-central.co.jp/pwd/_pdf/N700S-every.pdf'}
+  - id: evidence.jrcentral-bicycle-baggage-20260911
+    subject: transport.tokyo-nagoya-nozomi-20260928
+    checked_at: 2026-09-11
+    claims:
+      - JR東海では、解体または折りたたんで専用袋に収納した自転車は無料手回り品として持ち込める
+      - 東海道新幹線では特大荷物スペース付き座席の予約が必要な荷物があるが、スポーツ用品はこの取扱いの対象外と案内されている
+    volatility: low
+    recheck_before_trip: false
+    source: {type: official_baggage_rule, title: JR東海 手回り品, url: 'https://railway.jr-central.co.jp/ticket-rule/rule47.html'}
+  - id: evidence.iwate-tsunami-memorial-hours-20260911
+    subject: place.iwate-tsunami-memorial
+    checked_at: 2026-09-11
+    claims:
+      - いわてTSUNAMIメモリアルの通常開館時間は9:00から17:00、最終入館は16:30である
+      - 通常休館日は12月29日から1月3日および臨時休館であり、2026-09-11時点で9月28日の臨時休館告知は確認されていない
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_facility, title: 東日本大震災津波伝承館 利用案内, url: 'https://iwate-tsunami-memorial.jp/how/'}
+  - id: evidence.iwate-tsunami-memorial-modelcase-20260911
+    subject: place.iwate-tsunami-memorial
+    checked_at: 2026-09-11
+    claims:
+      - 公式の基本的な60分モデルコースは、ガイダンス10分、解説員による解説40分、自由見学10分で構成される
+      - このモデルコースは、予約なしの大人1名による自由見学の必須所要時間を示すものではない
+    volatility: low
+    recheck_before_trip: false
+    source: {type: official_model_course, title: 東日本大震災津波伝承館 見学のモデルケース, url: 'https://iwate-tsunami-memorial.jp/wp/wp-content/uploads/2021/08/modelcase.pdf'}

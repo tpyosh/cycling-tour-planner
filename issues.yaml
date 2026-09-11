@@ -275,16 +275,16 @@ items:
     resolution: null
   - id: issue.return-connection
     title: 9/28陸前高田→名古屋の実接続を確定する
-    status: open
+    status: in_progress
     priority: high
     category: schedule
     identified_at: 2026-09-09
-    summary: 正午前後に陸前高田を離れ、大船渡線BRT、気仙沼、一ノ関、東京を経て9/28中に名古屋へ戻る具体便と乗換余裕が未確認で、乗遅れ・運休時の後続接続もない。
-    impact: 帰着期限を満たせないか、朝のいわてTSUNAMIメモリアル滞在を過度に圧縮する可能性がある。一本の接続失敗を吸収できない計画になるおそれもある。
+    summary: 9/28の時刻表上の採用接続・次善接続・334D乗遅れ時の後続接続は確認できたが、大船渡線BRTへの輪行袋入り自転車の持込み条件と短い乗換の実運用余裕は未確認。
+    impact: BRT輪行が認められない、またはBRT遅延・短い乗換で後続へ接続できない場合、名古屋への当日帰着と朝のいわてTSUNAMIメモリアル滞在が両立しない可能性がある。
     related_dates: [2026-09-28]
     subjects: [transport.rikuzentakata-kesennuma-brt-20260928, transport.kesennuma-ichinoseki-20260928, transport.ichinoseki-tokyo-20260928, transport.tokyo-nagoya-nozomi-20260928, place.iwate-tsunami-memorial, place.brt-miracle-pine-station]
-    evidence: []
-    next_action: 旅行日に有効な公式ダイヤで全接続を組み、輪行、乗換、遅延余裕、メモリアル滞在時間、名古屋へ当日帰着できる最終接続と一段後の代替便を確認する。
+    evidence: [evidence.jreast-brt-1332f-20260928, evidence.jreast-brt-fallback-20260928, evidence.jreast-brt-guide-20260911, evidence.kesennuma-brt-baggage-rules-20260911, evidence.jreast-ofunato-334d-20260928, evidence.jreast-ofunato-338d-20260928, evidence.jreast-tohoku-shinkansen-20260928, evidence.jreast-bicycle-baggage-20260911, evidence.jrcentral-tokaido-20260928, evidence.jrcentral-bicycle-baggage-20260911, evidence.iwate-tsunami-memorial-hours-20260911, evidence.iwate-tsunami-memorial-modelcase-20260911]
+    next_action: 輪行袋の実寸（縦×横×厚さ）と総重量を示し、2026-09-28の奇跡の一本松駅→気仙沼駅で大船渡線BRTへの持込み可否、置き場所、混雑時の取扱い、事前連絡・予約要否を運行事業者へ正式確認する。確認前はBRT運休時の代替経路と短い乗換を確実な接続として扱わない。
     resolution_conditions:
       - 採用便と各乗換余裕が決まっている
       - 輪行込みで2026-09-28中の名古屋帰着が成立する
