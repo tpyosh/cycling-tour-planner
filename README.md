@@ -56,6 +56,7 @@ python3 -m venv .venv
 
 ## 正本と生成物
 
+- `PRINCIPLES.md`: 日程に依存しない、このリポジトリの設計原則。旅行の調査・評価・再設計ではこの文書を優先する
 - `trip.yaml`: 旅行の基本情報
 - `constraints.yaml`: ハード制約とソフト制約
 - `catalog/`: 立ち寄り先、経路、宿泊地域、交通、食事の候補
@@ -70,7 +71,7 @@ python3 -m venv .venv
 
 候補の調査状態と旅程への採用を混ぜません。採用は `plan/current.yaml` からの参照で表します。通常旅程と発動条件付きの代替案も分離します。
 
-自転車の利用判断は、全線自走を前提にせず、区間ごとに「走行体験」「候補束ね」「純粋移動」を評価します。再設計時にも `constraints.yaml` の原則と `plan/current.yaml` の `mobility_strategy` を併せて更新してください。
+自転車の利用判断は [`PRINCIPLES.md`](PRINCIPLES.md) に従い、区間ごとに「走行体験」「候補束ね」「純粋移動」を評価します。再設計時にも `constraints.yaml` と `plan/current.yaml` の `mobility_strategy` を併せて更新してください。
 
 ## Codexスキル
 

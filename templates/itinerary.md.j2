@@ -12,15 +12,6 @@
 - {{ reason }}
 {% endfor %}
 
-## 設計原則
-
-{% for principle in plan.planning_principles %}
-**{{ principle.statement }}**
-{% for rule in principle.decision_rule %}
-- {{ rule }}
-{% endfor %}
-{% endfor %}
-
 {% if recommendations %}
 ## 推奨事項
 

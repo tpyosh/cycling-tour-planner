@@ -25,9 +25,11 @@ def test_repository_renders_deterministically(repo_copy: Path) -> None:
     assert before == after
     itinerary = (repo_copy / "docs" / "itinerary.md").read_text(encoding="utf-8")
     lodging = (repo_copy / "docs" / "lodging-calls.md").read_text(encoding="utf-8")
+    principles = (repo_copy / "PRINCIPLES.md").read_text(encoding="utf-8")
     assert "2026年9月 三陸旅行" in itinerary
     assert "石巻 → 女川" in itinerary
-    assert "各日の昼食・夕食は独立した一食として評価" in itinerary
+    assert "各日の昼食・夕食は独立した一食として評価" in principles
+    assert "## 設計原則" not in itinerary
     assert "認識した上で除外" in itinerary
     assert "女川港" in itinerary
     assert "鮪立集落・唐桑御殿型住宅" in itinerary
