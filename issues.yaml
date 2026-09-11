@@ -211,16 +211,17 @@ items:
     priority: high
     category: booking
     identified_at: 2026-09-09
-    summary: 石巻1泊、女川1泊、気仙沼2泊、陸前高田1泊について、宿名、空室、価格、自転車持込み条件が未確認で予約もしていない。
-    impact: 宿泊できない都市があると、前後の日の出発地、到着地、締切、自転車と公共交通の切替を組み直す必要がある。
+    summary: 石巻1泊、女川1泊、気仙沼2泊、陸前高田1泊について、宿名、空室、価格、自転車持込み条件が未確認で予約もしていない。許容予算と代替宿泊地域も未設定で、全日fallbackが空欄になっている。
+    impact: 宿泊できない都市や予算超過があると、代替地域をその場で比較できず、前後の日の出発地、到着地、締切、自転車と公共交通の切替を組み直す必要がある。
     related_dates: [2026-09-23, 2026-09-24, 2026-09-25, 2026-09-26, 2026-09-27]
     subjects: [stay.ishinomaki, stay.onagawa, stay.kesennuma, stay.rikuzentakata]
     evidence: []
-    next_action: 各予約単位について1名1室の在庫、総額、キャンセル条件と、輪行袋持込み、客室持込み等の実務条件を確認して予約する。
+    next_action: 1泊・全体の許容予算を決め、各予約単位について1名1室の在庫、総額、キャンセル条件、輪行袋持込み、客室持込み等の実務条件を確認する。予約前に各日の代替宿泊地域と切替条件も一つ以上決める。
     resolution_conditions:
       - 石巻9/23、女川9/24、気仙沼9/25〜27、陸前高田9/27の宿を予約済みである
       - 各宿の最終チェックインとキャンセル条件を把握している
       - 自転車保管を過度な選別条件にせず、輪行袋・客室持込み等の実務運用を確認している
+      - 許容予算と、第一候補が取れない場合の代替宿泊地域・切替条件が決まっている
     resolution: null
   - id: issue.last-minute-closures
     title: 各施設・店舗の旅行直前の臨時休業を確認する
@@ -278,16 +279,17 @@ items:
     priority: high
     category: schedule
     identified_at: 2026-09-09
-    summary: 正午前後に陸前高田を離れ、大船渡線BRT、気仙沼、一ノ関、東京を経て9/28中に名古屋へ戻る具体便と乗換余裕が未確認。
-    impact: 帰着期限を満たせないか、朝のいわてTSUNAMIメモリアル滞在を過度に圧縮する可能性がある。
+    summary: 正午前後に陸前高田を離れ、大船渡線BRT、気仙沼、一ノ関、東京を経て9/28中に名古屋へ戻る具体便と乗換余裕が未確認で、乗遅れ・運休時の後続接続もない。
+    impact: 帰着期限を満たせないか、朝のいわてTSUNAMIメモリアル滞在を過度に圧縮する可能性がある。一本の接続失敗を吸収できない計画になるおそれもある。
     related_dates: [2026-09-28]
     subjects: [transport.rikuzentakata-kesennuma-brt-20260928, transport.kesennuma-ichinoseki-20260928, transport.ichinoseki-tokyo-20260928, transport.tokyo-nagoya-nozomi-20260928, place.iwate-tsunami-memorial, place.brt-miracle-pine-station]
     evidence: []
-    next_action: 旅行日に有効な公式ダイヤで全接続を組み、輪行、乗換、遅延余裕とメモリアル滞在時間を確認する。
+    next_action: 旅行日に有効な公式ダイヤで全接続を組み、輪行、乗換、遅延余裕、メモリアル滞在時間、名古屋へ当日帰着できる最終接続と一段後の代替便を確認する。
     resolution_conditions:
       - 採用便と各乗換余裕が決まっている
       - 輪行込みで2026-09-28中の名古屋帰着が成立する
       - 朝のいわてTSUNAMIメモリアルに必要な滞在時間を確保している
+      - 途中の乗遅れ・運休時に使える後続接続と、当日帰着を守る最終判断時刻が決まっている
     resolution: null
   - id: issue.google-maps-review-text-reassessment
     title: 低評価の展示施設3件でGoogle Mapsレビュー本文を比較する
@@ -340,4 +342,148 @@ items:
       - 歌津で止まる主目的を固有名詞と具体的体験で説明できるか、強い対象なしと結論づけている
       - ハマーレ歌津の存在だけで立寄りを正当化していない
       - 気仙沼震災遺構の最終受付16時を損なわない採否が決まっている
+    resolution: null
+  - id: issue.adverse-weather-contingency
+    title: 悪天候時の全日程代替と切替基準を決める
+    status: open
+    priority: high
+    category: weather
+    identified_at: 2026-09-11
+    summary: 9月下旬の沿岸部で強風、大雨、台風接近等により自走できない場合の代替旅程、切替判断時刻、固定する宿泊地・帰着便が定義されていない。
+    impact: 9/24・9/25・9/27の自走区間が成立しないと、後続の宿泊、主軸施設、9/28中の名古屋帰着まで連鎖的に崩れる可能性がある。
+    related_dates: [2026-09-24, 2026-09-25, 2026-09-27, 2026-09-28]
+    subjects: [route.ishinomaki-okawa-ogatsu-onagawa, route.onagawa-kesennuma-coast, route.kesennuma-karakuwa, route.karakuwa-rikuzentakata-transfer, route.rikuzentakata-city]
+    evidence: []
+    next_action: 自転車走行を中止する降雨・風・警報等の基準を定め、各自走日の公共交通または短距離タクシーによる代替、維持する宿泊地、失う訪問先、判断期限を日別に作る。
+    resolution_conditions:
+      - 自走中止・短縮の判断基準と確認する公式気象情報が決まっている
+      - 9/24・9/25・9/27について悪天候時の代替移動が宿泊地までつながっている
+      - 代替案で維持する主軸、削る候補、予約変更が必要になる条件が明記されている
+      - 9/28の帰着に波及する場合の最終判断時刻が決まっている
+    resolution: null
+  - id: issue.riding-bailouts-and-mechanical-failure
+    title: 長距離自走日の離脱地点と機材トラブル時の復旧手段を決める
+    status: open
+    priority: high
+    category: safety
+    identified_at: 2026-09-11
+    summary: 9/24・9/25・9/27は、体調悪化、落車、パンクや重大な機材故障が起きた場合の離脱地点、代替交通、自転車店、回収手段が未確認。
+    impact: 走行継続ができない場所で宿へ到達できず、特に9/25の16:00最終受付や9/27以降の帰着行程を失う可能性がある。
+    related_dates: [2026-09-24, 2026-09-25, 2026-09-27]
+    subjects: [route.ishinomaki-okawa-ogatsu-onagawa, route.onagawa-kesennuma-coast, route.kesennuma-karakuwa, route.karakuwa-rikuzentakata-transfer]
+    evidence: []
+    next_action: 各区間で路線バス・鉄道・タクシーへ切り替えられる地点、営業時間内の自転車店、携帯圏外の可能性、宿までの回収方法を調べ、携行修理で対応する範囲を決める。
+    resolution_conditions:
+      - 各自走日に少なくとも一つの現実的な途中離脱手段がある
+      - 自転車を同伴できない交通しかない場合の回収・保管方法が決まっている
+      - 携行工具・予備品で対応する故障と走行中止する故障を区別している
+      - 緊急時の連絡先と判断地点をオフラインでも参照できる
+    resolution: null
+  - id: issue.kesennuma-full-day-feasibility
+    title: 9/26気仙沼フルデイの訪問順と時間配分を確定する
+    status: in_progress
+    priority: high
+    category: schedule
+    identified_at: 2026-09-11
+    summary: 朝の魚市場、海の市内2施設、リアス・アーク美術館、三食を同日に置いているが、開館時刻、最終入館、標準滞在、移動、駐輪を含む時刻表がない。
+    impact: 魚市場の水揚げ時間を優先した結果、リアス・アーク美術館または海の市内施設の受付に間に合わないか、食事候補の営業時間と競合する可能性がある。
+    related_dates: [2026-09-26]
+    subjects: [route.kesennuma-city, place.kesennuma-fish-market, place.kesennuma-umi-no-ichi, place.kesennuma-shark-museum, place.kesennuma-ice-aquarium, place.rias-ark-museum, food.tsurukame-dining-hall, food.asahi-zushi-kesennuma, food.kitakatsu-maguroya]
+    evidence: [evidence.kesennuma-fish-market-hours-20260911, evidence.kesennuma-fish-market-calendar-20260911, evidence.kesennuma-fish-market-morning-tour-20260911, evidence.kesennuma-umi-no-ichi-hours-20260911, evidence.kesennuma-shark-hours-20260911, evidence.kesennuma-shark-theater-20260911, evidence.kesennuma-ice-hours-20260911, evidence.rias-ark-event-hours-20260911, evidence.rias-ark-quake-exhibit-20260911, evidence.tsurukame-hours-20260911, evidence.asahi-zushi-hours-20260911, evidence.kitakatsu-hours-20260911]
+    next_action: 自転車向けの再現可能な実走ルート、累積距離、登り、各地点の駐輪位置を確認し、旅行直前に鶴亀食堂と北かつまぐろ屋の9月26日臨時休業有無を公式Web・SNSで再確認する。宿確定後は宿とのラストマイルを別Issueで追加する。
+    resolution_conditions:
+      - 各施設の旅行日固有の利用可能時間と必要滞在時間を確認している
+      - 移動、駐輪、待ち時間を含む訪問順と到着目標が決まっている
+      - 再監査中の2施設を採用する場合と外す場合の両方で一日が成立する
+      - 魚市場が不発の場合の繰上げ先と食事時間が決まっている
+    resolution: null
+  - id: issue.jr-reservations-and-bicycle-handling
+    title: 往復JRの予約対象と輪行時の荷物運用を確定する
+    status: open
+    priority: high
+    category: booking
+    identified_at: 2026-09-11
+    summary: 往路・帰路の列車は未予約で、指定席の要否、輪行袋を置ける場所、駅での組立・解体時間、繁忙時の乗車余裕が計画されていない。
+    impact: 希望便や自転車を安全に置ける座席を確保できない、短い乗換で輪行袋を運べない、または帰着便へ乗れない可能性がある。
+    related_dates: [2026-09-23, 2026-09-28]
+    subjects: [transport.nagoya-tokyo-nozomi-20260923, transport.tokyo-sendai-hayabusa-20260923, transport.sendai-ishinomaki-20260923, transport.kesennuma-ichinoseki-20260928, transport.ichinoseki-tokyo-20260928, transport.tokyo-nagoya-nozomi-20260928]
+    evidence: [evidence.reference-timetables-20260903]
+    next_action: 採用列車ごとに予約開始日、指定席・荷物スペースの選択、自転車持込み規則、ホーム間移動、組立・解体場所と必要時間を公式情報で確認し、予約順を決める。
+    resolution_conditions:
+      - 往路・帰路の採用便と予約が必要な区間が確定している
+      - 各列車で輪行袋の置き場所と持込み条件を確認している
+      - 乗換経路に輪行袋を運ぶ時間と混雑余裕を含めている
+      - 石巻到着後と陸前高田出発前の組立・解体場所、必要時間が決まっている
+    resolution: null
+  - id: issue.current-prime-evidence-coverage
+    title: current primeの実行可否を支える根拠台帳を補完する
+    status: open
+    priority: high
+    category: data_quality
+    identified_at: 2026-09-11
+    summary: 採用中の経路と訪問先の多くについて、営業時間、受付、一般見学可否、所要時間、経路距離等の判断根拠がevidence/sources.yamlまたはestimates/distances.yamlにない。既存根拠にもURLのない計画シードが多い。
+    impact: current primeの数値や成立判断を再検証できず、古い情報や推定を確定情報として扱う可能性がある。
+    related_dates: [2026-09-23, 2026-09-24, 2026-09-25, 2026-09-26, 2026-09-27, 2026-09-28]
+    subjects: [route.ishinomaki-city, route.ishinomaki-okawa-ogatsu-onagawa, route.onagawa-kesennuma-coast, route.kesennuma-city, route.kesennuma-karakuwa, route.karakuwa-rikuzentakata-transfer, route.rikuzentakata-city]
+    evidence: []
+    next_action: current primeで実行可否に使う主張を日別に棚卸しし、公式・公的情報を優先して主張、出典URL、確認日、変動性、再確認要否を記録し、距離計算はestimates/distances.yamlへ分離する。
+    resolution_conditions:
+      - 採用中の交通・施設・経路について実行可否に関わる主張を一覧化している
+      - 各主張に直接参照できる出典、確認日、変動性、再確認要否がある
+      - URLのない計画シードだけに依存する高影響の判断が残っていない
+      - estimates/distances.yamlに採用ルートの計算結果と計算方法が記録されている
+    resolution: null
+  - id: issue.ride-fueling-and-water
+    title: 自走日の朝食・行動食・給水・補給地点を確定する
+    status: open
+    priority: high
+    category: logistics
+    identified_at: 2026-09-11
+    summary: 長距離の9/24・9/25と唐桑を回る9/27について、正式な食事候補とは別に、早朝の朝食、走行中の給水、行動食、補給不能区間が計画されていない。
+    impact: 店の休業や営業時間外で補給できず、走行ペース低下、体調悪化、16:00の受付や宿到着の遅延につながる可能性がある。
+    related_dates: [2026-09-24, 2026-09-25, 2026-09-27]
+    subjects: [route.ishinomaki-okawa-ogatsu-onagawa, route.onagawa-kesennuma-coast, route.kesennuma-karakuwa]
+    evidence: []
+    next_action: 宿の朝食開始時刻、早朝購入先、給水・補給可能地点、区間ごとの最終補給地点を確認し、営業時間に依存しない携行量と緊急食を決める。
+    resolution_conditions:
+      - 各自走日の出発前朝食と携行する水・行動食の基準が決まっている
+      - 各ルートの補給可能地点と営業時間、補給不能区間を把握している
+      - 予定店が休業でも走行を継続できる代替がある
+      - 正式な昼食・夕食の選定と走行中の補給を区別している
+    resolution: null
+  - id: issue.visit-status-and-cut-order
+    title: 全日の必須・任意・再監査中候補と削減順を明確にする
+    status: open
+    priority: high
+    category: schedule
+    identified_at: 2026-09-11
+    summary: visitsに主軸、短時間確認、再監査中の施設が同列で入り、optional_visitsやcandidate_decisionsとの境界も日によって異なる。遅延時の削減順は9/23と9/25でも未確定で、他の日にはほぼない。
+    impact: 現地で弱い候補を守って主軸や接続を失う、または再監査未完の施設を確定訪問として時間配分する可能性がある。
+    related_dates: [2026-09-23, 2026-09-24, 2026-09-25, 2026-09-26, 2026-09-27, 2026-09-28]
+    subjects: [route.ishinomaki-city, route.ishinomaki-okawa-ogatsu-onagawa, route.onagawa-kesennuma-coast, route.kesennuma-city, route.kesennuma-karakuwa, route.rikuzentakata-city, place.ogatsu-suzuri-museum, place.kesennuma-shark-museum, place.kesennuma-ice-aquarium]
+    evidence: [evidence.google-maps-ogatsu-suzuri-20260910, evidence.google-maps-shark-museum-20260910, evidence.google-maps-ice-aquarium-20260910]
+    next_action: 各日の候補を必須、推奨、任意、再監査中、当日判断に分類し、滞在時間、守る締切、削減順、削減判断をする地点・時刻を記録する。
+    resolution_conditions:
+      - 各訪問先の状態が必須、推奨、任意、再監査中、当日判断のいずれかで明示されている
+      - 各日に遅延時の削減順と判断地点・時刻がある
+      - 再監査中の3施設が確定訪問と誤読されない
+      - 削減後も宿泊・交通・帰着の固定アンカーを守れる
+    resolution: null
+  - id: issue.luggage-and-overnight-bike-logistics
+    title: 荷物量・積載方法と連泊中の自転車運用を決める
+    status: open
+    priority: medium
+    category: logistics
+    identified_at: 2026-09-11
+    summary: 全荷物を自転車に積んで走るのか、配送や宿への預け入れを使うのかが不明で、輪行袋を含む装備重量と気仙沼2連泊中の保管・日帰り装備も定義されていない。
+    impact: 実走速度と登坂所要時間の前提がずれ、宿や駅で荷物を預けられない場合に日別動線と輪行時間が増える可能性がある。
+    related_dates: [2026-09-23, 2026-09-24, 2026-09-25, 2026-09-26, 2026-09-27, 2026-09-28]
+    subjects: [stay.ishinomaki, stay.onagawa, stay.kesennuma, stay.rikuzentakata, route.ishinomaki-okawa-ogatsu-onagawa, route.onagawa-kesennuma-coast, route.kesennuma-karakuwa]
+    evidence: []
+    next_action: 自転車、輪行袋、衣類、修理用品等の想定重量と積載方法を決め、各宿のチェックイン前後の荷物預かり、自転車保管、配送可否を確認して所要時間へ反映する。
+    resolution_conditions:
+      - 走行時と輪行時の荷物構成、概算重量、収納形態が決まっている
+      - 各宿でチェックイン前後の荷物と自転車の扱いを確認している
+      - 気仙沼2連泊日に持ち出す装備と宿へ置く荷物が決まっている
+      - 積載状態を前提に自走日の速度・登坂時間を見積もっている
     resolution: null

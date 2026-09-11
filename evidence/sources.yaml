@@ -290,3 +290,143 @@ items:
     volatility: low
     recheck_before_trip: false
     source: {type: national_astronomical_observatory, title: 国立天文台 仙台の2026年9月の日出入り, url: 'https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s0409.html'}
+  - id: evidence.kesennuma-fish-market-hours-20260911
+    subject: place.kesennuma-fish-market
+    checked_at: 2026-09-11
+    claims:
+      - 気仙沼市魚市場の一般見学施設は6:30から17:00まで利用可能である
+      - 公式の水揚げ見学コースは所要30分から60分である
+      - 北側2階見学デッキでは早朝の作業風景を見学でき、5月から10月はカツオの水揚げを見られる場合があるが、水揚げ状況による
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_facility, title: 気仙沼市魚市場 おすすめ見学コース, url: 'https://kesennuma-uoichiba.jp/tourroute/'}
+    date_windows:
+      - date: 2026-09-26
+        windows:
+          - {start: '06:30', end: '17:00'}
+  - id: evidence.kesennuma-fish-market-calendar-20260911
+    subject: place.kesennuma-fish-market
+    checked_at: 2026-09-11
+    claims:
+      - 2026年魚市場休日カレンダーで9月26日は気仙沼市魚市場の休場日に指定されていない
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_calendar, title: 気仙沼市魚市場 令和8年休日のご案内, url: 'https://kesennuma-kanko.jp/en/wp-content/uploads/2026/06/calendar_2026.pdf'}
+  - id: evidence.kesennuma-fish-market-morning-tour-20260911
+    subject: place.kesennuma-fish-market
+    checked_at: 2026-09-11
+    claims:
+      - 2026年の朝の魚市場ガイドツアーは6:45から7:55まで設定されている
+      - 6:40集合、6:45旧魚市場見学、7:15頃新魚市場見学、8:00頃解散という行程である
+      - ガイドツアーで使う見学デッキ等は一般客も入場可能なルートである
+      - 水揚げ状況によって魚を見られない場合がある
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_tourism, title: 歩こう！朝の魚市場, url: 'https://kesennuma-kanko.jp/fishmarket-morningtour/'}
+  - id: evidence.kesennuma-umi-no-ichi-hours-20260911
+    subject: place.kesennuma-umi-no-ichi
+    checked_at: 2026-09-11
+    claims:
+      - 5月から9月の気仙沼「海の市」営業時間は8:00から17:30である
+      - 7月から12月は海の市自体は無休である
+      - 個別テナントは別途休業日を設ける場合がある
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_facility, title: 気仙沼 海の市, url: 'https://www.uminoichi.com/'}
+    date_windows:
+      - date: 2026-09-26
+        windows:
+          - {start: '08:00', end: '17:30'}
+  - id: evidence.kesennuma-shark-hours-20260911
+    subject: place.kesennuma-shark-museum
+    checked_at: 2026-09-11
+    claims:
+      - 2026年9月30日までの気仙沼シャークミュージアム営業時間は9:00から17:30である
+      - 最終入館は16:30である
+      - 個別ページには9:00から17:00、最終入館16:00という旧表記が残るため、2026年9月30日までの営業時間変更告知を優先する
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_facility, title: 気仙沼 海の市 営業時間変更のお知らせ, url: 'https://www.uminoichi.com/news.html'}
+    date_windows:
+      - date: 2026-09-26
+        windows:
+          - {start: '09:00', end: '17:30'}
+  - id: evidence.kesennuma-shark-theater-20260911
+    subject: place.kesennuma-shark-museum
+    checked_at: 2026-09-11
+    claims:
+      - 館内のサメ・シアターでは約15分の映像を上映する
+    volatility: low
+    recheck_before_trip: false
+    source: {type: official_facility, title: 気仙沼シャークミュージアム, url: 'https://www.uminoichi.com/museum/index.html'}
+  - id: evidence.kesennuma-ice-hours-20260911
+    subject: place.kesennuma-ice-aquarium
+    checked_at: 2026-09-11
+    claims:
+      - 5月から9月の土日祝は氷の水族館が9:00から17:30まで営業する
+      - 最終受付は16:50である
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_facility, title: 氷の水族館 営業時間のご案内, url: 'https://www.uminoichi.com/iceaquarium/'}
+    date_windows:
+      - date: 2026-09-26
+        windows:
+          - {start: '09:00', end: '17:30'}
+  - id: evidence.rias-ark-event-hours-20260911
+    subject: place.rias-ark-museum
+    checked_at: 2026-09-11
+    claims:
+      - リアス・アーク美術館は9:30から17:00まで開館し、最終入館は16:30である
+      - 新！方舟祭2026は2026年9月25日から11月1日まで開催される
+      - 26組の作品展示・発表を6期に分けて紹介する企画であり、9月26日は会期内である
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_facility, title: リアス・アーク美術館 新！方舟祭2026開催, url: 'https://www.kesennuma.miyagi.jp/riasark/news/2026/0829/hakobunefes2026.html'}
+    date_windows:
+      - date: 2026-09-26
+        windows:
+          - {start: '09:30', end: '17:00'}
+  - id: evidence.rias-ark-quake-exhibit-20260911
+    subject: place.rias-ark-museum
+    checked_at: 2026-09-11
+    claims:
+      - 東日本大震災の常設展示には被災現場写真203点、被災物155点、その他歴史資料等137点を含む約500点の資料がある
+    volatility: low
+    recheck_before_trip: false
+    source: {type: official_facility, title: リアス・アーク美術館 東日本大震災の記録と津波の災害史, url: 'https://www.kesennuma.miyagi.jp/riasark/020/010/20251127155320.html'}
+  - id: evidence.tsurukame-hours-20260911
+    subject: food.tsurukame-dining-hall
+    checked_at: 2026-09-11
+    claims:
+      - 鶴亀食堂の通常営業時間は7:00から13:00である
+      - 定休日はない
+      - 臨時休業する場合がある
+    volatility: high
+    recheck_before_trip: true
+    source: {type: official_restaurant, title: 鶴亀食堂, url: 'https://kesennuma-tsurukame.com/canteen'}
+  - id: evidence.asahi-zushi-hours-20260911
+    subject: food.asahi-zushi-kesennuma
+    checked_at: 2026-09-11
+    claims:
+      - 気仙沼本店の営業時間は11:00から14:30、16:00から21:30で、ラストオーダーは21:00である
+      - 2026年9月の休業案内では9月14日と9月28日が休業日として掲載されている
+      - 9月25日から10月2日までの店舗企画が告知されている
+      - 混雑時には来店順で案内され、待ち時間が発生する場合がある
+    volatility: high
+    recheck_before_trip: true
+    source: {type: official_restaurant, title: あさひ鮨, url: 'https://www.asahizushi.jp/'}
+    date_windows:
+      - date: 2026-09-26
+        windows:
+          - {start: '11:00', end: '14:30'}
+          - {start: '16:00', end: '21:30'}
+  - id: evidence.kitakatsu-hours-20260911
+    subject: food.kitakatsu-maguroya
+    checked_at: 2026-09-11
+    claims:
+      - 北かつまぐろ屋海の市店は通常11:00から14:00、土日は14:30まで営業する
+      - 夜営業は17:30から21:00で、ラストオーダーは20:30である
+      - 定休日は海の市休館日と同じだが、臨時休業はFacebookで告知すると案内されている
+    volatility: high
+    recheck_before_trip: true
+    source: {type: official_tourism, title: 北かつまぐろ屋 海の市店, url: 'https://kesennuma-kanko.jp/hokkatsu-uminoichi/'}

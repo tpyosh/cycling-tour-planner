@@ -145,6 +145,14 @@
 
 - [Google Maps値を確定できなかった既存候補を再確認する](issues.md#issue-google-maps-values-recheck)
 
+- [往復JRの予約対象と輪行時の荷物運用を確定する](issues.md#issue-jr-reservations-and-bicycle-handling)
+
+- [current primeの実行可否を支える根拠台帳を補完する](issues.md#issue-current-prime-evidence-coverage)
+
+- [全日の必須・任意・再監査中候補と削減順を明確にする](issues.md#issue-visit-status-and-cut-order)
+
+- [荷物量・積載方法と連泊中の自転車運用を決める](issues.md#issue-luggage-and-overnight-bike-logistics)
+
 ### 注意・メモ
 
 - 石ノ森萬画館と期間限定企画「刃牙博ッッ!!」は個人嗜好と会期が直接一致する主軸。
@@ -210,6 +218,18 @@
 - [低評価の展示施設3件でGoogle Mapsレビュー本文を比較する](issues.md#issue-google-maps-review-text-reassessment)
 
 - [Google Maps値を確定できなかった既存候補を再確認する](issues.md#issue-google-maps-values-recheck)
+
+- [悪天候時の全日程代替と切替基準を決める](issues.md#issue-adverse-weather-contingency)
+
+- [長距離自走日の離脱地点と機材トラブル時の復旧手段を決める](issues.md#issue-riding-bailouts-and-mechanical-failure)
+
+- [current primeの実行可否を支える根拠台帳を補完する](issues.md#issue-current-prime-evidence-coverage)
+
+- [自走日の朝食・行動食・給水・補給地点を確定する](issues.md#issue-ride-fueling-and-water)
+
+- [全日の必須・任意・再監査中候補と削減順を明確にする](issues.md#issue-visit-status-and-cut-order)
+
+- [荷物量・積載方法と連泊中の自転車運用を決める](issues.md#issue-luggage-and-overnight-bike-logistics)
 
 ### 注意・メモ
 
@@ -277,6 +297,18 @@
 
 - [歌津で立寄りを正当化する強い対象を確認する](issues.md#issue-utatsu-priority-anchor)
 
+- [悪天候時の全日程代替と切替基準を決める](issues.md#issue-adverse-weather-contingency)
+
+- [長距離自走日の離脱地点と機材トラブル時の復旧手段を決める](issues.md#issue-riding-bailouts-and-mechanical-failure)
+
+- [current primeの実行可否を支える根拠台帳を補完する](issues.md#issue-current-prime-evidence-coverage)
+
+- [自走日の朝食・行動食・給水・補給地点を確定する](issues.md#issue-ride-fueling-and-water)
+
+- [全日の必須・任意・再監査中候補と削減順を明確にする](issues.md#issue-visit-status-and-cut-order)
+
+- [荷物量・積載方法と連泊中の自転車運用を決める](issues.md#issue-luggage-and-overnight-bike-logistics)
+
 ### 注意・メモ
 
 - 気仙沼市東日本大震災遺構・伝承館は4〜9月9:30〜17:00、最終受付16:00、自由見学約60分。最終受付の端を狙わず、敷地14:45到着、駐輪から受付まで10分を見て14:55以前の受付を目標とする。
@@ -315,15 +347,15 @@
 
 ### 採用候補
 
-- 気仙沼市魚市場 — 朝に訪れ、荷捌き、水揚げ、入港船、市場前の物流・漁業動線を具体的に見る主軸。前夜に入船、水揚げ、休場情報を確認する。
+- 気仙沼市魚市場 — 朝に訪れ、荷捌き、水揚げ、入港船、市場前の物流・漁業動線を具体的に見る主軸。前夜に入船、水揚げ、休場情報を確認する。 — **利用可能時間: 06:30–17:00**
 
-- 気仙沼 海の市 — シャークミュージアム、氷の水族館、水産物売場を束ねる具体的な施設。
+- 気仙沼 海の市 — シャークミュージアム、氷の水族館、水産物売場を束ねる具体的な施設。 — **利用可能時間: 08:00–17:30**
 
-- 気仙沼シャークミュージアム — サメ利用、気仙沼の漁業文化、サメ研究、大型標本等を扱う候補。大量レビューで3.6のため、採用確定扱いを避けて高優先度で再監査する。
+- 気仙沼シャークミュージアム — サメ利用、気仙沼の漁業文化、サメ研究、大型標本等を扱う候補。大量レビューで3.6のため、採用確定扱いを避けて高優先度で再監査する。 — **利用可能時間: 09:00–17:30**
 
-- 氷の水族館 — マイナス20度の空間、氷漬けの魚、製氷文化との接続を評価するB級・ローカル枠。施設品質は警戒し、B級スポットとしての適合度を別に再監査する。
+- 氷の水族館 — マイナス20度の空間、氷漬けの魚、製氷文化との接続を評価するB級・ローカル枠。施設品質は警戒し、B級スポットとしての適合度を別に再監査する。 — **利用可能時間: 09:00–17:30**
 
-- リアス・アーク美術館 — Tier 2上位。Google Mapsの星・レビュー母数は博物館Tier 1条件を満たす可能性があるが、気仙沼内の競争が強いため自動的にTier 1にはしない。シードでは9/26は「新方舟祭2026」開催期間内。
+- リアス・アーク美術館 — Tier 2上位。Google Mapsの星・レビュー母数は博物館Tier 1条件を満たす可能性があるが、気仙沼内の競争が強いため自動的にTier 1にはしない。シードでは9/26は「新方舟祭2026」開催期間内。 — **利用可能時間: 09:30–17:00**
 
 ### 食事・補給
 
@@ -351,6 +383,14 @@
 
 - [低評価の展示施設3件でGoogle Mapsレビュー本文を比較する](issues.md#issue-google-maps-review-text-reassessment)
 
+- [9/26気仙沼フルデイの訪問順と時間配分を確定する](issues.md#issue-kesennuma-full-day-feasibility)
+
+- [current primeの実行可否を支える根拠台帳を補完する](issues.md#issue-current-prime-evidence-coverage)
+
+- [全日の必須・任意・再監査中候補と削減順を明確にする](issues.md#issue-visit-status-and-cut-order)
+
+- [荷物量・積載方法と連泊中の自転車運用を決める](issues.md#issue-luggage-and-overnight-bike-logistics)
+
 ### 注意・メモ
 
 - 朝の気仙沼魚市場では荷捌き、水揚げ、入港船、市場前の物流・漁業動線を具体的に確認する。
@@ -367,7 +407,19 @@
 
 - 食は戻り鰹、メカジキ、フカヒレ、モウカの星、サンマ、ホヤ、地魚寿司を個別に評価する。9月下旬は戻り鰹を特に高く評価し、メカジキは冬メカ最盛期より前であることを踏まえる。
 
-- 朝・昼・夜の最終店選定、市場の最適時刻、2026年の実漁況は未検証。
+- 朝・昼・夜の最終店選定と9/26当日の実漁況は未確認。魚市場は06:40頃を標準到着とし、07:30を水揚げ・入港船等の主目的が不発だった場合の切替時刻とする。
+
+- 標準案では海の市売場、シャークミュージアム、氷の水族館、11時台の昼食後に、リアス・アーク美術館を12:40頃から約150分確保する。
+
+- 再監査中のシャークミュージアムと氷の水族館を両方外す場合は、海の市共用部の後にリアス・アーク美術館を10:00頃から先行して確保する短縮案へ切り替える。
+
+- 魚市場不発時は鶴亀食堂を最初に繰り上げ、次に08:00開館の海の市を繰り上げる。前夜に不発が判明した場合は07:00朝食開始も可能。
+
+- リアス・アーク美術館は通常の遅延時削減対象にせず、海の市内2施設と時間調整枠を先に削る。
+
+- 自転車実走距離、累積標高、正式駐輪地点は未確認であり、既存の10〜20kmは今回の検証済み距離ではない。
+
+- 鶴亀食堂と北かつまぐろ屋は、旅行直前に臨時休業の有無を公式Web・SNSで再確認する。
 
 ## 9/27（日） 気仙沼 → 陸前高田
 
@@ -424,6 +476,18 @@
 - [各日の宿と最初・最後の候補を結ぶ実走動線を確認する](issues.md#issue-lodging-endpoint-routes)
 
 - [Google Maps値を確定できなかった既存候補を再確認する](issues.md#issue-google-maps-values-recheck)
+
+- [悪天候時の全日程代替と切替基準を決める](issues.md#issue-adverse-weather-contingency)
+
+- [長距離自走日の離脱地点と機材トラブル時の復旧手段を決める](issues.md#issue-riding-bailouts-and-mechanical-failure)
+
+- [current primeの実行可否を支える根拠台帳を補完する](issues.md#issue-current-prime-evidence-coverage)
+
+- [自走日の朝食・行動食・給水・補給地点を確定する](issues.md#issue-ride-fueling-and-water)
+
+- [全日の必須・任意・再監査中候補と削減順を明確にする](issues.md#issue-visit-status-and-cut-order)
+
+- [荷物量・積載方法と連泊中の自転車運用を決める](issues.md#issue-luggage-and-overnight-bike-logistics)
 
 ### 注意・メモ
 
@@ -488,6 +552,16 @@
 - [9/28陸前高田→名古屋の実接続を確定する](issues.md#issue-return-connection)
 
 - [Google Maps値を確定できなかった既存候補を再確認する](issues.md#issue-google-maps-values-recheck)
+
+- [悪天候時の全日程代替と切替基準を決める](issues.md#issue-adverse-weather-contingency)
+
+- [往復JRの予約対象と輪行時の荷物運用を確定する](issues.md#issue-jr-reservations-and-bicycle-handling)
+
+- [current primeの実行可否を支える根拠台帳を補完する](issues.md#issue-current-prime-evidence-coverage)
+
+- [全日の必須・任意・再監査中候補と削減順を明確にする](issues.md#issue-visit-status-and-cut-order)
+
+- [荷物量・積載方法と連泊中の自転車運用を決める](issues.md#issue-luggage-and-overnight-bike-logistics)
 
 ### 注意・メモ
 
