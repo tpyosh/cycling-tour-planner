@@ -32,7 +32,7 @@ pre_trip_todos:
   - {id: todo.verify-lodging-access, description: 各日の宿から最初の候補までと最後の候補から宿までの実走動線を確認する, due_date: null, condition: 宿名の確定後}
   - {id: todo.check-fish-market, description: 9/26の気仙沼魚市場について見学に適した時刻、入船、水揚げ、休場情報を確認する, due_date: 2026-09-25, condition: 事前調査後、前夜に再確認}
   - {id: todo.audit-low-rated-attractions, description: 気仙沼シャークミュージアム、雄勝硯伝統産業会館、氷の水族館のGoogle Mapsレビュー本文と写真を優先順に再監査する, due_date: null, condition: 各施設の採否・滞在時間を確定する前}
-  - {id: todo.recheck-missing-google-maps, description: Google Maps値を確定できなかった11候補を対象名・地域の一致確認付きで再調査する, due_date: null, condition: 値を推測せず、prompts/google-maps-reviews.mdの手順に従う}
+  - {id: todo.recheck-missing-google-maps, description: Google Maps値を確定できなかった11候補を対象名・地域の一致確認付きで再調査する, due_date: null, condition: 値を推測せず、AGENTS.mdの一時ブリッジ手順に従う}
 
 days:
   - date: 2026-09-23

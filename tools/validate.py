@@ -11,6 +11,7 @@ from typing import Any
 from jsonschema import Draft202012Validator, FormatChecker
 from ruamel.yaml.error import YAMLError
 
+from chatgpt_research import audit_errors
 from lib.data import CATALOG_FILES, DATA_SCHEMAS, build_index, load_repository
 
 
@@ -86,7 +87,8 @@ def validate_repository(root: Path) -> list[str]:
     except (OSError, ValueError, YAMLError) as exc:
         return [f"ERROR {exc}"]
 
-    errors = _schema_errors(root, data)
+    errors = audit_errors(root)
+    errors.extend(_schema_errors(root, data))
     if errors:
         return errors
 

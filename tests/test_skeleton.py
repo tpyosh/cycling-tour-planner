@@ -14,6 +14,74 @@ def test_repository_validates(repo_copy: Path) -> None:
     assert "Validation passed." in result.stdout
 
 
+def test_chatgpt_research_bridges_are_not_tracked(repo_copy: Path) -> None:
+    result = subprocess.run(
+        [sys.executable, str(repo_copy / "tools" / "chatgpt_research.py"), "--root", str(repo_copy), "audit"],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "audit passed" in result.stdout
+
+    forbidden = repo_copy / "prompts" / "new-chatgpt-request.md"
+    forbidden.write_text("temporary bridge", encoding="utf-8")
+    result = subprocess.run(
+        [sys.executable, str(repo_copy / "tools" / "chatgpt_research.py"), "--root", str(repo_copy), "audit"],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 1
+    assert "forbidden" in result.stdout
+
+    disguised = repo_copy / "research" / "notes.md"
+    disguised.write_text("あなたは、調査者です。\nWebを調査し、根拠を示してください。\n## 0. Preflight\n", encoding="utf-8")
+    result = subprocess.run(
+        [sys.executable, str(repo_copy / "tools" / "chatgpt_research.py"), "--root", str(repo_copy), "audit"],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 1
+    assert "possible direct ChatGPT research prompt" in result.stdout
+
+
+def test_chatgpt_research_preflight_rejects_tracked_path(repo_copy: Path) -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(repo_copy / "tools" / "chatgpt_research.py"),
+            "--root",
+            str(repo_copy),
+            "preflight",
+            "prompts/new-chatgpt-request.md",
+        ],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 1
+    assert "must be below" in result.stdout
+
+
+def test_chatgpt_research_request_lifecycle(repo_copy: Path) -> None:
+    tool = repo_copy / "tools" / "chatgpt_research.py"
+    base = [sys.executable, str(tool), "--root", str(repo_copy)]
+    request_id = "test-research-bridge"
+
+    result = subprocess.run([*base, "init", request_id], text=True, capture_output=True, check=False)
+    assert result.returncode == 0, result.stdout + result.stderr
+    prompt = repo_copy / ".codex" / "local" / "chatgpt-research" / request_id / "prompt.md"
+
+    result = subprocess.run([*base, "preflight", str(prompt)], text=True, capture_output=True, check=False)
+    assert result.returncode == 0, result.stdout + result.stderr
+
+    result = subprocess.run([*base, "gc", request_id], text=True, capture_output=True, check=False)
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert not prompt.parent.exists()
+
+
 def test_repository_renders_deterministically(repo_copy: Path) -> None:
     first = run(repo_copy, "render.py")
     assert first.returncode == 0, first.stdout + first.stderr

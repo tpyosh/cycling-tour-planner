@@ -1,15 +1,5 @@
-# 外部調査プロンプト
+# 廃止済みの配置
 
-外部サービスへ調査を依頼するためのプロンプトを保存する場合は `prompts/` 配下に置きます。ファイルには、調査目的、前提、対象、期待する出力形式、必要な出典を含めます。
+`prompts/` はChatGPT調査ブリッジの保存先として廃止した。ChatGPTに渡す本文、自己完結資料、添付用アーカイブは、追跡せず `.codex/local/chatgpt-research/<request-id>/` にだけ置く。
 
-回答はプロンプトへ追記せず、内容を確認してから対応する正本YAMLへ反映します。距離調査は `estimates/distances.yaml`、時刻・営業・規制などの根拠は `evidence/sources.yaml` に記録します。
-
-Google Mapsのレビュー数・スターは `google-maps-reviews.md` の運用に従います。CodexはGoogle Mapsから直接取得せず、対象候補ごとの依頼文を作成してユーザに提示します。
-
-2026-09-10再監査で値を確定できなかった11候補の一括依頼文は `google-maps-current-prime.md` にあります。
-
-current primeの成立性、日別の時間配分、営業・交通・道路・宿泊・食事、既存issueの不足をまとめて外部調査する場合は `current-prime-gap-audit.md` を使います。
-
-9/25の女川→気仙沼自走と気仙沼市東日本大震災遺構・伝承館の最終受付を単独で検証し、`issue.onagawa-kesennuma-feasibility` の解消材料を得る場合は、自己完結型の `chatgpt-resolve-onagawa-kesennuma-feasibility.md` を1ファイルだけChatGPTへ添付して使います。
-
-9/26の気仙沼フルデイについて、魚市場、海の市内施設、リアス・アーク美術館、食事、実走動線を単独で検証し、`issue.kesennuma-full-day-feasibility` の解消材料を得る場合は、自己完結型の `chatgpt-resolve-kesennuma-full-day-feasibility.md` を1ファイルだけChatGPTへ添付して使います。
+作成、完了時のGC、保存先を判定できない場合の停止条件は [`.codex/CONSTITUTION.md`](../.codex/CONSTITUTION.md)、実行手順は [`AGENTS.md`](../AGENTS.md) に従う。このディレクトリへ新しい依頼文を追加してはならない。

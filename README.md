@@ -40,7 +40,7 @@ google_maps:
 
 レビュー件数が複数の取得結果による幅で共有された場合は、`review_count` に共有値のうち最も具体的な件数を置き、`review_count_range: {min: ..., max: ...}` に幅を併記する。
 
-Google Mapsのレビュー数・スターが未取得の候補について、Codexは値を推測・検索して補完しない。ユーザにChatGPTでの取得を依頼するプロンプトを提示し、ユーザがChatGPTの回答を戻した後に、対象候補の `google_maps` へ反映する。依頼文の雛形と回答の取り込みルールは `prompts/google-maps-reviews.md` に定める。
+Google Mapsのレビュー数・スターが未取得の候補について、Codexは値を推測・検索して補完しない。ChatGPTへ確認を依頼する必要がある場合は、`AGENTS.md` と `.codex/CONSTITUTION.md` の一時ブリッジ手順に従い、回答を対象候補と地域で照合してから `google_maps` へ反映する。
 
 2026年9月10日のcurrent prime再監査は `research/google-maps-audit-20260910.md` に保存する。Google Mapsを旅程の自動ランキングには使わず、rating、review count、ジャンル、レビュー本文、施設の性質、ユーザー嗜好を組み合わせる。
 
@@ -50,6 +50,7 @@ Google Mapsのレビュー数・スターが未取得の候補について、Cod
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python tools/validate.py
+.venv/bin/python tools/chatgpt_research.py audit
 .venv/bin/python tools/render.py
 .venv/bin/pytest -q
 ```
