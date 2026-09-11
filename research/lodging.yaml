@@ -19,7 +19,7 @@ stay_searches:
     fallback_area_refs: []
     call_order_area_refs: [stay.ishinomaki]
     purpose: 初日の石巻市街訪問後に泊まり、翌朝の大川・雄勝・女川への一方向走行につなぐ
-    meal_priority: 市街地で食事を選べる前提とし、まず立地・価格・自転車保管条件を比較する
+    meal_priority: 市街地で食事を選べる前提とし、まず立地・価格を比較する
     candidates: []
   - date: 2026-09-24
     checkout_date: 2026-09-25
@@ -27,7 +27,7 @@ stay_searches:
     fallback_area_refs: []
     call_order_area_refs: [stay.onagawa]
     purpose: 大川・雄勝から到着し、翌朝の南三陸・気仙沼への沿岸自走の起点とする
-    meal_priority: 翌朝の早出、夕食、補給調達、輪行袋または客室への自転車持込み条件を確認する
+    meal_priority: 翌朝の早出、夕食、補給調達を重視する
     candidates: []
   - date: 2026-09-25
     checkout_date: 2026-09-27
@@ -49,7 +49,5 @@ explicit_web_unavailable: []
 common_phone_questions:
   - 2026年9月の指定日程で大人1名・1室を予約できるか
   - 税・サービス料を含む総額はいくらか
-  - 自転車を施錠できる屋内または管理された場所に保管できるか
-  - 客室持込みが可能か、輪行袋が必要か、事前連絡が必要か
   - 最終チェックイン時刻と、遅延時の連絡条件は何か
   - キャンセル期限と変更条件は何か

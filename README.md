@@ -73,6 +73,8 @@ python3 -m venv .venv
 
 自転車の利用判断は [`PRINCIPLES.md`](PRINCIPLES.md) に従い、区間ごとに「走行体験」「候補束ね」「純粋移動」を評価します。再設計時にも `constraints.yaml` と `plan/current.yaml` の `mobility_strategy` を併せて更新してください。
 
+宿の客室・館内への自転車持込み可否は、`PRINCIPLES.md` により候補選定・予約・旅程成立性の検証対象にしません。
+
 ## Codexスキル
 
 `.codex/skills/travel-planner/` に、制約整理、情報の鮮度管理、実現可能性確認、宿泊調査、代替案作成、品質確認の汎用ノウハウがあります。
