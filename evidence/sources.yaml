@@ -388,6 +388,16 @@ items:
     volatility: low
     recheck_before_trip: false
     source: {type: official_facility, title: 気仙沼シャークミュージアム, url: 'https://www.uminoichi.com/museum/index.html'}
+  - id: evidence.kesennuma-shark-renewal-20260911
+    subject: place.kesennuma-shark-museum
+    checked_at: 2026-09-11
+    claims:
+      - 2024年のリニューアルで館内全てをサメの展示へ刷新し、気仙沼とサメの歴史、8m超のウバザメ、研究成果、約15分のシアターを含む5ゾーン構成になった
+      - 旧展示のデジタル機器には老朽化の課題があったため、改装前レビューの展示の古さを現状へ直接適用しない
+      - 大人料金は600円である
+    volatility: medium
+    recheck_before_trip: false
+    source: {type: official_contractor_case_study, title: TOPPAN 気仙沼シャークミュージアム展示リニューアル, url: 'https://www.toppan.com/ja/joho/social/case/case76.html'}
   - id: evidence.kesennuma-ice-hours-20260911
     subject: place.kesennuma-ice-aquarium
     checked_at: 2026-09-11

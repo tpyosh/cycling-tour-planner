@@ -297,12 +297,12 @@ items:
     priority: high
     category: data_quality
     identified_at: 2026-09-10
-    summary: 気仙沼シャークミュージアム、雄勝硯伝統産業会館、氷の水族館は星とレビュー件数から再監査対象になったが、評価を下げる理由をレビュー本文・写真でまだ分類していない。
+    summary: 気仙沼シャークミュージアムは初回監査で短時間立寄り・9/26の30分仮枠としたが、★3本文、改装後の低評価本文、Google Maps投稿写真の系統的確認は未完了である。雄勝硯伝統産業会館と氷の水族館は未監査である。
     impact: 地域固有性やB級性だけで施設品質の弱さを見逃すか、逆に一般客との嗜好差を無視してユーザーに適合する候補を落とす可能性がある。
     related_dates: [2026-09-24, 2026-09-26]
     subjects: [place.kesennuma-shark-museum, place.ogatsu-suzuri-museum, place.kesennuma-ice-aquarium]
-    evidence: [evidence.google-maps-shark-museum-20260910, evidence.google-maps-ogatsu-suzuri-20260910, evidence.google-maps-ice-aquarium-20260910]
-    next_action: この順で各施設の★1〜2、★3、★4〜5レビューを比較し、展示量、価格、対象年齢、老朽化、混雑、接客、期待値、展示の専門性、施設規模、B級性、地域固有性に分類する。
+    evidence: [evidence.google-maps-shark-museum-20260910, evidence.kesennuma-shark-renewal-20260911, evidence.google-maps-ogatsu-suzuri-20260910, evidence.google-maps-ice-aquarium-20260910]
+    next_action: 次に雄勝硯伝統産業会館、次いで氷の水族館について、各施設の★1〜2、★3、★4〜5レビューを比較し、展示量、価格、対象年齢、老朽化、混雑、接客、期待値、展示の専門性、施設規模、B級性、地域固有性に分類する。シャークミュージアムの未確認項目は解決済みにしない。
     resolution_conditions:
       - 気仙沼シャークミュージアム、雄勝硯伝統産業会館、氷の水族館の順にレビュー本文を評価帯別で比較している
       - 低評価理由が単純な展示量不足か、一般客とユーザー嗜好の差かを区別している

@@ -405,14 +405,14 @@ items:
       acquisition_confidence: medium
       listing_name: 気仙沼シャークミュージアム
       subject_match: exact
-      source: {provider: Google Maps, retrieval_method: user_provided_google_maps_reaudit, url: null}
-      evidence_scope: {rating_and_count: confirmed, review_text: not_checked, photos: not_checked}
+      source: {provider: Google Maps, retrieval_method: user_provided_chatgpt_research, url: 'https://www.google.com/maps/search/?api=1&query=%E6%B0%97%E4%BB%99%E6%B2%BC%E3%82%B7%E3%83%A3%E3%83%BC%E3%82%AF%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0&query_place_id=ChIJLyDwh4uUiF8RII7qyS85tJs'}
+      evidence_scope: {rating_and_count: confirmed, review_text: partial, photos: partial}
       genre_context: {category: museum_and_attraction, cautions: [博物館・観光展示施設で3.6かつ2,000件超は重大な警戒シグナル。, 水産業・魚市場・珍施設へのユーザー嗜好により一般評価と適合度がずれる可能性は残す。]}
-      reassessment: {status: high_priority_recheck, plan_effect: keep_pending_recheck, rationale: [「採用候補」から高優先度の再監査対象へ変更する。, 展示量・対象年齢・料金・古さ・サメ産業の実物展示・30分滞在価値・海の市との組合せをレビュー本文で確認する。, 星だけで即削除はしない。]}
-      review_notes: [★1〜2、★3、★4〜5の本文比較は未実施。]
-      audience_notes: [一般客には薄くても、水産業・サメ研究・地域産業に関心がある旅行者には適合する可能性がある。]
-      evidence_notes: [少数レビューのブレでは説明できないため、今回の最重要再評価対象。]
-      limitations: [レビュー件数は約2,156〜2,200件の範囲で共有された。, レビュー本文と写真は今回未確認。]
+      reassessment: {status: high_priority_recheck, plan_effect: keep_pending_recheck, rationale: [「採用候補」から高優先度の再監査対象へ変更する。, 初回の本文・写真監査では短時間立寄り・9/26の30分仮枠が妥当としたが、3施設比較と未確認項目が残るため確定訪問にはしない。, 星だけで即削除はしない。]}
+      review_notes: [取得できた改装前の高評価にはサメ模型・情報、低評価には小規模・費用対効果・日本語中心という指摘がある。, 低評価にはサメ漁・フカヒレ産業への倫理的反発もあり、施設品質の評価と分ける。, ★3本文と2024年改装後の低評価本文は十分に確認できていない。]
+      audience_notes: [一般客には薄くても、水産業・サメ研究・地域産業に関心がある旅行者には適合する可能性がある。, 2024年改装後の気仙沼とサメ産業・利用、研究、大型標本、映像はこの旅行者の関心に接続するが、主目的級・長時間滞在へは上げない。]
+      evidence_notes: [対象名・所在地が一致するGoogle Maps掲載を確認した。, 公式・施工者資料で2024年の全面改装、サメ展示への刷新、5ゾーン、8m超のウバザメ、約15分シアターを確認した。, Google Mapsの写真ストリームは十分に展開できず、公式・施工者写真で展示の要素だけを補足した。]
+      limitations: [レビュー件数は約2,156〜2,200件の範囲で共有された。, ★3本文、改装後の低評価本文、Google Maps投稿写真の系統的な確認は未完了である。, 写真から施設の総床面積や見学所要時間を確定していない。]
   - id: place.kesennuma-ice-aquarium
     name: 氷の水族館
     kind: attraction
