@@ -115,23 +115,23 @@ Issueの正本は `issues.yaml` です。
 - **検出日:** 9/9
 - **対象日:** 9/25
 - **関連:** 女川→南三陸→歌津→大谷海岸→気仙沼 / 旧防災対策庁舎・南三陸町震災復興祈念公園 / 南三陸さんさん商店街 / 南三陸ハマーレ歌津 / 道の駅 大谷海岸 / 気仙沼市東日本大震災遺構・伝承館（旧向洋高校）
-- **根拠:** evidence.kesennuma-memorial-hours-20260911 / evidence.kesennuma-memorial-duration-20260911 / evidence.kesennuma-memorial-bike-access-20260911 / evidence.onagawa-oya-route-tod2026-20260911 / evidence.oya-kesennuma-memorial-route-tod2026-20260911 / evidence.onagawa-oya-route-map-tod2026-20260911 / evidence.kesennuma-oneway-route-map-tod2026-20260911 / evidence.onagawa-kesennuma-road-hazards-20260911 / evidence.miyagi-road-tunnels-20260911 / evidence.sanriku-road-motor-vehicles-only-20260911 / evidence.miyagi-road-restrictions-20260911 / evidence.kesennuma-r45-restrictions-20260911 / evidence.sendai-daylight-20260925
+- **根拠:** evidence.kesennuma-memorial-hours-20260911 / evidence.kesennuma-memorial-september-calendar-20260911 / evidence.kesennuma-memorial-duration-20260911 / evidence.kesennuma-memorial-bike-access-20260911 / evidence.onagawa-oya-route-tod2026-20260911 / evidence.oya-kesennuma-memorial-route-tod2026-20260911 / evidence.sanriku-road-motor-vehicles-only-20260911 / evidence.miyagi-road-restrictions-20260911 / evidence.kesennuma-r45-restrictions-20260911 / evidence.kesennuma-brt-baggage-rules-20260911 / evidence.miyagi-kotsu-bicycle-carriage-20260911
 
-公式イベントの丸められたkm標から女川駅前〜気仙沼震災遺構は約91kmと推定でき、14:45敷地到着を守る速度別出発時刻と削減基準も作成した。一方、対象区間の獲得標高、各トンネルの照明・路肩・歩道・実用的迂回、確実な途中離脱手段は未確認で、全線自走は条件付きである。
+公式イベントの丸められたkm標を接続した女川駅前〜気仙沼震災遺構の約91km概算と、9月25日の伝承館通常開館予定を確認した。2026年9月11日時点でR398・R45を全線自走不能にする公表済みの全面通行止めまたは自転車通行禁止は確認できず、全線自走は条件付きで維持する。正確な距離・獲得標高・本人の休憩込み所要時間はユーザー確認待ちで、BRT・路線バスへの輪行袋入り自転車の持込みも未確認である。
 
 **影響:** この日の最優先である気仙沼震災遺構を見られず、翌日の気仙沼フルデイにも影響する。
 
-**次の確認:** 公式Ride with GPSまたはGPXから女川駅前〜気仙沼震災遺構を直接切り出して獲得標高を再現可能な形で算出し、主要トンネルの照明、路肩、歩道、自転車通行時の実用的迂回を確認する。2026-09-24と当日朝に道路規制と施設の臨時休館を再確認する。
+**次の確認:** 2026-09-24と9月25日出発前にR398・R45の道路規制と伝承館の臨時休館を公式情報で再確認する。全線自走の時間成立性を判断する必要がある場合は、ユーザーに地図サービスまたはサイクルコンピュータで確認した正確な距離・獲得標高・休憩込み所要時間を依頼する。BRTまたは必要な路線バスへ輪行袋入り自転車を持ち込む必要がある場合は、収納寸法と対象便を示して運行事業者へ確認する。
 
 #### 解決条件
 
-- [ ] 実走距離、標高、休憩込み所要時間が分かっている
+- [ ] 2026-09-25直前のR398・R45の規制と伝承館の開館状況を確認している
 
-- [ ] 危険区間とトンネルの許容可否、回避策を確認している
+- [ ] 全線自走の時間成立性を判断する場合は、ユーザー確認済みの正確な距離・獲得標高・休憩込み所要時間がある
 
-- [ ] 気仙沼震災遺構へ十分な余裕を持つ到着目標がある
+- [ ] BRTまたは採用する路線バスを途中離脱手段にする場合は、輪行袋入り自転車の持込み可否を対象便ごとに確認している
 
-- [ ] 遅延時に切る途中候補の順序と判断地点・時刻が決まっている
+- [ ] 14:45敷地到着、14:55受付、16:00最終受付の優先と、遅延時の候補削減順を維持している
 
 <a id="issue-onagawa-kesennuma-route-value"></a>
 

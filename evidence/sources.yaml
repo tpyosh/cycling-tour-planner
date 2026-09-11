@@ -171,7 +171,6 @@ items:
     claims:
       - 4月から9月は9:30開館、17:00閉館、最終受付16:00と案内されている
       - 通常休館日は月曜日で、2026-09-25は金曜日である
-      - 2026-08-26付で同年9月の開館情報が公開されている
     volatility: medium
     recheck_before_trip: true
     source: {type: official_facility, title: 気仙沼市東日本大震災遺構・伝承館, url: 'https://www.kesennuma-memorial.jp/'}
@@ -179,6 +178,14 @@ items:
       - date: 2026-09-25
         windows:
           - {start: '09:30', end: '17:00'}
+  - id: evidence.kesennuma-memorial-september-calendar-20260911
+    subject: place.kesennuma-memorial-museum
+    checked_at: 2026-09-11
+    claims:
+      - 2026-08-26付の同年9月開館情報では、休館日は9月7日、14日、28日で、9月25日は休館日として表示されていない
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_facility_calendar, title: 気仙沼市東日本大震災遺構・伝承館 9月開館情報のお知らせ, url: 'https://www.kesennuma-memorial.jp/news/detail.php?id=252'}
   - id: evidence.kesennuma-memorial-duration-20260911
     subject: place.kesennuma-memorial-museum
     checked_at: 2026-09-11
@@ -204,8 +211,8 @@ items:
       - 2026年ツール・ド・東北の気仙沼大谷海岸フォンドでは女川駅前広場17km、旧防災対策庁舎75km、歌津86km、大谷海岸103kmの丸められたkm標が示されている
       - 女川駅前基準では旧防災対策庁舎まで約58km、歌津まで約69km、大谷海岸まで約86kmと推定できる
       - これらは独立した経路計算値ではなく、公式イベントページの丸められたkm標の差分である
-    volatility: medium
-    recheck_before_trip: true
+    volatility: low
+    recheck_before_trip: false
     source: {type: official_event_route, title: ツール・ド・東北2026 気仙沼大谷海岸フォンド, url: 'https://tourdetohoku.jp/course/kesennuma-ooyakaigan/'}
   - id: evidence.oya-kesennuma-memorial-route-tod2026-20260911
     subject: route.onagawa-kesennuma-coast
@@ -214,8 +221,8 @@ items:
       - 2026年ツール・ド・東北の気仙沼ワンウェイフォンドでは気仙沼市東日本大震災遺構・伝承館11km、大谷海岸16kmの丸められたkm標が示されている
       - 両地点間は約5kmと推定でき、女川駅前から大谷海岸までの約86kmと接続すると全体は約91kmとなる
       - 約91kmは別コースの丸められたkm標を接続した概算であり、高精度な確定値ではない
-    volatility: medium
-    recheck_before_trip: true
+    volatility: low
+    recheck_before_trip: false
     source: {type: official_event_route, title: ツール・ド・東北2026 気仙沼ワンウェイフォンド, url: 'https://tourdetohoku.jp/course/kesennuma-oneway/'}
   - id: evidence.onagawa-oya-route-map-tod2026-20260911
     subject: route.onagawa-kesennuma-coast
@@ -268,6 +275,7 @@ items:
     checked_at: 2026-09-11
     claims:
       - 宮城県管理道路の直前交通規制を確認する公式ページが公開されている
+      - 2026-09-11時点の確認範囲では、想定する国道398号等を9月25日に全線自走不能にする公表済みの全面通行止めまたは自転車通行禁止は確認できなかった
       - 2026-09-24と2026-09-25当日朝に国道398号等の規制を再確認する必要がある
     volatility: high
     recheck_before_trip: true
@@ -277,10 +285,31 @@ items:
     checked_at: 2026-09-11
     claims:
       - 気仙沼国道維持出張所は国道45号の通行規制を確認する公式ページを公開している
+      - 2026-09-11時点の確認範囲では、想定する国道45号を9月25日に全線自走不能にする公表済みの全面通行止めまたは自転車通行禁止は確認できなかった
       - 2026-09-24と2026-09-25当日朝に国道45号の規制を再確認する必要がある
     volatility: high
     recheck_before_trip: true
     source: {type: national_road_authority, title: 気仙沼国道維持出張所 通行規制, url: 'https://www.thr.mlit.go.jp/sendai/kesennuma/kisei/index.html'}
+  - id: evidence.kesennuma-brt-baggage-rules-20260911
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 気仙沼線BRT・大船渡線BRTの一般乗合旅客自動車運送事業取扱規則は、手回品を2個まで、1個30kg以内、容積0.25立方メートル以内、長さ2m以内と定め、他の旅客の迷惑となるおそれがある場合は持込みを拒絶できるとしている
+      - 同規則には輪行袋入り自転車を明示的に持込可能とする記述を確認できなかった
+      - このため、気仙沼線BRTを輪行袋入りスポーツ自転車の確実な途中離脱手段としては扱えない
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: official_carriage_rule, title: 東日本旅客鉄道株式会社一般乗合旅客自動車運送事業取扱規則, url: 'https://www.jreast.co.jp/kippu/yakkan/pdf/riding.pdf'}
+  - id: evidence.miyagi-kotsu-bicycle-carriage-20260911
+    subject: route.onagawa-kesennuma-coast
+    checked_at: 2026-09-11
+    claims:
+      - 宮城交通の路線バスFAQは、折りたたみ自転車をバス車内に積めないと案内している
+      - 解体して輪行袋へ収納したスポーツ自転車についての明示的な可否は確認できなかった
+      - このため、特定の路線バスを輪行袋入りスポーツ自転車の確実な途中離脱手段としては扱えない
+    volatility: medium
+    recheck_before_trip: true
+    source: {type: bus_operator_faq, title: 宮城交通 路線バスについて よくある質問, url: 'https://www.miyakou.co.jp/faq/route/'}
   - id: evidence.sendai-daylight-20260925
     subject: route.onagawa-kesennuma-coast
     checked_at: 2026-09-11
