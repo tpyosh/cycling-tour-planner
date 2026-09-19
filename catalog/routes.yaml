@@ -1,2 +1,32 @@
 schema_version: 1
-items: []
+items:
+  - id: route.ryuhyo-line
+    name: 小泊→龍泊ライン→竜飛
+    status: shortlisted
+    from: 小泊
+    to: 竜飛
+    mode: bicycle
+    distance_km: {min: 20, max: 20}
+    route_value: main
+    tags: [日本海沿い, 急登, ヘアピン, 眺瞰台, 津軽海峡]
+    description: 海面近くの日本海沿いから急登・ヘアピン・標高約475mの眺瞰台を経て津軽海峡側へ抜ける、今回の最大級アンカー。
+  - id: route.tappi-okutsugaru
+    name: 龍飛→三厩→今別→奥津軽いまべつ
+    status: shortlisted
+    from: 龍飛
+    to: 奥津軽いまべつ
+    mode: bicycle
+    distance_km: {min: 22, max: 22}
+    route_value: medium
+    tags: [青函トンネル, 輪行接続]
+    description: 青函トンネル体験後に本州側坑口等とつながる対象を短時間拾い、奥津軽いまべつから鉄道へ切り替える区間。
+  - id: route.osorezan-oma
+    name: むつ→恐山→薬研→大畑→下風呂→大間
+    status: shortlisted
+    from: むつ
+    to: 大間
+    mode: bicycle
+    distance_km: {min: 70, max: 75}
+    route_value: main
+    tags: [恐山, 薬研, 旧大畑駅, 下風呂, 大間]
+    description: 恐山を十分に滞在し、北へ抜けて下風呂を経由し、大間の朝の漁港体験へ前進する区間。

@@ -1,2 +1,107 @@
 schema_version: 1
-items: []
+items:
+  - id: place.tachineputa
+    name: 立佞武多の館
+    kind: museum
+    status: shortlisted
+    map_query: 立佞武多の館 五所川原
+    description: 9/23午後の主役。到着日の密度を上げるために弱い施設を追加しない。
+    tags: [日別主役, 五所川原]
+  - id: place.jusan-lake
+    name: 十三湖
+    kind: natural_feature
+    status: shortlisted
+    map_query: 十三湖
+    description: 湖としじみを20〜30分で扱う短時間立寄り。独立アンカーではない。
+    tags: [短時間]
+  - id: place.komarizaki
+    name: 小泊
+    kind: town
+    status: shortlisted
+    map_query: 小泊 青森
+    description: 昼食・補給と龍泊ラインへの切替地点。独立アンカーではない。
+    tags: [補給]
+  - id: place.nanatsutaki
+    name: 七ツ滝
+    kind: natural_feature
+    status: shortlisted
+    map_query: 七ツ滝 龍泊ライン
+    description: 龍泊ラインの固定停止。5〜10分程度にとどめる。
+    tags: [短時間, 龍泊ライン]
+  - id: place.chokandai
+    name: 眺瞰台
+    kind: natural_feature
+    status: shortlisted
+    map_query: 眺瞰台 龍泊ライン
+    description: 龍泊ラインの固定停止。20〜30分程度を確保する。
+    tags: [龍泊ライン, 展望]
+  - id: place.tappizaki
+    name: 龍飛崎・階段国道
+    kind: attraction
+    status: shortlisted
+    map_query: 龍飛崎 階段国道
+    description: 9/24の竜飛到着後に訪れる。
+    tags: [竜飛]
+  - id: place.seikan-tunnel-museum
+    name: 青函トンネル記念館
+    kind: museum
+    status: shortlisted
+    map_query: 青函トンネル記念館
+    description: 9/25の主役。9:00頃の体験坑道朝一便を想定し、約22kmの自走後に鉄道転場する。
+    tags: [日別主役, 青函トンネル]
+  - id: place.seikan-honshu-portal
+    name: 青函トンネル本州側坑口
+    kind: transport_site
+    status: shortlisted
+    map_query: 青函トンネル 本州側坑口
+    description: 青函トンネル体験と直接つながる対象として、移動途中に短時間立寄り可。
+    tags: [任意, 短時間]
+  - id: place.osorezan
+    name: 恐山
+    kind: attraction
+    status: shortlisted
+    map_query: 恐山 菩提寺
+    description: 9/26の最大級アンカー。9:00頃到着を目安に2時間〜2時間15分を確保し、短縮して旅程を成立させない。
+    tags: [日別主役, 滞在優先]
+  - id: place.oyakusen
+    name: 奥薬研
+    kind: hot_spring
+    status: shortlisted
+    map_query: 奥薬研温泉
+    description: 15〜30分程度の可変立寄り。独立アンカーへ昇格させない。
+    tags: [任意, 短時間]
+  - id: place.old-ohata-station
+    name: 旧大畑駅
+    kind: historic_site
+    status: shortlisted
+    map_query: 旧大畑駅
+    description: 10〜20分。実際の終着駅から、大間線未成区間へ自転車で進む連続性を観察する。
+    tags: [大間線, 鉄道史]
+  - id: place.shimofuro
+    name: 下風呂温泉・大間線未成線
+    kind: hot_spring
+    status: shortlisted
+    map_query: 下風呂温泉 大間線 未成線
+    description: 9/26の14時頃到着を目安に1.5時間程度を確保する。温泉街と未成線を対象とし、可能なら入浴する。
+    tags: [大間線, 温泉]
+  - id: place.oma-fishing-port
+    name: 大間漁港
+    kind: transport_site
+    status: shortlisted
+    map_query: 大間漁港
+    description: 9/27朝の主役。6:30〜7:00頃から、マグロ漁船・帰港・荷揚げ・港の作業を観察する。水揚げは保証されない。
+    tags: [日別主役, 現役漁業]
+  - id: place.omazaki
+    name: 大間崎
+    kind: attraction
+    status: shortlisted
+    map_query: 大間崎
+    description: 漁港観察後に訪れるが、単体で強アンカー扱いにはしない。
+    tags: [短時間]
+  - id: place.mashumaru
+    name: 青函連絡船記念館 摩周丸
+    kind: museum
+    status: shortlisted
+    map_query: 青函連絡船記念館 摩周丸
+    description: 9/27の函館到着後に優先して訪れる。
+    tags: [日別主役, 青函]

@@ -1,2 +1,32 @@
 schema_version: 1
-items: []
+items:
+  - id: stay.goshogawara
+    name: 五所川原
+    status: shortlisted
+    accommodation: {availability: medium, typical_types: [ホテル, 旅館]}
+    logistics: {food_options: medium, railway_access: high}
+    description: 9/23の立佞武多の館と9/24の津軽半島走行の開始地。
+  - id: stay.tappi
+    name: 竜飛
+    status: shortlisted
+    accommodation: {availability: low, typical_types: [旅館, 民宿]}
+    logistics: {food_options: low, railway_access: low}
+    description: 龍泊ラインの終点かつ青函トンネル体験の前泊地。宿泊選択肢が最も細く、予約優先度が高い。
+  - id: stay.mutsu
+    name: むつ
+    status: shortlisted
+    accommodation: {availability: high, typical_types: [ホテル, 旅館]}
+    logistics: {food_options: high, railway_access: high}
+    description: 9/25の鉄道転場後に泊まり、9/26は朝食後に恐山へ向かう。
+  - id: stay.oma
+    name: 大間
+    status: shortlisted
+    accommodation: {availability: medium, typical_types: [ホテル, 旅館, 民宿]}
+    logistics: {food_options: medium, railway_access: low}
+    description: 翌朝の現役マグロ漁業を6:30頃から使うための前泊地。
+  - id: stay.hakodate
+    name: 函館
+    status: shortlisted
+    accommodation: {availability: high, typical_types: [ホテル, 旅館, ホステル]}
+    logistics: {food_options: high, railway_access: high}
+    description: 摩周丸と夜の函館の後に泊まり、翌朝は朝市から帰路へつなぐ。

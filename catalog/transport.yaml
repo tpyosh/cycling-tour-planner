@@ -1,2 +1,83 @@
 schema_version: 1
-items: []
+items:
+  - id: transport.nozomi288
+    name: のぞみ288号
+    status: booked
+    mode: train
+    from: 名古屋
+    to: 東京
+    departure: '2026-09-23T06:28:00+09:00'
+    arrival: '2026-09-23T08:03:00+09:00'
+    description: ユーザー確認済みの予約済み交通。予約番号等の詳細は記録しない。
+  - id: transport.hayabusa7
+    name: はやぶさ7号
+    status: shortlisted
+    mode: train
+    from: 東京
+    to: 新青森
+    departure: '2026-09-23T08:37:00+09:00'
+    arrival: '2026-09-23T11:51:00+09:00'
+    description: のぞみ288号到着から34分を確保する公式時刻表上の接続。予約済みではない。
+  - id: transport.resort-shirakami4
+    name: リゾートしらかみ4号
+    status: shortlisted
+    mode: train
+    from: 新青森
+    to: 五所川原
+    departure: '2026-09-23T13:58:00+09:00'
+    arrival: '2026-09-23T15:09:00+09:00'
+    description: 輪行を継続し、組立や川部での短時間乗換を増やさず五所川原へ移動する公式時刻表上の直通候補。予約済みではない。
+  - id: transport.hayabusa24
+    name: はやぶさ24号
+    status: shortlisted
+    mode: train
+    from: 奥津軽いまべつ
+    to: 八戸
+    departure: '2026-09-25T13:35:00+09:00'
+    arrival: '2026-09-25T14:15:00+09:00'
+    description: 奥津軽いまべつから下北へ輪行転場する公式時刻表上の接続。予約済みではない。
+  - id: transport.shimokita3233d
+    name: 快速しもきた（3233D）
+    status: shortlisted
+    mode: train
+    from: 八戸
+    to: 下北
+    departure: '2026-09-25T15:14:00+09:00'
+    arrival: '2026-09-25T16:47:00+09:00'
+    description: 八戸で59分の輪行準備・乗換時間を取る公式時刻表上の接続。予約済みではない。
+  - id: transport.oma-hakodate-1340
+    name: 津軽海峡フェリー 大間→函館 9便
+    status: shortlisted
+    mode: ferry
+    from: 大間
+    to: 函館
+    departure: '2026-09-27T13:40:00+09:00'
+    arrival: '2026-09-27T15:10:00+09:00'
+    description: 公式夏期ダイヤの候補。予約済みではなく、当日朝に運航状況を確認する。
+  - id: transport.hakodate-liner-morning
+    name: はこだてライナー
+    status: shortlisted
+    mode: train
+    from: 函館
+    to: 新函館北斗
+    departure: '2026-09-28T08:50:00+09:00'
+    arrival: '2026-09-28T09:09:00+09:00'
+    description: 函館朝市後の公式時刻表上の接続候補。予約済みではない。
+  - id: transport.hayabusa16
+    name: はやぶさ16号
+    status: shortlisted
+    mode: train
+    from: 新函館北斗
+    to: 東京
+    departure: '2026-09-28T09:35:00+09:00'
+    arrival: '2026-09-28T14:08:00+09:00'
+    description: 函館から名古屋へ当日帰着する公式時刻表上の接続。予約済みではない。
+  - id: transport.nozomi41
+    name: のぞみ41号
+    status: shortlisted
+    mode: train
+    from: 東京
+    to: 名古屋
+    departure: '2026-09-28T14:30:00+09:00'
+    arrival: '2026-09-28T16:09:00+09:00'
+    description: はやぶさ16号到着から22分を確保して名古屋へ帰着する公式時刻表上の接続。予約済みではない。

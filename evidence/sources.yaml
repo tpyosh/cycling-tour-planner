@@ -1,2 +1,99 @@
 schema_version: 1
-items: []
+items:
+  - id: evidence.nozomi288-20260923
+    subject: transport.nozomi288
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: のぞみ288号は2026-09-23に名古屋06:28発、東京08:03着で運転する。'
+      - 'fact: 9月18日〜23日ののぞみ288号は全席指定席で運転する。'
+      - 'fact: 予約済みであることはユーザー確認済みであり、公式時刻表からの推論ではない。'
+    volatility: medium
+    recheck_before_trip: true
+    source:
+      type: 公式時刻表
+      title: JR東日本 時刻表 のぞみ288号
+      url: https://timetables.jreast.co.jp/2609/train/125/128931.html
+  - id: evidence.tohoku-connection-20260923
+    subject: transport.hayabusa7
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: 2026年9月のJR東日本公式時刻表には、東京08:37発のはやぶさ7号が掲載されている。'
+      - 'fact: はやぶさ7号は東京08:37→新青森11:51の接続として記録した。'
+      - 'inference: のぞみ288号の東京08:03着から34分を取るため、輪行袋入りロードバイクを持つ乗換として08:18発より現実的である。'
+    volatility: medium
+    recheck_before_trip: true
+    source:
+      type: 公式時刻表
+      title: JR東日本 東北・山形・秋田・北海道新幹線 下り
+      url: https://timetables.jreast.co.jp/2609/timetable-v/003d2p.html
+  - id: evidence.resort-shirakami4-20260923
+    subject: transport.resort-shirakami4
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: リゾートしらかみ4号は新青森13:58発、五所川原15:09着で、11月30日まで運転と公式時刻表に掲載されている。'
+      - 'inference: 新青森で輪行を継続する直通列車は、組立・再輪行および川部での短時間乗換を増やさず、立佞武多の館の午後滞在を確保しやすい。'
+    volatility: medium
+    recheck_before_trip: true
+    source:
+      type: 公式時刻表
+      title: JR東日本 時刻表 リゾートしらかみ4号
+      url: https://timetables.jreast.co.jp/2609/train/020/022941.html
+  - id: evidence.okutsugaru-shimokita-20260925
+    subject: transport.hayabusa24
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: はやぶさ24号は奥津軽いまべつ13:35発、八戸14:15着である。'
+      - 'fact: 快速しもきた3233Dは八戸15:14発、下北16:47着である。'
+      - 'inference: 八戸で59分を確保するこの輪行転場は、龍飛→青森の体験価値が低い長距離自走を削り、翌日の下北体験へ時間を渡す。'
+    volatility: medium
+    recheck_before_trip: true
+    source:
+      type: 公式時刻表
+      title: JR東日本 時刻表 はやぶさ24号
+      url: https://timetables.jreast.co.jp/2609/train/030/033862.html
+  - id: evidence.shimokita3233d-20260925
+    subject: transport.shimokita3233d
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: 快速しもきた3233Dは八戸15:14発、下北16:47着である。'
+    volatility: medium
+    recheck_before_trip: true
+    source:
+      type: 公式時刻表
+      title: JR東日本 時刻表 快速しもきた
+      url: https://timetables.jreast.co.jp/2609/train/055/055641.html
+  - id: evidence.oma-hakodate-20260927
+    subject: transport.oma-hakodate-1340
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: 津軽海峡フェリーの函館〜大間航路の夏期ダイヤには、大間13:40発、函館15:10着の9便が掲載されている。'
+      - 'unverified: 当日の運航は海況等で変動するため、9/27朝に別途確認が必要である。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: 公式時刻表
+      title: 津軽海峡フェリー 函館〜大間航路 時刻表
+      url: https://www.tsugarukaikyo.co.jp/service/timetable/hakodate-oma/
+  - id: evidence.hakodate-nagoya-20260928
+    subject: transport.hayabusa16
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: はやぶさ16号は新函館北斗09:35発、東京14:08着である。'
+      - 'inference: 東京で22分を確保するこの接続は、17:00までの名古屋帰着希望ゲートを満たす。'
+    volatility: medium
+    recheck_before_trip: true
+    source:
+      type: 公式時刻表
+      title: JR東日本 時刻表 はやぶさ16号
+      url: https://timetables.jreast.co.jp/2609/train/030/033663.html
+  - id: evidence.nozomi41-20260928
+    subject: transport.nozomi41
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: のぞみ41号は東京14:30発、名古屋16:09着である。'
+    volatility: medium
+    recheck_before_trip: true
+    source:
+      type: 公式時刻表
+      title: JR東日本 時刻表 のぞみ41号
+      url: https://timetables.jreast.co.jp/2609/train/020/023451.html

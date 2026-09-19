@@ -17,7 +17,7 @@ def test_empty_skeleton_validates(repo_copy: Path) -> None:
     assert "Validation passed." in result.stdout
 
 
-def test_empty_skeleton_renders_deterministically(repo_copy: Path) -> None:
+def test_rendering_is_deterministic(repo_copy: Path) -> None:
     first = run(repo_copy, "render.py")
     assert first.returncode == 0, first.stdout + first.stderr
     paths = [repo_copy / "docs" / name for name in ("itinerary.md", "pins.md", "issues.md", "lodging-calls.md")]
@@ -26,7 +26,7 @@ def test_empty_skeleton_renders_deterministically(repo_copy: Path) -> None:
     assert second.returncode == 0, second.stdout + second.stderr
     after = {path.name: path.read_bytes() for path in paths}
     assert before == after
-    assert "日程未設定" in (repo_copy / "docs" / "itinerary.md").read_text(encoding="utf-8")
+    assert "# " in (repo_copy / "docs" / "itinerary.md").read_text(encoding="utf-8")
     assert "宿泊調査は未着手" in (repo_copy / "docs" / "lodging-calls.md").read_text(encoding="utf-8")
 
 

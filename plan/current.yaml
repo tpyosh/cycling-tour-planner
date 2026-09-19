@@ -1,6 +1,122 @@
 schema_version: 1
 status: working
-recommendations: []
-pre_trip_todos: []
-days: []
-contingencies: []
+recommendations:
+  - 現在のPrimeは五所川原→竜飛→むつ→大間→函館と前進する5泊6日案である。
+  - 固定交通時刻と、走行から置いた到着目安を区別して記録する。
+pre_trip_todos:
+  - id: todo.ryuhyo-road-preflight
+    description: 龍泊ラインの道路規制・災害状況を確認する。強風だけでは中止・短縮せず、通行止め、豪雨、雷、崩落、土砂災害、明確に危険な道路状態で再判断する。
+    due_date: '2026-09-23'
+    condition: 出発直前
+  - id: todo.okutsugaru-rail-preflight
+    description: 9/25のはやぶさ24号・快速しもきたの運休および大幅遅延を確認する。
+    due_date: '2026-09-25'
+    condition: 当日朝
+  - id: todo.oma-ferry-preflight
+    description: 大間→函館フェリーの運航状況を確認する。
+    due_date: '2026-09-27'
+    condition: 当日朝
+days:
+  - date: '2026-09-23'
+    start: 名古屋
+    finish: 五所川原
+    cycling: {distance_km: {min: 0, max: 0}}
+    routes: []
+    transport: [transport.nozomi288, transport.hayabusa7, transport.resort-shirakami4]
+    transport_alternatives: []
+    visits: [place.tachineputa]
+    optional_visits: []
+    food: []
+    stay: {preferred: [stay.goshogawara], fallback: []}
+    notes:
+      - 固定交通は予約済みのぞみ288号（名古屋06:28→東京08:03）。
+      - はやぶさ7号は東京08:37→新青森11:51。輪行袋入りロードバイクでの乗換余裕を優先し、08:18発の短時間接続は採用しない。
+      - 新青森では輪行を継続し、直通のリゾートしらかみ4号（13:58→15:09）で五所川原へ向かう。組立・再輪行や川部での短時間乗換を増やさない。
+      - 午後は立佞武多の館を主役とし、到着日の密度を上げる弱い施設は追加しない。
+  - date: '2026-09-24'
+    start: 五所川原
+    finish: 竜飛
+    cycling: {distance_km: {min: 65, max: 70}}
+    routes: [route.ryuhyo-line]
+    transport: []
+    transport_alternatives: []
+    visits: [place.jusan-lake, place.komarizaki, place.nanatsutaki, place.chokandai, place.tappizaki]
+    optional_visits: []
+    food: [food.jusan-shijimi]
+    stay: {preferred: [stay.tappi], fallback: []}
+    notes:
+      - 十三湖は湖としじみを20〜30分、小泊は昼食・補給と龍泊ラインへの切替地点として扱う。
+      - 龍泊ラインは走行自体が主目的。固定停止は七ツ滝5〜10分、眺瞰台20〜30分のみとし、展望所をチェックリスト化しない。
+      - 竜飛には走行から置く14〜15時台の到着目安とし、到着後に階段国道・龍飛崎を訪れる。
+  - date: '2026-09-25'
+    start: 竜飛
+    finish: むつ
+    cycling: {distance_km: {min: 22, max: 22}}
+    routes: [route.tappi-okutsugaru]
+    transport: [transport.hayabusa24, transport.shimokita3233d]
+    transport_alternatives: []
+    visits: [place.seikan-tunnel-museum]
+    optional_visits: [place.seikan-honshu-portal]
+    food: []
+    stay: {preferred: [stay.mutsu], fallback: []}
+    notes:
+      - 青函トンネル記念館は9:00頃の体験坑道朝一便を想定する（予約可否は未確定）。
+      - 龍飛から青森へ自走せず、青函トンネル体験後に奥津軽いまべつまでだけ走り、輪行で下北へ転場する。
+      - 固定交通時刻は、はやぶさ24号 奥津軽いまべつ13:35→八戸14:15、快速しもきた 八戸15:14→下北16:47。夕方は無理に観光を詰めない。
+  - date: '2026-09-26'
+    start: むつ
+    finish: 大間
+    cycling: {distance_km: {min: 70, max: 75}}
+    routes: [route.osorezan-oma]
+    transport: []
+    transport_alternatives: []
+    visits: [place.osorezan, place.old-ohata-station, place.shimofuro]
+    optional_visits: [place.oyakusen]
+    food: []
+    stay: {preferred: [stay.oma], fallback: []}
+    notes:
+      - むつで7時頃に朝食を取り、7:45〜8:00頃に出発する目安。6時台の強制出発にはしない。
+      - 恐山は9時頃到着目安で2時間〜2時間15分を確保し、むつ市街へ戻らず薬研・大畑へ北抜けする。
+      - 下風呂は14時頃到着目安で1.5時間程度。大畑漁港は自然に通過観察する。
+      - 大間到着は走行から置く16:30〜17:00頃の目安。到着後に弱い港の下見は置かない。
+  - date: '2026-09-27'
+    start: 大間
+    finish: 函館
+    cycling: {distance_km: {min: 0, max: 0}}
+    routes: []
+    transport: [transport.oma-hakodate-1340]
+    transport_alternatives: []
+    visits: [place.oma-fishing-port, place.omazaki, place.mashumaru]
+    optional_visits: []
+    food: [food.oma-maguro]
+    stay: {preferred: [stay.hakodate], fallback: []}
+    notes:
+      - 6:30〜7:00頃から大間漁港へ。7〜9時台は現役マグロ漁業（漁船、帰港、荷揚げ、港の作業）を見る機会を優先する。水揚げは保証されないため、動きがなければ食事を挟み再度見る。
+      - 12時台前半には観光を終え、固定交通時刻のフェリー大間13:40→函館15:10へ向かう。
+      - 函館到着後は摩周丸を優先し、その後はベイエリア、夕食、夜の函館へ。函館山は必須にしない。
+  - date: '2026-09-28'
+    start: 函館
+    finish: 名古屋
+    cycling: {distance_km: {min: 0, max: 0}}
+    routes: []
+    transport: [transport.hakodate-liner-morning, transport.hayabusa16, transport.nozomi41]
+    transport_alternatives: []
+    visits: []
+    optional_visits: []
+    food: [food.hakodate-morning-market]
+    stay: {preferred: [], fallback: []}
+    notes:
+      - 函館朝市の後、固定交通時刻のはこだてライナー 函館08:50→新函館北斗09:09、はやぶさ16号 新函館北斗09:35→東京14:08、のぞみ41号 東京14:30→名古屋16:09を使う。
+      - 名古屋17:00までの希望ゲートと、9/28中の名古屋帰着を満たす。すべて予約済みではない。
+contingencies:
+  - id: contingency.oma-ferry-cancellation
+    name: 大間→函館フェリー欠航時の帰路
+    trigger: 9/27当日に大間→函館フェリーが欠航した場合。
+    date: '2026-09-27'
+    transport: [transport.oma-hakodate-1340]
+    transport_alternatives: [transport.hayabusa24, transport.shimokita3233d]
+    impacts:
+      - 函館は必須にせず、大間からむつ方面へ自転車で南下する。
+      - 9/28は大湊線・東北新幹線経由で名古屋へ帰る退路を使う。
+    unresolved:
+      - 実際に発動した場合の南下距離、当日の大湊線・新幹線接続、輪行可否を当日確認する。

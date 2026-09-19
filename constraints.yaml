@@ -1,3 +1,11 @@
 schema_version: 1
-hard: []
-soft: []
+hard:
+  - id: nozomi288-booked
+    description: 2026-09-23は予約済みのぞみ288号（名古屋06:28→東京08:03）を利用する。
+  - id: return-by-day
+    description: 2026-09-28中に名古屋へ帰着する。
+soft:
+  - id: return-by-1700
+    description: 2026-09-28は17:00までの名古屋帰着を希望ゲートとする。
+  - id: avoid-weak-cycling
+    description: 体験価値の低い区間を「サイクリング旅行だから」という理由だけで自走しない。

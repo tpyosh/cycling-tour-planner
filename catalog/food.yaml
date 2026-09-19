@@ -1,2 +1,20 @@
 schema_version: 1
-items: []
+items:
+  - id: food.jusan-shijimi
+    name: 十三湖のしじみ
+    status: shortlisted
+    map_query: 十三湖 しじみ
+    area: stay.goshogawara
+    description: 9/24の短時間立寄りで扱う食の要素。独立アンカーにはしない。
+  - id: food.oma-maguro
+    name: 大間のマグロ料理
+    status: shortlisted
+    map_query: 大間 マグロ料理
+    area: stay.oma
+    description: 9/27の漁港観察後の食事候補。胃袋・心臓等の部位料理も候補とする。
+  - id: food.hakodate-morning-market
+    name: 函館朝市
+    status: shortlisted
+    map_query: 函館朝市
+    area: stay.hakodate
+    description: 9/28の帰路前の朝の行動とする。
