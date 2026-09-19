@@ -1,7 +1,0 @@
-schema_version: 1
-id: new-trip
-title: 新しい旅行
-start_date: null
-end_date: null
-origin: null
-modes: []

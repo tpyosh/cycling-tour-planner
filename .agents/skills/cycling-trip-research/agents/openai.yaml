@@ -1,0 +1,4 @@
+interface:
+  display_name: "サイクリング旅行調査"
+  short_description: "候補と成立条件を出典付きで調査し、未確認事項を整理"
+  default_prompt: "$cycling-trip-research を使い、指定した旅行論点を基準日つきで調査し、根拠と未確認事項を整理してください。"

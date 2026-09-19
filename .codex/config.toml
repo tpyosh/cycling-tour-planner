@@ -1,0 +1,3 @@
+[agents]
+# 読み取り専用の調査と監査を同時に実行できる一方、過剰な並列化を避ける。
+max_concurrent_threads_per_session = 2

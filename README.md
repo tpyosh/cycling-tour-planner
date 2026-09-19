@@ -15,8 +15,9 @@
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python tools/validate.py
+.venv/bin/python tools/check_codex_customization.py
 .venv/bin/python tools/render.py
-.venv/bin/pytest -q
+.venv/bin/python -m pytest -q
 ```
 
 ## 正本と生成物
@@ -33,6 +34,14 @@ python3 -m venv .venv
 
 候補の調査状態と旅程への採用を混ぜません。採用は `plan/current.yaml` からの参照で表します。通常旅程と発動条件付きの代替案も分離します。
 
-## Codexスキル
+計画履歴は同じYAMLの複製ではなくGitで残します。予約開始、主要予約完了、出発直前など、後から戻る意味がある時点だけタグまたは明示的なスナップショットを使います。
 
-`.codex/skills/travel-planner/` に、制約整理、情報の鮮度管理、実現可能性確認、宿泊調査、代替案作成、品質確認の汎用ノウハウがあります。
+## Codexカスタマイズ
+
+- `AGENTS.md`: Skillの選択に依存せず守る、短い共通原則と読取り順
+- `.agents/skills/`: 調査、行程設計、批判的レビューの反復可能なワークフロー
+- `.codex/agents/`: 調査と独立監査を主スレッドから分離する、読み取り専用subagent
+- `.codex/config.toml`: subagentの同時実行数だけを定めるプロジェクト設定
+- `tools/check_codex_customization.py`: 配置、構文、参照、個別日付の混入を検査するスクリプト
+
+設計判断、旧Skillからの移行先、採用しなかったCodex機構は [docs/codex-customization.md](docs/codex-customization.md) に記録しています。リポジトリSkillの正本は `.agents/skills/` です。

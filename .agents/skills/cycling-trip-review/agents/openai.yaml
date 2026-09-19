@@ -1,0 +1,4 @@
+interface:
+  display_name: "サイクリング旅行レビュー"
+  short_description: "成立性と現地体験を独立監査し、維持・変更の根拠を提示"
+  default_prompt: "$cycling-trip-review を使い、現行の旅行計画を成立性と現地体験の両面から批判的に監査してください。"

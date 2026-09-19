@@ -1,0 +1,4 @@
+interface:
+  display_name: "サイクリング行程設計"
+  short_description: "制約と調査済み候補から、連続した日別行程と代替案を設計"
+  default_prompt: "$cycling-itinerary-design を使い、現在の制約と根拠から実行可能な日別行程を作成または更新してください。"
