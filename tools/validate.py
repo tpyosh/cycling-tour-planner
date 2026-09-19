@@ -108,6 +108,11 @@ def validate_repository(root: Path) -> list[str]:
         for evidence_id in issue["evidence"]:
             if evidence_id not in evidence_ids:
                 errors.append(f"ERROR issues.yaml {issue_id}: unknown evidence id: {evidence_id}")
+        for dependency_id in issue.get("dependencies", []):
+            if dependency_id == issue_id:
+                errors.append(f"ERROR issues.yaml {issue_id}: issue cannot depend on itself")
+            elif dependency_id not in issue_ids and dependency_id not in {item["id"] for item in data["issues.yaml"]["items"]}:
+                errors.append(f"ERROR issues.yaml {issue_id}: unknown dependency id: {dependency_id}")
         if issue["status"] in {"resolved", "wont_fix"} and not issue["resolution"]:
             errors.append(f"ERROR issues.yaml {issue_id}: closed issue requires resolution")
         if issue["status"] in {"open", "in_progress"} and issue["resolution"]:

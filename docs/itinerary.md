@@ -45,6 +45,14 @@
 
 - 立佞武多の館
 
+### 日程リスク
+
+- [9/23 東京以北から五所川原への実接続](issues.md#issue-day1-tokyo-goshogawara-connection)
+
+- [予約・事前手配一覧の確定](issues.md#issue-booking-handovers)
+
+- [旅行固有の最終preflightチェックリスト](issues.md#issue-final-preflight)
+
 ### 注意・メモ
 
 - 固定交通は予約済みのぞみ288号（名古屋06:28→東京08:03）。
@@ -83,9 +91,19 @@
 
 ### 日程リスク
 
-- [龍泊ラインの通行・災害状況](issues.md#issue-ryuhyo-road-condition)
+- [9/24 龍泊ライン日の実運用](issues.md#issue-ryuhyo-day-operation)
 
-- [竜飛の宿泊確保](issues.md#issue-tappi-lodging)
+- [竜飛泊の宿泊成立性](issues.md#issue-tappi-lodging)
+
+- [全日程の補給ポイント](issues.md#issue-resupply-points)
+
+- [自転車ルート上の重大な道路リスク](issues.md#issue-ryuhyo-road-condition)
+
+- [悪天候・交通障害時の強い体験を残すfallback](issues.md#issue-weather-fallbacks)
+
+- [予約・事前手配一覧の確定](issues.md#issue-booking-handovers)
+
+- [旅行固有の最終preflightチェックリスト](issues.md#issue-final-preflight)
 
 ### 注意・メモ
 
@@ -121,9 +139,19 @@
 
 ### 日程リスク
 
-- [奥津軽いまべつから下北への当日運行](issues.md#issue-okutsugaru-rail-operation)
+- [9/25 体験坑道から奥津軽いまべつへの接続](issues.md#issue-tappi-museum-okutsugaru-connection)
 
-- [竜飛の宿泊確保](issues.md#issue-tappi-lodging)
+- [9/25 奥津軽いまべつからむつの鉄道接続](issues.md#issue-okutsugaru-rail-operation)
+
+- [竜飛泊の宿泊成立性](issues.md#issue-tappi-lodging)
+
+- [むつ泊の宿泊位置](issues.md#issue-mutsu-lodging-location)
+
+- [悪天候・交通障害時の強い体験を残すfallback](issues.md#issue-weather-fallbacks)
+
+- [予約・事前手配一覧の確定](issues.md#issue-booking-handovers)
+
+- [旅行固有の最終preflightチェックリスト](issues.md#issue-final-preflight)
 
 ### 注意・メモ
 
@@ -154,6 +182,30 @@
 ### 余裕があれば
 
 - 奥薬研
+
+### 日程リスク
+
+- [9/26 恐山滞在を守る大間到着の成立性](issues.md#issue-osorezan-oma-feasibility)
+
+- [薬研の立寄り価値と時間配分](issues.md#issue-yagen-stop-value)
+
+- [旧大畑駅・大畑線・大間線未成線の体験構造](issues.md#issue-ohata-oma-line-experience)
+
+- [9/26 大間到着時刻の最適化](issues.md#issue-oma-arrival-timing)
+
+- [大間泊の宿泊成立性](issues.md#issue-oma-lodging)
+
+- [むつ泊の宿泊位置](issues.md#issue-mutsu-lodging-location)
+
+- [全日程の補給ポイント](issues.md#issue-resupply-points)
+
+- [自転車ルート上の重大な道路リスク](issues.md#issue-ryuhyo-road-condition)
+
+- [悪天候・交通障害時の強い体験を残すfallback](issues.md#issue-weather-fallbacks)
+
+- [予約・事前手配一覧の確定](issues.md#issue-booking-handovers)
+
+- [旅行固有の最終preflightチェックリスト](issues.md#issue-final-preflight)
 
 ### 注意・メモ
 
@@ -189,7 +241,27 @@
 
 ### 日程リスク
 
-- [大間→函館フェリーの当日運航](issues.md#issue-oma-ferry-operation)
+- [9/26 大間到着時刻の最適化](issues.md#issue-oma-arrival-timing)
+
+- [大間で現役マグロ漁業を観察できる条件](issues.md#issue-oma-tuna-fishing-observation)
+
+- [大間で食べるマグロ料理の具体化](issues.md#issue-oma-tuna-food)
+
+- [9/27 大間から函館フェリーの運航・乗船条件](issues.md#issue-oma-ferry-operation)
+
+- [大間の朝から13:40フェリーまでの時間配分](issues.md#issue-oma-morning-ferry-timeline)
+
+- [函館到着後に摩周丸を十分見学できるか](issues.md#issue-mashumaru-arrival-window)
+
+- [9/27 函館夕方から夜の終章](issues.md#issue-hakodate-evening-structure)
+
+- [大間泊の宿泊成立性](issues.md#issue-oma-lodging)
+
+- [悪天候・交通障害時の強い体験を残すfallback](issues.md#issue-weather-fallbacks)
+
+- [予約・事前手配一覧の確定](issues.md#issue-booking-handovers)
+
+- [旅行固有の最終preflightチェックリスト](issues.md#issue-final-preflight)
 
 ### 注意・メモ
 
@@ -219,7 +291,17 @@
 
 ### 日程リスク
 
-- [大間→函館フェリーの当日運航](issues.md#issue-oma-ferry-operation)
+- [9/27 大間から函館フェリーの運航・乗船条件](issues.md#issue-oma-ferry-operation)
+
+- [9/28 函館朝市と新函館北斗への接続](issues.md#issue-hakodate-market-hokuto-connection)
+
+- [9/28 新函館北斗から名古屋の帰路接続](issues.md#issue-hakodate-nagoya-return)
+
+- [悪天候・交通障害時の強い体験を残すfallback](issues.md#issue-weather-fallbacks)
+
+- [予約・事前手配一覧の確定](issues.md#issue-booking-handovers)
+
+- [旅行固有の最終preflightチェックリスト](issues.md#issue-final-preflight)
 
 ### 注意・メモ
 
@@ -253,15 +335,3 @@
 - [ ] **2026-09-25まで** — 9/25のはやぶさ24号・快速しもきたの運休および大幅遅延を確認する。（当日朝）
 
 - [ ] **2026-09-27まで** — 大間→函館フェリーの運航状況を確認する。（当日朝）
-
-## 出発前の再確認
-
-- のぞみ288号 — fact: のぞみ288号は2026-09-23に名古屋06:28発、東京08:03着で運転する。 / fact: 9月18日〜23日ののぞみ288号は全席指定席で運転する。 / fact: 予約済みであることはユーザー確認済みであり、公式時刻表からの推論ではない。
-
-- はやぶさ7号 — fact: 2026年9月のJR東日本公式時刻表には、東京08:37発のはやぶさ7号が掲載されている。 / fact: はやぶさ7号は東京08:37→新青森11:51の接続として記録した。 / inference: のぞみ288号の東京08:03着から34分を取るため、輪行袋入りロードバイクを持つ乗換として08:18発より現実的である。
-
-- リゾートしらかみ4号 — fact: リゾートしらかみ4号は新青森13:58発、五所川原15:09着で、11月30日まで運転と公式時刻表に掲載されている。 / inference: 新青森で輪行を継続する直通列車は、組立・再輪行および川部での短時間乗換を増やさず、立佞武多の館の午後滞在を確保しやすい。
-
-- はやぶさ16号 — fact: はやぶさ16号は新函館北斗09:35発、東京14:08着である。 / inference: 東京で22分を確保するこの接続は、17:00までの名古屋帰着希望ゲートを満たす。
-
-- のぞみ41号 — fact: のぞみ41号は東京14:30発、名古屋16:09着である。

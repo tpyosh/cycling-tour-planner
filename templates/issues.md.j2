@@ -18,6 +18,9 @@ Issueの正本は `issues.yaml` です。
 - **対象日:** {{ issue.related_date_display }}
 - **関連:** {{ issue.subject_names | join(' / ') }}
 - **根拠:** {{ issue.evidence | join(' / ') if issue.evidence else '—' }}
+{% if issue.dependencies %}
+- **先行Issue:** {{ issue.dependencies | join(' / ') }}
+{% endif %}
 
 {{ issue.summary }}
 
