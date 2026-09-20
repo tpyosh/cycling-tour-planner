@@ -248,14 +248,16 @@ items:
     priority: high
     category: booking
     identified_at: '2026-09-20'
-    summary: 竜飛は宿・食事選択肢が細く、9/24の在庫、夕朝食、到着後と翌朝の記念館へのアクセスは未確定である。
+    summary: 9/24の龍飛崎温泉 ホテル竜飛は予約済みで、チェックインは15:00〜20:00、翌10:00チェックアウトである。食事なしのため、9/24夕食・9/25朝食の確保と、到着後から翌朝の青函トンネル記念館への具体的な動線は未確定である。
     impact: 龍泊ライン後の宿泊と朝一の体験坑道に影響する。
     related_dates: ['2026-09-24', '2026-09-25']
     subjects: [stay.tappi, place.seikan-tunnel-museum]
     evidence: []
     dependencies: []
-    next_action: 一人利用可能な宿、在庫、食事、到着時刻、翌朝アクセスを優先確認する。
-    resolution_conditions: [到着可能で夕朝食を含む宿泊を確保する, 不成立時のPrimeへの影響を明示する]
+    next_action: 素泊まり予約に合わせて、9/24夕食・9/25朝食の選択肢と営業時間、青函トンネル記念館への朝の移動時間を確認する。
+    resolution_conditions:
+      - 20:00までのチェックインに余裕を持って到着できると確認する
+      - 素泊まりであることを前提に夕食・朝食と翌朝の記念館アクセスを確定する
     resolution: null
   - id: issue.oma-lodging
     title: 大間泊の宿泊成立性
@@ -263,14 +265,31 @@ items:
     priority: high
     category: booking
     identified_at: '2026-09-20'
-    summary: 9/26泊の在庫、夕食、翌朝の漁港、13:40フェリー港へのアクセスを満たす宿泊位置が未確定である。自転車の客室内持込は条件にしない。
+    summary: 9/26のサンホテル大間は予約済みで、チェックインは15:00〜22:00、翌10:00チェックアウトである。食事なしのため、夕食、翌朝の漁港、13:40フェリー港への具体的な動線は未確定である。自転車の客室内持込は条件にしない。
     impact: 漁業観察とフェリー乗船の両立に直接影響する。
     related_dates: ['2026-09-26', '2026-09-27']
     subjects: [stay.oma, place.oma-fishing-port, transport.oma-hakodate-1340]
     evidence: []
     dependencies: []
-    next_action: 一人利用可能な宿を漁港・港・夕食への動線と在庫で確認する。
-    resolution_conditions: ['早朝の漁港観察と13:40便へ自然に接続できる宿を確保する']
+    next_action: 素泊まり予約に合わせて、夕食、早朝の漁港観察、大間フェリーターミナルへの動線と所要を確認する。
+    resolution_conditions: ['素泊まりであることを前提に、早朝の漁港観察と13:40便へ自然に接続できる動線を確認する']
+    resolution: null
+  - id: issue.final-lodging-deferred
+    title: 9/27最終泊を直前確保する方針の実在庫
+    status: open
+    priority: medium
+    category: booking
+    identified_at: '2026-09-20'
+    summary: 9/27泊は未予約である。フェリーが通常運航なら函館を第一候補に直前確保し、函館泊が不成立なら八戸など実際に到達した都市で宿を確保するというユーザー方針である。函館・八戸の実在庫、料金、自転車の保管条件は未確認である。
+    impact: 9/27夜の滞在内容と、9/28の函館朝市・新函館北斗発の帰路が成立するかに影響する。フェリー欠航時は函館泊を前提にしない。
+    related_dates: ['2026-09-27', '2026-09-28']
+    subjects: [stay.hakodate, transport.oma-hakodate-1340, transport.hayabusa16]
+    evidence: []
+    dependencies: [issue.oma-ferry-operation, issue.hakodate-nagoya-return]
+    next_action: フェリーの当日運航と到着地を確認後、函館または実際に到達した都市の空室を確認して予約し、予約内容と翌日の帰路を更新する。
+    resolution_conditions:
+      - フェリー通常運航時は函館で、欠航などの変更時は実際に到達した都市で、9/27泊を確保する
+      - 確保先に合わせて9/28の出発地点と帰路を確認する
     resolution: null
   - id: issue.mutsu-lodging-location
     title: むつ泊の宿泊位置
@@ -278,14 +297,14 @@ items:
     priority: medium
     category: booking
     identified_at: '2026-09-20'
-    summary: 下北駅周辺またはむつ市中心部が候補だが、9/25到着後と9/26恐山への出発に最も自然な位置は未確定である。
+    summary: 9/25のむつパークホテルは予約済みで、チェックインは15:00〜23:00、翌10:00チェックアウトである。9/25の到着後と9/26の恐山への出発に対する具体的な位置・自走動線、ならびにロードバイクの駐輪場所の施設回答は未確認である。
     impact: 駅への近さだけでなく恐山を主役にする出発品質に影響する。
     related_dates: ['2026-09-25', '2026-09-26']
     subjects: [stay.mutsu, place.osorezan]
     evidence: []
     dependencies: []
-    next_action: 到着動線、朝食、恐山への自走開始で比較する。
-    resolution_conditions: [到着と恐山出発を両立する宿泊エリアを確定する]
+    next_action: 下北駅からホテル、ホテルから恐山への自走動線と所要を確認し、予約コメントで依頼した駐輪場所の回答を確認する。
+    resolution_conditions: [到着と恐山出発を両立する宿泊位置・動線を確認する, ロードバイクの駐輪場所を施設回答で確認する]
     resolution: null
   - id: issue.resupply-points
     title: 全日程の補給ポイント
@@ -338,12 +357,12 @@ items:
     priority: high
     category: booking
     identified_at: '2026-09-20'
-    summary: のぞみ288号とはやぶさ7号は予約済みである。体験坑道、残る新幹線、フェリー、各宿泊、その他予約必須施設の要否とbooking statusは未確定である。
+    summary: のぞみ288号、はやぶさ7号、9/23のホテルサンルート五所川原、9/24の龍飛崎温泉 ホテル竜飛、9/25のむつパークホテル、9/26のサンホテル大間は予約済みである。体験坑道、残る新幹線、フェリー、9/27の最終泊、その他予約必須施設の要否とbooking statusは未確定である。最終泊は函館を第一候補に直前確保する方針である。
     impact: 主役・接続・宿泊を在庫切れで失うリスクに影響する。
     related_dates: ['2026-09-23', '2026-09-24', '2026-09-25', '2026-09-26', '2026-09-27', '2026-09-28']
-    subjects: [transport.nozomi288, transport.hayabusa7, transport.hayabusa24, transport.oma-hakodate-1340, stay.tappi, stay.mutsu, stay.oma, stay.hakodate]
+    subjects: [transport.nozomi288, transport.hayabusa7, transport.hayabusa24, transport.oma-hakodate-1340, stay.goshogawara, stay.tappi, stay.mutsu, stay.oma, stay.hakodate]
     evidence: [evidence.nozomi288-20260923]
-    dependencies: [issue.day1-tokyo-goshogawara-connection, issue.tappi-museum-okutsugaru-connection, issue.oma-ferry-operation, issue.tappi-lodging, issue.oma-lodging, issue.mutsu-lodging-location]
+    dependencies: [issue.day1-tokyo-goshogawara-connection, issue.tappi-museum-okutsugaru-connection, issue.oma-ferry-operation, issue.tappi-lodging, issue.oma-lodging, issue.final-lodging-deferred, issue.mutsu-lodging-location]
     next_action: 予約要否、受付開始、期限、現状を確認しbooking statusへ反映する。
     resolution_conditions: [予約済み・要予約・不要・未確認を対象ごとに区別する, 要予約項目の期限と未手配項目を明示する]
     resolution: null

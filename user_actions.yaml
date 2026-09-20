@@ -61,3 +61,13 @@ actions:
     related_subjects: [transport.oma-hakodate-1340]
     evidence: [evidence.oma-hakodate-20260927]
     notes: 9/27当日に津軽海峡フェリーの運航状況を確認する。欠航時は current plan の contingency.oma-ferry-cancellation を使う。
+  - id: action.final-lodging-booking
+    action: 9/27の到着地で最終泊を直前確保する
+    timing: same_day
+    deadline: '2026-09-27'
+    why_it_matters: 最終泊は未予約であり、函館泊が成立する場合は翌朝の函館発の帰路を守る。フェリー欠航などで到着地が変われば、その都市での宿泊と翌日の帰路へ切り替える必要がある。
+    dependencies: [action.oma-ferry-preflight]
+    related_issues: [issue.final-lodging-deferred]
+    related_subjects: [stay.hakodate, transport.oma-hakodate-1340, transport.hayabusa16]
+    evidence: [evidence.oma-hakodate-20260927, evidence.hakodate-nagoya-20260928]
+    notes: フェリーが通常運航なら函館を第一候補に空室を確認して予約する。函館泊が不成立なら、八戸など実際に到達した都市で宿を確保し、翌9/28の出発地点・交通をその場で確認する。函館・八戸の実在庫、料金、自転車の保管条件は未確認である。

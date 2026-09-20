@@ -42,7 +42,9 @@ def test_rendering_is_deterministic(repo_copy: Path) -> None:
     after = {path.name: path.read_bytes() for path in paths}
     assert before == after
     assert "# " in (repo_copy / "docs" / "itinerary.md").read_text(encoding="utf-8")
-    assert "宿泊調査は未着手" in (repo_copy / "docs" / "lodging-calls.md").read_text(encoding="utf-8")
+    lodging_calls = (repo_copy / "docs" / "lodging-calls.md").read_text(encoding="utf-8")
+    assert "ホテルサンルート五所川原" in lodging_calls
+    assert "予約済み" in lodging_calls
     dashboard = (repo_copy / "docs" / "user-actions.md").read_text(encoding="utf-8")
     assert "# User Action Dashboard" in dashboard
     assert "完了済み" not in dashboard

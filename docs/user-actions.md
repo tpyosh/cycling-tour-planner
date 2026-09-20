@@ -52,6 +52,8 @@
 
 | 大間→函館フェリーの運航状況を確認する | 9/27まで | 欠航・遅延は函館泊と帰路を変えるため、当日判断が必要である。 | 津軽海峡フェリー 大間→函館 9便 |
 
+| 9/27の到着地で最終泊を直前確保する | 9/27まで | 最終泊は未予約であり、函館泊が成立する場合は翌朝の函館発の帰路を守る。フェリー欠航などで到着地が変われば、その都市での宿泊と翌日の帰路へ切り替える必要がある。 | 函館 / 津軽海峡フェリー 大間→函館 9便 / はやぶさ16号 |
+
 ### 9/23 新青森→川部→五所川原の運行状況を確認する
 
 - **ID:** `action.day1-rail-preflight`
@@ -72,3 +74,11 @@
 - **関連Issue:** issue.oma-ferry-operation
 - **根拠:** [函館〜大間航路 時刻表・運賃、予約、乗船手続き、スマートチェックイン、インターネット予約・空席照会、割引案内](https://www.tsugarukaikyo.co.jp/service/timetable/hakodate-oma/)
 - **メモ:** 9/27当日に津軽海峡フェリーの運航状況を確認する。欠航時は current plan の contingency.oma-ferry-cancellation を使う。
+
+### 9/27の到着地で最終泊を直前確保する
+
+- **ID:** `action.final-lodging-booking`
+- **依存:** action.oma-ferry-preflight
+- **関連Issue:** issue.final-lodging-deferred
+- **根拠:** [函館〜大間航路 時刻表・運賃、予約、乗船手続き、スマートチェックイン、インターネット予約・空席照会、割引案内](https://www.tsugarukaikyo.co.jp/service/timetable/hakodate-oma/) / [JR東日本 時刻表 はやぶさ16号](https://timetables.jreast.co.jp/2609/train/030/033663.html)
+- **メモ:** フェリーが通常運航なら函館を第一候補に空室を確認して予約する。函館泊が不成立なら、八戸など実際に到達した都市で宿を確保し、翌9/28の出発地点・交通をその場で確認する。函館・八戸の実在庫、料金、自転車の保管条件は未確認である。

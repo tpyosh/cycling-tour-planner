@@ -254,6 +254,14 @@ def validate_repository(root: Path) -> list[str]:
                 or result["called_at"] is not None
             ):
                 errors.append(f"ERROR research/lodging.yaml {key}: pending check claims a result")
+            booking = candidate.get("booking")
+            if candidate["status"] == "booked" and not booking:
+                errors.append(f"ERROR research/lodging.yaml {key}: booked candidate requires booking details")
+            if booking:
+                if candidate["status"] != "booked":
+                    errors.append(f"ERROR research/lodging.yaml {key}: booking details require booked status")
+                if booking["checkin_date"] != search["date"] or booking["checkout_date"] != search["checkout_date"]:
+                    errors.append(f"ERROR research/lodging.yaml {key}: booking dates differ from stay search")
         if priorities != list(range(1, len(priorities) + 1)):
             errors.append(f"ERROR research/lodging.yaml {search['date']}: priorities must be consecutive")
     return errors

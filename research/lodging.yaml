@@ -1,9 +1,9 @@
 schema_version: 1
-checked_at: null
+checked_at: '2026-09-20'
 traveler:
   adults: 1
   rooms: 1
-  bicycles: 0
+  bicycles: 1
 policy:
   web_available: 指定条件で予約可能なプランを確認できた
   explicit_web_unavailable: 指定条件で満室または販売終了が明示されている
@@ -12,6 +12,207 @@ policy:
   rules:
     - 検索結果がないだけで満室と判定しない
     - 電話確認前の空室、料金、条件は未確認のままにする
-stay_searches: []
+stay_searches:
+  - date: '2026-09-23'
+    checkout_date: '2026-09-24'
+    preferred_area_ref: stay.goshogawara
+    fallback_area_refs: []
+    call_order_area_refs: [stay.goshogawara]
+    purpose: 立佞武多の館の見学後に泊まり、9/24の津軽半島自走を五所川原から開始する。
+    meal_priority: 食事なしで予約済み。夕食・朝食は別途行程内で確保する。
+    candidates:
+      - candidate_key: hotel-sunroute-goshogawara-20260923
+        name: ホテルサンルート五所川原
+        area_ref: stay.goshogawara
+        accommodation_type: hotel
+        availability_class: web_available
+        status: booked
+        static_facts:
+          - ユーザー提供の予約内容では電話番号は0173-34-8811。
+        location_fit: 9/23の五所川原泊を確定し、翌朝は五所川原から自走を開始できる。
+        sources: []
+        phone_check:
+          required: false
+          priority: 1
+          status: skipped
+          phone: '0173-34-8811'
+          reception_hours: null
+          target_plan: 予約済みのため、宿泊可否の確認は不要。
+          alternative_plans: []
+          questions: []
+          result:
+            availability: available
+            total_price_yen: null
+            meals: 食事なし
+            payment: オンラインカード決済
+            bicycle_storage: null
+            checkin_deadline: '24:00'
+            cancellation: null
+            called_at: null
+            notes:
+              - 予約済みの現在状態は booking を正とする。
+        booking:
+          status: booked
+          checkin_date: '2026-09-23'
+          checkout_date: '2026-09-24'
+          room: シングル1 喫煙（シングル）
+          meals: 食事なし
+          payment: オンラインカード決済
+          checkin_window: '14:00〜24:00'
+          checkout_time: '11:00'
+          notes:
+            - WEBプラン（食事なし）。
+            - 料金・キャンセル条件・自転車の保管条件は未確認。
+  - date: '2026-09-24'
+    checkout_date: '2026-09-25'
+    preferred_area_ref: stay.tappi
+    fallback_area_refs: []
+    call_order_area_refs: [stay.tappi]
+    purpose: 龍泊ライン自走後に竜飛で泊まり、9/25朝の青函トンネル記念館へつなぐ。
+    meal_priority: 食事なしで予約済み。9/24夕食と9/25朝食は別途行程内で確保する。
+    candidates:
+      - candidate_key: hotel-tappi-20260924
+        name: 龍飛崎温泉 ホテル竜飛
+        area_ref: stay.tappi
+        accommodation_type: hotel
+        availability_class: web_available
+        status: booked
+        static_facts:
+          - ユーザー提供の予約内容では電話番号は0174-38-2011。
+        location_fit: 9/24の竜飛泊を確定し、9/25朝は青函トンネル記念館へ向かえる位置に泊まる。
+        sources: []
+        phone_check:
+          required: false
+          priority: 1
+          status: skipped
+          phone: '0174-38-2011'
+          reception_hours: null
+          target_plan: 予約済みのため、宿泊可否の確認は不要。
+          alternative_plans: []
+          questions: []
+          result:
+            availability: available
+            total_price_yen: null
+            meals: 食事なし
+            payment: オンラインカード決済
+            bicycle_storage: null
+            checkin_deadline: '20:00'
+            cancellation: null
+            called_at: null
+            notes:
+              - 予約済みの現在状態は booking を正とする。
+        booking:
+          status: booked
+          checkin_date: '2026-09-24'
+          checkout_date: '2026-09-25'
+          room: ビジネスタイプのシングルルームA（眺望指定なし・禁煙）
+          meals: 食事なし
+          payment: オンラインカード決済（カード決済日 2026-09-25）
+          checkin_window: '15:00〜20:00'
+          checkout_time: '10:00'
+          notes:
+            - 津軽半島最北端の宿！気軽に宿泊・温泉満喫 素泊まりプラン＜No.002＞。
+            - 料金・キャンセル条件・自転車の保管条件は未確認。
+  - date: '2026-09-25'
+    checkout_date: '2026-09-26'
+    preferred_area_ref: stay.mutsu
+    fallback_area_refs: []
+    call_order_area_refs: [stay.mutsu]
+    purpose: 下北への輪行転場後に泊まり、9/26は恐山へ自走する。
+    meal_priority: 食事なしで予約済み。9/25夕食と9/26朝食は別途行程内で確保する。
+    candidates:
+      - candidate_key: mutsu-park-hotel-20260925
+        name: むつパークホテル
+        area_ref: stay.mutsu
+        accommodation_type: hotel
+        availability_class: web_available
+        status: booked
+        static_facts:
+          - ユーザー提供の予約内容では電話番号は0175-22-0089。
+        location_fit: 9/25のむつ泊を確定し、9/26は恐山への自走を開始できる。
+        sources: []
+        phone_check:
+          required: false
+          priority: 1
+          status: skipped
+          phone: '0175-22-0089'
+          reception_hours: null
+          target_plan: 予約済みのため、宿泊可否の確認は不要。
+          alternative_plans: []
+          questions: []
+          result:
+            availability: available
+            total_price_yen: null
+            meals: 食事なし
+            payment: オンラインカード決済
+            bicycle_storage: 要望を予約コメントへ記載済み。施設からの駐輪場所の回答は未確認。
+            checkin_deadline: '23:00'
+            cancellation: null
+            called_at: null
+            notes:
+              - 予約済みの現在状態は booking を正とする。
+        booking:
+          status: booked
+          checkin_date: '2026-09-25'
+          checkout_date: '2026-09-26'
+          room: エコノミーシングル（Aタイプ・禁煙）
+          meals: 食事なし
+          payment: オンラインカード決済（カード決済日 2026-09-26）
+          checkin_window: '15:00〜23:00'
+          checkout_time: '10:00'
+          notes:
+            - 素泊りプラン。
+            - 予約コメントで、ロードバイクを防犯上なるべく安全な場所に駐輪したい旨を施設へ伝達済み。
+            - 駐輪場所の回答、料金・キャンセル条件は未確認。
+  - date: '2026-09-26'
+    checkout_date: '2026-09-27'
+    preferred_area_ref: stay.oma
+    fallback_area_refs: []
+    call_order_area_refs: [stay.oma]
+    purpose: 恐山から大間までの自走後に泊まり、翌朝の漁港観察と13:40の函館行きフェリーへつなぐ。
+    meal_priority: 食事なしで予約済み。9/26夕食と9/27朝食は別途行程内で確保する。
+    candidates:
+      - candidate_key: sun-hotel-oma-20260926
+        name: サンホテル大間
+        area_ref: stay.oma
+        accommodation_type: hotel
+        availability_class: web_available
+        status: booked
+        static_facts:
+          - ユーザー提供の予約内容では電話番号は0175-37-2001。
+        location_fit: 9/26の大間泊を確定し、9/27朝の漁港観察と大間港13:40発フェリーへつなぐ。
+        sources: []
+        phone_check:
+          required: false
+          priority: 1
+          status: skipped
+          phone: '0175-37-2001'
+          reception_hours: null
+          target_plan: 予約済みのため、宿泊可否の確認は不要。
+          alternative_plans: []
+          questions: []
+          result:
+            availability: available
+            total_price_yen: null
+            meals: 食事なし
+            payment: オンラインカード決済
+            bicycle_storage: null
+            checkin_deadline: '22:00'
+            cancellation: null
+            called_at: null
+            notes:
+              - 予約済みの現在状態は booking を正とする。
+        booking:
+          status: booked
+          checkin_date: '2026-09-26'
+          checkout_date: '2026-09-27'
+          room: 禁煙スタンダードシングル（B・T付）
+          meals: 食事なし
+          payment: オンラインカード決済（カード決済日 2026-09-27）
+          checkin_window: '15:00〜22:00'
+          checkout_time: '10:00'
+          notes:
+            - 【海遊亭でお食事の方限定！ドリンク一杯サービス】チェックイン22時までOK！素泊まりプラン。
+            - 料金・キャンセル条件・自転車の保管条件は未確認。
 explicit_web_unavailable: []
 common_phone_questions: []

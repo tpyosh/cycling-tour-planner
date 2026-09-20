@@ -27,11 +27,18 @@
 {% for candidate in search.candidates %}
 ### {{ candidate.phone_check.priority }}. {{ candidate.name }}
 
-- [ ] 確認済み
+- {% if candidate.status == 'booked' %}予約済み{% else %}[ ] 確認済み{% endif %}
 - **電話:** {{ candidate.phone_check.phone }}{% if candidate.phone_check.reception_hours %}（受付 {{ candidate.phone_check.reception_hours }}）{% endif %}
 - **判定:** `{{ candidate.availability_class }}` / `{{ candidate.status }}` / `{{ candidate.phone_check.status }}`
 - **第一希望:** {{ candidate.phone_check.target_plan }}
 - **旅程との相性:** {{ candidate.location_fit }}
+{% if candidate.booking is defined %}
+- **予約内容:** {{ candidate.booking.checkin_date }} チェックイン → {{ candidate.booking.checkout_date }} チェックアウト / {{ candidate.booking.room }} / {{ candidate.booking.meals }} / {{ candidate.booking.payment }}
+- **利用時間:** チェックイン {{ candidate.booking.checkin_window }} / チェックアウト {{ candidate.booking.checkout_time }}
+{% for note in candidate.booking.notes %}
+- **予約メモ:** {{ note }}
+{% endfor %}
+{% endif %}
 {% if candidate.phone_check.questions %}
 - **追加確認:** {{ candidate.phone_check.questions | join(' / ') }}
 {% endif %}

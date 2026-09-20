@@ -76,11 +76,27 @@
         "area_ref": {"type": "string", "pattern": "^stay\\.[a-z0-9][a-z0-9-]*$"},
         "accommodation_type": {"enum": ["business_hotel", "business_ryokan", "hotel", "ryokan", "onsen_ryokan", "minshuku", "hostel", "campground", "other"]},
         "availability_class": {"enum": ["web_available", "explicit_web_unavailable", "phone_required", "single_occupancy_phone_check"]},
-        "status": {"enum": ["available", "unavailable", "availability_unknown"]},
+        "status": {"enum": ["available", "booked", "unavailable", "availability_unknown"]},
         "static_facts": {"type": "array", "items": {"type": "string", "minLength": 1}},
         "location_fit": {"type": "string", "minLength": 1},
         "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}},
-        "phone_check": {"$ref": "#/$defs/phoneCheck"}
+        "phone_check": {"$ref": "#/$defs/phoneCheck"},
+        "booking": {"$ref": "#/$defs/booking"}
+      }
+    },
+    "booking": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "checkin_date", "checkout_date", "room", "meals", "payment", "checkin_window", "checkout_time", "notes"],
+      "properties": {
+        "status": {"enum": ["booked"]},
+        "checkin_date": {"type": "string", "format": "date"},
+        "checkout_date": {"type": "string", "format": "date"},
+        "room": {"type": "string", "minLength": 1},
+        "meals": {"type": "string", "minLength": 1},
+        "payment": {"type": "string", "minLength": 1},
+        "checkin_window": {"type": "string", "minLength": 1},
+        "checkout_time": {"type": "string", "minLength": 1},
+        "notes": {"type": "array", "items": {"type": "string", "minLength": 1}}
       }
     },
     "search": {

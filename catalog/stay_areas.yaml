@@ -5,28 +5,28 @@ items:
     status: shortlisted
     accommodation: {availability: medium, typical_types: [ホテル, 旅館]}
     logistics: {food_options: medium, railway_access: high}
-    description: 9/23の立佞武多の館と9/24の津軽半島自走の開始地。
+    description: 9/23の立佞武多の館と9/24の津軽半島自走の開始地。ホテルサンルート五所川原を9/23泊で予約済み。
   - id: stay.tappi
     name: 竜飛
     status: shortlisted
     accommodation: {availability: low, typical_types: [旅館, 民宿]}
     logistics: {food_options: low, railway_access: low}
-    description: 龍泊ラインの終点かつ青函トンネル体験の前泊地。宿泊選択肢が最も細く、予約優先度が高い。
+    description: 龍泊ラインの終点かつ青函トンネル体験の前泊地。龍飛崎温泉 ホテル竜飛を9/24泊で予約済み。
   - id: stay.mutsu
     name: むつ
     status: shortlisted
     accommodation: {availability: high, typical_types: [ホテル, 旅館]}
     logistics: {food_options: high, railway_access: high}
-    description: 9/25の鉄道転場後に泊まり、9/26は朝食後に恐山へ向かう。
+    description: 9/25の鉄道転場後に泊まり、9/26は朝食後に恐山へ向かう。むつパークホテルを9/25泊で予約済み。
   - id: stay.oma
     name: 大間
     status: shortlisted
     accommodation: {availability: medium, typical_types: [ホテル, 旅館, 民宿]}
     logistics: {food_options: medium, railway_access: low}
-    description: 翌朝の現役マグロ漁業を6:30頃から使うための前泊地。
+    description: 翌朝の現役マグロ漁業を6:30頃から使うための前泊地。サンホテル大間を9/26泊で予約済み。
   - id: stay.hakodate
     name: 函館
     status: shortlisted
     accommodation: {availability: high, typical_types: [ホテル, 旅館, ホステル]}
     logistics: {food_options: high, railway_access: high}
-    description: 摩周丸と夜の函館の後に泊まり、翌朝は朝市から帰路へつなぐ。
+    description: 摩周丸と夜の函館の後に泊まり、翌朝は朝市から帰路へつなぐ第一候補。9/27泊は未予約で、フェリー通常運航を確認後に直前確保する方針。
