@@ -14,14 +14,14 @@ Issueの正本は `issues.yaml` です。
 - **状態・優先度:** 未着手 / 高
 - **検出日:** 9/20
 - **対象日:** 9/23
-- **関連:** のぞみ288号 / はやぶさ7号 / リゾートしらかみ4号 / 立佞武多の館 / 五所川原
-- **根拠:** evidence.nozomi288-20260923 / evidence.tohoku-connection-20260923 / evidence.resort-shirakami4-20260923
+- **関連:** のぞみ288号 / はやぶさ7号 / 奥羽本線（弘前行） / 五能線（深浦行） / 立佞武多の館 / 五所川原
+- **根拠:** evidence.nozomi288-20260923 / evidence.tohoku-connection-20260923 / evidence.ouu-shin-aomori-kawabe-20260923 / evidence.gono-kawabe-goshogawara-20260923 / evidence.tachineputa-operation-20260923
 
-のぞみ288号08:03東京着、候補のはやぶさ7号08:37発とリゾートしらかみ4号15:09五所川原着は記録済みだが、輪行を含む乗換と立佞武多の館・宿泊までの実運用は未確定である。
+のぞみ288号08:03東京着後、はやぶさ7号08:37→11:51、新青森12:20→川部12:49、川部12:56→五所川原13:24の接続を採用する。五所川原13:24着後は13:45頃から立佞武多の館を約2時間見学し、16:00頃から宿へ向かう。立佞武多の館の9:00〜19:00の営業時間内に収まる。
 
 **影響:** 初日の主役を十分に見学できるかと翌日の準備に影響する。
 
-**次の確認:** 公式時刻表、駅構内導線、輪行の乗換余裕、入館条件を一体で確認する。
+**次の確認:** 当日朝にJRの運行情報を確認し、新青森12:20発→川部12:49着から五能線12:56発へ、輪行袋を携えたまま乗り継げるホーム導線を確認する。
 
 #### 解決条件
 
@@ -485,7 +485,7 @@ Issueの正本は `issues.yaml` です。
 
 - **先行Issue:** issue.day1-tokyo-goshogawara-connection / issue.tappi-museum-okutsugaru-connection / issue.oma-ferry-operation / issue.tappi-lodging / issue.oma-lodging / issue.mutsu-lodging-location
 
-のぞみ288号のみ予約済みである。体験坑道、新幹線、フェリー、各宿泊、その他予約必須施設の要否とbooking statusは未確定である。
+のぞみ288号とはやぶさ7号は予約済みである。体験坑道、残る新幹線、フェリー、各宿泊、その他予約必須施設の要否とbooking statusは未確定である。
 
 **影響:** 主役・接続・宿泊を在庫切れで失うリスクに影響する。
 

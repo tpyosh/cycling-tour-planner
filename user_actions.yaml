@@ -1,6 +1,16 @@
 schema_version: 1
 # 未完了のUser Actionだけを置く。完了時はこのファイルから削除し、現在の状態を各正本へ反映する。
 actions:
+  - id: action.day1-rail-preflight
+    action: 9/23 新青森→川部→五所川原の運行状況を確認する
+    timing: same_day
+    deadline: '2026-09-23'
+    why_it_matters: 川部での乗換時間は7分であり、運休・大幅遅延があると立佞武多の館の見学開始時刻に影響する。
+    dependencies: []
+    related_issues: [issue.day1-tokyo-goshogawara-connection]
+    related_subjects: [transport.ouu-shin-aomori-kawabe, transport.gono-kawabe-goshogawara]
+    evidence: [evidence.ouu-shin-aomori-kawabe-20260923, evidence.gono-kawabe-goshogawara-20260923]
+    notes: 当日朝にJRの運行情報を確認する。通常運行なら、新青森12:20→川部12:49、川部12:56→五所川原13:24で移動する。
   - id: action.oma-ferry-booking
     action: 9/27 大間13:40→函館15:10を自転車の輪行を含めて予約する
     timing: do_now

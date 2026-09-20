@@ -19,6 +19,7 @@ items:
     claims:
       - 'fact: 2026年9月のJR東日本公式時刻表には、東京08:37発のはやぶさ7号が掲載されている。'
       - 'fact: はやぶさ7号は東京08:37→新青森11:51の接続として記録した。'
+      - 'fact: 予約済みであることはユーザー確認済みであり、公式時刻表からの推論ではない。'
       - 'inference: のぞみ288号の東京08:03着から34分を取るため、輪行袋入りロードバイクを持つ乗換として08:18発より現実的である。'
     volatility: medium
     recheck_before_trip: true
@@ -26,18 +27,47 @@ items:
       type: 公式時刻表
       title: JR東日本 東北・山形・秋田・北海道新幹線 下り
       url: https://timetables.jreast.co.jp/2609/timetable-v/003d2p.html
-  - id: evidence.resort-shirakami4-20260923
-    subject: transport.resort-shirakami4
+  - id: evidence.ouu-shin-aomori-kawabe-20260923
+    subject: transport.ouu-shin-aomori-kawabe
     checked_at: '2026-09-20'
     claims:
-      - 'fact: リゾートしらかみ4号は新青森13:58発、五所川原15:09着で、11月30日まで運転と公式時刻表に掲載されている。'
-      - 'inference: 新青森で輪行を継続する直通列車は、組立・再輪行および川部での短時間乗換を増やさず、立佞武多の館の午後滞在を確保しやすい。'
+      - 'fact: 2026-09-23の新青森駅奥羽本線時刻表には、弘前行の12:20発が掲載されている。'
+      - 'fact: ユーザー確認の経路では、この列車は新青森12:20発→川部12:49着である。'
     volatility: medium
     recheck_before_trip: true
     source:
       type: 公式時刻表
-      title: JR東日本 時刻表 リゾートしらかみ4号
-      url: https://timetables.jreast.co.jp/2609/train/020/022941.html
+      title: JR東日本 時刻表 新青森駅 奥羽本線 弘前・東能代方面
+      url: https://timetables.jreast.co.jp/2609/timetable/tt0854/0854020.html
+  - id: evidence.gono-kawabe-goshogawara-20260923
+    subject: transport.gono-kawabe-goshogawara
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: 2026-09-23の川部駅五能線時刻表には、深浦行の12:56発が掲載されている。'
+      - 'fact: ユーザー確認の経路では、この列車は川部12:56発→五所川原13:24着である。'
+    volatility: medium
+    recheck_before_trip: true
+    source:
+      type: 公式時刻表
+      title: JR東日本 時刻表 川部駅 五能線 五所川原・鰺ケ沢方面
+      url: https://timetables.jreast.co.jp/2609/timetable/tt0534/0534030.html
+  - id: evidence.tachineputa-operation-20260923
+    subject: place.tachineputa
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: 立佞武多の館は4月〜9月は9:00〜19:00に営業すると五所川原市が案内している。'
+      - 'inference: 五所川原13:24着後に13:45頃から見学を始める予定は、営業時間内に成立する。'
+    volatility: medium
+    recheck_before_trip: true
+    date_windows:
+      - date: '2026-09-23'
+        windows:
+          - start: '09:00'
+            end: '19:00'
+    source:
+      type: 公式施設案内
+      title: 五所川原市 立佞武多の館
+      url: https://www.city.goshogawara.lg.jp/tourism/view/tachineputanoyakata.html
   - id: evidence.okutsugaru-shimokita-20260925
     subject: transport.hayabusa24
     checked_at: '2026-09-20'

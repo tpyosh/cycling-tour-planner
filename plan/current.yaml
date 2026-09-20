@@ -9,17 +9,18 @@ days:
     finish: 五所川原
     self_riding: {distance_km: {min: 0, max: 0}}
     routes: []
-    transport: [transport.nozomi288, transport.hayabusa7, transport.resort-shirakami4]
+    transport: [transport.nozomi288, transport.hayabusa7, transport.ouu-shin-aomori-kawabe, transport.gono-kawabe-goshogawara]
     transport_alternatives: []
     visits: [place.tachineputa]
     optional_visits: []
     food: []
     stay: {preferred: [stay.goshogawara], fallback: []}
     notes:
-      - 固定交通は予約済みのぞみ288号（名古屋06:28→東京08:03）。
-      - はやぶさ7号は東京08:37→新青森11:51。輪行袋入りロードバイクでの乗換余裕を優先し、08:18発の短時間接続は採用しない。
-      - 新青森では輪行を継続し、直通のリゾートしらかみ4号（13:58→15:09）で五所川原へ向かう。組立・再輪行や川部での短時間乗換を増やさない。
-      - 午後は立佞武多の館を主役とし、到着日の密度を上げる弱い施設は追加しない。
+      - 固定交通は予約済みのぞみ288号（名古屋06:28→東京08:03）とはやぶさ7号（東京08:37→新青森11:51）。
+      - はやぶさ7号は、輪行袋入りロードバイクでの乗換余裕を優先し、08:18発の短時間接続は採用しない。
+      - 新青森12:20発の奥羽本線（弘前行）で川部12:49着、川部12:56発の五能線（深浦行）で五所川原13:24着。自転車は輪行袋に入れたまま乗り継ぐ。
+      - 五所川原13:24着後は13:45頃から立佞武多の館を見学し、約2時間を確保する。館は9:00〜19:00のため営業時間内に収まる。
+      - 見学後は16:00頃から宿へ向かい、チェックインと翌日の自走準備に充てる。到着日の主役以外のスポット、食事、自走区間は追加しない。
   - date: '2026-09-24'
     start: 五所川原
     finish: 竜飛
