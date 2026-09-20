@@ -158,29 +158,33 @@ items:
     priority: high
     category: booking
     identified_at: '2026-09-20'
-    summary: 9/24以降の通常ダイヤで大函丸9便の大間13:40発→函館15:10着を確認した。自転車の輪行は電話・インターネットで事前予約可能で、9/27はB期間の通常運賃が旅客2,980円＋自転車特殊手荷物1,040円である。予約取得はUser Actionとして残し、当日の欠航・遅延はPreflightで扱う。
+    summary: 9/24以降の通常ダイヤで大函丸9便の大間13:40発→函館15:10着を確認した。自転車の輪行は電話・インターネットで事前予約可能で、9/27はB期間の通常運賃が旅客2,980円＋自転車特殊手荷物1,040円である。このIssueは第9便の運航・乗船条件だけを確認済みとし、第5便と第9便の選択は issue.oma-morning-ferry-timeline で別途扱う。
     impact: 函館泊と帰路、および大間の午前行動に直接影響する。
     related_dates: ['2026-09-27', '2026-09-28']
     subjects: [transport.oma-hakodate-1340, stay.hakodate]
     evidence: [evidence.oma-hakodate-20260927]
     dependencies: [issue.hakodate-nagoya-return]
-    next_action: User Action `action.oma-ferry-booking` の完了報告を受け、交通の予約状態を現在状態として反映する。当日の運航状況は別User Actionで確認する。
+    next_action: issue.oma-morning-ferry-timeline で便を選択した後、第9便を採用する場合に限り、自転車の輪行を含む予約と当日の運航状況確認をUser Actionとして設定する。
     resolution_conditions: [通常ダイヤ上の対象便を確認する, 自転車の輪行の事前予約可否と通常運賃区分を確認する, 基本的なチェックイン方法を確認する]
-    resolution: 2026-09-27の大函丸9便（大間13:40→函館15:10）は通常ダイヤとして設定され、自転車の輪行の事前予約、通常運賃区分、事前予約・事前支払い済み時の基本的なチェックイン方法を確認した。構造的な成立性は確認済みで、予約取得のみが旅行者の未完了アクションとして残る。
+    resolution: 2026-09-27の大函丸9便（大間13:40→函館15:10）は通常ダイヤとして設定され、自転車の輪行の事前予約、通常運賃区分、事前予約・事前支払い済み時の基本的なチェックイン方法を確認した。これは第9便を選ぶ場合の運航・乗船条件の確認であり、同便を採用する決定ではない。便の選択と選択後の予約・当日運航確認は issue.oma-morning-ferry-timeline の解決後に扱う。
   - id: issue.oma-morning-ferry-timeline
-    title: 大間の朝から13:40フェリーまでの時間配分
+    title: 9/27 大間と函館の時間配分（第5便・第9便の選択）
     status: open
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: 漁港を優先し、大間崎と食事を挟み、12:40頃までに大間フェリーターミナルへ到着する候補である。この到着目標は公式の出航20分前締切ではなく、食事・観察を詰め込みすぎないための計画上の安全余裕である。各場所の適切な滞在配分は未確定である。
-    impact: 漁業を優先しながらフェリーを安全に利用できるかを左右する。
+    summary: 9/27は第5便（大間06:50→函館08:20）と第9便（大間13:40→函館15:10）のどちらも未決定である。これは便の時刻だけでなく、限られた時間を大間と函館のどちらへ配分すると旅行全体の体験価値が高くなるかを比べる課題である。現在の第9便寄りの候補行程は既定路線ではない。
+    impact: 大間に朝〜昼まで残る明確な体験がなければ、第5便で函館側の体験時間を大きく増やせる。一方、大間の漁業・港湾、マグロ、または大間崎以外の強い朝〜昼のアンカーが確認できれば、第9便を選ぶ合理性が生じる。いずれを選ぶかで9/27の主役、函館到着後の体験、食事、宿までの動線が変わる。
     related_dates: ['2026-09-27']
     subjects: [place.oma-fishing-port, place.omazaki, food.oma-maguro, transport.oma-hakodate-1340]
     evidence: []
     dependencies: [issue.oma-tuna-fishing-observation, issue.oma-tuna-food]
-    next_action: 位置、営業時間、手続締切を確認して実行可能な時系列を作る。
-    resolution_conditions: [漁港観察を優先したタイムラインを確認する, 手続へ十分な余裕を残せると確認する]
+    next_action: 前日までに大間崎・大間の主要体験をどこまで回収できるかを確認した上で、9/27朝〜昼に大間に残ることで初めて得られる具体的な行動（漁業・港湾観察、マグロ関連の見学・食事・産業観察、大間崎以外のアンカー）を、9/27（日）の営業日・営業時間・見学可能時間とともに調べる。同時に、第5便利用で函館に増える時間と、その時間で実際に行える函館側の体験を確認し、第5便・第9便の時間的・行程的トレードオフを比較する。スポット数ではなく、旅行者が現地で何を見て何をするかと滞在時間で比較する。
+    resolution_conditions:
+      - 第5便・第9便それぞれで、大間と函館に配分できる時間、移動・乗船手続、失う具体的な行動を比較する
+      - 前日夕方または早朝で回収できない、大間の朝〜昼にのみ成立する明確な体験があるかを確認する
+      - 第5便で増える函館時間に、営業時間内で実行できる具体的な体験があるかを確認する
+      - 大間に残る明確な理由があれば第9便、理由が弱ければ第5便とする根拠を示して、旅行者が最終的に便を決定する
     resolution: null
   - id: issue.mashumaru-arrival-window
     title: 函館到着後に摩周丸を十分見学できるか
@@ -188,14 +192,14 @@ items:
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: 15:10函館着の候補後に摩周丸を優先する。自走、営業時間・最終入館、必要見学時間は未確定である。
-    impact: 大間側を不自然に削らず終章の主役を十分に見られるかに影響する。
+    summary: 第5便の08:20函館着または第9便の15:10函館着のいずれになっても、摩周丸を函館側の候補として比較する。自走、営業時間・最終入館、必要見学時間と、便ごとに実際に追加できる行動は未確定である。
+    impact: 第5便で得られる函館側の時間が強い体験になるか、第9便でも終章の主役を十分に見られるかを左右する。
     related_dates: ['2026-09-27']
     subjects: [transport.oma-hakodate-1340, place.mashumaru, stay.hakodate]
     evidence: []
     dependencies: [issue.oma-ferry-operation]
-    next_action: 営業時間・最終入館・見学所要と自走動線を確認する。
-    resolution_conditions: ['15:10着から十分な見学時間を確保できると確認する', 不成立なら大間側を削らない代替を示す]
+    next_action: 営業時間・最終入館・見学所要と自走動線を確認し、第5便・第9便の到着時刻ごとに、旅行者が実際に行える見学内容と残る時間を比較する。
+    resolution_conditions: [第5便・第9便それぞれで十分な見学時間を確保できるかを確認する, 函館側の体験比較を issue.oma-morning-ferry-timeline の便選択へ渡す]
     resolution: null
   - id: issue.hakodate-evening-structure
     title: 9/27 函館夕方から夜の終章

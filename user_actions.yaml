@@ -11,16 +11,6 @@ actions:
     related_subjects: [transport.ouu-shin-aomori-kawabe, transport.gono-kawabe-goshogawara]
     evidence: [evidence.ouu-shin-aomori-kawabe-20260923, evidence.gono-kawabe-goshogawara-20260923]
     notes: 当日朝にJRの運行情報を確認する。通常運行なら、新青森12:20→川部12:49、川部12:56→五所川原13:24で移動する。
-  - id: action.oma-ferry-booking
-    action: 9/27 大間13:40→函館15:10を自転車の輪行を含めて予約する
-    timing: do_now
-    deadline: null
-    why_it_matters: Current Primeで大間から函館へ渡る唯一の主要ゲートであり、乗れなければ函館泊と9/28の帰路が成立しない。観光・食・補給の調査より優先して取得する。
-    dependencies: []
-    related_issues: [issue.oma-ferry-operation]
-    related_subjects: [transport.oma-hakodate-1340, stay.hakodate]
-    evidence: [evidence.oma-hakodate-20260927]
-    notes: 大函丸9便を自転車の輪行を含めて事前予約する。9/27はB期間で通常運賃の目安は旅客2,980円＋自転車特殊手荷物1,040円だが、Web予約・事前支払いの実際の決済額は予約画面を正とする。予約・決済後は、計画上の安全余裕として12:40頃までに大間フェリーターミナルへ到着する。運航状況の確認は9/27当日の別Actionで行う。
   - id: action.tappi-museum-booking
     action: 青函トンネル記念館の体験坑道（9/25朝一候補）を予約し、始発便の扱いを電話で確認する
     timing: do_now
@@ -51,23 +41,13 @@ actions:
     related_subjects: [transport.hayabusa24, transport.shimokita3233d]
     evidence: [evidence.okutsugaru-shimokita-20260925, evidence.shimokita3233d-20260925]
     notes: 当日朝にJRの運行情報で確認する。
-  - id: action.oma-ferry-preflight
-    action: 大間→函館フェリーの運航状況を確認する
-    timing: same_day
-    deadline: '2026-09-27'
-    why_it_matters: 欠航・遅延は函館泊と帰路を変えるため、当日判断が必要である。
-    dependencies: []
-    related_issues: [issue.oma-ferry-operation]
-    related_subjects: [transport.oma-hakodate-1340]
-    evidence: [evidence.oma-hakodate-20260927]
-    notes: 9/27当日に津軽海峡フェリーの運航状況を確認する。欠航時は current plan の contingency.oma-ferry-cancellation を使う。
   - id: action.final-lodging-booking
     action: 9/27の到着地で最終泊を直前確保する
     timing: same_day
     deadline: '2026-09-27'
     why_it_matters: 最終泊は未予約であり、函館泊が成立する場合は翌朝の函館発の帰路を守る。フェリー欠航などで到着地が変われば、その都市での宿泊と翌日の帰路へ切り替える必要がある。
-    dependencies: [action.oma-ferry-preflight]
-    related_issues: [issue.final-lodging-deferred]
-    related_subjects: [stay.hakodate, transport.oma-hakodate-1340, transport.hayabusa16]
-    evidence: [evidence.oma-hakodate-20260927, evidence.hakodate-nagoya-20260928]
-    notes: フェリーが通常運航なら函館を第一候補に空室を確認して予約する。函館泊が不成立なら、八戸など実際に到達した都市で宿を確保し、翌9/28の出発地点・交通をその場で確認する。函館・八戸の実在庫、料金、自転車の保管条件は未確認である。
+    dependencies: [issue.oma-morning-ferry-timeline]
+    related_issues: [issue.oma-morning-ferry-timeline, issue.final-lodging-deferred]
+    related_subjects: [stay.hakodate, transport.hayabusa16]
+    evidence: [evidence.hakodate-nagoya-20260928]
+    notes: 選択した便の通常運航を確認後、函館を第一候補に空室を確認して予約する。函館泊が不成立なら、八戸など実際に到達した都市で宿を確保し、翌9/28の出発地点・交通をその場で確認する。函館・八戸の実在庫、料金、自転車の保管条件は未確認である。

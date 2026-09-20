@@ -74,15 +74,14 @@ days:
     finish: 函館
     self_riding: {distance_km: {min: 0, max: 0}}
     routes: []
-    transport: [transport.oma-hakodate-1340]
+    transport: []
     transport_alternatives: []
-    visits: [place.oma-fishing-port, place.omazaki, place.mashumaru]
+    visits: []
     optional_visits: []
-    food: [food.oma-maguro]
+    food: []
     stay: {preferred: [stay.hakodate], fallback: []}
     notes:
-      - 6:30〜7:00頃から大間漁港へ。7〜9時台は現役マグロ漁業（漁船、帰港、荷揚げ、港の作業）を見る機会を優先する。水揚げは保証されないため、動きがなければ食事を挟み再度見る。
-      - 食事・観察を詰め込みすぎないよう、12:40頃までに大間フェリーターミナルへ到着する。これは公式の出航20分前締切ではなく、固定交通時刻の大函丸9便（大間13:40→函館15:10）へ向けた計画上の安全余裕である。
+      - 第5便（大間06:50→函館08:20）と第9便（大間13:40→函館15:10）の選択は未決定であり、確定行程には置かない。issue.oma-morning-ferry-timeline で、大間に朝〜昼まで残る具体的体験と、第5便で増える函館側の具体的体験を比較してから決める。現在の第9便寄りの候補を既定路線にしない。
       - 最終泊は未予約である。フェリーが通常運航なら函館を第一候補に直前確保し、フェリー欠航などで函館泊が不成立なら八戸などの実際に到達した都市で宿を確保する方針。函館・八戸の実在庫は未確認であり、確保できた宿に合わせて夜の行動を決める。
       - 函館泊が成立した場合は摩周丸を優先し、その後はベイエリア、夕食、夜の函館へ。函館山は必須にしない。
   - date: '2026-09-28'
