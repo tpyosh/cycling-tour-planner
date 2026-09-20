@@ -1,0 +1,32 @@
+<!-- GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+
+# User Action Dashboard
+
+いま旅行者自身が行う必要のある、未完了の実務だけを表示します。調査・比較・検証は [Issue一覧](issues.md) で管理します。完了したActionはここで完了表示にせず削除し、予約・利用内容などの現在状態を該当する正本へ反映します。
+
+{% if user_actions %}
+{% for timing, label in user_action_timing_groups %}
+{% set actions = user_actions | selectattr('timing', 'equalto', timing) | list %}
+{% if actions %}
+## {{ label }}
+
+| Action | 期限・推奨時期 | なぜ必要か | 関連 |
+| --- | --- | --- | --- |
+{% for item in actions %}
+| {{ item.action }} | {{ item.deadline_display }} | {{ item.why_it_matters }} | {{ item.related_names | join(' / ') }} |
+{% endfor %}
+
+{% for item in actions %}
+### {{ item.action }}
+
+- **ID:** `{{ item.id }}`
+{% if item.dependencies %}- **依存:** {{ item.dependencies | join(' / ') }}
+{% endif %}- **関連Issue:** {{ item.related_issues | join(' / ') if item.related_issues else '—' }}
+- **根拠:** {% for source in item.evidence_sources %}{% if source.url %}[{{ source.title }}]({{ source.url }}){% else %}{{ source.title }}{% endif %}{% if not loop.last %} / {% endif %}{% endfor %}{% if not item.evidence_sources %}—{% endif %}
+- **メモ:** {{ item.notes }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% else %}
+現在、未完了のUser Actionはありません。
+{% endif %}

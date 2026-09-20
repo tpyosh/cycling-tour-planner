@@ -42,7 +42,7 @@ items:
     subjects: [place.seikan-tunnel-museum, route.tappi-okutsugaru, transport.hayabusa24]
     evidence: [evidence.seikan-tunnel-museum-operation-20260925, evidence.seikan-tunnel-museum-20260925, evidence.seikan-tunnel-museum-contact-20260925, evidence.tappi-okutsugaru-rider-record-20201105, evidence.okutsugaru-shimokita-20260925]
     dependencies: [issue.tappi-lodging]
-    next_action: ユーザーが、じゃらんの集合8:50・体験9:00〜9:50枠を予約するか判断する。予約前または予約時に青函トンネル記念館（0174-38-2301）へ電話し、その予約が9:00始発便への乗車を保証するか、保証されない場合の始発便の割当方法と受付期限を確認する。出発前に、当日の運行状況、最新時刻表、道路・天候を確認し、確定した体験終了時刻から奥津軽いまべつ13:35発へ輪行完了で到着する時系列を再確認する。
+    next_action: User Action `action.tappi-museum-booking` の予約結果と施設回答を受け、確定した体験終了時刻から奥津軽いまべつ13:35発へ輪行完了で到着する時系列を検証する。出発前の運行状況、最新時刻表、道路・天候の確認は別途User Actionとして扱う。
     resolution_conditions:
       - じゃらんの「集合8:50／体験9:00〜9:50」を予約した場合に、9:00始発便への乗車が保証されるか施設から確認する
       - 保証されない場合に、始発便の割当方法と必要な受付期限を施設から確認する
@@ -164,7 +164,7 @@ items:
     subjects: [transport.oma-hakodate-1340, stay.hakodate]
     evidence: [evidence.oma-hakodate-20260927]
     dependencies: [issue.hakodate-nagoya-return]
-    next_action: 未予約なら、9/27 13:40大間→函館便を輪行で予約する。出航20分前までのチェックインを前提に、当日の運航状況はPreflightで確認する。
+    next_action: User Action `action.oma-ferry-booking` の完了報告を受け、交通の予約状態を現在状態として反映する。出航20分前までのチェックイン時刻は9/27の時系列で確認し、当日の運航状況は別User Actionとして扱う。
     resolution_conditions: ['9/27 13:40便を輪行で予約する（予約済みの場合は予約内容を確認する）', 出航20分前までにチェックインできる港到着時刻を確保する]
     resolution: null
   - id: issue.oma-morning-ferry-timeline

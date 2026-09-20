@@ -9,7 +9,7 @@ description: 国内サイクリング旅行の制約、調査済み候補、移�
 
 ## 開始条件
 
-`README.md` と、`trip.yaml`、`constraints.yaml`、`catalog/*.yaml`、`evidence/sources.yaml`、`issues.yaml`、`plan/current.yaml` を読む。複合交通、複数泊、代替案を含む設計では [references/itinerary-structure.md](references/itinerary-structure.md) も読む。
+`README.md` と、`trip.yaml`、`constraints.yaml`、`catalog/*.yaml`、`evidence/sources.yaml`、`issues.yaml`、`user_actions.yaml`、`plan/current.yaml` を読む。複合交通、複数泊、代替案を含む設計では [references/itinerary-structure.md](references/itinerary-structure.md) も読む。
 
 不足があれば、日付、人数、出発地、帰着期限、予約済み交通・宿、利用できる交通手段、荷物と自転車の条件、体力と経験、必須体験、避けたいこと、予算、食事、季節・日没・通行条件を確認する。安全や予約可否を左右しない不足は、仮定を明示して先へ進める。
 
@@ -22,6 +22,8 @@ description: 国内サイクリング旅行の制約、調査済み候補、移�
 5. 行き先の大枠を決めた後、時刻、食事、補給、入浴、荷物、チェックイン締切を詰める。
 6. 破綻しやすい接続に、発動条件つきの代替案、削る順序、代替交通、代替宿泊地を用意する。
 7. 採用は `plan/current.yaml` から安定IDを参照して表し、候補側へ重複した採用フラグを作らない。
+8. 予約・購入・最終判断・直前確認・出発準備のうち、情報がそろい旅行者自身の実行だけが残るものは `user_actions.yaml` へ追加する。調査や候補比較が先なら `issues.yaml` に残す。
+9. Actionが完了または旅程変更で不要になったら、`user_actions.yaml` から削除し、予約済みなどの現在状態を関連する正本へ反映する。完了履歴は残さない。
 
 設計途中で新しい事実確認が必要になったら `$cycling-trip-research` へ切り分ける。完成案の成立性や体験価値を独立して確かめる段階では `$cycling-trip-review` を使う。
 

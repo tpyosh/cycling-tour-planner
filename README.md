@@ -8,8 +8,8 @@
 2. `constraints.yaml` で変更できない条件と希望を分ける。
 3. `catalog/*.yaml` に候補を追加する。
 4. `plan/current.yaml` から採用する候補をIDで参照する。
-5. 調査結果は `evidence/sources.yaml`、計画上の未解決事項は `issues.yaml` に記録する。
-6. 検証後に旅行者向けMarkdownを生成する。
+5. 調査結果は `evidence/sources.yaml`、計画上の未解決事項は `issues.yaml` に記録する。旅行者自身の未完了の実務は `user_actions.yaml` に記録する。
+6. 検証後に旅行者向けMarkdownを生成し、まず [User Action Dashboard](docs/user-actions.md) でいま行うことを確認する。
 
 ```bash
 python3 -m venv .venv
@@ -29,11 +29,16 @@ python3 -m venv .venv
 - `plan/current.yaml`: 現在採用している日別計画と代替案
 - `evidence/sources.yaml`: 主張、出典、確認日、変動性、再確認要否
 - `issues.yaml`: 旅程を左右する未解決事項
+- `user_actions.yaml`: 旅行者自身が行う未完了の予約・購入・判断・直前確認・準備。生成先は [docs/user-actions.md](docs/user-actions.md)
 - `estimates/distances.yaml`: 距離の元データと計算方法
 - `research/lodging.yaml`: 宿候補と在庫確認の状態
 - `docs/`: YAMLから生成する旅行者向け資料。直接編集しない
 
 候補の調査状態と旅程への採用を混ぜません。採用は `plan/current.yaml` からの参照で表します。通常旅程と発動条件付きの代替案も分離します。
+
+`issues.yaml` はエージェントが調査・比較・計算・検証して進める項目です。`user_actions.yaml` は、必要な情報がそろった後に旅行者自身が予約、購入、最終判断、直前確認、準備をする項目です。調査待ち・採用していない案・根拠のない念のため確認はUser Actionに入れません。
+
+User Action Dashboardは履歴ではありません。完了を確認したらActionをDashboardと`user_actions.yaml`から削除し、予約済み・購入済みなどの現在状態だけを適切な交通、宿泊、旅程の正本へ反映します。完了マークや取消線、完了済みセクションは作りません。旅程変更で不要になったActionも削除します。
 
 計画履歴は同じYAMLの複製ではなくGitで残します。予約開始、主要予約完了、出発直前など、後から戻る意味がある時点だけタグまたは明示的なスナップショットを使います。
 

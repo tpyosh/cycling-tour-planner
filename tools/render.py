@@ -17,6 +17,14 @@ from validate import validate_repository
 WEEKDAYS = "月火水木金土日"
 ISSUE_STATUS_LABELS = {"open": "未着手", "in_progress": "確認中", "resolved": "解決済み", "wont_fix": "対応しない"}
 ISSUE_PRIORITY_LABELS = {"high": "高", "medium": "中", "low": "低"}
+USER_ACTION_TIMING_GROUPS = [
+    ("do_now", "今すぐ行う"),
+    ("after_decision", "判断後に行う"),
+    ("before_departure", "出発までに行う"),
+    ("day_before", "前日まで／出発前に行う"),
+    ("same_day", "当日に行う"),
+    ("blocked", "保留（依存事項の解消後に行う）"),
+]
 
 
 def short_date(value: str) -> str:
@@ -46,6 +54,7 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
     index = build_index(data)
     evidence_items = data["evidence/sources.yaml"]["items"]
     raw_issues = data["issues.yaml"]["items"]
+    evidence_by_id = {item["id"]: item for item in evidence_items}
     windows = {
         (evidence["subject"], dated["date"]): dated["windows"]
         for evidence in evidence_items
@@ -129,11 +138,17 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         lodging_searches.append(search)
 
     plan = data["plan/current.yaml"]
+    user_actions = []
+    for raw in data["user_actions.yaml"]["actions"]:
+        item = dict(raw)
+        item["related_names"] = [resolve_name(value, index) for value in item["related_subjects"]]
+        item["deadline_display"] = short_date(item["deadline"]) + "まで" if item["deadline"] else "期限未設定（{}）".format(dict(USER_ACTION_TIMING_GROUPS)[item["timing"]])
+        item["evidence_sources"] = [evidence_by_id[value]["source"] for value in item["evidence"]]
+        user_actions.append(item)
     return {
         "trip": data["trip.yaml"],
         "days": days,
         "recommendations": plan["recommendations"],
-        "pre_trip_todos": plan["pre_trip_todos"],
         "contingencies": contingencies,
         "rechecks": rechecks,
         "open_issues": [item for item in issues if item["status"] in {"open", "in_progress"}],
@@ -143,6 +158,8 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         "lodging_searches": lodging_searches,
         "lodging_common_questions": lodging["common_phone_questions"],
         "lodging_explicit_web_unavailable": lodging["explicit_web_unavailable"],
+        "user_actions": user_actions,
+        "user_action_timing_groups": USER_ACTION_TIMING_GROUPS,
     }
 
 
@@ -159,6 +176,7 @@ def render_repository(root: Path) -> None:
         ("pins.md.j2", "pins.md"),
         ("issues.md.j2", "issues.md"),
         ("lodging-calls.md.j2", "lodging-calls.md"),
+        ("user-actions.md.j2", "user-actions.md"),
     ):
         rendered = environment.get_template(template_name).render(**context)
         rendered = re.sub(r"\n{3,}", "\n\n", rendered).rstrip() + "\n"

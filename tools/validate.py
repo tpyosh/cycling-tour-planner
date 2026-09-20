@@ -118,6 +118,29 @@ def validate_repository(root: Path) -> list[str]:
         if issue["status"] in {"open", "in_progress"} and issue["resolution"]:
             errors.append(f"ERROR issues.yaml {issue_id}: open issue must not have resolution")
 
+    action_ids: set[str] = set()
+    for action in data["user_actions.yaml"]["actions"]:
+        action_id = action["id"]
+        if action_id in action_ids:
+            errors.append(f"ERROR user_actions.yaml: duplicate id: {action_id}")
+        action_ids.add(action_id)
+        for subject in action["related_subjects"]:
+            if subject not in index:
+                errors.append(f"ERROR user_actions.yaml {action_id}: unknown related subject id: {subject}")
+        for evidence_id in action["evidence"]:
+            if evidence_id not in evidence_ids:
+                errors.append(f"ERROR user_actions.yaml {action_id}: unknown evidence id: {evidence_id}")
+        for issue_id in action["related_issues"]:
+            if issue_id not in issue_ids:
+                errors.append(f"ERROR user_actions.yaml {action_id}: unknown related issue id: {issue_id}")
+        for dependency_id in action["dependencies"]:
+            if dependency_id == action_id:
+                errors.append(f"ERROR user_actions.yaml {action_id}: action cannot depend on itself")
+            elif dependency_id.startswith("issue.") and dependency_id not in issue_ids:
+                errors.append(f"ERROR user_actions.yaml {action_id}: unknown issue dependency: {dependency_id}")
+            elif dependency_id.startswith("action.") and dependency_id not in {item["id"] for item in data["user_actions.yaml"]["actions"]}:
+                errors.append(f"ERROR user_actions.yaml {action_id}: unknown action dependency: {dependency_id}")
+
     trip = data["trip.yaml"]
     plan = data["plan/current.yaml"]
     days = plan["days"]
@@ -161,6 +184,14 @@ def validate_repository(root: Path) -> list[str]:
                 errors.append(f"ERROR plan/current.yaml {contingency['id']}: unknown transport id: {ref}")
 
     days_by_date = {day["date"]: day for day in days}
+    adopted_subjects: set[str] = set()
+    for day in days:
+        adopted_subjects.update(ref for _, ref in _day_references(day) if ref in index)
+    for action in data["user_actions.yaml"]["actions"]:
+        for subject in action["related_subjects"]:
+            if subject in index and subject not in adopted_subjects:
+                errors.append(f"ERROR user_actions.yaml {action['id']}: related subject is not used by current plan: {subject}")
+
     segment_ids: set[str] = set()
     displayed_targets: set[tuple[str, str]] = set()
     for segment in data["estimates/distances.yaml"]["segments"]:

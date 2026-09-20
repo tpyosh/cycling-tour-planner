@@ -35,7 +35,7 @@ def test_terminology_check_rejects_unapproved_self_riding_wording(repo_copy: Pat
 def test_rendering_is_deterministic(repo_copy: Path) -> None:
     first = run(repo_copy, "render.py")
     assert first.returncode == 0, first.stdout + first.stderr
-    paths = [repo_copy / "docs" / name for name in ("itinerary.md", "pins.md", "issues.md", "lodging-calls.md")]
+    paths = [repo_copy / "docs" / name for name in ("itinerary.md", "pins.md", "issues.md", "lodging-calls.md", "user-actions.md")]
     before = {path.name: path.read_bytes() for path in paths}
     second = run(repo_copy, "render.py")
     assert second.returncode == 0, second.stdout + second.stderr
@@ -43,6 +43,9 @@ def test_rendering_is_deterministic(repo_copy: Path) -> None:
     assert before == after
     assert "# " in (repo_copy / "docs" / "itinerary.md").read_text(encoding="utf-8")
     assert "宿泊調査は未着手" in (repo_copy / "docs" / "lodging-calls.md").read_text(encoding="utf-8")
+    dashboard = (repo_copy / "docs" / "user-actions.md").read_text(encoding="utf-8")
+    assert "# User Action Dashboard" in dashboard
+    assert "完了済み" not in dashboard
 
 
 def test_unknown_plan_reference_fails(repo_copy: Path) -> None:

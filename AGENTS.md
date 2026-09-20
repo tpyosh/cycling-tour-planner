@@ -12,11 +12,13 @@
 - 判断が必要なら、選択肢ごとの改善点、失うもの、未確認事項を示し、ユーザーが選べる形で返す。
 - 予約、購入、電話、メッセージ送信など外部状態を変える操作は、ユーザーの明示的な依頼を受けてから行う。
 - 特定旅行の日付、地域、候補、予約、current plan、Issue、調査時点の価格・営業時間を、`AGENTS.md`、`.agents/skills/`、`.codex/`、共通スキーマ、共通ツールへ固定しない。
+- `issues.yaml` はエージェント側で進められる調査・比較・計算・検証、`user_actions.yaml` は旅行者自身の予約・購入・最終判断・直前確認・準備として扱い、混同しない。情報不足で旅行者がまだ実行できない項目はUser Actionにしない。
+- 計画を更新するたびに、User Actionの新規発生・不要化・Blocked解除・期限接近・ユーザー完了報告を確認する。完了・不要なActionはDashboardから削除し、確定事実は関連する正本へ現在状態として反映する。経緯や完了履歴をDashboardや計画本文に残さない。
 
 ## 読み始める場所
 
 1. [README.md](README.md) で正本、生成物、基本コマンドを確認する。
-2. 編集対象の `schema/*.schema.json` と既存YAMLを読む。`docs/` は生成物なので直接編集しない。
+2. 編集対象の `schema/*.schema.json` と既存YAMLを読む。User Actionを扱う場合は `user_actions.yaml` も読む。`docs/` は生成物なので直接編集しない。
 3. 作業に応じて、候補・根拠の調査は `$cycling-trip-research`、行程の作成・更新は `$cycling-itinerary-design`、成立性や体験価値の監査は `$cycling-trip-review` を使う。
 4. YAML変更後は `.venv/bin/python tools/validate.py`、旅行者向け文書を更新するときは `.venv/bin/python tools/render.py` を実行する。
 

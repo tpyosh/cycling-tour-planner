@@ -103,13 +103,6 @@
 {% endfor %}
 {% endfor %}
 
-{% if pre_trip_todos %}
-## 旅行前TODO
-{% for item in pre_trip_todos %}
-- [ ] {% if item.due_date %}**{{ item.due_date }}まで** — {% endif %}{{ item.description }}{% if item.condition %}（{{ item.condition }}）{% endif %}
-{% endfor %}
-{% endif %}
-
 {% if rechecks %}
 ## 出発前の再確認
 {% for item in rechecks %}
