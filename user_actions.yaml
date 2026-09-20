@@ -1,6 +1,16 @@
 schema_version: 1
 # 未完了のUser Actionだけを置く。完了時はこのファイルから削除し、現在の状態を各正本へ反映する。
 actions:
+  - id: action.oma-ferry-booking
+    action: 9/27 大間13:40→函館15:10を自転車の輪行を含めて予約する
+    timing: do_now
+    deadline: null
+    why_it_matters: Current Primeで大間から函館へ渡る唯一の主要ゲートであり、乗れなければ函館泊と9/28の帰路が成立しない。観光・食・補給の調査より優先して取得する。
+    dependencies: []
+    related_issues: [issue.oma-ferry-operation]
+    related_subjects: [transport.oma-hakodate-1340, stay.hakodate]
+    evidence: [evidence.oma-hakodate-20260927]
+    notes: 大函丸9便を自転車の輪行を含めて事前予約する。9/27はB期間で通常運賃の目安は旅客2,980円＋自転車特殊手荷物1,040円だが、Web予約・事前支払いの実際の決済額は予約画面を正とする。予約・決済後は、計画上の安全余裕として12:40頃までに大間フェリーターミナルへ到着する。運航状況の確認は9/27当日の別Actionで行う。
   - id: action.tappi-museum-booking
     action: 青函トンネル記念館の体験坑道（9/25朝一候補）を予約し、始発便の扱いを電話で確認する
     timing: do_now
@@ -11,16 +21,6 @@ actions:
     related_subjects: [place.seikan-tunnel-museum, transport.hayabusa24]
     evidence: [evidence.seikan-tunnel-museum-20260925, evidence.seikan-tunnel-museum-contact-20260925]
     notes: 予約前または予約時に、集合8:50・体験9:00〜9:50の予約で9:00始発便に乗れるか、保証されない場合の割当方法と受付期限を青函トンネル記念館（0174-38-2301）へ確認する。
-  - id: action.oma-ferry-booking
-    action: 9/27 13:40 大間→函館フェリーを、輪行を含めて予約する
-    timing: do_now
-    deadline: null
-    why_it_matters: 函館泊と9/28の帰路に直結する便で、輪行料金も旅客運賃とは別に必要である。
-    dependencies: []
-    related_issues: [issue.oma-ferry-operation]
-    related_subjects: [transport.oma-hakodate-1340, stay.hakodate]
-    evidence: [evidence.oma-hakodate-20260927]
-    notes: 予約・決済後も、当日は出航20分前までにチェックインできるようにする。運航状況の確認は9/27当日の別Actionで行う。
   - id: action.ryuhyo-road-preflight
     action: 龍泊ラインの道路規制・災害状況を確認する
     timing: day_before

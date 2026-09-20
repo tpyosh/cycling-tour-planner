@@ -154,31 +154,31 @@ items:
     resolution: null
   - id: issue.oma-ferry-operation
     title: 9/27 13:40大間→函館フェリーの予約・乗船条件
-    status: open
+    status: resolved
     priority: high
     category: booking
     identified_at: '2026-09-20'
-    summary: 9/24以降の通常ダイヤで大間13:40発→函館15:10着を確認した。輪行で予約可能で、事前予約・事前決済時は自動発券機を利用でき、チェックイン締切は出航20分前である。輪行料金は旅客運賃と別に必要である。便が未予約なら、輪行の予約が残件である。当日の欠航・遅延はPreflightで扱う。
+    summary: 9/24以降の通常ダイヤで大函丸9便の大間13:40発→函館15:10着を確認した。自転車の輪行は電話・インターネットで事前予約可能で、9/27はB期間の通常運賃が旅客2,980円＋自転車特殊手荷物1,040円である。予約取得はUser Actionとして残し、当日の欠航・遅延はPreflightで扱う。
     impact: 函館泊と帰路、および大間の午前行動に直接影響する。
     related_dates: ['2026-09-27', '2026-09-28']
     subjects: [transport.oma-hakodate-1340, stay.hakodate]
     evidence: [evidence.oma-hakodate-20260927]
     dependencies: [issue.hakodate-nagoya-return]
-    next_action: User Action `action.oma-ferry-booking` の完了報告を受け、交通の予約状態を現在状態として反映する。出航20分前までのチェックイン時刻は9/27の時系列で確認し、当日の運航状況は別User Actionとして扱う。
-    resolution_conditions: ['9/27 13:40便を輪行で予約する（予約済みの場合は予約内容を確認する）', 出航20分前までにチェックインできる港到着時刻を確保する]
-    resolution: null
+    next_action: User Action `action.oma-ferry-booking` の完了報告を受け、交通の予約状態を現在状態として反映する。当日の運航状況は別User Actionで確認する。
+    resolution_conditions: [通常ダイヤ上の対象便を確認する, 自転車の輪行の事前予約可否と通常運賃区分を確認する, 基本的なチェックイン方法を確認する]
+    resolution: 2026-09-27の大函丸9便（大間13:40→函館15:10）は通常ダイヤとして設定され、自転車の輪行の事前予約、通常運賃区分、事前予約・事前支払い済み時の基本的なチェックイン方法を確認した。構造的な成立性は確認済みで、予約取得のみが旅行者の未完了アクションとして残る。
   - id: issue.oma-morning-ferry-timeline
     title: 大間の朝から13:40フェリーまでの時間配分
     status: open
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: 漁港を優先し、大間崎と食事を挟み12時台前半に観光を終える候補である。各場所の適切な滞在と港への余裕は未確定である。
+    summary: 漁港を優先し、大間崎と食事を挟み、12:40頃までに大間フェリーターミナルへ到着する候補である。この到着目標は公式の出航20分前締切ではなく、食事・観察を詰め込みすぎないための計画上の安全余裕である。各場所の適切な滞在配分は未確定である。
     impact: 漁業を優先しながらフェリーを安全に利用できるかを左右する。
     related_dates: ['2026-09-27']
     subjects: [place.oma-fishing-port, place.omazaki, food.oma-maguro, transport.oma-hakodate-1340]
     evidence: []
-    dependencies: [issue.oma-tuna-fishing-observation, issue.oma-tuna-food, issue.oma-ferry-operation]
+    dependencies: [issue.oma-tuna-fishing-observation, issue.oma-tuna-food]
     next_action: 位置、営業時間、手続締切を確認して実行可能な時系列を作る。
     resolution_conditions: [漁港観察を優先したタイムラインを確認する, 手続へ十分な余裕を残せると確認する]
     resolution: null
