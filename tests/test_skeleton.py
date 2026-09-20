@@ -17,6 +17,21 @@ def test_empty_skeleton_validates(repo_copy: Path) -> None:
     assert "Validation passed." in result.stdout
 
 
+def test_terminology_is_consistent(repo_copy: Path) -> None:
+    result = run(repo_copy, "check_terminology.py")
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "Terminology validation passed." in result.stdout
+
+
+def test_terminology_check_rejects_unapproved_self_riding_wording(repo_copy: Path) -> None:
+    path = repo_copy / "constraints.yaml"
+    path.write_text(path.read_text(encoding="utf-8") + "\n# \u8d70\u884c\n", encoding="utf-8")
+
+    result = run(repo_copy, "check_terminology.py")
+    assert result.returncode == 1
+    assert "approved self_riding terminology" in result.stdout
+
+
 def test_rendering_is_deterministic(repo_copy: Path) -> None:
     first = run(repo_copy, "render.py")
     assert first.returncode == 0, first.stdout + first.stderr
@@ -48,7 +63,7 @@ def test_unknown_plan_reference_fails(repo_copy: Path) -> None:
         "date": "2030-01-01",
         "start": "出発地",
         "finish": "到着地",
-        "cycling": {"distance_km": {"min": 0, "max": 0}},
+        "self_riding": {"distance_km": {"min": 0, "max": 0}},
         "routes": [],
         "transport": [],
         "transport_alternatives": [],

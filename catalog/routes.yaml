@@ -5,7 +5,7 @@ items:
     status: shortlisted
     from: 小泊
     to: 竜飛
-    mode: bicycle
+    mode: self_riding
     distance_km: {min: 20, max: 20}
     route_value: main
     tags: [日本海沿い, 急登, ヘアピン, 眺瞰台, 津軽海峡]
@@ -15,7 +15,7 @@ items:
     status: shortlisted
     from: 龍飛
     to: 奥津軽いまべつ
-    mode: bicycle
+    mode: self_riding
     distance_km: {min: 22, max: 22}
     route_value: medium
     tags: [青函トンネル, 輪行接続]
@@ -25,7 +25,7 @@ items:
     status: shortlisted
     from: むつ
     to: 大間
-    mode: bicycle
+    mode: self_riding
     distance_km: {min: 70, max: 75}
     route_value: main
     tags: [恐山, 薬研, 旧大畑駅, 下風呂, 大間]

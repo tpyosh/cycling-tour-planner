@@ -5,7 +5,7 @@ items:
     status: shortlisted
     accommodation: {availability: medium, typical_types: [ホテル, 旅館]}
     logistics: {food_options: medium, railway_access: high}
-    description: 9/23の立佞武多の館と9/24の津軽半島走行の開始地。
+    description: 9/23の立佞武多の館と9/24の津軽半島自走の開始地。
   - id: stay.tappi
     name: 竜飛
     status: shortlisted

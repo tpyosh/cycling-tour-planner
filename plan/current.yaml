@@ -2,7 +2,7 @@ schema_version: 1
 status: working
 recommendations:
   - 現在のPrimeは五所川原→竜飛→むつ→大間→函館と前進する5泊6日案である。
-  - 固定交通時刻と、走行から置いた到着目安を区別して記録する。
+  - 固定交通時刻と、自走から置いた到着目安を区別して記録する。
 pre_trip_todos:
   - id: todo.ryuhyo-road-preflight
     description: 9/23夜または9/24出発前に、青森県「青森みち情報」で龍泊ラインの最新道路規制・災害状況を確認する。強風だけでは中止・短縮せず、通行止め、豪雨、雷、崩落、土砂災害、明確に危険な道路状態で再判断する。
@@ -20,7 +20,7 @@ days:
   - date: '2026-09-23'
     start: 名古屋
     finish: 五所川原
-    cycling: {distance_km: {min: 0, max: 0}}
+    self_riding: {distance_km: {min: 0, max: 0}}
     routes: []
     transport: [transport.nozomi288, transport.hayabusa7, transport.resort-shirakami4]
     transport_alternatives: []
@@ -36,7 +36,7 @@ days:
   - date: '2026-09-24'
     start: 五所川原
     finish: 竜飛
-    cycling: {distance_km: {min: 65, max: 70}}
+    self_riding: {distance_km: {min: 65, max: 70}}
     routes: [route.ryuhyo-line]
     transport: []
     transport_alternatives: []
@@ -46,12 +46,12 @@ days:
     stay: {preferred: [stay.tappi], fallback: []}
     notes:
       - 十三湖は湖としじみを20〜30分、小泊は昼食・補給と龍泊ラインへの切替地点として扱う。
-      - 龍泊ラインは走行自体が主目的。固定停止は七ツ滝5〜10分、眺瞰台20〜30分のみとし、展望所をチェックリスト化しない。
-      - 竜飛には走行から置く14〜15時台の到着目安とし、到着後に階段国道・龍飛崎を訪れる。
+      - 龍泊ラインは自走自体が主目的。固定停止は七ツ滝5〜10分、眺瞰台20〜30分のみとし、展望所をチェックリスト化しない。
+      - 竜飛には自走から置く14〜15時台の到着目安とし、到着後に階段国道・龍飛崎を訪れる。
   - date: '2026-09-25'
     start: 竜飛
     finish: むつ
-    cycling: {distance_km: {min: 22, max: 22}}
+    self_riding: {distance_km: {min: 22, max: 22}}
     routes: [route.tappi-okutsugaru]
     transport: [transport.hayabusa24, transport.shimokita3233d]
     transport_alternatives: []
@@ -61,12 +61,12 @@ days:
     stay: {preferred: [stay.mutsu], fallback: []}
     notes:
       - 青函トンネル記念館は9:00頃の体験坑道朝一便を想定する（予約可否は未確定）。
-      - 龍飛から青森へ自走せず、青函トンネル体験後に奥津軽いまべつまでだけ走り、輪行で下北へ転場する。
+      - 龍飛から青森へ自走せず、青函トンネル体験後に奥津軽いまべつまでだけ自走し、輪行で下北へ転場する。
       - 固定交通時刻は、はやぶさ24号 奥津軽いまべつ13:35→八戸14:15、快速しもきた 八戸15:14→下北16:47。夕方は無理に観光を詰めない。
   - date: '2026-09-26'
     start: むつ
     finish: 大間
-    cycling: {distance_km: {min: 70, max: 75}}
+    self_riding: {distance_km: {min: 70, max: 75}}
     routes: [route.osorezan-oma]
     transport: []
     transport_alternatives: []
@@ -78,11 +78,11 @@ days:
       - むつで7時頃に朝食を取り、7:45〜8:00頃に出発する目安。6時台の強制出発にはしない。
       - 恐山は9時頃到着目安で2時間〜2時間15分を確保し、むつ市街へ戻らず薬研・大畑へ北抜けする。
       - 下風呂は14時頃到着目安で1.5時間程度。大畑漁港は自然に通過観察する。
-      - 大間到着は走行から置く16:30〜17:00頃の目安。到着後に弱い港の下見は置かない。
+      - 大間到着は自走から置く16:30〜17:00頃の目安。到着後に弱い港の下見は置かない。
   - date: '2026-09-27'
     start: 大間
     finish: 函館
-    cycling: {distance_km: {min: 0, max: 0}}
+    self_riding: {distance_km: {min: 0, max: 0}}
     routes: []
     transport: [transport.oma-hakodate-1340]
     transport_alternatives: []
@@ -97,7 +97,7 @@ days:
   - date: '2026-09-28'
     start: 函館
     finish: 名古屋
-    cycling: {distance_km: {min: 0, max: 0}}
+    self_riding: {distance_km: {min: 0, max: 0}}
     routes: []
     transport: [transport.hakodate-liner-morning, transport.hayabusa16, transport.nozomi41]
     transport_alternatives: []
@@ -116,7 +116,7 @@ contingencies:
     transport: [transport.oma-hakodate-1340]
     transport_alternatives: [transport.hayabusa24, transport.shimokita3233d]
     impacts:
-      - 函館は必須にせず、大間からむつ方面へ自転車で南下する。
+      - 函館は必須にせず、大間からむつ方面へ自走で南下する。
       - 9/28は大湊線・東北新幹線経由で名古屋へ帰る退路を使う。
     unresolved:
       - 実際に発動した場合の南下距離、当日の大湊線・新幹線接続、輪行可否を当日確認する。

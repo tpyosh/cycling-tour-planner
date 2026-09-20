@@ -58,7 +58,7 @@
         "id": {"type": "string", "pattern": "^distance\\.[a-z0-9][a-z0-9-]*$"},
         "date": {"type": "string", "format": "date"},
         "origin": {"$ref": "#/$defs/origin"},
-        "mode": {"enum": ["bicycle", "walk", "car", "mixed"]},
+        "mode": {"enum": ["self_riding", "walk", "car", "mixed"]},
         "route_variant": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
         "display": {"type": "boolean"},
         "calculation": {"$ref": "#/$defs/calculation"},

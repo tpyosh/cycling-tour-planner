@@ -21,13 +21,13 @@ items:
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: 五所川原から十三湖、小泊、龍泊ラインを経て竜飛へ向かう候補の走行所要、補給、滞在配分と危険時の判断は未確定である。
-    impact: 最大級アンカーを十分に走り竜飛泊へ着けるかに影響する。
+    summary: 五所川原から十三湖、小泊、龍泊ラインを経て竜飛へ向かう候補の自走所要、補給、滞在配分と危険時の判断は未確定である。
+    impact: 最大級アンカーを十分に自走し竜飛泊へ着けるかに影響する。
     related_dates: ['2026-09-24']
     subjects: [route.ryuhyo-line, place.jusan-lake, place.komarizaki, place.nanatsutaki, place.chokandai, stay.tappi]
     evidence: []
     dependencies: [issue.tappi-lodging, issue.resupply-points]
-    next_action: 実走構造、距離・標高・所要、補給地点、十三湖・小泊の適正滞在を確認する。
+    next_action: 自走の構造、距離・標高・所要、補給地点、十三湖・小泊の適正滞在を確認する。
     resolution_conditions: [固定停止を含めても龍泊ラインへ十分な時間を残せると確認する, 明確な危険時だけ再判断する運用と補給計画を確認する]
     resolution: null
   - id: issue.tappi-museum-okutsugaru-connection
@@ -68,13 +68,13 @@ items:
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: 恐山で1.5〜2.5時間を確保し、薬研・大畑・下風呂を経て大間へ向かう候補の実走と滞在配分は未検証である。
+    summary: 恐山で1.5〜2.5時間を確保し、薬研・大畑・下風呂を経て大間へ向かう候補の自走と滞在配分は未検証である。
     impact: 恐山を短縮せず主な体験と大間泊を両立できるかを左右する。
     related_dates: ['2026-09-26']
     subjects: [route.osorezan-oma, place.osorezan, place.oyakusen, place.old-ohata-station, place.shimofuro, stay.oma]
     evidence: []
     dependencies: [issue.yagen-stop-value, issue.ohata-oma-line-experience, issue.oma-arrival-timing, issue.resupply-points, issue.ryuhyo-road-condition]
-    next_action: 各区間の実走所要を確認し、恐山滞在を保持した時系列を検証する。
+    next_action: 各区間の自走所要を確認し、恐山滞在を保持した時系列を検証する。
     resolution_conditions: [恐山を短縮せず夕方までに大間へ着けると確認する, 不成立なら弱い停車から調整する必要量を明示する]
     resolution: null
   - id: issue.yagen-stop-value
@@ -98,7 +98,7 @@ items:
     priority: medium
     category: data_quality
     identified_at: '2026-09-20'
-    summary: 現存物、公開状態、自転車で自然に見える対象と停車が必要な対象は未確定である。
+    summary: 現存物、公開状態、自走で自然に見える対象と停車が必要な対象は未確定である。
     impact: 鉄道史を珍しさだけで扱わず停車時間を配分するために必要である。
     related_dates: ['2026-09-26']
     subjects: [place.old-ohata-station, place.shimofuro, route.osorezan-oma]
@@ -158,14 +158,14 @@ items:
     priority: high
     category: booking
     identified_at: '2026-09-20'
-    summary: 9/24以降の通常ダイヤで大間13:40発→函館15:10着を確認した。自転車込みで予約可能で、事前予約・事前決済時は自動発券機を利用でき、チェックイン締切は出航20分前である。自転車運賃は旅客運賃と別に必要である。便が未予約なら、自転車込みの予約が残件である。当日の欠航・遅延はPreflightで扱う。
+    summary: 9/24以降の通常ダイヤで大間13:40発→函館15:10着を確認した。輪行で予約可能で、事前予約・事前決済時は自動発券機を利用でき、チェックイン締切は出航20分前である。輪行料金は旅客運賃と別に必要である。便が未予約なら、輪行の予約が残件である。当日の欠航・遅延はPreflightで扱う。
     impact: 函館泊と帰路、および大間の午前行動に直接影響する。
     related_dates: ['2026-09-27', '2026-09-28']
     subjects: [transport.oma-hakodate-1340, stay.hakodate]
     evidence: [evidence.oma-hakodate-20260927]
     dependencies: [issue.hakodate-nagoya-return]
-    next_action: 未予約なら、9/27 13:40大間→函館便を自転車込みで予約する。出航20分前までのチェックインを前提に、当日の運航状況はPreflightで確認する。
-    resolution_conditions: ['9/27 13:40便を自転車込みで予約する（予約済みの場合は予約内容を確認する）', 出航20分前までにチェックインできる港到着時刻を確保する]
+    next_action: 未予約なら、9/27 13:40大間→函館便を輪行で予約する。出航20分前までのチェックインを前提に、当日の運航状況はPreflightで確認する。
+    resolution_conditions: ['9/27 13:40便を輪行で予約する（予約済みの場合は予約内容を確認する）', 出航20分前までにチェックインできる港到着時刻を確保する]
     resolution: null
   - id: issue.oma-morning-ferry-timeline
     title: 大間の朝から13:40フェリーまでの時間配分
@@ -188,13 +188,13 @@ items:
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: 15:10函館着の候補後に摩周丸を優先する。自転車移動、営業時間・最終入館、必要見学時間は未確定である。
+    summary: 15:10函館着の候補後に摩周丸を優先する。自走、営業時間・最終入館、必要見学時間は未確定である。
     impact: 大間側を不自然に削らず終章の主役を十分に見られるかに影響する。
     related_dates: ['2026-09-27']
     subjects: [transport.oma-hakodate-1340, place.mashumaru, stay.hakodate]
     evidence: []
     dependencies: [issue.oma-ferry-operation]
-    next_action: 営業時間・最終入館・見学所要と自転車動線を確認する。
+    next_action: 営業時間・最終入館・見学所要と自走動線を確認する。
     resolution_conditions: ['15:10着から十分な見学時間を確保できると確認する', 不成立なら大間側を削らない代替を示す]
     resolution: null
   - id: issue.hakodate-evening-structure
@@ -284,7 +284,7 @@ items:
     subjects: [stay.mutsu, place.osorezan]
     evidence: []
     dependencies: []
-    next_action: 到着動線、朝食、恐山への自転車出発で比較する。
+    next_action: 到着動線、朝食、恐山への自走開始で比較する。
     resolution_conditions: [到着と恐山出発を両立する宿泊エリアを確定する]
     resolution: null
   - id: issue.resupply-points
@@ -303,13 +303,13 @@ items:
     resolution_conditions: [対象区間の最後の確実な補給点と次の補給点を確認する, 直前確認項目をpreflightへ渡す]
     resolution: null
   - id: issue.ryuhyo-road-condition
-    title: 9/26 下北自転車ルート上の重大な道路リスク
+    title: 9/26 下北自走ルート上の重大な道路リスク
     status: open
     priority: high
     category: safety
     identified_at: '2026-09-20'
     summary: 恐山への道路、恐山→薬研→大畑、大畑→下風呂→大間の通行止め、工事、災害復旧、自転車通行不可、重大な注意点は未確定である。9/24の龍泊ラインは通行不能を示す現時点の情報がないため、出発直前の道路規制Preflightへ移した。強風だけを機械的な中止理由にはしない。
-    impact: 9/26の主走行区間と各接続に影響する。
+    impact: 9/26の主な自走区間と各接続に影響する。
     related_dates: ['2026-09-26']
     subjects: [route.osorezan-oma]
     evidence: []

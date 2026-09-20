@@ -133,7 +133,7 @@ def validate_repository(root: Path) -> list[str]:
         errors.append("ERROR plan/current.yaml: day dates must be unique and ascending")
     for day_index, day in enumerate(days):
         day_date = day["date"]
-        distance = day["cycling"]["distance_km"]
+        distance = day["self_riding"]["distance_km"]
         if distance["min"] > distance["max"]:
             errors.append(f"ERROR plan/current.yaml day {day_date}: distance min exceeds max")
         if trip["start_date"] and not (trip["start_date"] <= day_date <= trip["end_date"]):

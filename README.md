@@ -15,6 +15,7 @@
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python tools/validate.py
+.venv/bin/python tools/check_terminology.py
 .venv/bin/python tools/check_codex_customization.py
 .venv/bin/python tools/render.py
 .venv/bin/python -m pytest -q

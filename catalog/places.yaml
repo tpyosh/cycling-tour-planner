@@ -75,7 +75,7 @@ items:
     kind: historic_site
     status: shortlisted
     map_query: 旧大畑駅
-    description: 10〜20分。実際の終着駅から、大間線未成区間へ自転車で進む連続性を観察する。
+    description: 10〜20分。実際の終着駅から、大間線未成区間へ自走で進む連続性を観察する。
     tags: [大間線, 鉄道史]
   - id: place.shimofuro
     name: 下風呂温泉・大間線未成線

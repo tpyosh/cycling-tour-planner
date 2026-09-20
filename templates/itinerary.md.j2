@@ -15,10 +15,10 @@
 ## 通常旅程
 
 {% if days %}
-| 日付 | 行程 | 自力移動 | 宿泊 | 代替 |
+| 日付 | 行程 | 自走 | 宿泊 | 代替 |
 | --- | --- | ---: | --- | --- |
 {% for day in days %}
-| {{ day.short_date }} | {{ day.start_name }} → {{ day.finish_name }} | {{ day.cycling.distance_km.min }}–{{ day.cycling.distance_km.max }} km | {{ day.preferred_names | join(' / ') if day.preferred_names else '—' }} | {{ day.fallback_names | join(' / ') if day.fallback_names else '—' }} |
+| {{ day.short_date }} | {{ day.start_name }} → {{ day.finish_name }} | {{ day.self_riding.distance_km.min }}–{{ day.self_riding.distance_km.max }} km | {{ day.preferred_names | join(' / ') if day.preferred_names else '—' }} | {{ day.fallback_names | join(' / ') if day.fallback_names else '—' }} |
 {% endfor %}
 {% else %}
 - 日程未設定。`trip.yaml`、`constraints.yaml`、`catalog/*.yaml` を整えた後、`plan/current.yaml` に日別計画を追加してください。
@@ -27,7 +27,7 @@
 {% for day in days %}
 ## {{ day.dated_heading }} {{ day.start_name }} → {{ day.finish_name }}
 
-- **自力移動:** {{ day.cycling.distance_km.min }}–{{ day.cycling.distance_km.max }} km
+- **自走:** {{ day.self_riding.distance_km.min }}–{{ day.self_riding.distance_km.max }} km
 - **宿泊:** {{ day.preferred_names | join(' / ') if day.preferred_names else 'なし' }}
 - **代替:** {{ day.fallback_names | join(' / ') if day.fallback_names else '—' }}
 
