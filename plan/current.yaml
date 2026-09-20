@@ -5,15 +5,15 @@ recommendations:
   - 固定交通時刻と、走行から置いた到着目安を区別して記録する。
 pre_trip_todos:
   - id: todo.ryuhyo-road-preflight
-    description: 龍泊ラインの道路規制・災害状況を確認する。強風だけでは中止・短縮せず、通行止め、豪雨、雷、崩落、土砂災害、明確に危険な道路状態で再判断する。
+    description: 9/23夜または9/24出発前に、青森県「青森みち情報」で龍泊ラインの最新道路規制・災害状況を確認する。強風だけでは中止・短縮せず、通行止め、豪雨、雷、崩落、土砂災害、明確に危険な道路状態で再判断する。
     due_date: '2026-09-23'
     condition: 出発直前
   - id: todo.okutsugaru-rail-preflight
-    description: 9/25のはやぶさ24号・快速しもきたの運休および大幅遅延を確認する。
+    description: 9/25朝に、JRの運行情報ではやぶさ24号・快速しもきたの運休および大幅遅延を確認する。
     due_date: '2026-09-25'
     condition: 当日朝
   - id: todo.oma-ferry-preflight
-    description: 大間→函館フェリーの運航状況を確認する。
+    description: 9/27当日に、津軽海峡フェリーの大間→函館航路の運航状況を確認する。
     due_date: '2026-09-27'
     condition: 当日朝
 days:

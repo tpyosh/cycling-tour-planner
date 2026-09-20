@@ -97,8 +97,6 @@
 
 - [全日程の補給ポイント](issues.md#issue-resupply-points)
 
-- [自転車ルート上の重大な道路リスク](issues.md#issue-ryuhyo-road-condition)
-
 - [悪天候・交通障害時の強い体験を残すfallback](issues.md#issue-weather-fallbacks)
 
 - [予約・事前手配一覧の確定](issues.md#issue-booking-handovers)
@@ -139,9 +137,7 @@
 
 ### 日程リスク
 
-- [9/25 体験坑道から奥津軽いまべつへの接続](issues.md#issue-tappi-museum-okutsugaru-connection)
-
-- [9/25 奥津軽いまべつからむつの鉄道接続](issues.md#issue-okutsugaru-rail-operation)
+- [9/25 体験坑道の朝一枠確保と奥津軽いまべつへの接続](issues.md#issue-tappi-museum-okutsugaru-connection)
 
 - [竜飛泊の宿泊成立性](issues.md#issue-tappi-lodging)
 
@@ -199,7 +195,7 @@
 
 - [全日程の補給ポイント](issues.md#issue-resupply-points)
 
-- [自転車ルート上の重大な道路リスク](issues.md#issue-ryuhyo-road-condition)
+- [9/26 下北自転車ルート上の重大な道路リスク](issues.md#issue-ryuhyo-road-condition)
 
 - [悪天候・交通障害時の強い体験を残すfallback](issues.md#issue-weather-fallbacks)
 
@@ -247,7 +243,7 @@
 
 - [大間で食べるマグロ料理の具体化](issues.md#issue-oma-tuna-food)
 
-- [9/27 大間から函館フェリーの運航・乗船条件](issues.md#issue-oma-ferry-operation)
+- [9/27 13:40大間→函館フェリーの予約・乗船条件](issues.md#issue-oma-ferry-operation)
 
 - [大間の朝から13:40フェリーまでの時間配分](issues.md#issue-oma-morning-ferry-timeline)
 
@@ -291,7 +287,7 @@
 
 ### 日程リスク
 
-- [9/27 大間から函館フェリーの運航・乗船条件](issues.md#issue-oma-ferry-operation)
+- [9/27 13:40大間→函館フェリーの予約・乗船条件](issues.md#issue-oma-ferry-operation)
 
 - [9/28 函館朝市と新函館北斗への接続](issues.md#issue-hakodate-market-hokuto-connection)
 
@@ -330,8 +326,12 @@
 
 ## 旅行前TODO
 
-- [ ] **2026-09-23まで** — 龍泊ラインの道路規制・災害状況を確認する。強風だけでは中止・短縮せず、通行止め、豪雨、雷、崩落、土砂災害、明確に危険な道路状態で再判断する。（出発直前）
+- [ ] **2026-09-23まで** — 9/23夜または9/24出発前に、青森県「青森みち情報」で龍泊ラインの最新道路規制・災害状況を確認する。強風だけでは中止・短縮せず、通行止め、豪雨、雷、崩落、土砂災害、明確に危険な道路状態で再判断する。（出発直前）
 
-- [ ] **2026-09-25まで** — 9/25のはやぶさ24号・快速しもきたの運休および大幅遅延を確認する。（当日朝）
+- [ ] **2026-09-25まで** — 9/25朝に、JRの運行情報ではやぶさ24号・快速しもきたの運休および大幅遅延を確認する。（当日朝）
 
-- [ ] **2026-09-27まで** — 大間→函館フェリーの運航状況を確認する。（当日朝）
+- [ ] **2026-09-27まで** — 9/27当日に、津軽海峡フェリーの大間→函館航路の運航状況を確認する。（当日朝）
+
+## 出発前の再確認
+
+- 快速しもきた（3233D） — fact: 快速しもきた3233Dは八戸15:14発、下北16:47着である。

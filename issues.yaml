@@ -26,40 +26,42 @@ items:
     related_dates: ['2026-09-24']
     subjects: [route.ryuhyo-line, place.jusan-lake, place.komarizaki, place.nanatsutaki, place.chokandai, stay.tappi]
     evidence: []
-    dependencies: [issue.ryuhyo-road-condition, issue.tappi-lodging, issue.resupply-points]
+    dependencies: [issue.tappi-lodging, issue.resupply-points]
     next_action: 実走構造、距離・標高・所要、補給地点、十三湖・小泊の適正滞在を確認する。
     resolution_conditions: [固定停止を含めても龍泊ラインへ十分な時間を残せると確認する, 明確な危険時だけ再判断する運用と補給計画を確認する]
     resolution: null
   - id: issue.tappi-museum-okutsugaru-connection
-    title: 9/25 体験坑道から奥津軽いまべつへの接続
+    title: 9/25 体験坑道の朝一枠確保と奥津軽いまべつへの接続
     status: open
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: 朝一の体験坑道後に竜飛から奥津軽いまべつまで走る候補である。2026年運行・予約、必要滞在、輪行準備を含む駅到着時刻は未確定である。
+    summary: 9/25はWeb予約上で日付単位の空き表示を確認したが、Primeが必要とする9:00前後の体験坑道朝一枠の有無・確保可否は未確認である。体験坑道の所要は約40分とされる。開始枠が後ろへずれるほど、奥津軽いまべつ13:35発までの自走・輪行準備の余裕を消費する。
     impact: 主役を削らず下北へ鉄道転場できるかの前提になる。
     related_dates: ['2026-09-25']
     subjects: [place.seikan-tunnel-museum, route.tappi-okutsugaru, transport.hayabusa24]
-    evidence: [evidence.okutsugaru-shimokita-20260925]
+    evidence: [evidence.seikan-tunnel-museum-20260925, evidence.okutsugaru-shimokita-20260925]
     dependencies: [issue.tappi-lodging]
-    next_action: 公式の運行・予約条件と朝一便終了時刻を確認し、滞在・自走・輪行を時系列化する。
-    resolution_conditions: [利用方法と必要滞在時間を確認する, 現実的に接続できる奥津軽いまべつ発列車を確定する]
+    next_action: 9/25の9:00前後の体験坑道枠を予約画面または施設へ確認し、確保できる場合は予約する。確定した開始時刻から、奥津軽いまべつ13:35発に輪行完了で到着する時系列を確認する。
+    resolution_conditions:
+      - 9:00前後の体験坑道朝一枠を確保する
+      - 確定した開始時刻でも奥津軽いまべつ13:35発に輪行完了で到着できると確認する
     resolution: null
   - id: issue.okutsugaru-rail-operation
     title: 9/25 奥津軽いまべつからむつの鉄道接続
-    status: open
+    status: resolved
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: 候補のはやぶさ24号と快速しもきた3233Dについて、輪行乗換、むつ到着後の時間、失敗時の代替は未確定である。
+    summary: 2026年9月の通常ダイヤで、はやぶさ24号は奥津軽いまべつ13:35発→八戸14:15着、快速しもきた3233Dは八戸15:14発→下北16:47着である。八戸の乗換時間は59分で、通常ダイヤ上の接続成立性は確認済みである。
     impact: 弱い長距離自走を避け、むつ泊と翌日の恐山起点を守れるかに影響する。
     related_dates: ['2026-09-25']
     subjects: [transport.hayabusa24, transport.shimokita3233d, stay.mutsu]
     evidence: [evidence.okutsugaru-shimokita-20260925, evidence.shimokita3233d-20260925]
     dependencies: [issue.tappi-museum-okutsugaru-connection]
-    next_action: 公式ダイヤ、八戸の輪行導線、宿までの移動、同日中の代替を確認する。
-    resolution_conditions: [輪行を含めた接続と到着時刻を確定する, 接続失敗時にも翌日の恐山起点を守れる代替を確認する]
-    resolution: null
+    next_action: 当日朝に運休・大幅遅延の有無をPreflightで確認する。奥津軽いまべつ13:35発までの自走・輪行準備は issue.tappi-museum-okutsugaru-connection で扱う。
+    resolution_conditions: [通常ダイヤ上の奥津軽いまべつ→八戸→下北の接続時刻を確認する]
+    resolution: 2026年9月の通常ダイヤで奥津軽いまべつ13:35→八戸14:15、八戸15:14→下北16:47を確認し、八戸で59分の乗換時間があるため、通常ダイヤ上の鉄道接続は成立すると整理した。当日の運休・大幅遅延はPreflightへ移した。
   - id: issue.osorezan-oma-feasibility
     title: 9/26 恐山滞在を守る大間到着の成立性
     status: open
@@ -151,19 +153,19 @@ items:
     resolution_conditions: [朝または昼の食事時刻と具体候補・代替をフェリーと両立する形で確認する]
     resolution: null
   - id: issue.oma-ferry-operation
-    title: 9/27 大間から函館フェリーの運航・乗船条件
+    title: 9/27 13:40大間→函館フェリーの予約・乗船条件
     status: open
     priority: high
     category: booking
     identified_at: '2026-09-20'
-    summary: 夏期ダイヤには13:40大間発→15:10函館着が掲載されている。運航、自転車持込、予約・締切、港への必要到着時刻、欠航時の退路は未確定である。
+    summary: 9/24以降の通常ダイヤで大間13:40発→函館15:10着を確認した。自転車込みで予約可能で、事前予約・事前決済時は自動発券機を利用でき、チェックイン締切は出航20分前である。自転車運賃は旅客運賃と別に必要である。便が未予約なら、自転車込みの予約が残件である。当日の欠航・遅延はPreflightで扱う。
     impact: 函館泊と帰路、および大間の午前行動に直接影響する。
     related_dates: ['2026-09-27', '2026-09-28']
     subjects: [transport.oma-hakodate-1340, stay.hakodate]
     evidence: [evidence.oma-hakodate-20260927]
     dependencies: [issue.hakodate-nagoya-return]
-    next_action: 公式運航・自転車規約・予約条件・締切と、欠航時の帰路を確認する。
-    resolution_conditions: ['13:40便の利用条件と港へ着く時刻を確認する', 欠航時も帰着条件を守る代替を確認する]
+    next_action: 未予約なら、9/27 13:40大間→函館便を自転車込みで予約する。出航20分前までのチェックインを前提に、当日の運航状況はPreflightで確認する。
+    resolution_conditions: ['9/27 13:40便を自転車込みで予約する（予約済みの場合は予約内容を確認する）', 出航20分前までにチェックインできる港到着時刻を確保する]
     resolution: null
   - id: issue.oma-morning-ferry-timeline
     title: 大間の朝から13:40フェリーまでの時間配分
@@ -281,7 +283,7 @@ items:
     related_dates: ['2026-09-25', '2026-09-26']
     subjects: [stay.mutsu, place.osorezan]
     evidence: []
-    dependencies: [issue.okutsugaru-rail-operation]
+    dependencies: []
     next_action: 到着動線、朝食、恐山への自転車出発で比較する。
     resolution_conditions: [到着と恐山出発を両立する宿泊エリアを確定する]
     resolution: null
@@ -301,19 +303,19 @@ items:
     resolution_conditions: [対象区間の最後の確実な補給点と次の補給点を確認する, 直前確認項目をpreflightへ渡す]
     resolution: null
   - id: issue.ryuhyo-road-condition
-    title: 自転車ルート上の重大な道路リスク
+    title: 9/26 下北自転車ルート上の重大な道路リスク
     status: open
     priority: high
     category: safety
     identified_at: '2026-09-20'
-    summary: 龍泊ライン、恐山への道路、恐山→薬研→大畑、大畑→下風呂→大間の通行止め、工事、災害復旧、自転車通行不可、重大な注意点は未確定である。強風だけを機械的な中止理由にはしない。
-    impact: 9/24・9/26の主走行区間と各接続に影響する。
-    related_dates: ['2026-09-24', '2026-09-26']
-    subjects: [route.ryuhyo-line, route.osorezan-oma]
+    summary: 恐山への道路、恐山→薬研→大畑、大畑→下風呂→大間の通行止め、工事、災害復旧、自転車通行不可、重大な注意点は未確定である。9/24の龍泊ラインは通行不能を示す現時点の情報がないため、出発直前の道路規制Preflightへ移した。強風だけを機械的な中止理由にはしない。
+    impact: 9/26の主走行区間と各接続に影響する。
+    related_dates: ['2026-09-26']
+    subjects: [route.osorezan-oma]
     evidence: []
     dependencies: []
-    next_action: 道路管理者等の2026年規制・工事・災害情報と自転車通行条件を区間別に確認する。
-    resolution_conditions: [全対象区間の通行可否と重大注意点を確認する, 明確な危険時に再判断する条件を確認する]
+    next_action: 道路管理者等の2026年規制・工事・災害情報と自転車通行条件を、9/26の対象区間ごとに確認する。
+    resolution_conditions: [9/26の全対象区間の通行可否と重大注意点を確認する, 明確な危険時に再判断する条件を確認する]
     resolution: null
   - id: issue.weather-fallbacks
     title: 悪天候・交通障害時の強い体験を残すfallback
@@ -326,7 +328,7 @@ items:
     related_dates: ['2026-09-24', '2026-09-25', '2026-09-26', '2026-09-27', '2026-09-28']
     subjects: [route.ryuhyo-line, place.seikan-tunnel-museum, place.osorezan, transport.oma-hakodate-1340, transport.hayabusa16]
     evidence: []
-    dependencies: [issue.ryuhyo-road-condition, issue.okutsugaru-rail-operation, issue.oma-ferry-operation, issue.hakodate-nagoya-return]
+    dependencies: [issue.ryuhyo-road-condition, issue.oma-ferry-operation, issue.hakodate-nagoya-return]
     next_action: 各トリガーで残す強アンカー、交通・宿泊、判断期限を個別に確認する。
     resolution_conditions: [各壊れやすい日について発動条件と強い体験を残す代替を確認する]
     resolution: null

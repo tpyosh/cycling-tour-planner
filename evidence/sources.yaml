@@ -51,6 +51,19 @@ items:
       type: 公式時刻表
       title: JR東日本 時刻表 はやぶさ24号
       url: https://timetables.jreast.co.jp/2609/train/030/033862.html
+  - id: evidence.seikan-tunnel-museum-20260925
+    subject: place.seikan-tunnel-museum
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: 9/25はWeb予約上で日付単位の空き表示を確認した。'
+      - 'fact: 体験坑道の所要時間は約40分と掲載されている。'
+      - 'unverified: Primeが想定する9:00前後の体験坑道朝一枠が9/25に存在し、予約可能かは未確認である。'
+    volatility: high
+    recheck_before_trip: false
+    source:
+      type: 予約掲載ページ
+      title: じゃらん 青函トンネル記念館
+      url: https://www.jalan.net/kankou/spt_02306cc3290032412/
   - id: evidence.shimokita3233d-20260925
     subject: transport.shimokita3233d
     checked_at: '2026-09-20'
@@ -66,7 +79,9 @@ items:
     subject: transport.oma-hakodate-1340
     checked_at: '2026-09-20'
     claims:
-      - 'fact: 津軽海峡フェリーの函館〜大間航路の夏期ダイヤには、大間13:40発、函館15:10着の9便が掲載されている。'
+      - 'fact: 津軽海峡フェリーの函館〜大間航路は、9/24以降の通常ダイヤとして大間13:40発、函館15:10着の9便を掲載している。'
+      - 'fact: 自転車込みで予約可能で、自転車運賃は旅客運賃と別に必要である。'
+      - 'fact: 事前予約・事前決済時は自動発券機を利用でき、チェックイン締切は出航20分前である。'
       - 'unverified: 当日の運航は海況等で変動するため、9/27朝に別途確認が必要である。'
     volatility: high
     recheck_before_trip: true
@@ -74,6 +89,20 @@ items:
       type: 公式時刻表
       title: 津軽海峡フェリー 函館〜大間航路 時刻表
       url: https://www.tsugarukaikyo.co.jp/service/timetable/hakodate-oma/
+  - id: evidence.ryuhyo-road-20260924
+    subject: route.ryuhyo-line
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: 2026年の冬期閉鎖は解除済みである。'
+      - 'fact: 2026-09-03に土砂崩落による全面通行止めが発生したが、青森県は翌9/4の解除予定を発表した。'
+      - 'fact: 確認時点で9/24の通行不能を示す情報は確認できない。'
+      - 'inference: 9月にも一時通行止めが発生しているため、9/23夜または9/24出発前に最新の道路規制を再確認する必要がある。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: 公式道路情報
+      title: 青森県 道路情報（青森みち情報）
+      url: https://www.pref.aomori.lg.jp/soshiki/kendo/doro/
   - id: evidence.hakodate-nagoya-20260928
     subject: transport.hayabusa16
     checked_at: '2026-09-20'
