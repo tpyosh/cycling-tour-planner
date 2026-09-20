@@ -55,15 +55,56 @@ items:
     subject: place.seikan-tunnel-museum
     checked_at: '2026-09-20'
     claims:
-      - 'fact: 9/25はWeb予約上で日付単位の空き表示を確認した。'
-      - 'fact: 体験坑道の所要時間は約40分と掲載されている。'
-      - 'unverified: Primeが想定する9:00前後の体験坑道朝一枠が9/25に存在し、予約可能かは未確認である。'
+      - 'fact: 2026-09-25について、集合8:50・体験9:00〜9:50・大人1,200円・1予約1〜10人・現地現金払いの即時予約可能な表示を確認した。'
+      - 'fact: オンラインキャンセル期限は前日17:00であり、当日キャンセル・無連絡は100%と表示されている。'
+      - 'fact: 同ページには、体験プランは出発便の予約ではない旨の注意書きがある。'
+      - 'unverified: 集合8:50・体験9:00〜9:50の予約が、ケーブルカー9:00始発便への乗車を保証するかは確認できていない。'
     volatility: high
-    recheck_before_trip: false
+    recheck_before_trip: true
     source:
       type: 予約掲載ページ
-      title: じゃらん 青函トンネル記念館
-      url: https://www.jalan.net/kankou/spt_02306cc3290032412/
+      title: じゃらん 青函トンネル記念館 体験坑道プラン
+      url: https://www.jalan.net/kankou/spt_02306cc3290032412/activity/l00005CBA0/
+  - id: evidence.seikan-tunnel-museum-operation-20260925
+    subject: place.seikan-tunnel-museum
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: 2026年度の営業期間は4月17日〜11月3日、期間中無休、開館は8:40と公式案内に掲載されている。'
+      - 'fact: 公式掲載時刻表では通常の始発便は記念館9:00発・体験坑道駅9:08着・見学後9:37発・記念館9:44着である。'
+      - 'fact: 次の通常便は記念館9:50発・記念館10:34着であり、9:25便は臨時運行便として表示されている。'
+      - 'inference: 9:25便は臨時運行表示のため、確実な代替便としては扱わない。'
+      - 'unverified: 現行公式ページに掲載された時刻表画像のファイル名には2019が含まれるため、2026-09-25の実際の時刻表と運行状況は出発前に再確認が必要である。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: 公式案内・時刻表
+      title: 青函トンネル記念館 ご案内
+      url: http://seikan-tunnel-museum.jp/info.html
+  - id: evidence.seikan-tunnel-museum-contact-20260925
+    subject: place.seikan-tunnel-museum
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: 青函トンネル記念館の公式問い合わせ先は0174-38-2301である。'
+      - 'fact: Amazing AOMORIの施設案内でも同じ電話番号と所要約40分が掲載されている。'
+    volatility: medium
+    recheck_before_trip: false
+    source:
+      type: 公式施設案内
+      title: Amazing AOMORI 青函トンネル記念館
+      url: https://aomori-tourism.com/spot/detail_68.html
+  - id: evidence.tappi-okutsugaru-rider-record-20201105
+    subject: route.tappi-okutsugaru
+    checked_at: '2026-09-20'
+    claims:
+      - 'fact: 個人の自転車自走記録には、逆方向の奥津軽いまべつ→竜飛岬22.4kmを7:26〜8:55、約1時間29分で自走した事例が掲載されている。'
+      - 'inference: 既存計画の竜飛→奥津軽いまべつ22kmを15km/hで見積もると約1時間30分であり、9:50〜10:40の体験終了後から奥津軽いまべつ13:35発までは約1時間25分を輪行準備・駅内移動・乗車余裕に充てられる。'
+      - 'unverified: 個人記録は逆方向かつ風・天候等が異なる単一事例のため、自走所要時間の保証には使えない。'
+    volatility: low
+    recheck_before_trip: true
+    source:
+      type: 個人自走記録
+      title: pikacycling 奥津軽いまべつ・竜飛岬の自走記録
+      url: https://pikacycling.hateblo.jp/entry/2020/11/05/190000
   - id: evidence.shimokita3233d-20260925
     subject: transport.shimokita3233d
     checked_at: '2026-09-20'

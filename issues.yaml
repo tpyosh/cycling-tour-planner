@@ -36,16 +36,16 @@ items:
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: 9/25はWeb予約上で日付単位の空き表示を確認したが、Primeが必要とする9:00前後の体験坑道朝一枠の有無・確保可否は未確認である。体験坑道の所要は約40分とされる。開始枠が後ろへずれるほど、奥津軽いまべつ13:35発までの自走・輪行準備の余裕を消費する。
+    summary: 9/25のじゃらんでは、集合8:50・体験9:00〜9:50の即時予約可能な枠を確認した。これは朝一の予約枠が表示されることの確認であり、9:00始発便への乗車保証は未確認である。始発が保証されない場合は、施設の割当方法と受付期限を確認する必要がある。通常の次便である9:50発を想定した9:40集合・9:50〜10:40枠は、22kmの自走を15km/hで約1時間30分と置くと、奥津軽いまべつ13:35発までに輪行準備・駅内移動・乗車余裕を約1時間25分残せる実用的なフォールバック候補である。10:40〜11:30枠は同じ前提で余裕が約35分となるため、安全なフォールバックには数えない。
     impact: 主役を削らず下北へ鉄道転場できるかの前提になる。
     related_dates: ['2026-09-25']
     subjects: [place.seikan-tunnel-museum, route.tappi-okutsugaru, transport.hayabusa24]
-    evidence: [evidence.seikan-tunnel-museum-20260925, evidence.okutsugaru-shimokita-20260925]
+    evidence: [evidence.seikan-tunnel-museum-operation-20260925, evidence.seikan-tunnel-museum-20260925, evidence.seikan-tunnel-museum-contact-20260925, evidence.tappi-okutsugaru-rider-record-20201105, evidence.okutsugaru-shimokita-20260925]
     dependencies: [issue.tappi-lodging]
-    next_action: 9/25の9:00前後の体験坑道枠を予約画面または施設へ確認し、確保できる場合は予約する。確定した開始時刻から、奥津軽いまべつ13:35発に輪行完了で到着する時系列を確認する。
+    next_action: ユーザーが、じゃらんの集合8:50・体験9:00〜9:50枠を予約するか判断する。予約前または予約時に青函トンネル記念館（0174-38-2301）へ電話し、その予約が9:00始発便への乗車を保証するか、保証されない場合の始発便の割当方法と受付期限を確認する。出発前に、当日の運行状況、最新時刻表、道路・天候を確認し、確定した体験終了時刻から奥津軽いまべつ13:35発へ輪行完了で到着する時系列を再確認する。
     resolution_conditions:
-      - 9:00前後の体験坑道朝一枠を確保する
-      - 確定した開始時刻でも奥津軽いまべつ13:35発に輪行完了で到着できると確認する
+      - じゃらんの「集合8:50／体験9:00〜9:50」を予約した場合に、9:00始発便への乗車が保証されるか施設から確認する
+      - 保証されない場合に、始発便の割当方法と必要な受付期限を施設から確認する
     resolution: null
   - id: issue.okutsugaru-rail-operation
     title: 9/25 奥津軽いまべつからむつの鉄道接続
