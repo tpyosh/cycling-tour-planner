@@ -21,16 +21,16 @@ actions:
     related_subjects: [transport.ouu-shin-aomori-kawabe, transport.gono-kawabe-goshogawara]
     evidence: [evidence.ouu-shin-aomori-kawabe-20260923, evidence.gono-kawabe-goshogawara-20260923]
     notes: 当日朝にJRの運行情報を確認する。通常運行なら、新青森12:20→川部12:49、川部12:56→五所川原13:24で移動する。
-  - id: action.tappi-museum-booking
-    action: 青函トンネル記念館の体験坑道（9/25朝一候補）を予約し、始発便の扱いを電話で確認する
-    timing: do_now
-    deadline: null
-    why_it_matters: 旅程の主役であり、奥津軽いまべつ13:35発へ輪行で接続する前提になる。朝一便の乗車保証は未確認である。
+  - id: action.tappi-museum-reception
+    action: 9/25 8:50までに青函トンネル記念館受付へ到着し、「じゃらんで予約した」と伝える
+    timing: same_day
+    deadline: '2026-09-25'
+    why_it_matters: 予約済みの体験坑道ツアー（9:00〜9:50）へ参加し、その後の奥津軽いまべつ13:35発への輪行接続を守るため。
     dependencies: []
     related_issues: [issue.tappi-museum-okutsugaru-connection]
     related_subjects: [place.seikan-tunnel-museum, transport.hayabusa24]
-    evidence: [evidence.seikan-tunnel-museum-20260925, evidence.seikan-tunnel-museum-contact-20260925]
-    notes: 予約前または予約時に、集合8:50・体験9:00〜9:50の予約で9:00始発便に乗れるか、保証されない場合の割当方法と受付期限を青函トンネル記念館（0174-38-2301）へ確認する。
+    evidence: [evidence.seikan-tunnel-museum-booking-user-20260922, evidence.seikan-tunnel-museum-contact-20260925]
+    notes: 遅れる場合、またはオンラインキャンセル締切の9/24 17:00以降に変更・取消が必要になった場合は、青函トンネル記念館（0174-38-2301）へ直接連絡する。予約は竜飛斜坑線の出発便指定ではない。
   - id: action.ryuhyo-road-preflight
     action: 龍泊ラインの道路規制・災害状況を確認する
     timing: day_before

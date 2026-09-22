@@ -31,21 +31,21 @@ items:
     resolution_conditions: [固定停止を含めても龍泊ラインへ十分な時間を残せると確認する, 明確な危険時だけ再判断する運用と補給計画を確認する]
     resolution: null
   - id: issue.tappi-museum-okutsugaru-connection
-    title: 9/25 体験坑道の朝一枠確保と奥津軽いまべつへの接続
-    status: open
+    title: 9/25 予約済み体験坑道から奥津軽いまべつへの接続
+    status: in_progress
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: 9/25のじゃらんでは、集合8:50・体験9:00〜9:50の即時予約可能な枠を確認した。これは朝一の予約枠が表示されることの確認であり、9:00始発便への乗車保証は未確認である。始発が保証されない場合は、施設の割当方法と受付期限を確認する必要がある。通常の次便である9:50発を想定した9:40集合・9:50〜10:40枠は、22kmの自走を15km/hで約1時間30分と置くと、奥津軽いまべつ13:35発までに輪行準備・駅内移動・乗車余裕を約1時間25分残せる実用的なフォールバック候補である。10:40〜11:30枠は同じ前提で余裕が約35分となるため、安全なフォールバックには数えない。
+    summary: ユーザー提供の予約内容により、集合8:50・体験9:00〜9:50の体験坑道ツアーは予約済みである。予約は竜飛斜坑線の出発便を指定するものではないが、予約上の体験終了時刻は9:50である。終了後に奥津軽いまべつ13:35発へ接続するため、22kmの自走を15km/hで約1時間30分と置くと、輪行準備・駅内移動・乗車余裕は約1時間25分となる。自走所要は単一の逆方向記録に依存するため、実運用上の余裕は未確定である。
     impact: 主役を削らず下北へ鉄道転場できるかの前提になる。
     related_dates: ['2026-09-25']
     subjects: [place.seikan-tunnel-museum, route.tappi-okutsugaru, transport.hayabusa24]
-    evidence: [evidence.seikan-tunnel-museum-operation-20260925, evidence.seikan-tunnel-museum-20260925, evidence.seikan-tunnel-museum-contact-20260925, evidence.tappi-okutsugaru-rider-record-20201105, evidence.okutsugaru-shimokita-20260925]
+    evidence: [evidence.seikan-tunnel-museum-operation-20260925, evidence.seikan-tunnel-museum-20260925, evidence.seikan-tunnel-museum-booking-user-20260922, evidence.seikan-tunnel-museum-contact-20260925, evidence.tappi-okutsugaru-rider-record-20201105, evidence.okutsugaru-shimokita-20260925]
     dependencies: [issue.tappi-lodging]
-    next_action: User Action `action.tappi-museum-booking` の予約結果と施設回答を受け、確定した体験終了時刻から奥津軽いまべつ13:35発へ輪行完了で到着する時系列を検証する。出発前の運行状況、最新時刻表、道路・天候の確認は別途User Actionとして扱う。
+    next_action: 予約済みの体験終了時刻9:50から奥津軽いまべつ13:35発へ、輪行完了で到着する時系列を検証する。出発前の運行状況、最新時刻表、道路・天候の確認は別途User Actionとして扱う。
     resolution_conditions:
-      - じゃらんの「集合8:50／体験9:00〜9:50」を予約した場合に、9:00始発便への乗車が保証されるか施設から確認する
-      - 保証されない場合に、始発便の割当方法と必要な受付期限を施設から確認する
+      - 予約済みの体験時間9:00〜9:50から奥津軽いまべつ13:35発までに、自走・輪行準備・駅内移動を含めて無理なく到着できると確認する
+      - 予約が出発便指定ではないことを前提に、当日の実際の案内が予約時間帯を大きく超えた場合の連絡・切替方法を確認する
     resolution: null
   - id: issue.okutsugaru-rail-operation
     title: 9/25 奥津軽いまべつからむつの鉄道接続

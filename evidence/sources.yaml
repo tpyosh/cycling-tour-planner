@@ -95,6 +95,20 @@ items:
       type: 予約掲載ページ
       title: じゃらん 青函トンネル記念館 体験坑道プラン
       url: https://www.jalan.net/kankou/spt_02306cc3290032412/activity/l00005CBA0/
+  - id: evidence.seikan-tunnel-museum-booking-user-20260922
+    subject: place.seikan-tunnel-museum
+    checked_at: '2026-09-22'
+    claims:
+      - 'fact: ユーザー提供の予約内容により、青函トンネル記念館の体験坑道ツアーは2026-09-25の集合8:50、体験9:00〜9:50で予約済みである。'
+      - 'fact: 集合・体験場所は青森県東津軽郡外ヶ浜町字三厩竜浜99の青函トンネル記念館である。'
+      - 'fact: ユーザー提供の予約内容には、当日受付で「じゃらんで予約した」と伝えること、出発便の予約ではないこと、オンラインでのキャンセル締切は2026-09-24 17:00であることが記載されている。'
+      - 'unverified: 予約が竜飛斜坑線のどの便へ割り当てられるかは、ユーザー提供内容でも確定していない。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: ユーザー提供の予約内容
+      title: ユーザー提供のじゃらん予約内容
+      url: null
   - id: evidence.seikan-tunnel-museum-operation-20260925
     subject: place.seikan-tunnel-museum
     checked_at: '2026-09-20'
