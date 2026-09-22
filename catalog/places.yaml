@@ -87,21 +87,147 @@ items:
   - id: place.oma-fishing-port
     name: 大間漁港
     kind: transport_site
-    status: shortlisted
+    status: deferred
     map_query: 大間漁港
-    description: 9/26の現地で翌朝の延縄船の帰港・水揚げ見込みが具体的に分かった場合だけ、9/27第9便へ変更して観察する条件付き候補。水揚げは保証されない。
-    tags: [条件付き, 現役漁業]
+    description: 9/27第9便へ変更してまで観察する候補にはしない。水揚げは保証されず、予約済み第5便を固定する今回の計画では採用しない。
+    tags: [優先度低, 現役漁業]
   - id: place.omazaki
     name: 大間崎
     kind: attraction
     status: shortlisted
     map_query: 大間崎
-    description: 9/26夕方〜夜に回収する。単体で第9便を選ぶ根拠にはしない。
+    description: 9/26夕方〜夜に回収する。9/27の交通選択には影響しない。
     tags: [短時間]
   - id: place.mashumaru
     name: 青函連絡船記念館 摩周丸
     kind: museum
     status: shortlisted
     map_query: 青函連絡船記念館 摩周丸
-    description: 9/27第5便で函館08:20着後に優先して訪れる。津軽海峡横断の後に旧青函連絡船の実船を見る、旅の交通史上の主役とする。
+    description: 9/27第5便で函館08:20着後、朝一番に75〜90分を確保する。実船、船橋、無線通信室、車両航送システム、旧函館桟橋・可動橋主塔・岸壁を一つの鉄道連絡船システムとして見る。青函トンネル→現役大間フェリー→旧青函連絡船を結ぶ旅の交通史上の主役とする。
     tags: [日別主役, 青函]
+  - id: place.old-soma-residence
+    name: 旧相馬家住宅
+    kind: historic_site
+    status: shortlisted
+    map_query: 旧相馬家住宅 函館
+    description: 港湾商業で形成された商人資本が住宅・都市空間へどう現れたかを見る9/27昼の必須候補。閉館時刻を考慮し、50〜60分を優先して確保する。
+    tags: [日別主役, 港湾商業]
+  - id: place.hakodate-northern-peoples-museum
+    name: 函館市北方民族資料館
+    kind: museum
+    status: shortlisted
+    map_query: 函館市北方民族資料館
+    description: アイヌ、ウイルタ、その他北方民族の実物資料を通じ、函館が北方世界・交易・研究の窓口だった文脈を見る9/27昼の必須候補。60〜75分。遅くまで開館する季節のため、進行が遅れた場合は夕方へ後ろ倒しできる。
+    tags: [日別主役, 北方世界]
+  - id: place.hakodate-west-port-observation
+    name: 入舟・船入澗防波堤・函館どつく外周
+    kind: transport_site
+    status: shortlisted
+    map_query: 入舟漁港 船入澗防波堤 函館どつく
+    description: 入舟漁港、船入澗防波堤、漁港と住宅地の境界、古い港湾土木、現役造船所の外周と西端の土地利用を自転車で観察する一続きの区間。構内見学を前提にせず45〜90分の可変枠とする。
+    tags: [日別主役, 港湾土木, 現役造船]
+  - id: place.kakinoshima-site
+    name: 垣ノ島遺跡
+    kind: historic_site
+    status: shortlisted
+    map_query: 垣ノ島遺跡
+    description: 南茅部Alternativeの核。大船遺跡と性格の異なる縄文遺跡として現地で見る価値があり、ガイド利用価値が高い。
+    tags: [条件付き代替, 縄文]
+  - id: place.ofune-site
+    name: 大船遺跡
+    kind: historic_site
+    status: shortlisted
+    map_query: 大船遺跡
+    description: 南茅部Alternativeの核。集落構造を視覚的に理解するため、垣ノ島遺跡と組み合わせて訪れる。
+    tags: [条件付き代替, 縄文]
+  - id: place.hakodate-jomon-center
+    name: 函館市縄文文化交流センター
+    kind: museum
+    status: deferred
+    map_query: 函館市縄文文化交流センター
+    description: 南茅部Alternativeでは遺跡2地点と組み合わせる。2026-09-27は国宝・中空土偶の実物が青森県立美術館へ貸出中でレプリカ展示のため、単独遠征の目的にはしない。
+    tags: [南茅部, 優先度低]
+  - id: place.yachigashira-onsen
+    name: 谷地頭温泉
+    kind: hot_spring
+    status: shortlisted
+    map_query: 谷地頭温泉
+    description: 9/27の夕食前または夜の差し替え候補。温泉・夕食・クラフトビールを全て必須にはせず、昼の負荷が高ければ夕食とビールを優先する。
+    tags: [任意, 夜]
+  - id: place.sasaryu-dam
+    name: 笹流ダム
+    kind: transport_site
+    status: shortlisted
+    map_query: 笹流ダム 函館
+    description: 9/27の空き時間候補。主要4ブロックの時間を削ってまで入れない。
+    tags: [任意, インフラ]
+  - id: place.old-hakodate-public-hall
+    name: 旧函館区公会堂
+    kind: historic_site
+    status: shortlisted
+    map_query: 旧函館区公会堂
+    description: 9/27の空き時間候補。主要4ブロックの時間を削ってまで入れない。
+    tags: [任意]
+  - id: place.hakodate-city-museum
+    name: 市立函館博物館
+    kind: museum
+    status: shortlisted
+    map_query: 市立函館博物館
+    description: 9/27の空き時間候補。主要4ブロックの時間を削ってまで入れない。
+    tags: [任意]
+  - id: place.hakodate-literature-museum
+    name: 函館市文学館
+    kind: museum
+    status: shortlisted
+    map_query: 函館市文学館
+    description: 9/27の空き時間候補。主要4ブロックの時間を削ってまで入れない。
+    tags: [任意]
+  - id: place.motomachi-waterworks
+    name: 元町配水場
+    kind: transport_site
+    status: shortlisted
+    map_query: 元町配水場 函館
+    description: 9/27の空き時間候補。主要4ブロックの時間を削ってまで入れない。
+    tags: [任意, インフラ]
+  - id: place.old-kanamori-shop
+    name: 旧金森洋物店
+    kind: historic_site
+    status: shortlisted
+    map_query: 旧金森洋物店 函館
+    description: 9/27の空き時間候補。主要4ブロックの時間を削ってまで入れない。
+    tags: [任意]
+  - id: place.hakodate-machizukuri-elevator
+    name: 函館市地域交流まちづくりセンター 手動式エレベーター
+    kind: other
+    status: shortlisted
+    map_query: 函館市地域交流まちづくりセンター 手動式エレベーター
+    description: 通常の市民施設に1930年代の設備が現役で残る短時間観察候補。近いからといって主要施設の時間を削らない。
+    tags: [任意, 生活インフラ]
+  - id: place.hakodate-haikara-go
+    name: 箱館ハイカラ號
+    kind: transport_site
+    status: shortlisted
+    map_query: 箱館ハイカラ號
+    description: 9/27の空き時間候補。運行日に当たることだけを理由に主要行動と置き換えない。
+    tags: [任意]
+  - id: place.hakodate-park-kodomono-kuni
+    name: 函館公園こどものくに
+    kind: attraction
+    status: deferred
+    map_query: 函館公園こどものくに
+    description: 歴史性はあるが主利用者が親子のため、成人一人旅の主要目的地にはしない。
+    tags: [優先度低, 子ども向け]
+  - id: place.hakodate-north-pacific-museum
+    name: 函館市北洋資料館
+    kind: museum
+    status: deferred
+    map_query: 函館市北洋資料館
+    description: 北洋漁業史の小規模専門施設としては成立するが、シミュレーター等を除くと今回のPrimeへ入れるほどではない。
+    tags: [優先度低]
+  - id: place.old-british-consulate
+    name: 函館市旧イギリス領事館
+    kind: historic_site
+    status: deferred
+    map_query: 函館市旧イギリス領事館
+    description: 成人向け施設だが、今回の市街Prime候補と比べ内部展示の優先度は低い。
+    tags: [優先度低]

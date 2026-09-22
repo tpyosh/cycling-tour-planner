@@ -1,16 +1,6 @@
 schema_version: 1
 # 未完了のUser Actionだけを置く。完了時はこのファイルから削除し、現在の状態を各正本へ反映する。
 actions:
-  - id: action.oma-hakodate-5-booking
-    action: 9/27 大間→函館の第5便（06:50→08:20）を自転車を含めて予約する
-    timing: do_now
-    deadline: null
-    why_it_matters: 9/27のPrime交通を確保する。9/26の強い漁港情報にだけ第9便への変更余地を残すため、予約商品の変更条件が重要である。
-    dependencies: []
-    related_issues: [issue.booking-handovers]
-    related_subjects: [transport.oma-hakodate-0650, transport.oma-hakodate-1340]
-    evidence: [evidence.oma-hakodate-0650-20260927]
-    notes: 予約操作時に、変更可否、変更期限、通常運賃・割引運賃別の条件、自転車を含む予約変更条件を確認する。直前に第9便へ変更できない割引商品なら、柔軟性を失うことを確認して選ぶ。予約完了後はこのActionを削除し、transport.oma-hakodate-0650を予約済みの現在状態へ更新する。
   - id: action.day1-rail-preflight
     action: 9/23 東北新幹線・奥羽本線・五能線の運行状況と川部の実番線を確認する
     timing: same_day
@@ -101,3 +91,23 @@ actions:
     related_subjects: [transport.hakodate-liner-morning]
     evidence: [evidence.weather-hakodate-20260928]
     notes: 9/27夜に降雨時間帯を再確認する。5〜6日先の取得時点の予報を固定的に扱わず、交通の運行情報とは別に確認する。
+  - id: action.hakodate-shigechan-open
+    action: 9/27当日、昼食候補のシゲちゃんすしが営業しているか確認する
+    timing: same_day
+    deadline: '2026-09-27'
+    why_it_matters: 営業時間情報に媒体差と不定休要素があり、予約不可のため、営業を前提に昼Primeの時刻を固定しない。
+    dependencies: []
+    related_issues: []
+    related_subjects: [food.hakodate-shigechan-sushi]
+    evidence: [evidence.hakodate-dining-20260927]
+    notes: 営業していなければ、五島軒本店、カリフォルニア・ベイビー、その日の魚が良い寿司・海鮮店へ切り替える。店の都合で主要施設の時間を削らない。
+  - id: action.hakodate-night-hours
+    action: 9/27旅行直前または当日、ozigi brewing・White Seed等の営業時間を確認する
+    timing: day_before
+    deadline: '2026-09-27'
+    why_it_matters: 自転車格納後のクラフトビールの選択肢を、当日の営業時間に合わせて決めるため。
+    dependencies: []
+    related_issues: []
+    related_subjects: [food.hakodate-ozigi-brewing, food.hakodate-white-seed]
+    evidence: [evidence.hakodate-dining-20260927]
+    notes: 夕食は魚さんこまたは阿佐利本店を有力候補とするが、魚さんこをPrime夕食に固定する場合だけ別途予約を検討する。複数店を巡ることは目的にしない。

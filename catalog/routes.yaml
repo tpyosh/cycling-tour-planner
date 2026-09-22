@@ -30,3 +30,13 @@ items:
     route_value: main
     tags: [恐山, 薬研, 旧大畑駅, 下風呂, 大間]
     description: 恐山を十分に滞在し、北へ抜けて下風呂を経由し、大間の朝の漁港体験へ前進する区間。
+  - id: route.hakodate-minamikayabe-roundtrip
+    name: 函館→南茅部→函館
+    status: shortlisted
+    from: 函館
+    to: 函館
+    mode: self_riding
+    distance_km: {min: 78, max: 82}
+    route_value: main
+    tags: [条件付き代替, 縄文, 南茅部]
+    description: 垣ノ島遺跡・大船遺跡を現地で見ること自体を主目的にする場合だけ使う、9/27の往復自走Alternative。距離の達成や変化のためには採用しない。

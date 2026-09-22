@@ -18,3 +18,45 @@ items:
     map_query: 函館朝市
     area: stay.hakodate
     description: 9/28の帰路前の朝の行動とする。
+  - id: food.hakodate-shigechan-sushi
+    name: シゲちゃんすし
+    status: shortlisted
+    map_query: シゲちゃんすし 函館
+    area: stay.hakodate
+    description: 中島廉売周辺の小規模寿司店。観光市場の海鮮丼ではなく地元の普通の寿司店で食べる昼食候補。一人利用に向くが、営業時間・不定休・予約不可のため9/27当日営業確認型とし、時刻表を固定しない。
+  - id: food.hakodate-goshoken
+    name: 五島軒本店
+    status: shortlisted
+    map_query: 五島軒本店 函館
+    area: stay.hakodate
+    description: 9/27昼食の代替候補。B級性でなく、函館で普通に良い食事をする基準で選ぶ。
+  - id: food.hakodate-california-baby
+    name: カリフォルニア・ベイビー
+    status: shortlisted
+    map_query: カリフォルニア・ベイビー 函館
+    area: stay.hakodate
+    description: 9/27昼食の代替候補。B級性でなく、函館で普通に良い食事をする基準で選ぶ。
+  - id: food.hakodate-fish-san-ko
+    name: 魚さんこ
+    status: shortlisted
+    map_query: 魚さんこ 函館
+    area: stay.hakodate
+    description: 9/27夜に海鮮を食べる場合の有力候補。Prime夕食に固定する場合だけ予約を検討する。
+  - id: food.hakodate-asari
+    name: 阿佐利本店
+    status: shortlisted
+    map_query: 阿佐利本店 函館
+    area: stay.hakodate
+    description: 9/27夜に魚以外のオーセンティックな函館飯を選ぶ場合の有力候補。港町だから魚だけという縛りは置かない。
+  - id: food.hakodate-ozigi-brewing
+    name: ozigi brewing
+    status: shortlisted
+    map_query: ozigi brewing 函館
+    area: stay.hakodate
+    description: 自転車を格納後の2軒目の第一候補。函館醸造のビールを現地で飲む。複数ブルワリーの制覇は目的にしない。
+  - id: food.hakodate-white-seed
+    name: White Seed
+    status: shortlisted
+    map_query: White Seed 函館
+    area: stay.hakodate
+    description: 自転車を格納後のクラフトビール代替候補。営業時間等は直前に確認する。

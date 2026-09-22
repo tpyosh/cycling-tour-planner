@@ -129,14 +129,14 @@ items:
     category: other
     identified_at: '2026-09-20'
     summary: 9/27朝の帰港・水揚げは不確実であるため、Primeの成立条件には置かない。
-    impact: 強い現地情報が得られた場合だけ第9便への変更条件になる。
+    impact: 不確実な朝の漁港体験を、予約済み第5便と函館市街Primeの変更理由にしない。
     related_dates: ['2026-09-27']
     subjects: [place.oma-fishing-port, stay.oma]
     evidence: []
     dependencies: []
     next_action: 漁協への観光目的の照会など、確実性を得るための追加調査は行わない。
     resolution_conditions: [大間漁港の不確実な朝の体験をPrimeの根拠にしない]
-    resolution: 第5便をPrimeとし、9/26の自然な会話で翌朝の帰港・水揚げを狙う価値が明確に高いと分かった場合だけ、第9便への変更条件として残した。追加の問い合わせや調査でこの条件を満たそうとはしない。
+    resolution: 大間漁港の不確実な朝の体験はPrimeの根拠にせず、予約済み第5便と函館市街Primeを固定した。追加の問い合わせや調査で採用条件を満たそうとはしない。
   - id: issue.oma-tuna-food
     title: 大間で食べるマグロ料理の具体化
     status: open
@@ -153,37 +153,37 @@ items:
     resolution_conditions: [9/26夕方の食事時刻と具体候補・代替を確認する]
     resolution: null
   - id: issue.oma-ferry-operation
-    title: 9/27 13:40大間→函館フェリーの予約・乗船条件
+    title: 9/27 大間→函館第5便の予約・乗船条件
     status: resolved
     priority: high
     category: booking
     identified_at: '2026-09-20'
-    summary: 第9便の通常ダイヤと自転車を含む事前予約の基本条件は確認済みである。第9便は、9/26に大間漁港の帰港・水揚げに関する明確に強い現地情報が自然に得られた場合だけ再検討する条件付き代替である。
+    summary: 第5便（大間06:50→函館08:20）は自転車を含めて予約済みである。第9便との比較は終了し、9/27函館市街Primeの固定アンカーとする。
     impact: 函館泊と帰路、および大間の午前行動に直接影響する。
     related_dates: ['2026-09-27', '2026-09-28']
-    subjects: [transport.oma-hakodate-1340, stay.hakodate]
-    evidence: [evidence.oma-hakodate-20260927]
+    subjects: [transport.oma-hakodate-0650, stay.hakodate]
+    evidence: [evidence.oma-hakodate-0650-20260927]
     dependencies: [issue.hakodate-nagoya-return]
-    next_action: 第5便の予約時に変更条件を確認し、予約済みなら第5便の交通正本へ現在状態を反映する。第9便へ変更する場合だけ、その時点の予約・運航条件を確認する。
+    next_action: 予約済み第5便の当日運航情報だけを確認する。
     resolution_conditions: [通常ダイヤ上の対象便を確認する, 自転車の輪行の事前予約可否と通常運賃区分を確認する, 基本的なチェックイン方法を確認する]
-    resolution: 第9便の通常ダイヤ、自転車の輪行の事前予約、通常運賃区分、基本的なチェックイン方法を確認した。第5便がPrimeとなったため、第9便は現地の強い漁港情報が得られた場合だけ再検討する。
+    resolution: 第5便（大間06:50→函館08:20）を自転車を含めて予約済みとして交通正本へ反映した。第9便との比較・変更検討は終了した。
   - id: issue.oma-morning-ferry-timeline
-    title: 9/27 大間と函館の時間配分（第5便・第9便の選択）
+    title: 9/27 大間→函館第5便と函館市街Primeの時間配分
     status: resolved
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: 第5便をPrimeとして予約する。第9便の追加価値は、7〜9時頃の大間漁港で延縄船の帰港・水揚げに遭遇できるかに集中するが、水揚げは不確実である。第5便は摩周丸を主役に、未訪の函館港・朝市・漁港・造船所外縁を港湾・漁業・交通史の行動として束ねられる。
-    impact: 第5便は午前〜午後の価値が複数の行動に分散し、下振れが小さい。第9便は一点突破の上振れが大きいが、強い現地情報がない限り採用しない。
+    summary: 第5便を予約済みの固定アンカーとし、函館市街深掘りPrimeを採用した。第9便との比較は終了した。
+    impact: 予約済み第5便で、函館市街の主要4ブロックを朝から夕方まで無理なく配置できる。
     related_dates: ['2026-09-27']
-    subjects: [place.oma-fishing-port, place.mashumaru, transport.oma-hakodate-0650, transport.oma-hakodate-1340]
-    evidence: [evidence.oma-hakodate-0650-20260927]
+    subjects: [place.mashumaru, transport.oma-hakodate-0650, stay.hakodate]
+    evidence: [evidence.oma-hakodate-0650-20260927, evidence.hakodate-city-prime-20260927]
     dependencies: []
-    next_action: 第5便を予約し、予約商品ごとの変更条件を確認する。第9便への変更条件は plan/current.yaml の contingency.oma-morning-fishing で管理する。
+    next_action: 予約済み第5便の当日運航情報だけを確認する。
     resolution_conditions:
-      - 第5便・第9便の具体的な体験の差分を比較する
-      - 第5便をPrimeとして選択し、第9便の再検討条件を限定する
-    resolution: 第5便（大間06:50→函館08:20）をPrimeとして予約する。大間崎・町・港・マグロ料理は9/26夕方〜夜に回収できるため第9便の追加価値には数えず、翌朝の帰港・水揚げに関する強い現地情報が自然に得られた場合だけ第9便を再検討する。漠然と大間に長くいたいという理由や、漁協への観光目的の照会では変更しない。
+      - 第5便と函館市街Primeの時間配分を確認する
+      - 第5便を予約済みの固定アンカーとして交通正本へ反映する
+    resolution: 第5便（大間06:50→函館08:20）を自転車を含めて予約済みとし、摩周丸・旧相馬家住宅・北方民族資料館・西部港湾地区を核にした函館市街Primeへ固定した。第9便への変更条件は削除した。
   - id: issue.mashumaru-arrival-window
     title: 函館到着後に摩周丸を十分見学できるか
     status: resolved
@@ -196,24 +196,24 @@ items:
     subjects: [transport.oma-hakodate-0650, place.mashumaru, stay.hakodate]
     evidence: [evidence.oma-hakodate-0650-20260927]
     dependencies: []
-    next_action: 第5便を予約し、当日の運航状況と摩周丸の営業情報を出発前に確認する。
+    next_action: 当日の運航状況と摩周丸の営業情報を出発前に確認する。
     resolution_conditions: [第5便で摩周丸を函館到着後の主役として扱えると確認する]
-    resolution: 第5便の函館08:20着と摩周丸08:30開館の接続を採用し、摩周丸を中心に函館湾沿いの港湾・漁業・交通史を巡るPrimeを決定した。
+    resolution: 予約済み第5便の函館08:20着と摩周丸08:30開館の接続を採用し、摩周丸を起点に旧相馬家住宅・北方民族資料館・西部港湾地区まで含む函館市街Primeを決定した。
   - id: issue.hakodate-evening-structure
     title: 9/27 函館夕方から夜の終章
-    status: open
+    status: resolved
     priority: medium
     category: other
     identified_at: '2026-09-20'
-    summary: 摩周丸後はベイエリア、夕食、夜の函館を候補とし函館山は必須にしていない。自然な行動、夕食、宿までの動線は未確定である。
+    summary: 16時台後半を目安に自転車を終了・格納し、夕食後にクラフトビールへ行く方針を採用した。夕食は海鮮なら魚さんこ、魚以外なら阿佐利本店、2軒目はozigi brewingを第一候補とする。
     impact: 津軽海峡を渡った旅の終章を整える。
     related_dates: ['2026-09-27']
-    subjects: [place.mashumaru, stay.hakodate]
-    evidence: []
+    subjects: [place.mashumaru, food.hakodate-fish-san-ko, food.hakodate-asari, food.hakodate-ozigi-brewing, stay.hakodate]
+    evidence: [evidence.hakodate-dining-20260927]
     dependencies: [issue.mashumaru-arrival-window]
-    next_action: 摩周丸終了時刻を起点に行動価値、夕食、宿泊動線を比較する。
+    next_action: 魚さんこを夕食に固定する場合だけ予約を検討し、クラフトビール店の営業時間を旅行直前または当日に確認する。
     resolution_conditions: [残り時間に無理のない行動と夕食を確認する]
-    resolution: null
+    resolution: 自転車格納後は徒歩・市電等へ切り替え、夕食＋クラフトビールで完成した夜とする。谷地頭温泉は夕食前または夜のOptionalであり、温泉・夕食・ビールを全て必須にはしない。
   - id: issue.hakodate-market-hokuto-connection
     title: 9/28 函館朝市と新函館北斗への接続
     status: open
@@ -359,13 +359,13 @@ items:
     priority: high
     category: booking
     identified_at: '2026-09-20'
-    summary: のぞみ288号、はやぶさ7号、9/23のホテルサンルート五所川原、9/24の龍飛崎温泉 ホテル竜飛、9/25のむつパークホテル、9/26のサンホテル大間は予約済みである。第5便はPrimeとして予約が必要で、予約時に第9便への変更条件を確認する。体験坑道、残る新幹線、9/27の最終泊、その他予約必須施設の要否とbooking statusは未確定である。最終泊は函館を第一候補に直前確保する方針である。
+    summary: のぞみ288号、はやぶさ7号、9/23のホテルサンルート五所川原、9/24の龍飛崎温泉 ホテル竜飛、9/25のむつパークホテル、9/26のサンホテル大間、9/27の津軽海峡フェリー第5便は予約済みである。体験坑道、残る新幹線、9/27の最終泊、その他予約必須施設の要否とbooking statusは未確定である。最終泊は函館を第一候補に直前確保する方針である。
     impact: 主役・接続・宿泊を在庫切れで失うリスクに影響する。
     related_dates: ['2026-09-23', '2026-09-24', '2026-09-25', '2026-09-26', '2026-09-27', '2026-09-28']
     subjects: [transport.nozomi288, transport.hayabusa7, transport.hayabusa24, transport.oma-hakodate-0650, stay.goshogawara, stay.tappi, stay.mutsu, stay.oma, stay.hakodate]
     evidence: [evidence.nozomi288-20260923]
     dependencies: [issue.day1-tokyo-goshogawara-connection, issue.tappi-museum-okutsugaru-connection, issue.tappi-lodging, issue.oma-lodging, issue.final-lodging-deferred, issue.mutsu-lodging-location]
-    next_action: 第5便を予約して変更条件を確認し、予約済みなら交通正本へ反映する。ほかの予約要否、受付開始、期限、現状も確認しbooking statusへ反映する。
+    next_action: 予約済み第5便を重複して手配せず、ほかの予約要否、受付開始、期限、現状を確認してbooking statusへ反映する。
     resolution_conditions: [予約済み・要予約・不要・未確認を対象ごとに区別する, 要予約項目の期限と未手配項目を明示する]
     resolution: null
   - id: issue.final-preflight
