@@ -12,15 +12,15 @@ actions:
     evidence: [evidence.oma-hakodate-0650-20260927]
     notes: 予約操作時に、変更可否、変更期限、通常運賃・割引運賃別の条件、自転車を含む予約変更条件を確認する。直前に第9便へ変更できない割引商品なら、柔軟性を失うことを確認して選ぶ。予約完了後はこのActionを削除し、transport.oma-hakodate-0650を予約済みの現在状態へ更新する。
   - id: action.day1-rail-preflight
-    action: 9/23 新青森→川部→五所川原の運行状況を確認する
+    action: 9/23 東北新幹線・奥羽本線・五能線の運行状況と川部の実番線を確認する
     timing: same_day
     deadline: '2026-09-23'
-    why_it_matters: 川部での乗換時間は7分であり、運休・大幅遅延があると立佞武多の館の見学開始時刻に影響する。
+    why_it_matters: 川部での654M→2828Dの乗換時間は7分であり、輪行袋を持った跨線橋・階段移動になる可能性がある。運休・遅延・番線変更は立佞武多の館の見学開始時刻に影響する。
     dependencies: []
     related_issues: [issue.day1-tokyo-goshogawara-connection]
-    related_subjects: [transport.ouu-shin-aomori-kawabe, transport.gono-kawabe-goshogawara]
-    evidence: [evidence.ouu-shin-aomori-kawabe-20260923, evidence.gono-kawabe-goshogawara-20260923]
-    notes: 当日朝にJRの運行情報を確認する。通常運行なら、新青森12:20→川部12:49、川部12:56→五所川原13:24で移動する。
+    related_subjects: [transport.hayabusa7, transport.ouu-shin-aomori-kawabe, transport.gono-kawabe-goshogawara, transport.resort-shirakami4-kawabe-goshogawara]
+    evidence: [evidence.tohoku-connection-20260923, evidence.ouu-shin-aomori-kawabe-20260923, evidence.gono-kawabe-goshogawara-20260923, evidence.kawabe-transfer-layout-20260922, evidence.resort-shirakami4-fallback-20260923, evidence.gono-operation-20260922]
+    notes: 当日朝にJR東日本の運行情報で東北新幹線・奥羽本線・五能線を確認する。通常運行なら、新青森12:20→川部12:49、川部12:56→五所川原13:24で移動する。川部到着前に輪行荷物をまとめ、到着後は実際の発車番線を確認してただちに移動する。買い物・トイレ・荷物整理は挟まず、接続待ちは前提にしない。2828Dを逃した場合は、リゾートしらかみ4号（川部14:43→五所川原15:09）の空席を確認する。
   - id: action.tappi-museum-reception
     action: 9/25 8:50までに青函トンネル記念館受付へ到着し、「じゃらんで予約した」と伝える
     timing: same_day

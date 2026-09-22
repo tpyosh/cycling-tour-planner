@@ -2,9 +2,10 @@ schema_version: 1
 items:
   - id: evidence.nozomi288-20260923
     subject: transport.nozomi288
-    checked_at: '2026-09-20'
+    checked_at: '2026-09-22'
     claims:
       - 'fact: のぞみ288号は2026-09-23に名古屋06:28発、東京08:03着で運転する。'
+      - 'fact: 東京到着は19番線である。'
       - 'fact: 9月18日〜23日ののぞみ288号は全席指定席で運転する。'
       - 'fact: 予約済みであることはユーザー確認済みであり、公式時刻表からの推論ではない。'
     volatility: medium
@@ -15,12 +16,13 @@ items:
       url: https://timetables.jreast.co.jp/2609/train/125/128931.html
   - id: evidence.tohoku-connection-20260923
     subject: transport.hayabusa7
-    checked_at: '2026-09-20'
+    checked_at: '2026-09-22'
     claims:
       - 'fact: 2026年9月のJR東日本公式時刻表には、東京08:37発のはやぶさ7号が掲載されている。'
       - 'fact: はやぶさ7号は東京08:37→新青森11:51の接続として記録した。'
+      - 'fact: 東京発は22番線、新青森では11:51着・11:53発で新函館北斗まで直通する。'
       - 'fact: 予約済みであることはユーザー確認済みであり、公式時刻表からの推論ではない。'
-      - 'inference: のぞみ288号の東京08:03着から34分を取るため、輪行袋入りロードバイクを持つ乗換として08:18発より現実的である。'
+      - 'inference: のぞみ288号の東京08:03着から34分は、東海道・山陽新幹線から東北系新幹線への標準乗換時分8分を大きく上回るため、輪行袋を携行しても大幅遅延がなければ主要リスクではない。'
     volatility: medium
     recheck_before_trip: true
     source:
@@ -29,10 +31,12 @@ items:
       url: https://timetables.jreast.co.jp/2609/timetable-v/003d2p.html
   - id: evidence.ouu-shin-aomori-kawabe-20260923
     subject: transport.ouu-shin-aomori-kawabe
-    checked_at: '2026-09-20'
+    checked_at: '2026-09-22'
     claims:
       - 'fact: 2026-09-23の新青森駅奥羽本線時刻表には、弘前行の12:20発が掲載されている。'
       - 'fact: ユーザー確認の経路では、この列車は新青森12:20発→川部12:49着である。'
+      - 'fact: この列車は普通654M弘前行で、新青森の発車番線は2番線である。'
+      - 'inference: はやぶさ7号の新青森11:51着から29分は、新幹線から奥羽本線への標準乗換時分8分を上回るため、輪行での乗換余裕がある。'
     volatility: medium
     recheck_before_trip: true
     source:
@@ -41,10 +45,12 @@ items:
       url: https://timetables.jreast.co.jp/2609/timetable/tt0854/0854020.html
   - id: evidence.gono-kawabe-goshogawara-20260923
     subject: transport.gono-kawabe-goshogawara
-    checked_at: '2026-09-20'
+    checked_at: '2026-09-22'
     claims:
       - 'fact: 2026-09-23の川部駅五能線時刻表には、深浦行の12:56発が掲載されている。'
       - 'fact: ユーザー確認の経路では、この列車は川部12:56発→五所川原13:24着である。'
+      - 'fact: 普通2828Dは弘前12:40発・川部12:48着で、川部で方向転換のため12:56まで停車する。'
+      - 'inference: 654Mの川部12:49着から2828Dの12:56発までの7分は、定時運行なら実行可能だが、輪行袋を持った乗換として十分な余裕ではない。接続待ちは確認できていないため前提にしない。'
     volatility: medium
     recheck_before_trip: true
     source:
@@ -53,10 +59,10 @@ items:
       url: https://timetables.jreast.co.jp/2609/timetable/tt0534/0534030.html
   - id: evidence.tachineputa-operation-20260923
     subject: place.tachineputa
-    checked_at: '2026-09-20'
+    checked_at: '2026-09-22'
     claims:
       - 'fact: 立佞武多の館は4月〜9月は9:00〜19:00に営業すると五所川原市が案内している。'
-      - 'inference: 五所川原13:24着後に13:45頃から見学を始める予定は、営業時間内に成立する。'
+      - 'inference: 五所川原13:24着後、徒歩約5分で13:35〜13:45頃に入館し、13:45〜15:45頃の約2時間見学する予定は営業時間内に成立する。'
     volatility: medium
     recheck_before_trip: true
     date_windows:
@@ -68,6 +74,47 @@ items:
       type: 公式施設案内
       title: 五所川原市 立佞武多の館
       url: https://www.city.goshogawara.lg.jp/tourism/view/tachineputanoyakata.html
+  - id: evidence.kawabe-transfer-layout-20260922
+    subject: transport.gono-kawabe-goshogawara
+    checked_at: '2026-09-22'
+    claims:
+      - 'fact: 川部駅は駅員不在である。'
+      - 'fact: JR東日本の構内図では、1・2番線の島式ホームと3番線ホームは跨線橋・階段で接続されている。'
+      - 'inference: 通常運用で654Mを3番線、2828Dを1番線とする場合、輪行では跨線橋の階段を通るため、7分乗換の実質的な注意点になる。'
+      - 'unverified: 2026-09-23当日の654M・2828Dの実番線は変更され得るため、固定値として扱わず川部到着前に車内・ホーム案内で確認する。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: 公式駅構内図・駅情報
+      title: JR東日本 川部駅 駅構内図・駅情報
+      url: https://www.jreast.co.jp/es/estation/stations/534.html
+  - id: evidence.resort-shirakami4-fallback-20260923
+    subject: transport.resort-shirakami4-kawabe-goshogawara
+    checked_at: '2026-09-22'
+    claims:
+      - 'fact: リゾートしらかみ4号は2026-09-23に川部14:37着・14:43発、五所川原15:09着で運転する。'
+      - 'fact: 全車指定席である。'
+      - 'fact: 指定席料金は840円である。'
+      - 'inference: 2828Dを逃した場合にも同日中の鉄道リカバリ手段はあるが、空席は保証されないため無条件のバックアップではない。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: 公式時刻表
+      title: JR東日本 時刻表 リゾートしらかみ4号
+      url: https://timetables.jreast.co.jp/2609/train/020/022941.html
+  - id: evidence.gono-operation-20260922
+    subject: transport.gono-kawabe-goshogawara
+    checked_at: '2026-09-22'
+    claims:
+      - 'fact: 2026-09-22時点で、JR東日本の運行情報は五能線を平常運転として表示している。'
+      - 'fact: 2026-09-23の対象区間について、事前に予定された運休・工事による接続破綻は確認できなかった。'
+      - 'unverified: これは2026-09-23当日の運行保証ではない。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: 公式運行情報
+      title: JR東日本 列車運行情報 東北エリア
+      url: https://traininfo.jreast.co.jp/train_info/tohoku.aspx
   - id: evidence.okutsugaru-shimokita-20260925
     subject: transport.hayabusa24
     checked_at: '2026-09-20'

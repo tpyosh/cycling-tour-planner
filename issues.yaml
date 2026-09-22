@@ -2,19 +2,19 @@ schema_version: 1
 items:
   - id: issue.day1-tokyo-goshogawara-connection
     title: 9/23 東京以北から五所川原への実接続
-    status: open
+    status: resolved
     priority: high
     category: schedule
     identified_at: '2026-09-20'
-    summary: のぞみ288号08:03東京着後、はやぶさ7号08:37→11:51、新青森12:20→川部12:49、川部12:56→五所川原13:24の接続を採用する。五所川原13:24着後は13:45頃から立佞武多の館を約2時間見学し、16:00頃から宿へ向かう。立佞武多の館の9:00〜19:00の営業時間内に収まる。
+    summary: のぞみ288号（名古屋06:28→東京08:03）→はやぶさ7号（東京08:37→新青森11:51）→普通654M（新青森12:20→川部12:49）→普通2828D（川部12:56→五所川原13:24）は、9/23のDay 1主経路として採用する。東京34分、新青森29分の乗換には余裕がある。川部は654M到着から2828D発車まで7分で、通常運用では跨線橋・階段を通る輪行乗換となる可能性が高いため、定時なら実行可能だが当日運用上の注意点とする。五所川原13:24着後は13:35〜13:45頃に立佞武多の館へ入り、約2時間見学して16:00頃から宿へ向かえる。
     impact: 初日の主役を十分に見学できるかと翌日の準備に影響する。
     related_dates: ['2026-09-23']
     subjects: [transport.nozomi288, transport.hayabusa7, transport.ouu-shin-aomori-kawabe, transport.gono-kawabe-goshogawara, place.tachineputa, stay.goshogawara]
-    evidence: [evidence.nozomi288-20260923, evidence.tohoku-connection-20260923, evidence.ouu-shin-aomori-kawabe-20260923, evidence.gono-kawabe-goshogawara-20260923, evidence.tachineputa-operation-20260923]
+    evidence: [evidence.nozomi288-20260923, evidence.tohoku-connection-20260923, evidence.ouu-shin-aomori-kawabe-20260923, evidence.gono-kawabe-goshogawara-20260923, evidence.kawabe-transfer-layout-20260922, evidence.tachineputa-operation-20260923, evidence.resort-shirakami4-fallback-20260923, evidence.gono-operation-20260922]
     dependencies: []
-    next_action: 当日朝にJRの運行情報を確認し、新青森12:20発→川部12:49着から五能線12:56発へ、輪行袋を携えたまま乗り継げるホーム導線を確認する。
+    next_action: 9/23当日朝、JR東日本の運行情報で東北新幹線・奥羽本線・五能線を確認する。特に654M→2828Dの川部7分乗換が最大の接続リスクである。川部到着前に輪行荷物をまとめ、到着後ただちに実際の発車番線を確認して移動する。接続待ちは前提にしない。
     resolution_conditions: [実際に使う列車と輪行を含む乗換時間を確定する, 到着から見学と宿泊までが無理なく成立すると確認する]
-    resolution: null
+    resolution: 2026-09-22確認時点で、9/23の主経路は通常ダイヤ上で成立する。東京では34分、新青森では29分の乗換時間があり、主要リスクではない。川部は654Mの12:49着から2828Dの12:56発まで7分で、通常運用では3番線から1番線へ跨線橋・階段を通る輪行乗換となる可能性が高い。定時なら実行可能と判断するが、遅延時の接続待ちは未確認で前提にしない。2828Dを逃した場合は、空席を確認できればリゾートしらかみ4号（川部14:43→五所川原15:09、全車指定席・指定席料金840円）を使える。13:24着なら立佞武多の館を約2時間見学できることも確認済みであり、未解決の調査事項は解消した。当日の運行・実番線確認はUser Actionとして残す。
   - id: issue.ryuhyo-day-operation
     title: 9/24 龍泊ライン日の実運用
     status: open

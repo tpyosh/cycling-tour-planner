@@ -26,7 +26,7 @@ items:
     to: 川部
     departure: '2026-09-23T12:20:00+09:00'
     arrival: '2026-09-23T12:49:00+09:00'
-    description: 新青森から川部へ向かう普通列車。予約済みではない。
+    description: 普通654M。新青森から川部へ向かう普通列車。はやぶさ7号の新青森11:51着から29分を確保する。予約済みではない。
   - id: transport.gono-kawabe-goshogawara
     name: 五能線（深浦行）
     status: shortlisted
@@ -35,7 +35,16 @@ items:
     to: 五所川原
     departure: '2026-09-23T12:56:00+09:00'
     arrival: '2026-09-23T13:24:00+09:00'
-    description: 川部から五所川原へ向かう普通列車。予約済みではない。
+    description: 普通2828D。弘前12:40発・川部12:48着後、方向転換のため川部に12:56まで停車し、五所川原へ向かう。654Mの川部12:49着から7分での輪行乗換は実行可能だが余裕は小さい。予約済みではない。
+  - id: transport.resort-shirakami4-kawabe-goshogawara
+    name: 快速リゾートしらかみ4号
+    status: shortlisted
+    mode: train
+    from: 川部
+    to: 五所川原
+    departure: '2026-09-23T14:43:00+09:00'
+    arrival: '2026-09-23T15:09:00+09:00'
+    description: 2828Dを逃した場合の条件付き鉄道フォールバック。全車指定席で指定席料金840円、当日の空席は保証されないため、その場で空席を確認できた場合だけ使う。
   - id: transport.hayabusa24
     name: はやぶさ24号
     status: shortlisted
