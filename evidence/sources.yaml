@@ -201,17 +201,80 @@ items:
       url: https://aomori-tourism.com/spot/detail_68.html
   - id: evidence.tappi-okutsugaru-rider-record-20201105
     subject: route.tappi-okutsugaru
-    checked_at: '2026-09-20'
+    checked_at: '2026-09-23'
     claims:
       - 'fact: 個人の自転車自走記録には、逆方向の奥津軽いまべつ→竜飛岬22.4kmを7:26〜8:55、約1時間29分で自走した事例が掲載されている。'
-      - 'inference: 既存計画の竜飛→奥津軽いまべつ22kmを15km/hで見積もると約1時間30分であり、9:50〜10:40の体験終了後から奥津軽いまべつ13:35発までは約1時間25分を輪行準備・駅内移動・乗車余裕に充てられる。'
-      - 'unverified: 個人記録は逆方向かつ風・天候等が異なる単一事例のため、自走所要時間の保証には使えない。'
+      - 'inference: この記録は奥津軽いまべつ駅から竜飛岬までで、青函トンネル記念館を起点にする今回の直行経路とは端点と経路が異なるため、25〜26kmとするBRouter再計算の補助資料に限定する。'
+      - 'unverified: 個人記録は逆方向かつ風・天候等が異なる単一事例のため、今回の自走距離や所要時間の確定値には使えない。'
     volatility: low
     recheck_before_trip: true
     source:
       type: 個人自走記録
       title: pikacycling 奥津軽いまべつ・竜飛岬の自走記録
       url: https://pikacycling.hateblo.jp/entry/2020/11/05/190000
+  - id: evidence.hotel-tappi-dining-20260924
+    subject: stay.tappi
+    checked_at: '2026-09-23'
+    claims:
+      - 'fact: ホテル竜飛の館内食事処「海峡」は夜18:00〜20:30ラストオーダーで、夜営業は予約が必要と公式施設案内に掲載されている。'
+      - 'fact: 館内売店は7:00〜21:00営業と掲載されているが、夕食・朝食として必要な品目の在庫は確認できていない。'
+      - 'unverified: 予約済みの素泊まりプランへ夕食を追加できるか、2026-09-24夜の予約枠が残っているかは電話確認が必要である。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: 公式施設案内
+      title: ホテル竜飛 施設・サービス
+      url: https://www.hoteltappi.co.jp/facility/
+  - id: evidence.hotel-tappi-breakfast-20260925
+    subject: stay.tappi
+    checked_at: '2026-09-23'
+    claims:
+      - 'fact: ホテル竜飛の公式料理案内には朝食時間7:00〜8:30と掲載されている。'
+      - 'unverified: 予約済みの素泊まりプランへ2026-09-25朝食を追加できるかは確認できていない。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: 公式施設案内
+      title: ホテル竜飛 お料理
+      url: https://www.hoteltappi.co.jp/gourmet/
+  - id: evidence.hotel-tappi-museum-access-20260925
+    subject: stay.tappi
+    checked_at: '2026-09-23'
+    claims:
+      - 'fact: ホテル竜飛の公式周辺案内では、ホテルから青函トンネル記念館まで車で2分と掲載されている。'
+      - 'inference: 自転車準備と道迷いの余裕を含めて8:20頃にチェックアウト・出発し、8:40頃までの記念館到着を目標にすれば、予約の8:50集合へ余裕を置ける。'
+    volatility: low
+    recheck_before_trip: false
+    source:
+      type: 公式周辺案内
+      title: ホテル竜飛 観光情報
+      url: https://www.hoteltappi.co.jp/sightseeing/
+  - id: evidence.kodomari-resupply-20260924
+    subject: route.ryuhyo-line
+    checked_at: '2026-09-23'
+    claims:
+      - 'fact: ファミリーマート小泊店は中泊町大字小泊字築上23-3にあり、24時間営業と公式店舗案内に掲載されている。'
+      - 'inference: 龍泊ラインへ入る前に小泊で夕食・翌朝食と行動食を購入すれば、ホテルの食事追加ができない場合も竜飛泊の食事を確保できる。'
+      - 'unverified: 当日の個別商品の在庫は保証されない。'
+    volatility: medium
+    recheck_before_trip: true
+    source:
+      type: 公式店舗案内
+      title: ファミリーマート 小泊店
+      url: https://store.family.co.jp/points/25341
+  - id: evidence.tappi-okutsugaru-routing-20260923
+    subject: route.tappi-okutsugaru
+    checked_at: '2026-09-23'
+    claims:
+      - 'fact: BRouter 1.7.10で青函トンネル記念館から奥津軽いまべつ駅までを計算すると、fastbikeは25.208km・獲得標高293m・推定約97分、trekkingは26.031km・獲得標高287m・推定約98分となった。'
+      - 'inference: 計画値を25〜26kmとし、15km/hで約1時間45分、輪行準備30分、駅内移動15分を置くと、9:50の体験終了後10:05に出発しても13:35発まで約1時間の余裕を確保できる。'
+      - 'unverified: ルーティング値は当日の風、工事、休憩、パンク等を含まないため、現地ナビと道路状況を優先する。'
+    volatility: medium
+    recheck_before_trip: true
+    source:
+      type: 自転車ルーティングAPI
+      title: BRouter route calculation（trekking・fastbike）
+      url: https://brouter.de/brouter-web/
   - id: evidence.shimokita3233d-20260925
     subject: transport.shimokita3233d
     checked_at: '2026-09-20'

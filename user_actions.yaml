@@ -20,7 +20,17 @@ actions:
     related_issues: [issue.tappi-museum-okutsugaru-connection]
     related_subjects: [place.seikan-tunnel-museum, transport.hayabusa24]
     evidence: [evidence.seikan-tunnel-museum-booking-user-20260922, evidence.seikan-tunnel-museum-contact-20260925]
-    notes: 遅れる場合、またはオンラインキャンセル締切の9/24 17:00以降に変更・取消が必要になった場合は、青函トンネル記念館（0174-38-2301）へ直接連絡する。予約は竜飛斜坑線の出発便指定ではない。
+    notes: 受付時に予約どおり9:50終了見込みであることを確認する。遅れる場合、またはオンラインキャンセル締切の9/24 17:00以降に変更・取消が必要になった場合は、青函トンネル記念館（0174-38-2301）へ直接連絡する。予約は竜飛斜坑線の出発便指定ではない。記念館出発が10:45を過ぎた場合は本州側坑口を見送り、奥津軽いまべつ駅へ直行する。
+  - id: action.tappi-meals-and-storage
+    action: ホテル竜飛へ夕食予約・朝食追加・自転車保管場所を確認する
+    timing: do_now
+    deadline: '2026-09-23'
+    why_it_matters: 9/24は素泊まり予約で、館内食事処の夜営業は予約制である。翌朝は8:50の体験坑道受付へ向かうため、食事と出発準備を前夜までに確定しておく必要がある。
+    dependencies: []
+    related_issues: [issue.tappi-lodging]
+    related_subjects: [stay.tappi, place.seikan-tunnel-museum, route.ryuhyo-line]
+    evidence: [evidence.hotel-tappi-dining-20260924, evidence.hotel-tappi-breakfast-20260925, evidence.hotel-tappi-museum-access-20260925, evidence.kodomari-resupply-20260924]
+    notes: ホテル竜飛（0174-38-2011）へ、9/24夜の食事処「海峡」の予約可否、9/25朝食を素泊まり予約へ追加できるか、ロードバイクを安全に保管できる場所を確認する。夕食または朝食を確保できなければ、9/24に龍泊ラインへ入る前、24時間営業のファミリーマート小泊店で夕食・翌朝食を購入する。朝食は7:30頃までに終え、8:20頃のチェックアウト・出発を目標にする。
   - id: action.ryuhyo-road-preflight
     action: 龍泊ラインの道路規制・災害状況を確認する
     timing: day_before

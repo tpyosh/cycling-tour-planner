@@ -1,5 +1,5 @@
 schema_version: 1
-checked_at: '2026-09-20'
+checked_at: '2026-09-23'
 traveler:
   adults: 1
   rooms: 1
@@ -79,8 +79,17 @@ stay_searches:
         status: booked
         static_facts:
           - ユーザー提供の予約内容では電話番号は0174-38-2011。
-        location_fit: 9/24の竜飛泊を確定し、9/25朝は青函トンネル記念館へ向かえる位置に泊まる。
-        sources: []
+          - 館内の食事処「海峡」は夜18:00〜20:30ラストオーダーで、夜営業は予約が必要。
+          - 公式案内の朝食時間は7:00〜8:30だが、素泊まり予約への追加可否は未確認。
+          - 青函トンネル記念館はホテル公式案内で車約2分の位置にある。
+        location_fit: 9/24の竜飛泊を確定し、9/25朝は8:20頃にチェックアウトして青函トンネル記念館へ自走すれば、8:50集合へ余裕を置ける位置に泊まる。
+        sources:
+          - title: ホテル竜飛 施設・サービス
+            url: https://www.hoteltappi.co.jp/facility/
+          - title: ホテル竜飛 お料理
+            url: https://www.hoteltappi.co.jp/gourmet/
+          - title: ホテル竜飛 観光情報
+            url: https://www.hoteltappi.co.jp/sightseeing/
         phone_check:
           required: false
           priority: 1
@@ -113,6 +122,7 @@ stay_searches:
           notes:
             - 津軽半島最北端の宿！気軽に宿泊・温泉満喫 素泊まりプラン＜No.002＞。
             - 料金・キャンセル条件・自転車の保管条件は未確認。
+            - 夕食は館内食事処の予約を試み、朝食追加可否と自転車保管場所を同時に確認する。確保できなければ、小泊の24時間営業ファミリーマートで龍泊ラインへ入る前に夕食・翌朝食を購入する。
   - date: '2026-09-25'
     checkout_date: '2026-09-26'
     preferred_area_ref: stay.mutsu
