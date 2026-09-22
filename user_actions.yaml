@@ -1,6 +1,16 @@
 schema_version: 1
 # 未完了のUser Actionだけを置く。完了時はこのファイルから削除し、現在の状態を各正本へ反映する。
 actions:
+  - id: action.oma-hakodate-5-booking
+    action: 9/27 大間→函館の第5便（06:50→08:20）を自転車を含めて予約する
+    timing: do_now
+    deadline: null
+    why_it_matters: 9/27のPrime交通を確保する。9/26の強い漁港情報にだけ第9便への変更余地を残すため、予約商品の変更条件が重要である。
+    dependencies: []
+    related_issues: [issue.booking-handovers]
+    related_subjects: [transport.oma-hakodate-0650, transport.oma-hakodate-1340]
+    evidence: [evidence.oma-hakodate-0650-20260927]
+    notes: 予約操作時に、変更可否、変更期限、通常運賃・割引運賃別の条件、自転車を含む予約変更条件を確認する。直前に第9便へ変更できない割引商品なら、柔軟性を失うことを確認して選ぶ。予約完了後はこのActionを削除し、transport.oma-hakodate-0650を予約済みの現在状態へ更新する。
   - id: action.day1-rail-preflight
     action: 9/23 新青森→川部→五所川原の運行状況を確認する
     timing: same_day
@@ -46,8 +56,8 @@ actions:
     timing: same_day
     deadline: '2026-09-27'
     why_it_matters: 最終泊は未予約であり、函館泊が成立する場合は翌朝の函館発の帰路を守る。フェリー欠航などで到着地が変われば、その都市での宿泊と翌日の帰路へ切り替える必要がある。
-    dependencies: [issue.oma-morning-ferry-timeline]
-    related_issues: [issue.oma-morning-ferry-timeline, issue.final-lodging-deferred]
-    related_subjects: [stay.hakodate, transport.hayabusa16]
+    dependencies: []
+    related_issues: [issue.final-lodging-deferred]
+    related_subjects: [stay.hakodate, transport.oma-hakodate-0650, transport.hayabusa16]
     evidence: [evidence.hakodate-nagoya-20260928]
-    notes: 選択した便の通常運航を確認後、函館を第一候補に空室を確認して予約する。函館泊が不成立なら、八戸など実際に到達した都市で宿を確保し、翌9/28の出発地点・交通をその場で確認する。函館・八戸の実在庫、料金、自転車の保管条件は未確認である。
+    notes: 第5便の通常運航を確認後、函館を第一候補に空室を確認して予約する。函館泊が不成立なら、八戸など実際に到達した都市で宿を確保し、翌9/28の出発地点・交通をその場で確認する。函館・八戸の実在庫、料金、自転車の保管条件は未確認である。

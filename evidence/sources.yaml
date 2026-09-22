@@ -162,6 +162,20 @@ items:
       type: 津軽海峡フェリー公式情報
       title: 函館〜大間航路 時刻表・運賃、予約、乗船手続き、スマートチェックイン、インターネット予約・空席照会、割引案内
       url: https://www.tsugarukaikyo.co.jp/service/timetable/hakodate-oma/
+  - id: evidence.oma-hakodate-0650-20260927
+    subject: transport.oma-hakodate-0650
+    checked_at: '2026-09-22'
+    claims:
+      - 'fact: ユーザー確認済みの9/27のPrime交通は、津軽海峡フェリー第5便の大間06:50発→函館08:20着である。'
+      - 'fact: ユーザー確認済みの摩周丸の9/27開館時刻は08:30であり、第5便の函館08:20着後に優先して訪れる。'
+      - 'decision: 第5便を予約し、第9便は9/26に大間漁港の帰港・水揚げに関する明確に強い現地情報が自然に得られた場合だけ再検討する。'
+      - 'unverified: 第5便の予約商品ごとの変更可否、変更期限、通常・割引運賃および自転車を含む変更条件は、予約時に確認が必要である。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: ユーザー確認・津軽海峡フェリー公式情報
+      title: 津軽海峡フェリー 函館〜大間航路
+      url: https://www.tsugarukaikyo.co.jp/service/timetable/hakodate-oma/
   - id: evidence.ryuhyo-road-20260924
     subject: route.ryuhyo-line
     checked_at: '2026-09-20'

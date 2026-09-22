@@ -169,7 +169,7 @@ stay_searches:
     preferred_area_ref: stay.oma
     fallback_area_refs: []
     call_order_area_refs: [stay.oma]
-    purpose: 恐山から大間までの自走後に泊まり、翌朝の漁港観察と13:40の函館行きフェリーへつなぐ。
+    purpose: 恐山から大間までの自走後に泊まり、9/26夕方の大間体験と翌朝06:50の函館行きフェリーへつなぐ。
     meal_priority: 食事なしで予約済み。9/26夕食と9/27朝食は別途行程内で確保する。
     candidates:
       - candidate_key: sun-hotel-oma-20260926
@@ -180,7 +180,7 @@ stay_searches:
         status: booked
         static_facts:
           - ユーザー提供の予約内容では電話番号は0175-37-2001。
-        location_fit: 9/26の大間泊を確定し、9/27朝の漁港観察と大間港13:40発フェリーへつなぐ。
+        location_fit: 9/26の大間泊を確定し、9/26夕方の大間体験と大間港06:50発フェリーへつなぐ。
         sources: []
         phone_check:
           required: false

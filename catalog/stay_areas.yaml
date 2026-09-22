@@ -23,10 +23,10 @@ items:
     status: shortlisted
     accommodation: {availability: medium, typical_types: [ホテル, 旅館, 民宿]}
     logistics: {food_options: medium, railway_access: low}
-    description: 翌朝の現役マグロ漁業を6:30頃から使うための前泊地。サンホテル大間を9/26泊で予約済み。
+    description: 9/26の大間・大間崎・港・マグロ料理を回収する前泊地。サンホテル大間を9/26泊で予約済み。
   - id: stay.hakodate
     name: 函館
     status: shortlisted
     accommodation: {availability: high, typical_types: [ホテル, 旅館, ホステル]}
     logistics: {food_options: high, railway_access: high}
-    description: 摩周丸と夜の函館の後に泊まり、翌朝は朝市から帰路へつなぐ第一候補。9/27泊は未予約で、フェリー通常運航を確認後に直前確保する方針。
+    description: 第5便で到着後、摩周丸を主役に港湾・漁業・交通史の函館湾沿いを巡る。翌朝は朝市から帰路へつなぐ第一候補。9/27泊は未予約で、フェリー通常運航を確認後に直前確保する方針。

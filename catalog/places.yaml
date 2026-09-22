@@ -89,19 +89,19 @@ items:
     kind: transport_site
     status: shortlisted
     map_query: 大間漁港
-    description: 9/27朝の主役。6:30〜7:00頃から、マグロ漁船・帰港・荷揚げ・港の作業を観察する。水揚げは保証されない。
-    tags: [日別主役, 現役漁業]
+    description: 9/26の現地で翌朝の延縄船の帰港・水揚げ見込みが具体的に分かった場合だけ、9/27第9便へ変更して観察する条件付き候補。水揚げは保証されない。
+    tags: [条件付き, 現役漁業]
   - id: place.omazaki
     name: 大間崎
     kind: attraction
     status: shortlisted
     map_query: 大間崎
-    description: 漁港観察後に訪れるが、単体で強アンカー扱いにはしない。
+    description: 9/26夕方〜夜に回収する。単体で第9便を選ぶ根拠にはしない。
     tags: [短時間]
   - id: place.mashumaru
     name: 青函連絡船記念館 摩周丸
     kind: museum
     status: shortlisted
     map_query: 青函連絡船記念館 摩周丸
-    description: 9/27の函館到着後に優先して訪れる。
+    description: 9/27第5便で函館08:20着後に優先して訪れる。津軽海峡横断の後に旧青函連絡船の実船を見る、旅の交通史上の主役とする。
     tags: [日別主役, 青函]
