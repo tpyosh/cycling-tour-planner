@@ -5,6 +5,7 @@ items:
     checked_at: '2026-09-22'
     claims:
       - 'fact: のぞみ288号は2026-09-23に名古屋06:28発、東京08:03着で運転する。'
+      - 'fact: 名古屋の発車番線は、確認時点では15番線である。'
       - 'fact: 東京到着は19番線である。'
       - 'fact: 9月18日〜23日ののぞみ288号は全席指定席で運転する。'
       - 'fact: 予約済みであることはユーザー確認済みであり、公式時刻表からの推論ではない。'
@@ -14,6 +15,21 @@ items:
       type: 公式時刻表
       title: JR東日本 時刻表 のぞみ288号
       url: https://timetables.jreast.co.jp/2609/train/125/128931.html
+  - id: evidence.tokaido-kanayama-nagoya-0558-20260923
+    subject: transport.tokaido-kanayama-nagoya-0558
+    checked_at: '2026-09-22'
+    claims:
+      - 'fact: 2026-09-23は祝日ダイヤで、JR東海道本線は金山05:58発→名古屋06:04着である。'
+      - 'fact: 自宅は金山駅から徒歩約6分である。'
+      - 'fact: 自転車を輪行状態にする標準所要時間は約10分と見込む。'
+      - 'inference: 自転車と輪行荷物を持つ移動を考慮し、金山駅ホーム05:45到達目標と05:58発までの13分、名古屋の新幹線ホーム06:15到達目標とのぞみ288号06:28発までの13分を安全余裕として置く。'
+      - 'inference: 金山06:15発→名古屋06:21着は、名古屋での在来線から新幹線への輪行乗換時間が7分しかないため、通常のバックアップ列車として扱わない。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: ユーザー確認済みの交通・徒歩・輪行条件
+      title: ユーザー提供の2026-09-23朝の交通条件
+      url: null
   - id: evidence.tohoku-connection-20260923
     subject: transport.hayabusa7
     checked_at: '2026-09-22'

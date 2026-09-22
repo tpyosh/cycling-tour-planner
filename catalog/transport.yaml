@@ -1,5 +1,14 @@
 schema_version: 1
 items:
+  - id: transport.tokaido-kanayama-nagoya-0558
+    name: JR東海道本線（金山→名古屋）
+    status: shortlisted
+    mode: train
+    from: 金山
+    to: 名古屋
+    departure: '2026-09-23T05:58:00+09:00'
+    arrival: '2026-09-23T06:04:00+09:00'
+    description: 祝日ダイヤのDay 1に、輪行で予約済みのぞみ288号へ接続する基準列車。これを逃した時点で朝のbaselineから逸脱するため、06:15発を通常のバックアップとは扱わず、当日に最速経路を再検索する。
   - id: transport.nozomi288
     name: のぞみ288号
     status: booked
