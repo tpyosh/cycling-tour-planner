@@ -1,0 +1,4 @@
+interface:
+  display_name: "旅行天気更新"
+  short_description: "最新予報を旅行データと行動Dashboardへ反映"
+  default_prompt: "$travel-weather-refresh を使い、現在の旅行計画の最新天気を確認して、forecast snapshotと必要な再確認Actionを更新してください。"

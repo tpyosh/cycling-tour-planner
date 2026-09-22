@@ -26,7 +26,7 @@ python3 -m venv .venv
 - `trip.yaml`: 旅行の基本情報
 - `constraints.yaml`: ハード制約とソフト制約
 - `catalog/`: 立ち寄り先、経路、宿泊地域、交通、食事の候補
-- `plan/current.yaml`: 現在採用している日別計画と代替案
+- `plan/current.yaml`: 現在採用している日別計画、代替案、`weather_climate`（取得日時付きの現行forecast snapshot、Climate baseline、季節傾向、運用総評）
 - `evidence/sources.yaml`: 主張、出典、確認日、変動性、再確認要否
 - `issues.yaml`: 旅程を左右する未解決事項
 - `user_actions.yaml`: 旅行者自身が行う未完了の予約・購入・判断・直前確認・準備。生成先は [docs/user-actions.md](docs/user-actions.md)
@@ -35,6 +35,8 @@ python3 -m venv .venv
 - `docs/`: YAMLから生成する旅行者向け資料。直接編集しない
 
 候補の調査状態と旅程への採用を混ぜません。採用は `plan/current.yaml` からの参照で表します。通常旅程と発動条件付きの代替案も分離します。
+
+`weather_climate.forecast_snapshot` は高変動情報であり、更新時は取得日時を変えた現在有効な内容へ置換します。`climate_baseline` は平年値として分け、古い日別予報を追記して現行予報と混同しません。予報だけを理由にPrime旅程・アンカーを変更しません。
 
 `issues.yaml` はエージェントが調査・比較・計算・検証して進める項目です。`user_actions.yaml` は、必要な情報がそろった後に旅行者自身が予約、購入、最終判断、直前確認、準備をする項目です。調査待ち・採用していない案・根拠のない念のため確認はUser Actionに入れません。
 
@@ -45,9 +47,9 @@ User Action Dashboardは履歴ではありません。完了を確認したらAc
 ## Codexカスタマイズ
 
 - `AGENTS.md`: Skillの選択に依存せず守る、短い共通原則と読取り順
-- `.agents/skills/`: 調査、行程設計、批判的レビューの反復可能なワークフロー
+- `.agents/skills/`: 調査、行程設計、批判的レビュー、オンデマンドweather refreshの反復可能なワークフロー
 - `.codex/agents/`: 調査と独立監査を主スレッドから分離する、読み取り専用subagent
-- `.codex/config.toml`: subagentの同時実行数だけを定めるプロジェクト設定
+- `.codex/config.toml`: subagentの同時実行数と、外部可変状態を更新するlive web searchを定めるプロジェクト設定
 - `tools/check_codex_customization.py`: 配置、構文、参照、個別日付の混入を検査するスクリプト
 
 設計判断、旧Skillからの移行先、採用しなかったCodex機構は [docs/codex-customization.md](docs/codex-customization.md) に記録しています。リポジトリSkillの正本は `.agents/skills/` です。

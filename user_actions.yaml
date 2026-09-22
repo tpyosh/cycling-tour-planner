@@ -41,6 +41,16 @@ actions:
     related_subjects: [route.ryuhyo-line]
     evidence: [evidence.ryuhyo-road-20260924]
     notes: 9/23夜または9/24出発前に青森県「青森みち情報」を確認する。通行止め、豪雨、雷、崩落、土砂災害、明確に危険な道路状態なら再判断する。
+  - id: action.ryuhyo-weather-preflight
+    action: 9/24龍泊ラインの時間帯別風向・風速・降水を確認する
+    timing: day_before
+    deadline: '2026-09-23'
+    why_it_matters: 海沿いから高所へ至る露出した自走区間であり、取得時点の降水予報より風向・風速が上り、尾根部、下りの体感温度に影響し得る。
+    dependencies: []
+    related_issues: [issue.weather-fallbacks]
+    related_subjects: [route.ryuhyo-line]
+    evidence: [evidence.weather-ryuhyo-20260924]
+    notes: 9/23夜に9/24 09:00〜16:00頃の龍飛崎の時間帯別風向・風速・降水を確認する。5 m/sを機械的な中止理由にはせず、道路規制・視程・降水と合わせて判断する。
   - id: action.okutsugaru-rail-preflight
     action: 奥津軽いまべつ→八戸→下北の運休・大幅遅延を確認する
     timing: same_day
@@ -51,6 +61,26 @@ actions:
     related_subjects: [transport.hayabusa24, transport.shimokita3233d]
     evidence: [evidence.okutsugaru-shimokita-20260925, evidence.shimokita3233d-20260925]
     notes: 当日朝にJRの運行情報で確認する。
+  - id: action.shimokita-weather-preflight
+    action: 9/26恐山〜薬研〜大間の気温・降水・風を確認する
+    timing: day_before
+    deadline: '2026-09-25'
+    why_it_matters: 市街地から恐山方面へ標高を上げ、長い下りと海岸区間を含む自走日のため、最高気温だけでは防寒・安全判断ができない。
+    dependencies: []
+    related_issues: [issue.weather-fallbacks]
+    related_subjects: [route.osorezan-oma]
+    evidence: [evidence.weather-shimokita-20260926]
+    notes: 9/25夜に恐山周辺を含む気温・降水・風を確認する。下りの体感温度も考慮し、悪天候の有無を大間側の地点予報だけで決めない。
+  - id: action.oma-ferry-weather-preflight
+    action: 大間・津軽海峡の風・波・警報と津軽海峡フェリー公式運航情報を確認する
+    timing: day_before
+    deadline: '2026-09-26'
+    why_it_matters: 9/27の海峡横断の安全・運航可否は、降水予報ではなく海況、警報、事業者の公式運航情報で確認する必要がある。
+    dependencies: []
+    related_issues: [issue.weather-fallbacks]
+    related_subjects: [transport.oma-hakodate-0650]
+    evidence: [evidence.weather-oma-hakodate-20260927]
+    notes: 9/26夜と9/27朝に確認する。現在の降水予報からフェリー運航可否を推測しない。欠航時はplan/current.yamlのcontingency.oma-ferry-cancellationを参照する。
   - id: action.final-lodging-booking
     action: 9/27の到着地で最終泊を直前確保する
     timing: same_day
@@ -61,3 +91,13 @@ actions:
     related_subjects: [stay.hakodate, transport.oma-hakodate-0650, transport.hayabusa16]
     evidence: [evidence.hakodate-nagoya-20260928]
     notes: 第5便の通常運航を確認後、函館を第一候補に空室を確認して予約する。函館泊が不成立なら、八戸など実際に到達した都市で宿を確保し、翌9/28の出発地点・交通をその場で確認する。函館・八戸の実在庫、料金、自転車の保管条件は未確認である。
+  - id: action.hakodate-weather-preflight
+    action: 9/28函館朝の降雨時間帯を確認する
+    timing: day_before
+    deadline: '2026-09-27'
+    why_it_matters: 函館朝市から函館駅・はこだてライナーへの移動時の雨対策と出発余裕に影響する。取得時点では9/28朝の雨リスクが旅行中で最も表面化している。
+    dependencies: []
+    related_issues: [issue.weather-fallbacks]
+    related_subjects: [transport.hakodate-liner-morning]
+    evidence: [evidence.weather-hakodate-20260928]
+    notes: 9/27夜に降雨時間帯を再確認する。5〜6日先の取得時点の予報を固定的に扱わず、交通の運行情報とは別に確認する。

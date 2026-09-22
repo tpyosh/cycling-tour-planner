@@ -16,6 +16,7 @@ EXPECTED_SKILLS = {
     "cycling-trip-research",
     "cycling-itinerary-design",
     "cycling-trip-review",
+    "travel-weather-refresh",
 }
 EXPECTED_AGENTS = {"trip-researcher.toml", "trip-critic.toml"}
 DATE_PATTERN = re.compile(r"\b20\d{2}-\d{2}-\d{2}\b")
@@ -125,6 +126,8 @@ def check_repository(root: Path) -> list[str]:
         agents = config.get("agents")
         if not isinstance(agents, dict) or agents.get("max_concurrent_threads_per_session") != 2:
             errors.append("ERROR .codex/config.toml: [agents].max_concurrent_threads_per_session must be 2")
+        if config.get("web_search") != "live":
+            errors.append('ERROR .codex/config.toml: web_search must be "live" for weather refresh')
 
     agent_root = root / ".codex" / "agents"
     actual_agents = {path.name for path in agent_root.glob("*.toml")} if agent_root.is_dir() else set()

@@ -84,3 +84,17 @@ def test_unknown_plan_reference_fails(repo_copy: Path) -> None:
     result = run(repo_copy, "validate.py")
     assert result.returncode == 1
     assert "unknown id: place.missing" in result.stdout
+
+
+def test_weather_climate_is_required_in_current_plan(repo_copy: Path) -> None:
+    yaml = YAML()
+    plan_path = repo_copy / "plan" / "current.yaml"
+    with plan_path.open(encoding="utf-8") as stream:
+        plan = yaml.load(stream)
+    del plan["weather_climate"]
+    with plan_path.open("w", encoding="utf-8") as stream:
+        yaml.dump(plan, stream)
+
+    result = run(repo_copy, "validate.py")
+    assert result.returncode == 1
+    assert "weather_climate" in result.stdout

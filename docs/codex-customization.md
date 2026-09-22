@@ -38,6 +38,7 @@
 | 候補・交通・営業・宿泊・自然条件の調査 | `$cycling-trip-research` | 明確な開始・終了条件を持つ反復ワークフローだから |
 | 日別行程と代替案の設計 | `$cycling-itinerary-design` | 調査とは異なる、採否と全体構造の設計だから |
 | 成立性・体験価値・旅全体の独立監査 | `$cycling-trip-review` | 現行案の作成から距離を置く批判的レビューだから |
+| 現行旅行の天気・風・雨のオンデマンド更新 | `$travel-weather-refresh` | 外部可変状態をlive sourceからrefreshし、Prime変更を伴わずにsnapshotとActionを更新するため |
 | 詳細な評価基準 | 各Skillの `references/` | 該当作業でだけ読み、起動時コンテキストへ入れないため |
 | データ構造と必須項目 | `schema/*.schema.json` | 自然言語で複製せず、機械検証できる正本だから |
 | 参照整合性、日付、距離、Issue、宿泊調査の検査 | `tools/validate.py` | 決定的に判定できる処理だから |
@@ -89,11 +90,11 @@ Skillには `assets/` を置いていない。このリポジトリ自体が旅�
 ## 採用したCodex機構は、責務があるものだけに絞った
 
 - `AGENTS.md`: 24行に抑え、常時必要な原則と読取り順だけを置いた。
-- `.agents/skills`: 調査、設計、レビューの3つに分けた。各descriptionは発火対象と非対象を示す。
+- `.agents/skills`: 調査、設計、レビュー、weather refreshの4つに分けた。各descriptionは発火対象と非対象を示す。
 - Skillの `references/`: 詳細基準を作業時だけ読む。`assets/` と `scripts/` は、リポジトリ直下の正本と重複するため置かない。
 - `.codex/agents`: `trip_researcher` と `trip_critic` は読み取り専用で、親だけがファイルを編集する。
 - `[agents]`: 同時subagent数を2へ制限し、独立した二つの論点までを並列化できる。
-- `.codex/config.toml`: `[agents]` 以外のプロジェクト固有設定は追加していない。
+- `.codex/config.toml`: `[agents]`に加え、weather refreshで最新情報を取得する`web_search = "live"`だけを定める。
 - 既存のschema、検証、生成、pytest: 自然言語の注意書きより確実な処理を引き続き担当する。
 
 ## 今回は使わないCodex機構にも理由がある

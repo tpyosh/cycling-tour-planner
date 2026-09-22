@@ -12,6 +12,63 @@
 {% endfor %}
 {% endif %}
 
+## Weather / Climate
+
+### Forecast snapshot — retrieved {{ weather_climate.forecast_snapshot.retrieved_at_display }}
+
+この予報は取得時点だけの記録であり、現行予報ではない可能性がある。更新時はこのsnapshotを置換し、過去の予報を追記しない。
+
+#### 大局
+
+{% for claim in weather_climate.forecast_snapshot.synoptic_context %}
+- **{{ {'fact': '確認済み', 'inference': '推論', 'unverified': '未確認'}[claim.kind] }}:** {{ claim.text }}
+{% endfor %}
+
+{% for source in weather_climate.forecast_snapshot.sources %}
+- **出典:** [{{ source.title }}]({{ source.url }})（確認日: {{ source.checked_at }} / 変動性: {{ source.volatility }}）
+{% endfor %}
+
+#### 日別
+
+{% for forecast in weather_climate.forecast_snapshot.days %}
+**{{ forecast.date }} {{ forecast.route_label }}**
+
+{% for fact in forecast.facts %}- **取得時点の予報:** {{ fact }}
+{% endfor %}{% for item in forecast.interpretation %}- **旅行への読み方:** {{ item }}
+{% endfor %}{% for item in forecast.recheck_focus %}- **直前確認:** {{ item }}
+{% endfor %}
+{% endfor %}
+
+### Climate baseline（{{ weather_climate.climate_baseline.period }}平年値）
+
+これは現在予報ではない。月降水量・降水日数は、特定の旅行日に雨が降る確率を表すものではない。
+
+| 地点 | 9月平年値 | 旅程に対する含意 |
+| --- | --- | --- |
+{% for station in weather_climate.climate_baseline.stations %}| {{ station.name }} | {{ station["values"] | join('、') }} | {{ station.interpretation }} |
+{% endfor %}
+
+{% for item in weather_climate.climate_baseline.interpretation %}- {{ item }}
+{% endfor %}
+{% for source in weather_climate.climate_baseline.sources %}- **出典:** [{{ source.title }}]({{ source.url }})（確認日: {{ source.checked_at }} / 変動性: {{ source.volatility }}）
+{% endfor %}
+
+### 2026年固有の季節傾向
+
+{% for claim in weather_climate.seasonal_outlook.claims %}- **{{ {'fact': '確認済み', 'inference': '推論', 'unverified': '未確認'}[claim.kind] }}:** {{ claim.text }}
+{% endfor %}
+{% for item in weather_climate.seasonal_outlook.application %}- {{ item }}
+{% endfor %}
+{% for source in weather_climate.seasonal_outlook.sources %}- **出典:** [{{ source.title }}]({{ source.url }})（発表日: {{ weather_climate.seasonal_outlook.issued_at }} / 確認日: {{ source.checked_at }}）
+{% endfor %}
+
+### 現状の総評
+
+{% for item in weather_climate.operational_summary %}- {{ item }}
+{% endfor %}
+
+> 更新方針: {{ weather_climate.update_policy }}
+
 ## 通常旅程
 
 {% if days %}

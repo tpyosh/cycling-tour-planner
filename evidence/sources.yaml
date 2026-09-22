@@ -202,6 +202,54 @@ items:
       type: 公式時刻表
       title: JR東日本 時刻表 はやぶさ16号
       url: https://timetables.jreast.co.jp/2609/train/030/033663.html
+  - id: evidence.weather-ryuhyo-20260924
+    subject: route.ryuhyo-line
+    checked_at: '2026-09-22'
+    claims:
+      - 'fact: Forecast snapshot — retrieved 2026-09-22 13:30 JST: 龍飛崎の9/24予報は曇時々晴、24/14℃、降水確率40%、予想降水量0 mm、昼前後に西風約5 m/sとして記録した。'
+      - 'inference: 降水確率より時間帯別の風向・風速を9/23夜に再確認する価値が高い。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: ユーザー提示のWeathernews地点予報
+      title: Weathernews 天気図・地点予報
+      url: https://weathernews.jp/onebox/chart/?fm=header
+  - id: evidence.weather-shimokita-20260926
+    subject: route.osorezan-oma
+    checked_at: '2026-09-22'
+    claims:
+      - 'fact: Forecast snapshot — retrieved 2026-09-22 13:30 JST: むつの9/26は20/15℃・所により晴れ、大間は曇のち晴・22/14℃・降水20%として記録した。'
+      - 'inference: 恐山方面の標高、風、下りの体感温度を含めて9/25夜に再確認する。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: ユーザー提示の地点予報
+      title: 気象庁 防災気象情報
+      url: https://www.jma.go.jp/bosai/
+  - id: evidence.weather-oma-hakodate-20260927
+    subject: transport.oma-hakodate-0650
+    checked_at: '2026-09-22'
+    claims:
+      - 'fact: Forecast snapshot — retrieved 2026-09-22 13:30 JST: 大間は晴時々曇・23/17℃・降水20%、函館は曇のち晴・23/17℃・降水40%、別系統のむつ周辺予報はにわか雨・22/14℃として記録した。'
+      - 'unverified: 低気圧・前線の通過時刻は9/27と9/28の間で揺れており、降水予報だけからフェリー運航可否を判断できない。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: ユーザー提示の地点予報・津軽海峡フェリー公式情報
+      title: 津軽海峡フェリー 公式サイト
+      url: https://www.tsugarukaikyo.co.jp/
+  - id: evidence.weather-hakodate-20260928
+    subject: transport.hakodate-liner-morning
+    checked_at: '2026-09-22'
+    claims:
+      - 'fact: Forecast snapshot — retrieved 2026-09-22 13:30 JST: 函館の9/28予報は雨のち晴、23/17℃、降水確率60%として記録した。'
+      - 'inference: 5〜6日先で降雨時間帯は固定できないため、9/27夜に函館朝の時間帯別予報を再確認する。'
+    volatility: high
+    recheck_before_trip: true
+    source:
+      type: ユーザー提示の地点予報
+      title: 気象庁 防災気象情報
+      url: https://www.jma.go.jp/bosai/
   - id: evidence.nozomi41-20260928
     subject: transport.nozomi41
     checked_at: '2026-09-20'

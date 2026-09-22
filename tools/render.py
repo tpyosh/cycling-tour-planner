@@ -138,6 +138,10 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         lodging_searches.append(search)
 
     plan = data["plan/current.yaml"]
+    weather_climate = dict(plan["weather_climate"])
+    forecast_snapshot = dict(weather_climate["forecast_snapshot"])
+    forecast_snapshot["retrieved_at_display"] = datetime.fromisoformat(forecast_snapshot["retrieved_at"]).strftime("%Y-%m-%d %H:%M JST")
+    weather_climate["forecast_snapshot"] = forecast_snapshot
     user_actions = []
     for raw in data["user_actions.yaml"]["actions"]:
         item = dict(raw)
@@ -149,6 +153,7 @@ def prepare_context(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         "trip": data["trip.yaml"],
         "days": days,
         "recommendations": plan["recommendations"],
+        "weather_climate": weather_climate,
         "contingencies": contingencies,
         "rechecks": rechecks,
         "open_issues": [item for item in issues if item["status"] in {"open", "in_progress"}],
