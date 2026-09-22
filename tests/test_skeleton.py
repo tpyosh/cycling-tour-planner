@@ -86,6 +86,20 @@ def test_unknown_plan_reference_fails(repo_copy: Path) -> None:
     assert "unknown id: place.missing" in result.stdout
 
 
+def test_unpromoted_candidate_cannot_be_scheduled(repo_copy: Path) -> None:
+    yaml = YAML()
+    places_path = repo_copy / "catalog" / "places.yaml"
+    with places_path.open(encoding="utf-8") as stream:
+        places = yaml.load(stream)
+    places["items"][0]["status"] = "researching"
+    with places_path.open("w", encoding="utf-8") as stream:
+        yaml.dump(places, stream)
+
+    result = run(repo_copy, "validate.py")
+    assert result.returncode == 1
+    assert "not promoted to shortlisted/booked" in result.stdout
+
+
 def test_weather_climate_is_required_in_current_plan(repo_copy: Path) -> None:
     yaml = YAML()
     plan_path = repo_copy / "plan" / "current.yaml"

@@ -167,8 +167,10 @@ def validate_repository(root: Path) -> list[str]:
                 errors.append(f"ERROR plan/current.yaml day {day_date}: invalid id prefix in {field}: {ref}")
             if ref not in index:
                 errors.append(f"ERROR plan/current.yaml day {day_date}: unknown id: {ref}")
-            elif index[ref].get("status") in {"deferred", "rejected"}:
-                errors.append(f"ERROR plan/current.yaml day {day_date}: references {index[ref]['status']} candidate: {ref}")
+            elif index[ref].get("status") not in {"shortlisted", "booked"}:
+                errors.append(
+                    f"ERROR plan/current.yaml day {day_date}: references candidate not promoted to shortlisted/booked: {ref}"
+                )
         for field in REFERENCE_FIELDS:
             if len(day[field]) != len(set(day[field])):
                 errors.append(f"ERROR plan/current.yaml day {day_date}: duplicate reference in {field}")

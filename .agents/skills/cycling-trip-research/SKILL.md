@@ -11,15 +11,15 @@ description: 国内サイクリング旅行の候補、交通、営業、通行�
 
 調査論点、対象範囲、基準日を確認する。個別旅行を扱う場合は、`trip.yaml`、`constraints.yaml`、関連する `catalog/*.yaml`、`evidence/sources.yaml`、`issues.yaml` を読む。
 
-情報源の選び方、記録単位、変動性、宿泊在庫、自然条件の扱いは [references/evidence-and-risk.md](references/evidence-and-risk.md) を読む。
+情報源の選び方、記録単位、変動性、宿泊在庫、自然条件の扱いは [references/evidence-and-risk.md](references/evidence-and-risk.md) を読む。スポット、博物館、イベント、産業施設、食候補を評価または `shortlisted` へ昇格させるときは、必ず [references/candidate-promotion.md](references/candidate-promotion.md) を読む。
 
 ## ワークフロー
 
 1. 調査によって変わる判断と、必要な証拠を定義する。
-2. 候補探索では広く集め、実行可否に関わる事実は運営者、交通事業者、自治体、道路管理者などの一次情報へ戻って確認する。
-3. 候補地は、通常の旅行者が行うこと、観察地点または自走範囲、実際に見えるもの、必要時間、アクセス条件を調べる。
+2. Discoverでは広く集めるが、発見を採用根拠にしない。Verifyでは実行可否に関わる事実を運営者、交通事業者、自治体、道路管理者などの一次情報へ戻って確認する。
+3. Evaluateでは、候補地で成人一人が行うこと、観察地点または自走範囲、実際に見えるもの、必要時間、アクセス条件と対象来場者を調べる。候補種別ごとのGate、レビューの使い方、例外、回帰例は `candidate-promotion.md` に従う。
 4. 時刻、営業、運賃、予約、通行、持込条件は、旅行日に有効な情報かを確認する。確認できない値を推測で埋めない。
-5. `evidence/sources.yaml` へ主張単位で記録し、候補は調査状態に応じて `discovered`、`researching`、`shortlisted` などを更新する。
+5. `evidence/sources.yaml` へ主張単位で記録する。Promotion Gateを通った候補だけを `shortlisted` にし、通らない候補は `discovered` / `researching` のまま、または理由を残して `deferred` / `rejected` にする。Scheduleは行程設計の責務であり、ここで決めない。
 6. 計画を左右する未確認事項だけを `issues.yaml` に残し、影響、次の確認、解決条件を記す。
 7. 調査で予約・購入・最終判断・直前確認・出発準備に必要な情報がそろい、旅行者自身の実行だけが残った場合は `user_actions.yaml` に移す。未確認事項をUser Actionとして水増ししない。
 
